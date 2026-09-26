@@ -84,12 +84,11 @@ $_XMLSMAP_DEFAULT['frequencies'] = [
     'staticpages' => 'weekly'
 ];
 
-// Legacy ping targets used only by older upgrade steps
-if (defined('GL_INSTALL_ACTIVE')) {
-    // Removed in XML Sitemap Plugin 2.0.4. Keep the default available while
-    // running older upgrade steps that still reference this setting.
-    $_XMLSMAP_DEFAULT['ping_google'] = true;
+// Legacy ping target used only by older upgrade steps. It is no longer added
+// to the configuration for new installations as of XML Sitemap Plugin 2.0.4.
+$_XMLSMAP_DEFAULT['ping_google'] = true;
 
+if (defined('GL_INSTALL_ACTIVE')) {
     // Removed as of XML Sitemap Plugin 2.0.3 and Geeklog 2.2.2.
     $_XMLSMAP_DEFAULT['ping_bing'] = true;
 }
