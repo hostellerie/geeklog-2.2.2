@@ -1015,8 +1015,6 @@ class XMLSitemap
      */
     public function endUpdate()
     {
-        global $_XMLSMAP_CONF;
-
         $retval = true;
         $this->updating = false;
 
