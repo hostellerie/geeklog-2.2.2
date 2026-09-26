@@ -264,7 +264,7 @@ function plugin_autouninstall_xmlsitemap()
         'php_blocks' => [],
         // give all vars with their name
         'vars'       => [
-            'xmlsitemap_filename', 'xmlsitemap_mobile', 'xmlsitemap_news', 'xmlsitemap.pings',
+            'xmlsitemap_filename', 'xmlsitemap_mobile', 'xmlsitemap_news',
         ],
     ];
 }
