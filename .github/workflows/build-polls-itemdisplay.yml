@@ -1,0 +1,126 @@
+name: Build Polls installable archive with item display hook
+
+on:
+  push:
+    branches:
+      - polls-itemdisplay-hub
+    paths-ignore:
+      - 'dist/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: polls-itemdisplay-hub-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Validate Polls interoperability contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'function plugin_getiteminfo_polls(' plugins/polls/functions.inc
+          grep -Fq "PLG_itemDisplay((string) \$pid, 'polls')" public_html/polls/index.php
+          php -l plugins/polls/functions.inc >/dev/null
+          php -l public_html/polls/index.php >/dev/null
+
+      - name: Build standalone Polls package
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          VERSION=$(sed -n "s/.*'pi_version'[[:space:]]*=>[[:space:]]*'\([^']*\)'.*/\1/p" plugins/polls/autoinstall.php | head -n 1)
+          if [ -z "$VERSION" ]; then
+            echo 'Unable to determine Polls version.' >&2
+            exit 1
+          fi
+
+          ARCHIVE="polls-${VERSION}-itemdisplay-hub.zip"
+          rm -rf build/polls
+          mkdir -p build/polls/public_html build/polls/admin dist
+
+          rsync -a plugins/polls/ build/polls/ \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.gitignore' \
+            --exclude='.*'
+
+          rsync -a public_html/polls/ build/polls/public_html/ \
+            --exclude='.*'
+
+          rsync -a public_html/admin/plugins/polls/ build/polls/admin/ \
+            --exclude='.*'
+
+          rm -f "dist/${ARCHIVE}"
+          (
+            cd build
+            zip -qr "../dist/${ARCHIVE}" polls
+          )
+
+          echo "ARCHIVE=${ARCHIVE}" >> "$GITHUB_ENV"
+
+      - name: Verify installable archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          unzip -t "dist/${ARCHIVE}" >/dev/null
+          unzip -Z1 "dist/${ARCHIVE}" | grep -qx 'polls/functions.inc'
+          unzip -Z1 "dist/${ARCHIVE}" | grep -qx 'polls/autoinstall.php'
+          unzip -Z1 "dist/${ARCHIVE}" | grep -qx 'polls/public_html/index.php'
+          unzip -Z1 "dist/${ARCHIVE}" | grep -qx 'polls/admin/index.php'
+          unzip -p "dist/${ARCHIVE}" polls/functions.inc \
+            | grep -Fq 'function plugin_getiteminfo_polls('
+          unzip -p "dist/${ARCHIVE}" polls/public_html/index.php \
+            | grep -Fq "PLG_itemDisplay((string) \$pid, 'polls')"
+
+          python3 - <<'PY'
+          import os
+          import re
+          import sys
+          import zipfile
+
+          archive = os.path.join('dist', os.environ['ARCHIVE'])
+          invalid = []
+          with zipfile.ZipFile(archive) as zf:
+              for path in zf.namelist():
+                  name = path.rstrip('/').rsplit('/', 1)[-1]
+                  if not name:
+                      continue
+                  valid = (
+                      not name.startswith('.')
+                      and not name.endswith('.')
+                      and '..' not in name
+                      and re.fullmatch(r'[0-9A-Za-z_.-]+', name) is not None
+                  )
+                  if not valid:
+                      invalid.append(path)
+
+          if invalid:
+              print('Unsafe archive filenames for Geeklog:')
+              for path in invalid:
+                  print(' - ' + path)
+              sys.exit(1)
+          PY
+
+      - name: Commit archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f "dist/${ARCHIVE}"
+          if git diff --cached --quiet; then
+            echo 'No archive change to commit.'
+            exit 0
+          fi
+          git commit -m "Build ${ARCHIVE} [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
