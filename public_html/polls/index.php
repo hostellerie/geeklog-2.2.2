@@ -210,6 +210,24 @@ if (empty($pid)) {
         } else {
             $display .= POLLS_pollResults($pid, 100, $order, $mode, $page);
         }
+
+        /*
+         * Generic Geeklog public item extension point.
+         *
+         * Polls only announces that the full public poll identified by
+         * polls:<pid> is being displayed. Active consumers such as Hub may
+         * contribute server-rendered contextual fragments without Polls
+         * depending on them.
+         */
+        $itemDisplayFragments = PLG_itemDisplay((string) $pid, 'polls');
+        if (is_array($itemDisplayFragments)) {
+            foreach ($itemDisplayFragments as $itemDisplayFragment) {
+                if (is_string($itemDisplayFragment) && $itemDisplayFragment !== '') {
+                    $display .= $itemDisplayFragment;
+                }
+            }
+        }
+
         $display = COM_createHTMLDocument($display, array('pagetitle' => $polltopic, 'headercode' => $headercode));
     }
 } else {
