@@ -10,6 +10,8 @@ on:
       - 'tools/language-identical-allowlist.php'
       - 'tools/language-ecosystem.php'
       - 'tools/language-recommendations.php'
+      - 'tools/bundled-language-audit.php'
+      - 'tools/bundled-plugin-identical-allowlist.php'
       - '.github/workflows/language-check.yml'
   pull_request:
     paths:
@@ -40,6 +42,8 @@ jobs:
           php -l tools/check-languages.php
           php -l tools/language-ecosystem.php
           php -l tools/language-recommendations.php
+          php -l tools/bundled-language-audit.php
+          php -l tools/bundled-plugin-identical-allowlist.php
 
       - name: Lint UTF-8 language files
         run: find language -maxdepth 1 -name '*_utf-8.php' -print0 | xargs -0 -n1 php -l
