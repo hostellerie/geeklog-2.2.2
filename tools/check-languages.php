@@ -23,6 +23,8 @@ $recommendationsFile = $root . '/tools/language-recommendations.php';
 $bundledHelperFile = $root . '/tools/bundled-language-audit.php';
 $bundledAllowlistFile = $root . '/tools/bundled-plugin-identical-allowlist.php';
 $pluginSupportStatusFile = $root . '/tools/plugin-support-status.php';
+$externalComponentsFile = $root . '/tools/external-language-components.php';
+$externalThemeHelperFile = $root . '/tools/external-theme-language-audit.php';
 
 if (!is_file($referenceFile)) {
     fwrite(STDERR, "Reference file not found: {$referenceFile}\n");
@@ -414,6 +416,9 @@ if ($checkPlugins || $reportPath !== null) {
         if (is_file($bundledHelperFile)) {
             require_once $bundledHelperFile;
         }
+        if (is_file($externalThemeHelperFile)) {
+            require_once $externalThemeHelperFile;
+        }
     }
 }
 
@@ -441,6 +446,18 @@ if (($checkPlugins || $reportPath !== null) && function_exists('GL_LANG_auditBun
     }
 }
 
+$externalComponentsAudit = [];
+if (($checkPlugins || $reportPath !== null) && function_exists('GL_LANG_auditExternalComponents')) {
+    $externalComponents = is_file($externalComponentsFile) ? include $externalComponentsFile : [];
+    try {
+        $externalComponentsAudit = GL_LANG_auditExternalComponents($externalComponents);
+        echo 'Audited ' . count($externalComponentsAudit) . ' external theme/component(s)' . PHP_EOL;
+    } catch (Throwable $e) {
+        fwrite(STDERR, '[ERROR] External component audit failed: ' . $e->getMessage() . PHP_EOL);
+        ++$totalErrors;
+    }
+}
+
 if ($reportPath !== null && function_exists('GL_LANG_writeReport')) {
     if (!str_starts_with($reportPath, DIRECTORY_SEPARATOR)) {
         $reportPath = $root . DIRECTORY_SEPARATOR . $reportPath;
@@ -449,6 +466,9 @@ if ($reportPath !== null && function_exists('GL_LANG_writeReport')) {
         GL_LANG_writeReport($reportPath, $results, $pluginAudit, $recommendations);
         if ($bundledAudit !== null && function_exists('GL_LANG_appendBundledReport')) {
             GL_LANG_appendBundledReport($reportPath, $bundledAudit);
+        }
+        if ($externalComponentsAudit !== [] && function_exists('GL_LANG_appendExternalComponentsReport')) {
+            GL_LANG_appendExternalComponentsReport($reportPath, $externalComponentsAudit);
         }
         echo 'Wrote report: ' . $reportPath . PHP_EOL;
     } catch (Throwable $e) {
