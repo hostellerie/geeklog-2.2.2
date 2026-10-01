@@ -3,7 +3,7 @@
 // +---------------------------------------------------------------------------+
 // | reCAPTCHA Plugin for Geeklog - The Ultimate Weblog                        |
 // +---------------------------------------------------------------------------+
-// | geeklog/plugins/recaptcha/language/french_france_utf-8.php             |
+// | geeklog/plugins/recaptcha/language/french_france.php                   |
 // +---------------------------------------------------------------------------+
 // | Copyright (C) 2014-2020 mystral-kk - geeklog AT mystral-kk DOT net        |
 // |                                                                           |

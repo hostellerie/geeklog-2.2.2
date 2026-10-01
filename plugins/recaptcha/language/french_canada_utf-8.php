@@ -3,7 +3,7 @@
 // +---------------------------------------------------------------------------+
 // | reCAPTCHA Plugin for Geeklog - The Ultimate Weblog                        |
 // +---------------------------------------------------------------------------+
-// | geeklog/plugins/recaptcha/language/french_france_utf-8.php             |
+// | geeklog/plugins/recaptcha/language/french_canada_utf-8.php             |
 // +---------------------------------------------------------------------------+
 // | Copyright (C) 2014-2020 mystral-kk - geeklog AT mystral-kk DOT net        |
 // |                                                                           |
@@ -54,18 +54,18 @@ $LANG_confignames['recaptcha'] = [
     'site_key_v3'          => 'Clé de site reCAPTCHA V3',
     'secret_key_v3'        => 'Clé secrète reCAPTCHA V3',
     'logging'              => 'Journaliser les tentatives reCAPTCHA non valides',
-    'anonymous_only'       => 'Utilisateurs anonymes uniquement',
+    'anonymous_only'       => 'Utilisateurs anonymes seulement',
     'remoteusers'          => 'Forcer reCAPTCHA pour tous les utilisateurs distants',
     'enable_comment'       => 'Activer la protection des commentaires',
     'enable_contact'       => 'Activer la protection du formulaire de contact',
-    'enable_emailstory'    => 'Activer la protection de l’envoi d’un article par e-mail',
+    'enable_emailstory'    => 'Activer la protection de l’envoi d’un article par courriel',
     'enable_registration'  => 'Activer la protection de l’inscription',
     'enable_loginform'     => 'Activer la protection du formulaire de connexion',
     'enable_getpassword'   => 'Activer la protection du formulaire de récupération du mot de passe',
     'enable_story'         => 'Activer la protection des articles',
     'score_comment'        => 'Seuil de score pour les commentaires',
     'score_contact'        => 'Seuil de score pour le formulaire de contact',
-    'score_emailstory'     => 'Seuil de score pour l’envoi d’un article par e-mail',
+    'score_emailstory'     => 'Seuil de score pour l’envoi d’un article par courriel',
     'score_registration'   => 'Seuil de score pour l’inscription',
     'score_loginform'      => 'Seuil de score pour le formulaire de connexion',
     'score_getpassword'    => 'Seuil de score pour la récupération du mot de passe',

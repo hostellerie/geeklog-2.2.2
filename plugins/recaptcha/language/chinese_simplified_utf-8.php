@@ -3,7 +3,7 @@
 // +---------------------------------------------------------------------------+
 // | reCAPTCHA Plugin for Geeklog - The Ultimate Weblog                        |
 // +---------------------------------------------------------------------------+
-// | geeklog/plugins/recaptcha/language/french_france_utf-8.php             |
+// | geeklog/plugins/recaptcha/language/chinese_simplified_utf-8.php        |
 // +---------------------------------------------------------------------------+
 // | Copyright (C) 2014-2020 mystral-kk - geeklog AT mystral-kk DOT net        |
 // |                                                                           |
@@ -36,60 +36,60 @@ if (stripos($_SERVER['PHP_SELF'], basename(__FILE__)) !== false) {
 $LANG_RECAPTCHA = [
     'plugin'      => 'reCAPTCHA',
     'admin'       => 'reCAPTCHA',
-    'msg_error'   => 'Erreur : la validation reCAPTCHA a échoué.',
-    'entry_error' => 'Une chaîne reCAPTCHA non valide a été saisie dans %1s - Adresse IP : %2s - Codes d’erreur : %3s',    // %1s = $type, %2s = $ip, %3s = $errorCode
+    'msg_error'   => '错误：reCAPTCHA 验证无效。',
+    'entry_error' => '在 %1s 中输入了无效的 reCAPTCHA 字符串 - IP 地址：%2s - 错误代码：%3s',    // %1s = $type, %2s = $ip, %3s = $errorCode
 ];
 
 // Localization of the Admin Configuration UI
 $LANG_configsections['recaptcha'] = [
     'label' => 'reCAPTCHA',
-    'title' => 'Configuration de reCAPTCHA',
+    'title' => 'reCAPTCHA 配置',
 ];
 
 $LANG_confignames['recaptcha'] = [
-    'site_key'             => 'Clé de site reCAPTCHA V2',
-    'secret_key'           => 'Clé secrète reCAPTCHA V2',
-    'invisible_site_key'   => 'Clé de site reCAPTCHA invisible',
-    'invisible_secret_key' => 'Clé secrète reCAPTCHA invisible',
-    'site_key_v3'          => 'Clé de site reCAPTCHA V3',
-    'secret_key_v3'        => 'Clé secrète reCAPTCHA V3',
-    'logging'              => 'Journaliser les tentatives reCAPTCHA non valides',
-    'anonymous_only'       => 'Utilisateurs anonymes uniquement',
-    'remoteusers'          => 'Forcer reCAPTCHA pour tous les utilisateurs distants',
-    'enable_comment'       => 'Activer la protection des commentaires',
-    'enable_contact'       => 'Activer la protection du formulaire de contact',
-    'enable_emailstory'    => 'Activer la protection de l’envoi d’un article par e-mail',
-    'enable_registration'  => 'Activer la protection de l’inscription',
-    'enable_loginform'     => 'Activer la protection du formulaire de connexion',
-    'enable_getpassword'   => 'Activer la protection du formulaire de récupération du mot de passe',
-    'enable_story'         => 'Activer la protection des articles',
-    'score_comment'        => 'Seuil de score pour les commentaires',
-    'score_contact'        => 'Seuil de score pour le formulaire de contact',
-    'score_emailstory'     => 'Seuil de score pour l’envoi d’un article par e-mail',
-    'score_registration'   => 'Seuil de score pour l’inscription',
-    'score_loginform'      => 'Seuil de score pour le formulaire de connexion',
-    'score_getpassword'    => 'Seuil de score pour la récupération du mot de passe',
-    'score_story'          => 'Seuil de score pour les articles',
+    'site_key'             => 'reCAPTCHA V2 站点密钥',
+    'secret_key'           => 'reCAPTCHA V2 密钥',
+    'invisible_site_key'   => '隐形 reCAPTCHA 站点密钥',
+    'invisible_secret_key' => '隐形 reCAPTCHA 密钥',
+    'site_key_v3'          => 'reCAPTCHA V3 站点密钥',
+    'secret_key_v3'        => 'reCAPTCHA V3 密钥',
+    'logging'              => '记录无效的 reCAPTCHA 尝试',
+    'anonymous_only'       => '仅匿名用户',
+    'remoteusers'          => '对所有远程用户强制使用 reCAPTCHA',
+    'enable_comment'       => '启用评论支持',
+    'enable_contact'       => '启用联系表单支持',
+    'enable_emailstory'    => '启用文章邮件发送支持',
+    'enable_registration'  => '启用注册支持',
+    'enable_loginform'     => '启用登录表单支持',
+    'enable_getpassword'   => '启用找回密码表单支持',
+    'enable_story'         => '启用文章支持',
+    'score_comment'        => '评论评分阈值',
+    'score_contact'        => '联系表单评分阈值',
+    'score_emailstory'     => '文章邮件发送评分阈值',
+    'score_registration'   => '注册评分阈值',
+    'score_loginform'      => '登录表单评分阈值',
+    'score_getpassword'    => '找回密码表单评分阈值',
+    'score_story'          => '文章评分阈值',
 ];
 
 $LANG_configsubgroups['recaptcha'] = [
-    'sg_main' => 'Paramètres principaux',
+    'sg_main' => '主要设置',
 ];
 
 $LANG_tab['recaptcha'] = [
-    'tab_general'     => 'Paramètres reCAPTCHA',
-    'tab_integration' => 'Intégration Geeklog',
-    'tab_score'       => 'Seuils de score',
+    'tab_general'     => 'reCAPTCHA 设置',
+    'tab_integration' => 'Geeklog 集成',
+    'tab_score'       => '评分阈值',
 ];
 
 $LANG_fs['recaptcha'] = [
-    'fs_system'      => 'Système',
-    'fs_integration' => 'Intégration Geeklog',
-    'fs_score'       => 'Seuils de score',
+    'fs_system'      => '系统',
+    'fs_integration' => 'Geeklog 集成',
+    'fs_score'       => '评分阈值',
 ];
 
 // Note: entries 0, 1, 9, and 12 are the same as in $LANG_configselects['Core']
 $LANG_configselects['recaptcha'] = [
-    0 => ['Oui' => 1, 'Non' => 0],
-    2 => ['Désactivé' => 0, 'reCAPTCHA V2' => 1, 'reCAPTCHA V2 invisible' => 2, 'reCAPTCHA V3' => 4],
+    0 => ['是' => 1, '否' => 0],
+    2 => ['已禁用' => 0, 'reCAPTCHA V2' => 1, 'reCAPTCHA V2 隐形' => 2, 'reCAPTCHA V3' => 4],
 ];
