@@ -2,12 +2,12 @@
 
 /* Reminder: always indent with 4 spaces (no tabs). */
 // +---------------------------------------------------------------------------+
-// | XMLSitemap Plugin                                                         |
+// | XMLSitemap Plugin 2.0                                                     |
 // +---------------------------------------------------------------------------+
-// | french_france_utf-8.php                                                   |
+// | french_canada.php                                                         |
 // +---------------------------------------------------------------------------+
-// | Copyright (C) 2009 by the following authors:                              |
-// | Update for Geeklog 1.8.0 by ben AT geeklog DOT fr                         |
+// | Copyright (C) 2009-2020 by the following authors:                         |
+// |                                                                           |
 // | Authors: Kenji ITO         - geeklog AT mystral-kk DOT net                |
 // |          Dirk Haun         - dirk AT haun-online DOT de                   |
 // +---------------------------------------------------------------------------|
@@ -25,7 +25,11 @@
 // | along with this program; if not, write to the Free Software               |
 // | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA|
 // |                                                                           |
-// +---------------------------------------------------------------------------|
+// +---------------------------------------------------------------------------+
+
+if (stripos($_SERVER['PHP_SELF'], basename(__FILE__)) !== false) {
+    die('This file can not be used on its own.');
+}
 
 global $LANG32;
 
