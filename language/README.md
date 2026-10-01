@@ -156,3 +156,9 @@ Good examples:
 - Brazilian Portuguese translation.
 
 Avoid combining large translation rewrites, tooling changes, and several new languages in one pull request unless there is a strong reason.
+
+### Intentional strings identical to English
+
+Some words are legitimately spelled the same in English and another language (for example German `April`, `Status`, `Homepage` or `Computer`). The checker must not force artificial translations merely to make the audit green.
+
+Such cases can be listed explicitly in `tools/language-identical-allowlist.php`. Keep this list conservative and language-specific. An entry should only be added after confirming that the English spelling is also normal usage in the target language.
