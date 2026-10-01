@@ -15,6 +15,7 @@ declare(strict_types=1);
 $root = dirname(__DIR__);
 $referenceFile = $root . '/language/english_utf-8.php';
 $benchmarkFile = $root . '/language/french_france_utf-8.php';
+$identicalAllowlistFile = $root . '/tools/language-identical-allowlist.php';
 
 if (!is_file($referenceFile)) {
     fwrite(STDERR, "Reference file not found: {$referenceFile}\n");
@@ -166,6 +167,9 @@ function displayKey(string $arrayName, $key): string
 
 $reference = loadLanguageFile($referenceFile);
 $benchmark = is_file($benchmarkFile) ? loadLanguageFile($benchmarkFile) : null;
+$identicalAllowlist = is_file($identicalAllowlistFile)
+    ? include $identicalAllowlistFile
+    : [];
 $targets = [];
 
 if ($argc > 1) {
@@ -282,7 +286,17 @@ foreach ($targets as $file) {
                     $benchmarkValue = $benchmark['arrays'][$arrayName][$key];
                 }
 
-                if (
+                $allowlistKey = $arrayName . ':' . (string) $key;
+                $allowedIdentical = in_array(
+                    $allowlistKey,
+                    $identicalAllowlist[basename($file)] ?? [],
+                    true
+                );
+
+                if ($allowedIdentical) {
+                    $infos[] = 'Same as English (explicitly allowed) at '
+                        . displayKey($arrayName, $key);
+                } elseif (
                     basename($file) !== basename($benchmarkFile)
                     && $benchmarkHasValue
                     && is_string($benchmarkValue)
