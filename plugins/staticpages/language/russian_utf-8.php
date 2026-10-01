@@ -163,7 +163,7 @@ $LANG_staticpages_search = array(
 $LANG_staticpages_likes = array(
 	-1   => 'Нравится и Не нравится',
     0   => 'Отключено', 
-    1   => 'Likes and Dislikes',
+    1   => 'Нравится и Не нравится',
 	2   => 'Только Нравится',
 );
 
