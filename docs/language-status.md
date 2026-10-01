@@ -678,7 +678,7 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 | links | ✅ | 0 |
 | polls | ✅ | 0 |
 | recaptcha | ❌ | 13 |
-| spamx | ❌ | 5 |
+| spamx | ✅ | 0 |
 | staticpages | ❌ | 13 |
 | xmlsitemap | ❌ | 13 |
 
@@ -764,21 +764,21 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 
 ### Bundled plugin: spamx
 
-**Ready for PR:** ❌ No
+**Ready for PR:** ✅ Yes
 
 | Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
 |---|---:|---:|---:|---:|---:|
 | chinese_simplified_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
 | chinese_traditional_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
-| french_canada_utf-8.php | ⚠️ | 0 | 1 | 0 | 100.0% |
-| french_france_utf-8.php | ⚠️ | 0 | 1 | 0 | 100.0% |
-| german_formal_utf-8.php | ⚠️ | 1 | 0 | 0 | 99.2% |
-| german_utf-8.php | ⚠️ | 1 | 0 | 0 | 99.2% |
+| french_canada_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
+| french_france_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
+| german_formal_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
+| german_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
 | hebrew_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
 | italian_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
 | japanese_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
 | persian_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
-| russian_utf-8.php | ⚠️ | 1 | 0 | 0 | 99.2% |
+| russian_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
 | spanish_argentina_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
 | spanish_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
 
