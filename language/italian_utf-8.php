@@ -521,7 +521,7 @@ $LANG05 = array(
     6 => 'Precedente',
     7 => 'Primo',
     8 => 'Ultimo',
-    9 => 'Page navigation'
+    9 => 'Navigazione pagine'
 );
 
 ###############################################################################
@@ -566,14 +566,14 @@ $LANG08 = array(
     36 => 'Copia:',
     37 => 'Inviami una copia di questa e-mail',
     38 => "Questa é una copia dell'e-mail che hai inviato a %s da <{$_CONF['site_url']}>:",
-    39 => 'Your last message was ',
-    40 => " seconds ago.  This site requires at least {$_CONF['speedlimit']} seconds between sending messages",
+    39 => 'Il tuo ultimo messaggio è stato inviato ',
+    40 => " secondi fa. Questo sito richiede almeno {$_CONF['speedlimit']} secondi tra l'invio di due messaggi",
     41 => 'This user doesn\'t exist.',
     42 => 'This users email address doesn\'t exist. This most likely means is is an OAuth user account.',
-    43 => 'This users email address is invalid.',
-    44 => 'This users status is set to something other than Active or New Password therefore the email address is assumed bad.',
-    45 => "This is a message sent from {$_CONF['site_name']} by %s. Any replies will need to be sent to the email address: %s",
-	46 => "To unsubscribe from the Daily Digest, login to {$_CONF['site_name']} at {$_CONF['site_url']}. Then visit the user settings page at {$_CONF['site_url']}/usersettings.php and view the Content Tab. You can then unsubscribe to the Daily Digest by deselecting all topics and saving your profile."
+    43 => 'L\'indirizzo email di questo utente non è valido.',
+    44 => 'Lo stato di questo utente è diverso da Attivo o Nuova password; l\'indirizzo email viene quindi considerato non valido.',
+    45 => "Questo messaggio è stato inviato da {$_CONF['site_name']} da %s. Eventuali risposte devono essere inviate all'indirizzo email: %s",
+	46 => "Per annullare l'iscrizione al riepilogo giornaliero, accedi a {$_CONF['site_name']} su {$_CONF['site_url']}. Visita quindi la pagina delle impostazioni utente {$_CONF['site_url']}/usersettings.php e apri la scheda Contenuto. Puoi annullare l'iscrizione deselezionando tutti gli argomenti e salvando il profilo."
 );
 
 ###############################################################################
@@ -615,7 +615,7 @@ $LANG09 = array(
     33 => 'URL',
     34 => 'Localitá',
     35 => 'Tutti i giorni',
-    36 => 'Key Word Type',
+    36 => 'Tipo di parola chiave',
     37 => '',
     38 => '',
     39 => '',
@@ -652,8 +652,8 @@ $LANG09 = array(
     70 => 'Non disponibile ...',
     71 => 'asc',
     72 => 'desc',
-    73 => 'Submit',
-    74 => 'Limit Results'
+    73 => 'Invia',
+    74 => 'Limita risultati'
 );
 
 ###############################################################################
@@ -691,8 +691,8 @@ $LANG10 = array(
     29 => '',
     30 => 'Visite',
     31 => '',
-    32 => 'Top Ten Liked Articles',
-    33 => 'No liked articles found.',
+    32 => 'Dieci articoli con più Mi piace',
+    33 => 'Nessun articolo con Mi piace trovato.',
 );
 
 ###############################################################################
@@ -1953,7 +1953,7 @@ $LANG_404 = array(
     1 => 'Errore 404',
     2 => 'Attenzione, Abbiamo cercato in tutto il sito ma l\'argomento <b>%s</b> non é stato trovato.',
     3 => 'Siamo spiacenti, ma il file da te richiesto non esiste. Prego controlla nella pagina principale o nella pagina di ricerca per vedere se puoi trovare quanto da te richiesto.',
-    4 => "<p>We're sorry, but the page you have requested does not exist. We recommend going back to this <a href=\"%s\">related page</a>, or you may want to check the <a href=\"{$_CONF['site_url']}/\">home page</a>, or the <a href=\"{$_CONF['site_url']}/search.php\">search page</a> to see if you can find what you lost."
+    4 => "<p>Siamo spiacenti, ma la pagina richiesta non esiste. Ti consigliamo di tornare a questa <a href=\"%s\">pagina correlata</a>, oppure di consultare la <a href=\"{$_CONF['site_url']}/\">home page</a> o la <a href=\"{$_CONF['site_url']}/search.php\">pagina di ricerca</a> per trovare ciò che stavi cercando."
 );
 
 ###############################################################################
@@ -1985,7 +1985,7 @@ $LANG_TRB = array(
     'entry_url' => 'Indirizzo dell\'inserimento',
     'entry_title' => 'Titolo dell\'inserimento',
     'blog_name' => 'Nome del Sito',
-    'excerpt' => 'Excerpt',
+    'excerpt' => 'Estratto',
     'truncate_warning' => 'Nota: Il sito ricettore potrebbe bloccare excerpt',
     'button_send' => 'Invia',
     'button_preview' => 'Anteprima',
@@ -2077,7 +2077,7 @@ $LANG_SECTEST = array(
     'public_html' => '"public_html" non deve mai fare parte dell\'indirizzo del tuo sito. Leggi la parte riguardante public_html nel %s ulterioramente e di modificare l\'installazione prima di procedere.',
     'installation' => 'istruzioni per l\'installazione',
     'directory' => 'cartella',
-    'failed_tmp' => 'Failed to create a temporary file in your %s directory. Check your directory permissions!',
+    'failed_tmp' => 'Impossibile creare un file temporaneo nella directory %s. Controlla i permessi della directory!',
     'fix_it' => 'Questo é un pericolo per la sicurezza e deve essere aggiustato!',
     'reachable' => '%s é accessibile dal Web.',
     'not_reachable' => 'Ottimo! %s non é accessibile dal Web.',
@@ -2108,13 +2108,13 @@ $LANG_WHATSNEW = array(
     'days' => 'giorni',
     'weeks' => 'settimane',
     'months' => 'mesi',
-    'years' => 'years',
+    'years' => 'anni',
     'minute' => 'minuti',
     'hour' => 'ora',
     'day' => 'giorno',
     'week' => 'settimana',
     'month' => 'mese',
-    'year' => 'year'
+    'year' => 'anno'
 );
 
 ###############################################################################
@@ -2136,18 +2136,18 @@ $LANG_MONTH = array(
 );
 
 $LANG_MONTH_SHORT = array(
-    1 => 'Jan',
+    1 => 'Gen',
     2 => 'Feb',
     3 => 'Mar',
     4 => 'Apr',
-    5 => 'May',
-    6 => 'Jun',
-    7 => 'Jul',
-    8 => 'Aug',
-    9 => 'Sep',
-    10 => 'Oct',
+    5 => 'Mag',
+    6 => 'Giu',
+    7 => 'Lug',
+    8 => 'Ago',
+    9 => 'Set',
+    10 => 'Ott',
     11 => 'Nov',
-    12 => 'Decr'
+    12 => 'Dic'
 );
 
 ###############################################################################
@@ -2164,13 +2164,13 @@ $LANG_WEEK = array(
 );
 
 $LANG_WEEK_SHORT = array(
-    1 => 'Sun',
-    2 => 'Mon',
-    3 => 'Tue',
-    4 => 'Wed',
-    5 => 'Thu',
-    6 => 'Fri',
-    7 => 'Sat'
+    1 => 'Dom',
+    2 => 'Lun',
+    3 => 'Mar',
+    4 => 'Mer',
+    5 => 'Gio',
+    6 => 'Ven',
+    7 => 'Sab'
 );
 
 ###############################################################################
@@ -2203,7 +2203,7 @@ $LANG_ADMIN = array(
     'create_new' => 'Nuovo',
     'create_new_adv' => 'Nuovo (Avanzato)',
     'enabled' => 'Abilitato',
-    'disabled' => 'Disabled',
+    'disabled' => 'Disabilitato',
     'title' => 'Titolo',
     'page_title' => 'Titolo della Pagina',
     'type' => 'Tipo',
@@ -2212,9 +2212,9 @@ $LANG_ADMIN = array(
     'help_url' => 'Indirizzo per il File della Guida',
     'save' => 'Salva',
     'cancel' => 'Annulla',
-    'install' => 'Install',
+    'install' => 'Installa',
     'delete' => 'Elimina',
-    'deleteitem' => 'Delete',
+    'deleteitem' => 'Elimina',
     'delete_sel' => 'Elimina la selezione',
     'copy' => 'Copia',
     'no_results' => '- Non é stato trovato alcun risultato -',
@@ -2224,27 +2224,27 @@ $LANG_ADMIN = array(
     'addchild' => 'Aggiungi',
     'list' => 'lista',
     'list_all' => 'Mostra tutti',
-    'meta_description' => 'Meta Description',
-    'meta_keywords' => 'Meta Keywords',
+    'meta_description' => 'Meta descrizione',
+    'meta_keywords' => 'Meta parole chiave',
     'na' => 'N/A',
     'unavailable' => 'N/A',
     'warning' => '!!!',
     'token_expiry' => 'Puoi modificare fino a %s. Dopo di che il codice di sicurezza impresso in questa pagina scadrá e tutte le modifiche verrano perse.',
     'token_expired' => 'Il codice di sicurezza per questa azione é scaduto. Si prega di autenticarsi di nuovo per procedere.',
     'reauth_msg' => 'Il codice di sicurezza per questa azione é scaduto. Se vuoi proseguire con quest\'azione, ti devi autenticare di nuovo. Questo permetterá di salvare le tue recenti modifiche.',
-    'token_expired_remote_user' => 'The security token for this operation has expired. Since you are a remote user you cannot re-authenticate, so you have lost your changes.',
-    'token_re_authentication_error' => 'There was an error after your account was re-authenticated. It is unclear if the operation you were performing was executed or not.',
+    'token_expired_remote_user' => 'Il token di sicurezza per questa operazione è scaduto. Poiché sei un utente remoto non puoi autenticarti di nuovo, quindi le modifiche sono andate perse.',
+    'token_re_authentication_error' => 'Si è verificato un errore dopo la nuova autenticazione dell\'account. Non è possibile stabilire se l\'operazione in corso sia stata eseguita.',
     'authenticate' => 'Autenticati',
-    'approve' => 'Approve',
-    'device' => 'Device',
-    'device_desc' => 'For what device do you want this item to display for?',
-    'for_all' => 'All',
-    'for_mobile' => 'For Mobile',
-    'for_computer' => 'For Computer',
-    'all' => 'All',
+    'approve' => 'Approva',
+    'device' => 'Dispositivo',
+    'device_desc' => 'Su quale dispositivo vuoi visualizzare questo elemento?',
+    'for_all' => 'Tutti',
+    'for_mobile' => 'Per dispositivi mobili',
+    'for_computer' => 'Per computer',
+    'all' => 'Tutti',
     'mobile' => 'Mobile',
     'computer' => 'Computer',
-    'edit_access_only'  => 'Edit Access Only'
+    'edit_access_only' => 'Solo accesso in modifica'
 );
 
 # Localisation of the texts for the various drop-down menus that are actually
@@ -2258,10 +2258,10 @@ $LANG_commentcodes = array(
 );
 
 $LANG_commentmodes = array(
-    'flat' => 'Flat',
-    'nested' => 'Nested',
-    'threaded' => 'Threaded',
-    'nocomment' => 'No Comments'
+    'flat' => 'Piatto',
+    'nested' => 'Annidato',
+    'threaded' => 'Ad albero',
+    'nocomment' => 'Nessun commento'
 );
 
 $LANG_cookiecodes = array(
@@ -2300,9 +2300,9 @@ $LANG_sortcodes = array(
 );
 
 $LANG_statuscodes = array(
-    0 => 'Normal',
-    1 => 'Refreshing',
-    10 => 'Archive'
+    0 => 'Normale',
+    1 => 'Aggiornamento',
+    10 => 'Archivio'
 );
 
 $LANG_trackbackcodes = array(
@@ -2311,7 +2311,7 @@ $LANG_trackbackcodes = array(
 );
 
 $LANG_structureddatatypes = array(
-    'none'              => 'None',
+    'none' => 'Nessuno',
     'core-webpage'      => 'WebPage',
     'core-article'      => 'Article',
     'core-newsarticle'  => 'NewsArticle',
@@ -2319,8 +2319,8 @@ $LANG_structureddatatypes = array(
 );
 
 $LANG_STRUCT_DATA = array(
-    'lang_structured_data_type'     => 'Structured Data Type',
-    'autotag_desc_structureddata'   => '[structureddata:schema_property]Property Value[/structureddata] - Adds a property to the structured data of the content that the autotag is embedded in.'
+    'lang_structured_data_type' => 'Tipo di dati strutturati',
+    'autotag_desc_structureddata' => '[structureddata:schema_property]Valore proprietà[/structureddata] - Aggiunge una proprietà ai dati strutturati del contenuto in cui è inserito l\'autotag.'
 );
 
 ###############################################################################
@@ -2338,8 +2338,8 @@ $LANG_CONFIG = array(
     'title' => 'Gestione della Configurazione',
     'disable' => 'Clicca per disabilitare quest\'opzione',
     'enable' => 'Abilita',
-    'default_tab_name' => 'Main',
-    'search_configuration_label' => 'Search Configuration',
+    'default_tab_name' => 'Principale',
+    'search_configuration_label' => 'Cerca nella configurazione',
     'error_validation_occurs' => 'Sono presenti valori di configurazione non validi. Correggi questi campi ' .
                                     '(fai clic sulla variabile di configurazione per andare al campo con l\'errore)'
 );
@@ -2870,13 +2870,13 @@ $LANG_VALIDATION = array(
     'default' => 'Questo campo contiene un valore non valido',
     'notEmpty' => 'Questo campo non puó essere vuoto',
     'alphaNumeric' => 'Questo campo deve contenere un valore alfanumerico',
-	'alphaNumericOrEmpty' => 'This field must be alpha numeric or empty',
+	'alphaNumericOrEmpty' => 'Questo campo deve essere alfanumerico oppure vuoto',
     'between' => 'Questo campo deve essere nell\'intervallo specificato',
     'blank' => 'Questo campo deve essere vuoto',
     'comparison' => 'Questo campo non coincide con l\'operazione di confronto',
     'date' => 'Questo campo deve essere in formato di data',
     'year' => 'Questo campo deve essere in formato di data, come 2010',
-    'yearOrRange' => 'This field must be in a year format such as 2010 or range like 2010 - 2012',
+    'yearOrRange' => 'Questo campo deve contenere un anno, ad esempio 2010, oppure un intervallo come 2010 - 2012',
     'time' => 'Questo campo deve essere in formato di tempo',
     'datetime' => 'Questo campo deve essere in formato di data/tempo',
     'boolean' => 'Questo campo deve essere un booleano',
@@ -2899,7 +2899,7 @@ $LANG_VALIDATION = array(
     'rdf_limit' => 'Questo campo deve contenere un valore numerico o di orario come 24h',
     'path' => 'Percorso non esistente',
     'file' => 'File non esistente',
-    'fileName' => 'This field must be a proper file name',
+    'fileName' => 'Questo campo deve contenere un nome file valido',
     'search_limits' => 'Questo campo deve contenere valori numerici separati da una virgola',
     'num_search_results' => 'Questo campo deve essere numerico e da \'search_limits\' soprastante',
     'theme' => 'Cartella Theme non esistente',
@@ -2909,8 +2909,8 @@ $LANG_VALIDATION = array(
     'language' => 'File di linguaggio non esistente',
     'timezone' => 'Fuso orario invalido',
     'single_char' => 'Questo campo deve essere un solo carattere',
-    'page_navigation_max_pages' => 'This field must be between 2 - 21',
-    'hash' => 'This field must be a hash function supported by your version of PHP',
-    'config_setting_lang_array' => 'Each element requires a unique language shortcut (\'en\', \'de\', etc.) and the corresponding field must contain a value',
-    'config_setting_lang_array_element_req' => 'Requires at least one element. Each element requires a unique language shortcut (\'en\', \'de\', etc.) and the corresponding field must contain a value'
+    'page_navigation_max_pages' => 'Questo campo deve essere compreso tra 2 e 21',
+    'hash' => 'Questo campo deve contenere una funzione hash supportata dalla tua versione di PHP',
+    'config_setting_lang_array' => 'Ogni elemento richiede un codice lingua univoco (\'en\', \'de\', ecc.) e il campo corrispondente deve contenere un valore',
+    'config_setting_lang_array_element_req' => 'È richiesto almeno un elemento. Ogni elemento richiede un codice lingua univoco (\'en\', \'de\', ecc.) e il campo corrispondente deve contenere un valore'
 );
