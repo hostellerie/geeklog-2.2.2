@@ -1546,20 +1546,20 @@ $LANG33 = array(
     40 => 'Укажите либо количество записей, либо количество часов.',
     41 => 'Ссылки',
     42 => '',
-    43 => 'All',
-    44 => 'None',
-    45 => 'Header-link in topic',
-    46 => 'Limit Results',
-    47 => 'Search',
-    48 => 'Edit',
-    49 => 'Feed Logo',
-    50 => "Relative to site url ({$_CONF['site_url']})",
-    51 => 'The filename you have chosen is already used by another feed. Please choose a different one.',
-    52 => 'Error: existing Filename',
-    53 => 'All Frontpage Articles',
-    54 => 'Please select the type of feed to create.',
+    43 => 'Все',
+    44 => 'Нет',
+    45 => 'Ссылка в заголовке темы',
+    46 => 'Ограничить результаты',
+    47 => 'Поиск',
+    48 => 'Редактировать',
+    49 => 'Логотип ленты',
+    50 => "Относительно URL сайта ({$_CONF['site_url']})",
+    51 => 'Выбранное имя файла уже используется другой лентой. Выберите другое имя.',
+    52 => 'Ошибка: имя файла уже существует',
+    53 => 'Все статьи главной страницы',
+    54 => 'Выберите тип создаваемой ленты.',
     55 => 'Articles',
-    'num_articles' => '%s Article(s)'
+    'num_articles' => 'Статей: %s'
 );
 
 ###############################################################################
