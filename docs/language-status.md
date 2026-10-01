@@ -770,17 +770,17 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 |---|---:|---:|---:|---:|---:|
 | chinese_simplified_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
 | chinese_traditional_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
-| french_canada_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
-| french_france_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
-| german_formal_utf-8.php | ⚠️ | 1 | 0 | 5 | 99.2% |
-| german_utf-8.php | ⚠️ | 1 | 0 | 5 | 99.2% |
-| hebrew_utf-8.php | ⚠️ | 0 | 2 | 2 | 100.0% |
-| italian_utf-8.php | ⚠️ | 0 | 2 | 6 | 100.0% |
+| french_canada_utf-8.php | ⚠️ | 0 | 1 | 3 | 100.0% |
+| french_france_utf-8.php | ⚠️ | 0 | 1 | 3 | 100.0% |
+| german_formal_utf-8.php | ⚠️ | 1 | 0 | 4 | 99.2% |
+| german_utf-8.php | ⚠️ | 1 | 0 | 4 | 99.2% |
+| hebrew_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
+| italian_utf-8.php | ⚠️ | 0 | 0 | 4 | 100.0% |
 | japanese_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
 | persian_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
-| russian_utf-8.php | ⚠️ | 1 | 2 | 3 | 99.2% |
-| spanish_argentina_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
-| spanish_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
+| russian_utf-8.php | ⚠️ | 1 | 0 | 3 | 99.2% |
+| spanish_argentina_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
+| spanish_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
 
 ### Bundled plugin: staticpages
 
@@ -788,8 +788,8 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 
 | Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
 |---|---:|---:|---:|---:|---:|
-| chinese_simplified_utf-8.php | ⚠️ | 4 | 0 | 24 | 96.7% |
-| chinese_traditional_utf-8.php | ⚠️ | 4 | 0 | 24 | 96.7% |
+| chinese_simplified_utf-8.php | ⚠️ | 4 | 0 | 5 | 96.7% |
+| chinese_traditional_utf-8.php | ⚠️ | 4 | 0 | 5 | 96.7% |
 | french_canada_utf-8.php | ⚠️ | 4 | 0 | 7 | 96.7% |
 | french_france_utf-8.php | ⚠️ | 4 | 0 | 7 | 96.7% |
 | german_formal_utf-8.php | ⚠️ | 4 | 0 | 10 | 96.7% |
