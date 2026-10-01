@@ -2285,20 +2285,20 @@ $LANG_STRUCT_DATA = array(
 # Localization of the Admin Configuration UI
 
 $LANG_CONFIG = array(
-    'home' => 'Home',
-    'admin_home' => 'Site Administration',
-    'sections' => 'Configuration Sections',
-    'restore' => 'Restore',
-    'add_element' => 'Add Element',
-    'save_changes' => 'Save Changes',
-    'reset_form' => 'Reset Form',
-    'changes_made' => 'Changes were successfully made to',
-    'title' => 'Configuration Manager',
-    'disable' => 'Click to disable this option',
-    'enable' => 'Enable',
-    'default_tab_name' => 'Main',
-    'search_configuration_label' => 'Search Configuration',
-    'error_validation_occurs' => 'There are invalid configuration values. Please correct these fields (just click the config variable to point you to the error field)'
+    'home' => 'Главная',
+    'admin_home' => 'Администрирование сайта',
+    'sections' => 'Разделы конфигурации',
+    'restore' => 'Восстановить',
+    'add_element' => 'Добавить элемент',
+    'save_changes' => 'Сохранить изменения',
+    'reset_form' => 'Сбросить форму',
+    'changes_made' => 'Изменения успешно применены к',
+    'title' => 'Менеджер конфигурации',
+    'disable' => 'Нажмите, чтобы отключить этот параметр',
+    'enable' => 'Включить',
+    'default_tab_name' => 'Основные',
+    'search_configuration_label' => 'Поиск в конфигурации',
+    'error_validation_occurs' => 'Обнаружены недопустимые значения конфигурации. Исправьте эти поля (нажмите на переменную конфигурации, чтобы перейти к полю с ошибкой)'
 );
 
 $LANG_configsections['Core'] = array(
