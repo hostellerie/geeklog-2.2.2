@@ -2847,6 +2847,6 @@ $LANG_VALIDATION = array(
     'page_navigation_max_pages' => '此字段必须介于 2 - 21 之间',
     'hash' => '此字段必须是当前 PHP 版本支持的哈希函数',
     'config_setting_lang_array' => '每个元素都需要唯一的语言缩写（如 \'en\'、\'de\' 等），对应字段必须包含值',
-    'config_setting_lang_array_element_req' => '至少需要一个元素。每个元素都需要唯一的语言缩写（如 'en'、'de' 等），对应字段必须包含值',
+    'config_setting_lang_array_element_req' => '至少需要一个元素。每个元素都需要唯一的语言缩写（如 \'en\'、\'de\' 等），对应字段必须包含值',
 );
 
