@@ -1405,14 +1405,14 @@ $LANG31 = array(
     24 => 'Удач нет',
     25 => '-- Выбрать группу --',
     26 => 'Пожалуйста, заполните все поля формы и выберите группу пользователей из списка.',
-    27 => 'The following template variables are available in <strong>Subject</strong> and <strong>Message</strong>: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
+    27 => 'В полях <strong>Тема</strong> и <strong>Сообщение</strong> доступны следующие переменные шаблона: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
     'email_divider' => '------------------------------------------------------------',
     'email_divider_html' => '<hr' . XHTML . '>',
     'sig_divider' => '---',
     'sig_divider_html' => '---<br' . XHTML . '>',
-    'email_footer_msg_noreply' => 'The address used to send this email is not monitored. Please do not reply to this email.',
-    'email_footer_msg_content' => 'If content from the website is displayed in this email, there may be layout changes which result in formatting issues.',
-    'ip_address_email' => 'IP address that initiated email:'
+    'email_footer_msg_noreply' => 'Адрес, использованный для отправки этого письма, не отслеживается. Не отвечайте на это письмо.',
+    'email_footer_msg_content' => 'Если в письме отображается содержимое сайта, возможны изменения макета и проблемы с форматированием.',
+    'ip_address_email' => 'IP-адрес, с которого было инициировано письмо:'
 );
 
 ###############################################################################
