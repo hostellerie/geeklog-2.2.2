@@ -101,7 +101,7 @@ $LANG_SX00 = array(
     'note4' => 'revenez ici et exécutez Spam-X pour vérifier les derniers commentaires.</li></ul><p>Les commentaires ',
     'note5' => 'sont vérifiés à partir des plus récents -- vérifier plus de commentaires ',
     'note6' => 'nécessite plus de temps pour la vérification</p>',
-    'masshead' => '<hr' . XHTML . '><h1 style="text-align: center;">Suppression de commentaires en lot</h1>',
+    'masshead' => 'Suppression en masse des commentaires indésirables',
     'masstb' => 'Suppression en masse des rétroliens indésirables',
     'comdel' => ' commentaires supprimés.',
     'initial_Pimport' => '<p>Importer Liste Noire Personnelle"',
