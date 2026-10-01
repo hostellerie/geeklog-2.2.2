@@ -163,7 +163,7 @@ $LANG_staticpages_search = array(
 $LANG_staticpages_likes = array(
 	-1   => 'Mi piace e Non mi piace',
     0   => 'Disattivato', 
-    1   => 'Likes and Dislikes',
+    1   => 'Mi piace e Non mi piace',
 	2   => 'Solo Mi piace',
 );
 
