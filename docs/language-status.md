@@ -797,8 +797,8 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 | hebrew_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
 | italian_utf-8.php | ⚠️ | 4 | 0 | 12 | 96.7% |
 | japanese_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
-| persian_utf-8.php | ⚠️ | 4 | 0 | 80 | 96.7% |
-| russian_utf-8.php | ⚠️ | 0 | 0 | 90 | 100.0% |
+| persian_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
+| russian_utf-8.php | ⚠️ | 0 | 0 | 4 | 100.0% |
 | spanish_argentina_utf-8.php | ⚠️ | 0 | 0 | 5 | 100.0% |
 | spanish_utf-8.php | ⚠️ | 0 | 0 | 5 | 100.0% |
 
