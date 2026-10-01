@@ -44,33 +44,33 @@
 
 Plugins audited: **34**
 
-| Language | Core | Complete | Partial | Missing |
-|---|---:|---:|---:|---:|
-| French | ✅ | 11 | 3 | 20 |
-| German | ✅ | 3 | 1 | 30 |
-| Spanish | ✅ | 1 | 1 | 32 |
-| Italian | ✅ | 2 | 1 | 31 |
-| Japanese | ✅ | 11 | 2 | 21 |
-| Russian | ✅ | 0 | 0 | 34 |
-| Chinese (Simplified) | ✅ | 0 | 0 | 34 |
-| Chinese (Traditional) | ✅ | 0 | 0 | 34 |
-| Hebrew | ✅ | 0 | 1 | 33 |
-| Persian | ✅ | 5 | 2 | 27 |
-| Portuguese (Brazil) | ❌ | 0 | 0 | 34 |
-| Arabic | ❌ | 0 | 0 | 34 |
-| Dutch | ❌ | 0 | 2 | 32 |
-| Polish | ❌ | 0 | 0 | 34 |
-| Korean | ❌ | 0 | 1 | 33 |
-| Hindi | ❌ | 0 | 0 | 34 |
-| Turkish | ❌ | 0 | 0 | 34 |
-| Indonesian | ❌ | 0 | 0 | 34 |
-| Ukrainian | ❌ | 0 | 0 | 34 |
-| Portuguese (Portugal) | ❌ | 1 | 0 | 33 |
-| Vietnamese | ❌ | 0 | 0 | 34 |
-| Thai | ❌ | 0 | 0 | 34 |
-| Czech | ❌ | 0 | 0 | 34 |
-| Swedish | ❌ | 1 | 2 | 31 |
-| Bengali | ❌ | 0 | 0 | 34 |
+| Language | Core | Complete | Partial | Missing | Placeholder errors | Identical to English |
+|---|---:|---:|---:|---:|---:|---:|
+| French | ✅ | 10 | 4 | 20 | 14 | 308 |
+| German | ✅ | 3 | 1 | 30 | 17 | 300 |
+| Spanish | ✅ | 1 | 1 | 32 | 15 | 152 |
+| Italian | ✅ | 2 | 1 | 31 | 15 | 163 |
+| Japanese | ✅ | 10 | 3 | 21 | 9 | 146 |
+| Russian | ✅ | 0 | 0 | 34 | 0 | 0 |
+| Chinese (Simplified) | ✅ | 0 | 0 | 34 | 0 | 0 |
+| Chinese (Traditional) | ✅ | 0 | 0 | 34 | 0 | 0 |
+| Hebrew | ✅ | 0 | 1 | 33 | 18 | 259 |
+| Persian | ✅ | 5 | 2 | 27 | 1 | 16 |
+| Portuguese (Brazil) | ❌ | 0 | 0 | 34 | 0 | 0 |
+| Arabic | ❌ | 0 | 0 | 34 | 0 | 0 |
+| Dutch | ❌ | 0 | 2 | 32 | 15 | 356 |
+| Polish | ❌ | 0 | 0 | 34 | 0 | 0 |
+| Korean | ❌ | 0 | 1 | 33 | 15 | 157 |
+| Hindi | ❌ | 0 | 0 | 34 | 0 | 0 |
+| Turkish | ❌ | 0 | 0 | 34 | 0 | 0 |
+| Indonesian | ❌ | 0 | 0 | 34 | 0 | 0 |
+| Ukrainian | ❌ | 0 | 0 | 34 | 0 | 0 |
+| Portuguese (Portugal) | ❌ | 1 | 0 | 33 | 0 | 1 |
+| Vietnamese | ❌ | 0 | 0 | 34 | 0 | 0 |
+| Thai | ❌ | 0 | 0 | 34 | 0 | 0 |
+| Czech | ❌ | 0 | 0 | 34 | 0 | 0 |
+| Swedish | ❌ | 1 | 2 | 31 | 17 | 345 |
+| Bengali | ❌ | 0 | 0 | 34 | 0 | 0 |
 
 ## Plugin translation gaps
 
@@ -81,12 +81,13 @@ Plugins audited: **34**
 - [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
-- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 8 missing (98.6%)
+- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 8 missing (98.6%), 13 placeholder error(s), 107 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
 - [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [menu](https://github.com/Geeklog-Plugins/menu) — ⚠️ 66 missing (67.5%)
-- [paypal](https://github.com/Geeklog-Plugins/paypal) — ⚠️ 1 missing (99.8%)
+- [menu](https://github.com/Geeklog-Plugins/menu) — ⚠️ 66 missing (67.5%), 15 identical string(s)
+- [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ⚠️ 0 missing (100.0%), 1 placeholder error(s), 22 identical string(s)
+- [paypal](https://github.com/Geeklog-Plugins/paypal) — ⚠️ 1 missing (99.8%), 58 identical string(s)
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
 - [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
@@ -106,7 +107,7 @@ Plugins audited: **34**
 - [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
-- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%)
+- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 17 placeholder error(s), 225 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
 - [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
@@ -140,7 +141,7 @@ Plugins audited: **34**
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
-- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%)
+- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 15 placeholder error(s), 152 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
 - [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
@@ -175,7 +176,7 @@ Plugins audited: **34**
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
-- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%)
+- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 15 placeholder error(s), 163 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
 - [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
@@ -207,8 +208,9 @@ Plugins audited: **34**
 
 ### Japanese
 
-- [autotags](https://github.com/Geeklog-Plugins/autotags) — ⚠️ 1 missing (97.6%)
-- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 7 missing (98.8%)
+- [autotags](https://github.com/Geeklog-Plugins/autotags) — ⚠️ 1 missing (97.6%), 1 placeholder error(s), 1 identical string(s)
+- [ban](https://github.com/Geeklog-Plugins/ban) — ⚠️ 0 missing (100.0%), 1 placeholder error(s), 2 identical string(s)
+- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 7 missing (98.8%), 7 placeholder error(s), 81 identical string(s)
 - [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
 - [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
@@ -349,7 +351,7 @@ Plugins audited: **34**
 - [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
-- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%)
+- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 18 placeholder error(s), 259 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
 - [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
@@ -383,14 +385,14 @@ Plugins audited: **34**
 
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
 - [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
-- [ban](https://github.com/Geeklog-Plugins/ban) — ⚠️ 4 missing (91.1%)
+- [ban](https://github.com/Geeklog-Plugins/ban) — ⚠️ 4 missing (91.1%), 1 placeholder error(s), 1 identical string(s)
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
 - [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
 - [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
 - [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
-- [menu](https://github.com/Geeklog-Plugins/menu) — ⚠️ 24 missing (88.2%)
+- [menu](https://github.com/Geeklog-Plugins/menu) — ⚠️ 24 missing (88.2%), 4 identical string(s)
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
 - [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
@@ -490,9 +492,9 @@ Plugins audited: **34**
 - [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
 - [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
-- [gus](https://github.com/Geeklog-Plugins/gus) — ⚠️ 3 missing (97.3%)
+- [gus](https://github.com/Geeklog-Plugins/gus) — ⚠️ 3 missing (97.3%), 40 identical string(s)
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
-- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%)
+- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 15 placeholder error(s), 316 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
 - [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
@@ -566,7 +568,7 @@ Plugins audited: **34**
 - [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
-- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%)
+- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 15 placeholder error(s), 157 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
 - [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
@@ -896,9 +898,9 @@ Plugins audited: **34**
 - [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
 - [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
-- [gus](https://github.com/Geeklog-Plugins/gus) — ⚠️ 5 missing (95.5%)
+- [gus](https://github.com/Geeklog-Plugins/gus) — ⚠️ 5 missing (95.5%), 25 identical string(s)
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
-- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%)
+- [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 17 placeholder error(s), 311 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
 - [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
