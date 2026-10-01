@@ -673,4 +673,71 @@ return [
     'polls/spanish_argentina_utf-8.php' => [
         'LANG25:26',
     ],
+    'spamx/chinese_simplified_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/chinese_traditional_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/french_canada_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/french_france_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/german_formal_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:plugin',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/german_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:plugin',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/hebrew_utf-8.php' => [
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/italian_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:plugin',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/japanese_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/persian_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/russian_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/spanish_argentina_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+    'spamx/spanish_utf-8.php' => [
+        'LANG_SX00:ok',
+        'LANG_SX00:stats_mtblacklist',
+        'LANG_SX00:plugin_name',
+    ],
+
 ];
