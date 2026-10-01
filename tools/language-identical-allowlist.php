@@ -27,6 +27,7 @@ return [
         'LANG_ACCESS:no',
         'LANG_DB_BACKUP:bytes',
         'LANG_TRB:send_error',
+        'LANG_ROUTER:24',
     ],
     'spanish_utf-8.php' => [
         'LANG01:34',
@@ -44,6 +45,7 @@ return [
         'LANG_ACCESS:no',
         'LANG_DB_BACKUP:bytes',
         'LANG_TRB:send_error',
+        'LANG_ROUTER:24',
     ],
     'german_utf-8.php' => [
         'LANG04:6',
