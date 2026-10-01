@@ -904,14 +904,14 @@ $LANG_ENVCHECK = array(
 # For Demo Mode (since v2.2.1)
 
 $LANG_DEMO = array(
-    'header' => 'Header',
-    'subject' => 'Subject:',
+    'header' => 'En-tête',
+    'subject' => 'Objet :',
     'to' => 'To:',
-    'from' => 'From:',
-    'priority' => 'Priority:',
-    'body' => 'Body',
-    'notice' => 'Notice',
-    'emails_disabled_msg' => 'Please note sending emails is disabled in Demo mode. An email which would have been sent was:'
+    'from' => 'de',
+    'priority' => 'Priorité :',
+    'body' => 'Corps',
+    'notice' => 'Avis',
+    'emails_disabled_msg' => 'L’envoi d’emails est désactivé en mode démo. L’email qui aurait été envoyé était :'
 );
 
 ###############################################################################
@@ -1917,7 +1917,7 @@ $LANG_LOGIN = array(
 
 $LANG_TRB = array(
     'trackback' => 'Trackback',
-    'from' => 'from',
+    'from' => 'de',
     'tracked_on' => 'Tracked on',
     'read_more' => '[read more]',
     'intro_text' => 'Here\'s what others have to say about \'%s\':',
