@@ -799,8 +799,8 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 | japanese_utf-8.php | ⚠️ | 4 | 2 | 3 | 96.7% |
 | persian_utf-8.php | ⚠️ | 4 | 0 | 80 | 96.7% |
 | russian_utf-8.php | ⚠️ | 0 | 0 | 90 | 100.0% |
-| spanish_argentina_utf-8.php | ❌ missing file | 120 | 0 | 0 | 0.0% |
-| spanish_utf-8.php | ⚠️ | 4 | 0 | 32 | 96.7% |
+| spanish_argentina_utf-8.php | ⚠️ | 4 | 0 | 8 | 96.7% |
+| spanish_utf-8.php | ⚠️ | 4 | 0 | 8 | 96.7% |
 
 ### Bundled plugin: xmlsitemap
 
