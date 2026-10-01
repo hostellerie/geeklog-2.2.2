@@ -501,7 +501,7 @@ $LANG05 = array(
     6 => '上页',
     7 => '第一',
     8 => '最终',
-    9 => 'Page navigation'
+    9 => '页面导航',
 );
 
 ###############################################################################
@@ -543,17 +543,17 @@ $LANG08 = array(
     33 => '完整的文章在：',
     34 => '电邮结束',
     35 => '对不起，此用户不愿意收电信.',
-    36 => 'Copy:',
-    37 => 'Send me a copy of this email',
+    36 => '抄送：',
+    37 => '给我发送此邮件的副本',
     38 => "This is a copy of the email that you sent to %s from <{$_CONF['site_url']}>:",
-    39 => 'Your last message was ',
-    40 => " seconds ago.  This site requires at least {$_CONF['speedlimit']} seconds between sending messages",
-    41 => 'This user doesn\'t exist.',
-    42 => 'This users email address doesn\'t exist. This most likely means is is an OAuth user account.',
-    43 => 'This users email address is invalid.',
-    44 => 'This users status is set to something other than Active or New Password therefore the email address is assumed bad.',
-    45 => "This is a message sent from {$_CONF['site_name']} by %s. Any replies will need to be sent to the email address: %s",
-    46 => "To unsubscribe from the Daily Digest, login to {$_CONF['site_name']} at {$_CONF['site_url']}. Then visit the user settings page at {$_CONF['site_url']}/usersettings.php and view the Content Tab. You can then unsubscribe to the Daily Digest by deselecting all topics and saving your profile."
+    39 => '您上次发送消息是在 ',
+    40 => " 秒前。本站要求两次发送消息之间至少间隔 {$_CONF['speedlimit']} 秒",
+    41 => '该用户不存在。',
+    42 => '该用户没有电子邮件地址，可能是 OAuth 用户账户。',
+    43 => '该用户的电子邮件地址无效。',
+    44 => '该用户状态不是“活动”或“新密码”，因此其电子邮件地址被视为无效。',
+    45 => "此消息由 %s 通过 {$_CONF['site_name']} 发送。回复请发送至电子邮件地址：%s",
+    46 => "要取消每日摘要订阅，请登录 {$_CONF['site_name']}（{$_CONF['site_url']}），然后访问 {$_CONF['site_url']}/usersettings.php 的用户设置页面并打开“内容”标签。取消选择所有主题并保存个人资料即可退订。",
 );
 
 ###############################################################################
@@ -595,7 +595,7 @@ $LANG09 = array(
     33 => 'URL',
     34 => '地点',
     35 => '所有日子',
-    36 => 'Key Word Type',
+    36 => '关键字类型',
     37 => '',
     38 => '',
     39 => '',
@@ -623,17 +623,17 @@ $LANG09 = array(
     61 => '改进搜寻',
     62 => '#',
     63 => 'Description',
-    64 => 'Showing %1$d - %2$d of %3$d results',
+    64 => '显示第 %1$d - %2$d 项，共 %3$d 项结果',
     65 => 'Article',
-    66 => 'Comment',
-    67 => 'Show %d Results',
+    66 => '评论',
+    67 => '显示 %d 项结果',
     68 => 'Sort By',
-    69 => 'Titles Only',
-    70 => 'Not available ...',
+    69 => '仅搜索标题',
+    70 => '不可用……',
     71 => 'asc',
     72 => 'desc',
-    73 => 'Submit',
-    74 => 'Limit Results'
+    73 => '提交',
+    74 => '限制结果',
 );
 
 ###############################################################################
@@ -643,8 +643,8 @@ $LANG10 = array(
     1 => '本站统计数据',
     2 => '系统点击总数',
     3 => '文章(评论)总数',
-    4 => 'Site Statistic',
-    5 => "Overall Site Statistics for {$_CONF['site_name']}",
+    4 => '站点统计',
+    5 => "{$_CONF['site_name']} 的总体站点统计",
     6 => '',
     7 => '采样数最高的十个文章',
     8 => '文章标题',
@@ -671,8 +671,8 @@ $LANG10 = array(
     29 => '',
     30 => '采样数',
     31 => '',
-    32 => 'Top Ten Liked Articles',
-    33 => 'No liked articles found.'
+    32 => '最受欢迎的十篇文章',
+    33 => '未找到获赞文章。',
 );
 
 ###############################################################################
@@ -684,7 +684,7 @@ $LANG11 = array(
     3 => '可印的文章格式',
     4 => '文章选项',
     5 => '',
-    6 => 'Subscribe to \'%s\''
+    6 => "订阅“%s”",
 );
 
 ###############################################################################
@@ -925,8 +925,8 @@ $LANG20 = array(
     5 => '密码：',
     6 => '这页只供授权人员使用。<br' . XHTML . '>所有存取将被记录和检查。',
     7 => '登入',
-    8 => 'Login',
-    9 => 'This page is for the use of authorized personnel only. Please note all access to administrative portions of this web site are logged and reviewed.'
+    8 => '登录',
+    9 => '此页面仅供授权人员使用。请注意，对本站管理区域的所有访问都会被记录并审核。',
 );
 
 ###############################################################################
@@ -937,8 +937,8 @@ $LANG21 = array(
     2 => '你没有权去编辑这个组件。',
     3 => '组件编辑器',
     4 => '读取此文流时发现错误，请在你的错误记录档案 error.log 里看细节.',
-    5 => 'Yes',
-    6 => 'No',
+    5 => '是',
+    6 => '否',
     7 => '所有',
     8 => '组件安全水平',
     9 => '组件次序',
@@ -952,11 +952,11 @@ $LANG21 = array(
     17 => '组件内容',
     18 => '请填写组件的标题和内容。',
     19 => '组件管理员',
-    20 => 'Regular Blocks',
+    20 => '常规区块',
     21 => '组件安全水平',
-    22 => 'Dynamic Blocks',
+    22 => '动态区块',
     23 => '组件次序',
-    24 => 'Dynamic',
+    24 => '动态',
     25 => '点击下面的组件可修改或删除它，点击上面的新组件可创造一个新的。',
     26 => '版面组件',
     27 => 'PHP 组件',
@@ -979,10 +979,10 @@ $LANG21 = array(
     44 => 'Multiple',
     45 => "企图存取不允许的组件已被记录。请<a href=\"{$_CONF['site_admin_url']}/block.php\">反回组件管理员昼面</a>。",
     46 => '新组件',
-    47 => 'None',
+    47 => '无',
     48 => '组件名',
     49 => ' (不可有空隔和必须是唯一的)',
-    50 => 'The Block Name can not be empty',
+    50 => '区块名称不能为空',
     51 => '包括 http://',
     52 => '如果这里留白，组件的求助文件图示将不被显示',
     53 => '使有效',
@@ -1001,32 +1001,32 @@ $LANG21 = array(
     66 => '自动标签',
     67 => '打勾来准许自动标签',
     68 => '这入口组件的新闻馈入太长. 请在组件设定区里设定最多文章数限，或在志乐的全面设定区里设定最多文章数限。',
-    69 => 'Plugin Name',
+    69 => '插件名称',
     70 => 'CSS ID',
-    71 => 'This field is optional',
-    72 => 'CSS Classes',
-    73 => 'This field is optional.  You can specify multiple classes separated by space',
-    'autotag_desc_block' => '[block:name class:block-autotag] - Displays a block. Class not required. Class specifies the css class and will wrap the block in a div. The class block-autotag will always be included with the div.',
-    'newlines' => 'Newlines',
-    'convert_newlines' => 'Check to convert newlines (EOL) into line break HTML element',
+    71 => '此字段可选',
+    72 => 'CSS 类',
+    73 => '此字段可选。可指定多个以空格分隔的类',
+    'autotag_desc_block' => '[block:name class:block-autotag] - 显示一个区块。class 可选；启用时用于指定包裹区块的 div 的 CSS 类。div 始终包含 block-autotag 类。',
+    'newlines' => '换行',
+    'convert_newlines' => '将换行符（EOL）转换为 HTML 换行元素',
     'position' => 'Position',
-    'cache_time' => 'Cache Time',
+    'cache_time' => '缓存时间',
     'cache_time_desc' => 'This block will be cached for no longer than this many seconds. If 0 caching is disabled. (3600 = 1 hour,  86400 = 1 day)',
-    'block_type_gldefault' => 'System',
+    'block_type_gldefault' => '系统',
     'block_type_normal' => 'Normal',
     'block_type_phpblock' => 'PHP',
-    'block_type_portal' => 'Portal',
-    'block_type_dynamic' => 'Dynamic'
+    'block_type_portal' => '门户',
+    'block_type_dynamic' => '动态',
 );
 
 ###############################################################################
 # Block Locations
 
 $LANG23 = array(
-    'blocks_article_footer_name' => 'Article Footer',
-    'blocks_article_footer_desc' => 'Display Blocks in article Footer',
-    'blocks_article_topic_list_name' => 'Article Topic List',
-    'blocks_article_topic_list_desc' => 'Displays Blocks right after every X number of articles in topics.'
+    'blocks_article_footer_name' => '文章页脚',
+    'blocks_article_footer_desc' => '在文章页脚显示区块',
+    'blocks_article_topic_list_name' => '文章主题列表',
+    'blocks_article_topic_list_desc' => '在主题列表中每 X 篇文章后显示区块。',
 );
 
 ###############################################################################
@@ -1095,7 +1095,7 @@ $LANG24 = array(
     60 => '',
     61 => '过期后自动存档',
     62 => '过期后自动删除',
-    63 => 'Disable Comments',
+    63 => '关闭评论',
     64 => '',
     65 => '',
     66 => '',
@@ -1121,19 +1121,19 @@ $LANG24 = array(
     86 => '高等编辑器',
     87 => '文章统计',
     88 => 'Wiki 式的格式',
-    89 => 'Meta Description',
-    90 => 'Meta Keywords',
-    91 => 'You can always hit "Preview" to extend the expiry time.',
-    92 => 'You might also like',
+    89 => 'Meta 描述',
+    90 => 'Meta 关键字',
+    91 => '您可以随时点击“预览”来延长过期时间。',
+    92 => '您可能还会喜欢',
     93 => '#',
-    94 => 'Resized',
-    95 => 'Original',
-    96 => 'Upload | Replace',
-    97 => 'No Image',
+    94 => '已缩放',
+    95 => '原始',
+    96 => '上传 | 替换',
+    97 => '无图片',
     'autotag_desc_story' => '[article: id alternate title] - Displays a link to an article using the Article Title as the title. An alternate title may be specified but is not required.',
-    'autotag_desc_article' => '[article: id alternate title] - Displays a link to an article using the Article Title as the title. An alternate title may be specified but is not required.',
-    'cache_time' => 'Cache Time',
-    'cache_time_desc' => 'This article will be cached for no longer than this many seconds. If 0 caching is disabled. If -1 cached until article is edited again. (3600 = 1 hour,  86400 = 1 day)'
+    'autotag_desc_article' => '[article: id alternate title] - 显示文章链接，并以文章标题作为链接标题。可选填替代标题。',
+    'cache_time' => '缓存时间',
+    'cache_time_desc' => '此文章最多缓存指定秒数。0 表示禁用缓存；-1 表示缓存到文章下次编辑为止。（3600 = 1 小时，86400 = 1 天）',
 );
 
 ###############################################################################
@@ -1304,22 +1304,22 @@ $LANG28 = array(
     83 => "你的账户于 {$_CONF['site_name']} 自从登记时就未曾运用。若不继续运用，它将变成无效。",
     84 => "你的用户名是: %s 我们的网站是: {$_CONF['site_url']}",
     85 => '若你忘记密码，请使用以下链接：',
-    86 => 'Include',
-    87 => 'Reminders',
-    88 => 'Default Group',
-    89 => 'Check to make this a default group for new users',
-    90 => 'Apply "Default Group" change to existing user accounts',
-    91 => 'Send password to user',
-    92 => 'Only for new users or when changing password for existing user.',
-    'convert_remote' => 'Check here to convert from remote to a local account',
-    'convert_remote_desc' => 'When a remote account is converted to a local account, a password will be automatically generated. If the account does not have a confirmed email address, the account will be locked after it is converted since the user will have no way of retrieving the password. Once converted and if the account is active and has an email address the user will be emailed the password or they can request the password by using the forget password link from the Login page. For user accounts that do not have an active status and valid email you will have to manually notify the user of the account change and how to login.',
-    'contributed' => 'Contributed',
+    86 => '包含',
+    87 => '提醒',
+    88 => '默认组',
+    89 => '勾选后将此组设为新用户的默认组',
+    90 => '将“默认组”更改应用到现有用户账户',
+    91 => '向用户发送密码',
+    92 => '仅用于新用户，或更改现有用户密码时。',
+    'convert_remote' => '勾选此项将远程账户转换为本地账户',
+    'convert_remote_desc' => '远程账户转换为本地账户时会自动生成密码。若账户没有已确认的电子邮件地址，转换后将被锁定，因为用户无法获取密码。若账户处于活动状态且有电子邮件地址，系统会发送密码，或用户可通过登录页面的“忘记密码”链接请求密码。对于非活动状态或没有有效电子邮件地址的账户，您必须手动通知用户账户已更改以及如何登录。',
+    'contributed' => '投稿',
     'na' => 'NA',
-    'nothing' => 'Nothing',
+    'nothing' => '无',
     'autotag_desc_user' => '[user: id alternate title] - Displays a link to a User using the Username as the title. An alternate title may be specified but is not required.',
-    'USER_ACCOUNT_LOCKED' => 'Locked',
-    'USER_ACCOUNT_NEW_EMAIL' => 'New Email Required',
-    'USER_ACCOUNT_NEW_PASSWORD' => 'New Password Required'
+    'USER_ACCOUNT_LOCKED' => '已锁定',
+    'USER_ACCOUNT_NEW_EMAIL' => '需要新电子邮件地址',
+    'USER_ACCOUNT_NEW_PASSWORD' => '需要新密码',
 );
 
 ###############################################################################
@@ -1342,23 +1342,23 @@ $LANG29 = array(
     18 => '电子邮件',
     34 => '命令和控制',
     35 => '已递交的文章',
-    36 => 'Parent or Comment',
-    37 => 'Author',
+    36 => '父项或评论',
+    37 => '作者',
     38 => '递交',
     39 => '此时没有递交的东西',
     40 => '申请的用户',
-    41 => 'Comment Submissions',
-    42 => 'Username',
-    43 => 'Auto-publish Comments?',
-    44 => 'Results of your moderation',
-    45 => 'Approved %1$d items and deleted %2$d items of user submissions.',
-    46 => 'User Profile Updated',
-    'core' => 'Core',
+    41 => '待审核评论',
+    42 => '用户名',
+    43 => '自动发布评论？',
+    44 => '审核结果',
+    45 => '已批准 %1$d 项，并删除用户提交中的 %2$d 项。',
+    46 => '用户资料已更新',
+    'core' => '核心',
     'plugins' => 'Plugins',
-    'tools' => 'Tools',
-    'users' => 'Users',
+    'tools' => '工具',
+    'users' => '用户',
     'submissions_desc' => 'To modify or delete a user submssion, click on that item\'s edit icon below. To approve and delete multiple submissions use the radio options in the lists and then click submit.',
-    'max_invalid_login' => 'Max Invalid Logins Reached for User',
+    'max_invalid_login' => '用户已达到最大无效登录次数',
     'max_invalid_login_msg' => 'This user has reached the maximum number of invalid login attempts () within the specified time limit ( seconds). The last IP to make an invalid login attempt is %s. Either the real user has forgotten the password for their account, or someone else is attempting to guess the password for this user account.'
 );
 
