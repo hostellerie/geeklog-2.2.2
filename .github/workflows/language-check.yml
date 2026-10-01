@@ -6,6 +6,7 @@ on:
       - lang
     paths:
       - 'language/**'
+      - 'plugins/*/language/*_utf-8.php'
       - 'tools/check-languages.php'
       - 'tools/language-identical-allowlist.php'
       - 'tools/language-ecosystem.php'
@@ -19,6 +20,7 @@ on:
   pull_request:
     paths:
       - 'language/**'
+      - 'plugins/*/language/*_utf-8.php'
       - 'tools/check-languages.php'
       - 'tools/language-identical-allowlist.php'
       - 'tools/language-ecosystem.php'
