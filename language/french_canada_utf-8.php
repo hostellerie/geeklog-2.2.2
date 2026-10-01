@@ -1553,16 +1553,16 @@ $LANG33 = array(
 # admin/language.php (since v2.1.2)
 
 $LANG_LANG = array(
-    'language_admin_title' => 'Language Overrides',
+    'language_admin_title' => 'Surcharges de langue',
     'language_manager' => 'Language Manager',
     'new_language_msg' => 'To modify or delete a language item, click on that item\'s edit icon below. To create a new item, click on "Create New" above.',
     'language_editor' => 'Language Editor',
     'id' => 'ID',
-    'language' => 'Language',
+    'language' => 'Langue',
     'name' => 'Name',
     'var_name' => 'Var Name',
-    'name_tip' => 'Required just for language arrays.',
-    'var_name_tip' => 'Can be a regular variable or array. Do not include the dollar sign at the beginning of the variable/array name.',
+    'name_tip' => 'Requis uniquement pour les tableaux de langue.',
+    'var_name_tip' => 'Peut être une variable ou un tableau standard. N’incluez pas le signe dollar au début du nom de la variable ou du tableau.',
     'value' => 'Value'
 );
 
