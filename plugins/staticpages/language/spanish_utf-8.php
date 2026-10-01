@@ -146,9 +146,16 @@ $LANG_STATIC = array(
 );
 
 $LANG_staticpages_search = array(
-    0 => 'Excluded',
-    1 => 'Use Default',
-    2 => 'Included'
+    0  => 'Excluida',
+    1  => 'Usar valor predeterminado',
+    2  => 'Incluida'
+);
+
+$LANG_staticpages_likes = array(
+    -1 => 'Usar valor predeterminado',
+    0  => 'Desactivado',
+    1  => 'Me gusta y No me gusta',
+    2  => 'Solo Me gusta',
 );
 
 $PLG_staticpages_MESSAGE15 = 'Your comment has been submitted for review and will be published when approved by a moderator.';
