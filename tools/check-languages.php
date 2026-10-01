@@ -20,6 +20,8 @@ $benchmarkFile = $root . '/language/french_france_utf-8.php';
 $identicalAllowlistFile = $root . '/tools/language-identical-allowlist.php';
 $ecosystemHelperFile = $root . '/tools/language-ecosystem.php';
 $recommendationsFile = $root . '/tools/language-recommendations.php';
+$bundledHelperFile = $root . '/tools/bundled-language-audit.php';
+$bundledAllowlistFile = $root . '/tools/bundled-plugin-identical-allowlist.php';
 
 if (!is_file($referenceFile)) {
     fwrite(STDERR, "Reference file not found: {$referenceFile}\n");
@@ -408,6 +410,9 @@ if ($checkPlugins || $reportPath !== null) {
         ++$totalErrors;
     } else {
         require_once $ecosystemHelperFile;
+        if (is_file($bundledHelperFile)) {
+            require_once $bundledHelperFile;
+        }
     }
 }
 
@@ -422,12 +427,27 @@ if ($checkPlugins && function_exists('GL_LANG_auditPlugins')) {
     }
 }
 
+$bundledAudit = null;
+if (($checkPlugins || $reportPath !== null) && function_exists('GL_LANG_auditBundledPlugins')) {
+    $bundledAllowlist = is_file($bundledAllowlistFile) ? include $bundledAllowlistFile : [];
+    try {
+        $bundledAudit = GL_LANG_auditBundledPlugins($root, $bundledAllowlist);
+        echo 'Audited ' . $bundledAudit['count'] . ' bundled plugin(s)' . PHP_EOL;
+    } catch (Throwable $e) {
+        fwrite(STDERR, '[ERROR] Bundled plugin audit failed: ' . $e->getMessage() . PHP_EOL);
+        ++$totalErrors;
+    }
+}
+
 if ($reportPath !== null && function_exists('GL_LANG_writeReport')) {
     if (!str_starts_with($reportPath, DIRECTORY_SEPARATOR)) {
         $reportPath = $root . DIRECTORY_SEPARATOR . $reportPath;
     }
     try {
         GL_LANG_writeReport($reportPath, $results, $pluginAudit, $recommendations);
+        if ($bundledAudit !== null && function_exists('GL_LANG_appendBundledReport')) {
+            GL_LANG_appendBundledReport($reportPath, $bundledAudit);
+        }
         echo 'Wrote report: ' . $reportPath . PHP_EOL;
     } catch (Throwable $e) {
         fwrite(STDERR, '[ERROR] Report generation failed: ' . $e->getMessage() . PHP_EOL);
