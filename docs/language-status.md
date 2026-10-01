@@ -795,10 +795,10 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 | german_formal_utf-8.php | ⚠️ | 0 | 0 | 7 | 100.0% |
 | german_utf-8.php | ⚠️ | 0 | 0 | 7 | 100.0% |
 | hebrew_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
-| italian_utf-8.php | ⚠️ | 4 | 0 | 12 | 96.7% |
+| italian_utf-8.php | ⚠️ | 0 | 0 | 5 | 100.0% |
 | japanese_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
 | persian_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
-| russian_utf-8.php | ⚠️ | 0 | 0 | 4 | 100.0% |
+| russian_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
 | spanish_argentina_utf-8.php | ⚠️ | 0 | 0 | 5 | 100.0% |
 | spanish_utf-8.php | ⚠️ | 0 | 0 | 5 | 100.0% |
 
