@@ -3,7 +3,7 @@
 // +---------------------------------------------------------------------------+
 // | reCAPTCHA Plugin for Geeklog - The Ultimate Weblog                        |
 // +---------------------------------------------------------------------------+
-// | geeklog/plugins/recaptcha/language/french_france_utf-8.php             |
+// | geeklog/plugins/recaptcha/language/hebrew_utf-8.php                    |
 // +---------------------------------------------------------------------------+
 // | Copyright (C) 2014-2020 mystral-kk - geeklog AT mystral-kk DOT net        |
 // |                                                                           |
@@ -36,60 +36,60 @@ if (stripos($_SERVER['PHP_SELF'], basename(__FILE__)) !== false) {
 $LANG_RECAPTCHA = [
     'plugin'      => 'reCAPTCHA',
     'admin'       => 'reCAPTCHA',
-    'msg_error'   => 'Erreur : la validation reCAPTCHA a échoué.',
-    'entry_error' => 'Une chaîne reCAPTCHA non valide a été saisie dans %1s - Adresse IP : %2s - Codes d’erreur : %3s',    // %1s = $type, %2s = $ip, %3s = $errorCode
+    'msg_error'   => 'שגיאה: אימות reCAPTCHA נכשל.',
+    'entry_error' => 'מחרוזת reCAPTCHA לא תקינה הוזנה ב-%1s - כתובת IP: %2s - קודי שגיאה: %3s',    // %1s = $type, %2s = $ip, %3s = $errorCode
 ];
 
 // Localization of the Admin Configuration UI
 $LANG_configsections['recaptcha'] = [
     'label' => 'reCAPTCHA',
-    'title' => 'Configuration de reCAPTCHA',
+    'title' => 'הגדרות reCAPTCHA',
 ];
 
 $LANG_confignames['recaptcha'] = [
-    'site_key'             => 'Clé de site reCAPTCHA V2',
-    'secret_key'           => 'Clé secrète reCAPTCHA V2',
-    'invisible_site_key'   => 'Clé de site reCAPTCHA invisible',
-    'invisible_secret_key' => 'Clé secrète reCAPTCHA invisible',
-    'site_key_v3'          => 'Clé de site reCAPTCHA V3',
-    'secret_key_v3'        => 'Clé secrète reCAPTCHA V3',
-    'logging'              => 'Journaliser les tentatives reCAPTCHA non valides',
-    'anonymous_only'       => 'Utilisateurs anonymes uniquement',
-    'remoteusers'          => 'Forcer reCAPTCHA pour tous les utilisateurs distants',
-    'enable_comment'       => 'Activer la protection des commentaires',
-    'enable_contact'       => 'Activer la protection du formulaire de contact',
-    'enable_emailstory'    => 'Activer la protection de l’envoi d’un article par e-mail',
-    'enable_registration'  => 'Activer la protection de l’inscription',
-    'enable_loginform'     => 'Activer la protection du formulaire de connexion',
-    'enable_getpassword'   => 'Activer la protection du formulaire de récupération du mot de passe',
-    'enable_story'         => 'Activer la protection des articles',
-    'score_comment'        => 'Seuil de score pour les commentaires',
-    'score_contact'        => 'Seuil de score pour le formulaire de contact',
-    'score_emailstory'     => 'Seuil de score pour l’envoi d’un article par e-mail',
-    'score_registration'   => 'Seuil de score pour l’inscription',
-    'score_loginform'      => 'Seuil de score pour le formulaire de connexion',
-    'score_getpassword'    => 'Seuil de score pour la récupération du mot de passe',
-    'score_story'          => 'Seuil de score pour les articles',
+    'site_key'             => 'מפתח אתר reCAPTCHA V2',
+    'secret_key'           => 'מפתח סודי reCAPTCHA V2',
+    'invisible_site_key'   => 'מפתח אתר reCAPTCHA בלתי נראה',
+    'invisible_secret_key' => 'מפתח סודי reCAPTCHA בלתי נראה',
+    'site_key_v3'          => 'מפתח אתר reCAPTCHA V3',
+    'secret_key_v3'        => 'מפתח סודי reCAPTCHA V3',
+    'logging'              => 'רישום ניסיונות reCAPTCHA לא תקינים',
+    'anonymous_only'       => 'משתמשים אנונימיים בלבד',
+    'remoteusers'          => 'כפיית reCAPTCHA על כל המשתמשים המרוחקים',
+    'enable_comment'       => 'הפעלת הגנה על תגובות',
+    'enable_contact'       => 'הפעלת הגנה על טופס יצירת קשר',
+    'enable_emailstory'    => 'הפעלת הגנה על שליחת כתבה בדוא״ל',
+    'enable_registration'  => 'הפעלת הגנה על הרשמה',
+    'enable_loginform'     => 'הפעלת הגנה על טופס התחברות',
+    'enable_getpassword'   => 'הפעלת הגנה על טופס שחזור סיסמה',
+    'enable_story'         => 'הפעלת הגנה על כתבות',
+    'score_comment'        => 'סף ציון לתגובות',
+    'score_contact'        => 'סף ציון לטופס יצירת קשר',
+    'score_emailstory'     => 'סף ציון לשליחת כתבה בדוא״ל',
+    'score_registration'   => 'סף ציון להרשמה',
+    'score_loginform'      => 'סף ציון לטופס התחברות',
+    'score_getpassword'    => 'סף ציון לשחזור סיסמה',
+    'score_story'          => 'סף ציון לכתבות',
 ];
 
 $LANG_configsubgroups['recaptcha'] = [
-    'sg_main' => 'Paramètres principaux',
+    'sg_main' => 'הגדרות ראשיות',
 ];
 
 $LANG_tab['recaptcha'] = [
-    'tab_general'     => 'Paramètres reCAPTCHA',
-    'tab_integration' => 'Intégration Geeklog',
-    'tab_score'       => 'Seuils de score',
+    'tab_general'     => 'הגדרות reCAPTCHA',
+    'tab_integration' => 'שילוב Geeklog',
+    'tab_score'       => 'ספי ציון',
 ];
 
 $LANG_fs['recaptcha'] = [
-    'fs_system'      => 'Système',
-    'fs_integration' => 'Intégration Geeklog',
-    'fs_score'       => 'Seuils de score',
+    'fs_system'      => 'מערכת',
+    'fs_integration' => 'שילוב Geeklog',
+    'fs_score'       => 'ספי ציון',
 ];
 
 // Note: entries 0, 1, 9, and 12 are the same as in $LANG_configselects['Core']
 $LANG_configselects['recaptcha'] = [
-    0 => ['Oui' => 1, 'Non' => 0],
-    2 => ['Désactivé' => 0, 'reCAPTCHA V2' => 1, 'reCAPTCHA V2 invisible' => 2, 'reCAPTCHA V3' => 4],
+    0 => ['כן' => 1, 'לא' => 0],
+    2 => ['מושבת' => 0, 'reCAPTCHA V2' => 1, 'reCAPTCHA V2 בלתי נראה' => 2, 'reCAPTCHA V3' => 4],
 ];
