@@ -1,0 +1,40 @@
+name: Language consistency check
+
+on:
+  push:
+    branches:
+      - lang
+    paths:
+      - 'language/**'
+      - 'tools/check-languages.php'
+      - '.github/workflows/language-check.yml'
+  pull_request:
+    paths:
+      - 'language/**'
+      - 'tools/check-languages.php'
+      - '.github/workflows/language-check.yml'
+  workflow_dispatch:
+
+jobs:
+  language-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+
+      - name: Lint checker
+        run: php -l tools/check-languages.php
+
+      - name: Check French translation
+        run: php tools/check-languages.php language/french_france_utf-8.php
+
+      - name: Check all UTF-8 languages
+        if: always()
+        run: php tools/check-languages.php
