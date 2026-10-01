@@ -2847,6 +2847,6 @@ $LANG_VALIDATION = array(
     'page_navigation_max_pages' => '此欄位必須介於 2 - 21 之間',
     'hash' => '此欄位必須是目前 PHP 版本支援的雜湊函式',
     'config_setting_lang_array' => '每個元素都需要唯一的語言縮寫（如 \'en\'、\'de\' 等），對應欄位必須包含值',
-    'config_setting_lang_array_element_req' => '至少需要一個元素。每個元素都需要唯一的語言縮寫（如 'en'、'de' 等），對應欄位必須包含值',
+    'config_setting_lang_array_element_req' => '至少需要一個元素。每個元素都需要唯一的語言縮寫（如 \'en\'、\'de\' 等），對應欄位必須包含值',
 );
 
