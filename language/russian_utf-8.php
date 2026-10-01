@@ -829,12 +829,12 @@ $LANG_LIKES = array(
 # admin/logviewer.php
 
 $LANG_LOGVIEW = array(
-    'log_viewer' => 'Log Viewer',
-    'info' => 'Geeklog log file administration.',
-    'logs' => 'Logs',
-    'view' => 'View Log File',
-    'clear' => 'Clear Log File',
-    'log_file' => 'Log File'
+    'log_viewer' => 'Просмотр журналов',
+    'info' => 'Управление файлами журналов Geeklog.',
+    'logs' => 'Журналы',
+    'view' => 'Просмотреть файл журнала',
+    'clear' => 'Очистить файл журнала',
+    'log_file' => 'Файл журнала'
 );
 
 ###############################################################################
