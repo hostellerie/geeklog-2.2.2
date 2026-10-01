@@ -230,16 +230,16 @@ $LANG_fs['staticpages'] = array(
 
 // Note: entries 0, 1, 9, 12, 17 are the same as in $LANG_configselects['Core']
 $LANG_configselects['staticpages'] = array(
-    0 => array('True' => 1, 'False' => 0),
-    1 => array('True' => true, 'False' => false),
-    2 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title'),
-    3 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Label' => 'Libellé'),
-    4 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Author' => 'author'),
-    5 => array('Hide' => 'hide', 'Show - Use Modified Date' => 'modified', 'Show - Use Created Date' => 'created'),
-    9 => array('Forward to page' => 'item', 'Display List' => 'liste', 'Display Home' => 'home', 'Display Admin' => 'admin'),
-    12 => array('No access' => 0, 'Read-Only' => 2, 'Read-Write' => 3),
-    13 => array('No access' => 0, 'Use' => 2),
-    17 => array('Comments Enabled' => 0, 'Comments Disabled' => -1),
-    39 => array('None' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
-    41 => array('False' => 0, 'Likes and Dislikes' => 1, 'Likes Only' => 2)
+    0 => array('Vrai' => 1, 'Faux' => 0),
+    1 => array('Vrai' => TRUE, 'Faux' => FALSE),
+    2 => array('Date' => 'date', 'ID de page' => 'id', 'Titre' => 'title'),
+    3 => array('Date' => 'date', 'ID de page' => 'id', 'Titre' => 'title', 'Libellé' => 'label'),
+    4 => array('Date' => 'date', 'ID de page' => 'id', 'Titre' => 'title', 'Auteur' => 'author'),
+    5 => array('Masquer' => 'hide', 'Afficher - utiliser la date de modification' => 'modified', 'Afficher - utiliser la date de création' => 'created'),
+    9 => array('Aller à la page' => 'item', 'Afficher la liste' => 'list', 'Afficher l’accueil' => 'home', 'Afficher l’administration' => 'admin'),
+    12 => array('Aucun accès' => 0, 'Lecture seule' => 2, 'Lecture-écriture' => 3),
+    13 => array('Aucun accès' => 0, 'Utiliser' => 2),
+    17 => array('Commentaires activés' => 0, 'Commentaires désactivés' => -1),
+    39 => array('Aucun' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
+    41 => array('Faux' => 0, 'J’aime et Je n’aime pas' => 1, 'J’aime uniquement' => 2)
 );
