@@ -161,10 +161,10 @@ $LANG_staticpages_search = array(
 // Likes options for pages 
 // The same values for these options will match values for the config option "likes_pages"
 $LANG_staticpages_likes = array(
-	-1   => 'Mi piace e Non mi piace',
-    0   => 'Disattivato', 
-    1   => 'Mi piace e Non mi piace',
-	2   => 'Solo Mi piace',
+    -1 => 'Usa valore predefinito',
+    0  => 'Disattivato',
+    1  => 'Mi piace e Non mi piace',
+    2  => 'Solo Mi piace',
 );
 
 // Localization of the Admin Configuration UI
@@ -230,16 +230,16 @@ $LANG_fs['staticpages'] = array(
 
 // Note: entries 0, 1, 9, 12, 17, 39, 41 are the same as in $LANG_configselects['Core']
 $LANG_configselects['staticpages'] = array(
-    0 => array('True' => 1, 'False' => 0),
-    1 => array('True' => TRUE, 'False' => FALSE),
-    2 => array('Date' => 'Data', 'Page ID' => 'ID pagina', 'Title' => 'Titolo'),
-    3 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Label' => 'Etichetta'),
-    4 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Author' => 'Autore'),
-    5 => array('Hide' => 'Nascondi', 'Show - Use Modified Date' => 'Mostra - usa data di modifica', 'Show - Use Created Date' => 'Mostra - usa data di creazione'),
-    9 => array('Forward to page' => 'Vai alla pagina', 'Display List' => 'lista', 'Display Home' => 'Mostra home', 'Display Admin' => 'Mostra amministrazione'),
-    12 => array('No access' => 0, 'Read-Only' => 2, 'Read-Write' => 3),
-    13 => array('No access' => 0, 'Use' => 2),
-    17 => array('Comments Enabled' => 0, 'Comments Disabled' => -1),
-    39 => array('None' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
-	41 => array('False' => 0, 'Likes and Dislikes' => 1, 'Likes Only' => 2)
+    0 => array('Vero' => 1, 'Falso' => 0),
+    1 => array('Vero' => TRUE, 'Falso' => FALSE),
+    2 => array('Data' => 'date', 'ID pagina' => 'id', 'Titolo' => 'title'),
+    3 => array('Data' => 'date', 'ID pagina' => 'id', 'Titolo' => 'title', 'Etichetta' => 'label'),
+    4 => array('Data' => 'date', 'ID pagina' => 'id', 'Titolo' => 'title', 'Autore' => 'author'),
+    5 => array('Nascondi' => 'hide', 'Mostra - usa data di modifica' => 'modified', 'Mostra - usa data di creazione' => 'created'),
+    9 => array('Vai alla pagina' => 'item', 'Mostra elenco' => 'list', 'Mostra home' => 'home', 'Mostra amministrazione' => 'admin'),
+    12 => array('Nessun accesso' => 0, 'Sola lettura' => 2, 'Lettura e scrittura' => 3),
+    13 => array('Nessun accesso' => 0, 'Usa' => 2),
+    17 => array('Commenti abilitati' => 0, 'Commenti disabilitati' => -1),
+    39 => array('Nessuno' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
+    41 => array('Falso' => 0, 'Mi piace e Non mi piace' => 1, 'Solo Mi piace' => 2)
 );
