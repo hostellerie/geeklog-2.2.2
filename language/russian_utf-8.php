@@ -1912,7 +1912,7 @@ $LANG_404 = array(
     1 => '404 Ошибка',
     2 => 'Хмм, мы посмотрели везде, но не смогли найти <b>%s</b>.',
     3 => "<p>Нам очень жаль, но файл, который Вы запросили, не существует. Пожайлуйста, не стесняйтесь посмотреть <a href=\"{$_CONF['site_url']}\">главную страницу</a> или <a href=\"{$_CONF['site_url']}/search.php\">страницу поиска</a> чтобы определить, сможете ли Вы найти то, что потеряли :).",
-    4 => "<p>We're sorry, but the page you have requested does not exist. We recommend going back to this <a href=\"%s\">related page</a>, or you may want to check the <a href=\"{$_CONF['site_url']}/\">home page</a>, or the <a href=\"{$_CONF['site_url']}/search.php\">search page</a> to see if you can find what you lost."
+    4 => "<p>К сожалению, запрошенная страница не существует. Рекомендуем вернуться на <a href=\"%s\">связанную страницу</a> либо открыть <a href=\"{$_CONF['site_url']}/\">главную страницу</a> или <a href=\"{$_CONF['site_url']}/search.php\">страницу поиска</a>, чтобы найти нужную информацию."
 );
 
 ###############################################################################
