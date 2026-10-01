@@ -153,6 +153,13 @@ $LANG_staticpages_search = array(
     2 => '含める'
 );
 
+$LANG_staticpages_likes = array(
+    -1 => 'デフォルトを使用',
+    0  => '無効',
+    1  => 'いいね・よくないね',
+    2  => 'いいねのみ',
+);
+
 $PLG_staticpages_MESSAGE15 = 'あなたのコメントは投稿スタッフによる承認待ちとなっていて、承認が済むとサイトに表示します。';
 $PLG_staticpages_MESSAGE19 = '静的ページを保存しました。';
 $PLG_staticpages_MESSAGE20 = '静的ページを削除しました。';
