@@ -453,7 +453,7 @@ function GL_LANG_ecosystemLanguages(array $recommendations): array
     return $languages;
 }
 
-function GL_LANG_auditPlugins(string $org, array $recommendations): array
+function GL_LANG_auditPlugins(string $org, array $recommendations, array $supportStatus = []): array
 {
     $repos = GL_LANG_githubJson('https://api.github.com/orgs/' . rawurlencode($org) . '/repos?type=public&per_page=100');
     $langs = GL_LANG_ecosystemLanguages($recommendations);
@@ -464,12 +464,17 @@ function GL_LANG_auditPlugins(string $org, array $recommendations): array
 
     $plugins = [];
     $audited = 0;
+    $activePlugins = array_flip($supportStatus['active'] ?? []);
+    $legacyPlugins = array_values($supportStatus['legacy'] ?? []);
 
     foreach ($repos as $repo) {
         if (($repo['fork'] ?? false) || ($repo['archived'] ?? false) || ($repo['name'] ?? '') === 'language-audit') {
             continue;
         }
         $name = (string) $repo['name'];
+        if ($activePlugins !== [] && !isset($activePlugins[$name])) {
+            continue;
+        }
         $branch = (string) ($repo['default_branch'] ?? 'master');
         try {
             $files = GL_LANG_githubJson(
@@ -536,7 +541,14 @@ function GL_LANG_auditPlugins(string $org, array $recommendations): array
         }
     }
 
-    return ['organization' => $org, 'audited' => $audited, 'languages' => $summary, 'plugins' => $plugins];
+    sort($legacyPlugins, SORT_NATURAL | SORT_FLAG_CASE);
+    return [
+        'organization' => $org,
+        'audited' => $audited,
+        'languages' => $summary,
+        'plugins' => $plugins,
+        'legacy' => $legacyPlugins,
+    ];
 }
 
 function GL_LANG_writeReport(string $path, array $coreResults, ?array $pluginAudit, array $recommendations): void
@@ -574,7 +586,10 @@ function GL_LANG_writeReport(string $path, array $coreResults, ?array $pluginAud
         $lines[] = '';
         $lines[] = '## Geeklog-Plugins coverage';
         $lines[] = '';
-        $lines[] = 'Plugins audited: **' . $pluginAudit['audited'] . '**';
+        $lines[] = 'Active plugins audited: **' . $pluginAudit['audited'] . '**';
+        if (!empty($pluginAudit['legacy'])) {
+            $lines[] = 'Legacy plugins excluded from language targets: **' . count($pluginAudit['legacy']) . '**';
+        }
         $lines[] = '';
         $lines[] = '| Language | Core | Complete | Partial | Missing | Placeholder errors | Identical to English |';
         $lines[] = '|---|---:|---:|---:|---:|---:|---:|';
@@ -582,6 +597,16 @@ function GL_LANG_writeReport(string $path, array $coreResults, ?array $pluginAud
             $lines[] = '| ' . $status['name'] . ' | ' . ($status['core'] ? '✅' : '❌')
                 . ' | ' . $status['complete'] . ' | ' . $status['partial'] . ' | ' . $status['missing']
                 . ' | ' . $status['placeholder_errors'] . ' | ' . $status['identical'] . ' |';
+        }
+
+        $lines[] = '';
+        if (!empty($pluginAudit['legacy'])) {
+            $lines[] = '';
+            $lines[] = '### Legacy external plugins';
+            $lines[] = '';
+            $lines[] = 'These plugins remain visible but are excluded from translation coverage targets and future language-file proposals:';
+            $lines[] = '';
+            $lines[] = implode(', ', array_map(static fn(string $name): string => '`' . $name . '`', $pluginAudit['legacy']));
         }
 
         $lines[] = '';
