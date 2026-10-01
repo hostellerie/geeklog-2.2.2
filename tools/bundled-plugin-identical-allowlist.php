@@ -740,4 +740,82 @@ return [
         'LANG_SX00:plugin_name',
     ],
 
+
+    'staticpages/chinese_simplified_utf-8.php' => [
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:id',
+    ],
+    'staticpages/chinese_traditional_utf-8.php' => [
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:id',
+    ],
+    'staticpages/french_canada_utf-8.php' => [
+        'LANG_STATIC:url',
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:position',
+        'LANG_STATIC:pages',
+    ],
+    'staticpages/french_france_utf-8.php' => [
+        'LANG_STATIC:url',
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:position',
+        'LANG_STATIC:pages',
+    ],
+    'staticpages/german_formal_utf-8.php' => [
+        'LANG_STATIC:url',
+        'LANG_STATIC:label',
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:id',
+        'LANG_STATIC:centerblock',
+        'LANG_STATIC:position',
+        'LANG_STATIC:head_centerblock',
+    ],
+    'staticpages/german_utf-8.php' => [
+        'LANG_STATIC:url',
+        'LANG_STATIC:label',
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:id',
+        'LANG_STATIC:centerblock',
+        'LANG_STATIC:position',
+        'LANG_STATIC:head_centerblock',
+    ],
+    'staticpages/hebrew_utf-8.php' => [
+        'LANG_STATIC:php_msg',
+    ],
+    'staticpages/italian_utf-8.php' => [
+        'LANG_STATIC:url',
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:id',
+        'LANG_STATIC:centerblock_no',
+        'LANG_STATIC:draft_no',
+    ],
+    'staticpages/japanese_utf-8.php' => [
+        'LANG_STATIC:url',
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:id',
+    ],
+    'staticpages/persian_utf-8.php' => [
+        'LANG_STATIC:url',
+        'LANG_STATIC:php_msg',
+    ],
+    'staticpages/russian_utf-8.php' => [
+        'LANG_STATIC:url',
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:id',
+    ],
+    'staticpages/spanish_argentina_utf-8.php' => [
+        'LANG_STATIC:url',
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:id',
+        'LANG_STATIC:centerblock_no',
+        'LANG_STATIC:draft_no',
+    ],
+    'staticpages/spanish_utf-8.php' => [
+        'LANG_STATIC:url',
+        'LANG_STATIC:php_msg',
+        'LANG_STATIC:id',
+        'LANG_STATIC:centerblock_no',
+        'LANG_STATIC:draft_no',
+    ],
+
 ];
