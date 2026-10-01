@@ -966,3 +966,157 @@ Plugins audited: **34**
 - [store](https://github.com/Geeklog-Plugins/store) — ❌ missing
 - [documents](https://github.com/Geeklog-Plugins/documents) — ❌ missing
 
+
+## Bundled plugins
+
+These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when every UTF-8 language supported by the core exists for that plugin and has no missing keys, placeholder errors, or unreviewed strings identical to English.
+
+| Plugin | Ready for PR | Blocking languages |
+|---|---:|---:|
+| calendar | ❌ | 13 |
+| links | ❌ | 13 |
+| polls | ❌ | 12 |
+| recaptcha | ❌ | 12 |
+| spamx | ❌ | 13 |
+| staticpages | ❌ | 13 |
+| xmlsitemap | ❌ | 13 |
+
+### Bundled plugin: calendar
+
+**Ready for PR:** ❌ No
+
+| Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
+|---|---:|---:|---:|---:|---:|
+| chinese_simplified_utf-8.php | ❌ missing file | 126 | 0 | 0 | 0.0% |
+| chinese_traditional_utf-8.php | ❌ missing file | 126 | 0 | 0 | 0.0% |
+| french_canada_utf-8.php | ⚠️ | 0 | 0 | 23 | 100.0% |
+| french_france_utf-8.php | ⚠️ | 0 | 0 | 7 | 100.0% |
+| german_formal_utf-8.php | ⚠️ | 0 | 1 | 4 | 100.0% |
+| german_utf-8.php | ⚠️ | 0 | 1 | 4 | 100.0% |
+| hebrew_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
+| italian_utf-8.php | ❌ missing file | 126 | 0 | 0 | 0.0% |
+| japanese_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
+| persian_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
+| russian_utf-8.php | ⚠️ | 0 | 0 | 14 | 100.0% |
+| spanish_argentina_utf-8.php | ❌ missing file | 126 | 0 | 0 | 0.0% |
+| spanish_utf-8.php | ⚠️ | 0 | 0 | 16 | 100.0% |
+
+### Bundled plugin: links
+
+**Ready for PR:** ❌ No
+
+| Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
+|---|---:|---:|---:|---:|---:|
+| chinese_simplified_utf-8.php | ⚠️ | 0 | 0 | 85 | 100.0% |
+| chinese_traditional_utf-8.php | ⚠️ | 0 | 0 | 85 | 100.0% |
+| french_canada_utf-8.php | ⚠️ | 0 | 0 | 103 | 100.0% |
+| french_france_utf-8.php | ⚠️ | 0 | 0 | 44 | 100.0% |
+| german_formal_utf-8.php | ⚠️ | 0 | 1 | 36 | 100.0% |
+| german_utf-8.php | ⚠️ | 0 | 1 | 36 | 100.0% |
+| hebrew_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
+| italian_utf-8.php | ❌ missing file | 136 | 0 | 0 | 0.0% |
+| japanese_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
+| persian_utf-8.php | ⚠️ | 0 | 0 | 85 | 100.0% |
+| russian_utf-8.php | ⚠️ | 0 | 0 | 86 | 100.0% |
+| spanish_argentina_utf-8.php | ❌ missing file | 136 | 0 | 0 | 0.0% |
+| spanish_utf-8.php | ⚠️ | 0 | 0 | 88 | 100.0% |
+
+### Bundled plugin: polls
+
+**Ready for PR:** ❌ No
+
+| Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
+|---|---:|---:|---:|---:|---:|
+| chinese_simplified_utf-8.php | ⚠️ | 0 | 0 | 58 | 100.0% |
+| chinese_traditional_utf-8.php | ⚠️ | 0 | 0 | 57 | 100.0% |
+| french_canada_utf-8.php | ⚠️ | 0 | 0 | 61 | 100.0% |
+| french_france_utf-8.php | ⚠️ | 0 | 0 | 12 | 100.0% |
+| german_formal_utf-8.php | ⚠️ | 0 | 0 | 7 | 100.0% |
+| german_utf-8.php | ⚠️ | 0 | 0 | 7 | 100.0% |
+| hebrew_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
+| italian_utf-8.php | ❌ missing file | 80 | 0 | 0 | 0.0% |
+| japanese_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
+| persian_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
+| russian_utf-8.php | ⚠️ | 0 | 0 | 58 | 100.0% |
+| spanish_argentina_utf-8.php | ❌ missing file | 80 | 0 | 0 | 0.0% |
+| spanish_utf-8.php | ⚠️ | 0 | 0 | 58 | 100.0% |
+
+### Bundled plugin: recaptcha
+
+**Ready for PR:** ❌ No
+
+| Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
+|---|---:|---:|---:|---:|---:|
+| chinese_simplified_utf-8.php | ❌ missing file | 10 | 0 | 0 | 0.0% |
+| chinese_traditional_utf-8.php | ❌ missing file | 10 | 0 | 0 | 0.0% |
+| french_canada_utf-8.php | ❌ missing file | 10 | 0 | 0 | 0.0% |
+| french_france_utf-8.php | ⚠️ | 0 | 0 | 4 | 100.0% |
+| german_formal_utf-8.php | ❌ missing file | 10 | 0 | 0 | 0.0% |
+| german_utf-8.php | ❌ missing file | 10 | 0 | 0 | 0.0% |
+| hebrew_utf-8.php | ❌ missing file | 10 | 0 | 0 | 0.0% |
+| italian_utf-8.php | ❌ missing file | 10 | 0 | 0 | 0.0% |
+| japanese_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
+| persian_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
+| russian_utf-8.php | ❌ missing file | 10 | 0 | 0 | 0.0% |
+| spanish_argentina_utf-8.php | ❌ missing file | 10 | 0 | 0 | 0.0% |
+| spanish_utf-8.php | ❌ missing file | 10 | 0 | 0 | 0.0% |
+
+### Bundled plugin: spamx
+
+**Ready for PR:** ❌ No
+
+| Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
+|---|---:|---:|---:|---:|---:|
+| chinese_simplified_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
+| chinese_traditional_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
+| french_canada_utf-8.php | ⚠️ | 0 | 2 | 33 | 100.0% |
+| french_france_utf-8.php | ⚠️ | 0 | 2 | 33 | 100.0% |
+| german_formal_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
+| german_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
+| hebrew_utf-8.php | ⚠️ | 0 | 2 | 10 | 100.0% |
+| italian_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
+| japanese_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
+| persian_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
+| russian_utf-8.php | ⚠️ | 1 | 2 | 20 | 99.2% |
+| spanish_argentina_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
+| spanish_utf-8.php | ⚠️ | 0 | 2 | 34 | 100.0% |
+
+### Bundled plugin: staticpages
+
+**Ready for PR:** ❌ No
+
+| Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
+|---|---:|---:|---:|---:|---:|
+| chinese_simplified_utf-8.php | ⚠️ | 4 | 0 | 32 | 96.7% |
+| chinese_traditional_utf-8.php | ⚠️ | 4 | 0 | 32 | 96.7% |
+| french_canada_utf-8.php | ⚠️ | 4 | 0 | 46 | 96.7% |
+| french_france_utf-8.php | ⚠️ | 4 | 0 | 35 | 96.7% |
+| german_formal_utf-8.php | ⚠️ | 4 | 0 | 26 | 96.7% |
+| german_utf-8.php | ⚠️ | 4 | 0 | 26 | 96.7% |
+| hebrew_utf-8.php | ⚠️ | 4 | 0 | 20 | 96.7% |
+| italian_utf-8.php | ❌ missing file | 120 | 0 | 0 | 0.0% |
+| japanese_utf-8.php | ⚠️ | 4 | 2 | 4 | 96.7% |
+| persian_utf-8.php | ⚠️ | 4 | 0 | 103 | 96.7% |
+| russian_utf-8.php | ❌ missing file | 120 | 0 | 0 | 0.0% |
+| spanish_argentina_utf-8.php | ❌ missing file | 120 | 0 | 0 | 0.0% |
+| spanish_utf-8.php | ⚠️ | 4 | 0 | 45 | 96.7% |
+
+### Bundled plugin: xmlsitemap
+
+**Ready for PR:** ❌ No
+
+| Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
+|---|---:|---:|---:|---:|---:|
+| chinese_simplified_utf-8.php | ❌ missing file | 15 | 0 | 0 | 0.0% |
+| chinese_traditional_utf-8.php | ❌ missing file | 15 | 0 | 0 | 0.0% |
+| french_canada_utf-8.php | ❌ missing file | 15 | 0 | 0 | 0.0% |
+| french_france_utf-8.php | ⚠️ | 0 | 0 | 9 | 100.0% |
+| german_formal_utf-8.php | ⚠️ | 0 | 0 | 9 | 100.0% |
+| german_utf-8.php | ⚠️ | 0 | 0 | 9 | 100.0% |
+| hebrew_utf-8.php | ⚠️ | 0 | 0 | 8 | 100.0% |
+| italian_utf-8.php | ❌ missing file | 15 | 0 | 0 | 0.0% |
+| japanese_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
+| persian_utf-8.php | ⚠️ | 0 | 0 | 7 | 100.0% |
+| russian_utf-8.php | ❌ missing file | 15 | 0 | 0 | 0.0% |
+| spanish_argentina_utf-8.php | ❌ missing file | 15 | 0 | 0 | 0.0% |
+| spanish_utf-8.php | ❌ missing file | 15 | 0 | 0 | 0.0% |
