@@ -118,12 +118,12 @@ $LANG25 = array(
     1003 => '描述'
 );
 
-$PLG_polls_MESSAGE15 = 'Your comment has been submitted for review and will be published when approved by a moderator.';
+$PLG_polls_MESSAGE15 = '您的留言已提交審核，並會在版主核准後發布。';
 $PLG_polls_MESSAGE19 = '你的民意調查已順利的存續了.';
-$PLG_polls_MESSAGE20 = 'Your poll has been successfully deleted.';
+$PLG_polls_MESSAGE20 = '您的投票已成功刪除。';
 
 // Messages for the plugin upgrade
-$PLG_polls_MESSAGE3001 = 'Plugin upgrade not supported.';
+$PLG_polls_MESSAGE3001 = '不支援外掛升級。';
 $PLG_polls_MESSAGE3002 = $LANG32[9];
 
 // Localization of the Admin Configuration UI
