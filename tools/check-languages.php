@@ -23,21 +23,51 @@ if (!is_file($referenceFile)) {
 /**
  * Load one Geeklog language file and return its metadata and language arrays.
  *
+ * Language files contain a few interpolated Geeklog configuration values.
+ * The checker builds harmless placeholders for those values before including
+ * the file, so it can audit language files without bootstrapping Geeklog.
+ *
  * @return array{charset:mixed,iso:mixed,arrays:array<string,array>}
  */
 function loadLanguageFile(string $file): array
 {
     $loader = static function (string $__file): array {
-        // Some language strings interpolate common Geeklog globals/constants.
-        // Harmless defaults are provided so files can be evaluated for auditing.
-        $_CONF = [
-            'site_url' => '',
-            'site_admin_url' => '',
-            'site_name' => '',
-        ];
+        $source = file_get_contents($__file);
 
+        if ($source === false) {
+            throw new RuntimeException("Unable to read language file: {$__file}");
+        }
+
+        // Build empty values for array-style Geeklog globals referenced by
+        // interpolated strings, e.g. $_CONF['site_url'].
+        if (preg_match_all(
+            '/\$_([A-Z][A-Z0-9_]*)\[[\'"]([^\'"]+)[\'"]\]/',
+            $source,
+            $matches,
+            PREG_SET_ORDER
+        )) {
+            foreach ($matches as $match) {
+                $variableName = '_' . $match[1];
+                $key = $match[2];
+
+                if (!isset($$variableName) || !is_array($$variableName)) {
+                    $$variableName = [];
+                }
+
+                $$variableName[$key] = '';
+            }
+        }
+
+        // Scalar Geeklog value used by a few language strings.
+        $_DB_dbms = '';
+
+        // Constants concatenated into language strings.
         if (!defined('XHTML')) {
             define('XHTML', ' /');
+        }
+
+        if (!defined('VERSION')) {
+            define('VERSION', '');
         }
 
         include $__file;
