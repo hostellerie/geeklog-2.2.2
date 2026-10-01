@@ -43,9 +43,9 @@ $LANG_STATIC = array(
     'writtenby' => 'Escrito por',
     'date' => 'Última edición',
     'title' => 'Título',
-    'page_title' => 'Page Title',
+    'page_title' => 'Título de página',
     'content' => 'Contenido',
-    'hits' => 'Hits',
+    'hits' => 'Visitas',
     'staticpagelist' => 'Lista de Páginas Estáticas',
     'url' => 'URL',
     'edit' => 'Editar',
@@ -79,7 +79,7 @@ $LANG_STATIC = array(
     'deny_msg' => 'Acceso denegado a esta página. O bien ha sido movida/renombrada o no tienes permiso suficiente.',
     'stats_headline' => '10 páginas estáticas principales',
     'stats_page_title' => 'Título de la página',
-    'stats_hits' => 'Hits',
+    'stats_hits' => 'Visitas',
     'stats_no_hits' => 'Parece que no hay páginas estáticas o que nadie las ha visto nunca.',
     'id' => 'ID',
     'duplicate_id' => 'La ID elegida ya está en uso. Por favor, elige otra.',
@@ -110,31 +110,31 @@ $LANG_STATIC = array(
     'select_php_free' => 'ejecutar PHP',
     'php_not_activated' => "Es uso de PHP en páginas estáticas no está activado. Por favor, véase la <a href=\"{$_CONF['site_url']}/docs/english/staticpages.html#php\">documentación</a> para más información.",
     'printable_format' => 'Listo para imprimir',
-    'copy' => 'Copy',
-    'limit_results' => 'Limit Results',
-    'search' => 'Search',
-    'likes' => 'Likes',
-    'submit' => 'Submit',
+    'copy' => 'Copiar',
+    'limit_results' => 'Limitar resultados',
+    'search' => 'Buscar',
+    'likes' => 'Me gusta',
+    'submit' => 'Enviar',
     'no_new_pages' => 'No new pages',
     'pages' => 'Pages',
-    'comments' => 'Comments',
+    'comments' => 'Comentarios',
     'template' => 'Template',
     'use_template' => 'Use Template',
     'template_msg' => 'When checked, this Static Page will be marked as a template.',
-    'none' => 'None',
+    'none' => 'Ninguno',
     'use_template_msg' => 'If this Static Page is not a template, you can assign it to use a template. If a selection is made then remember that the content of this page must follow the proper XML format.',
     'draft' => 'Draft',
-    'draft_yes' => 'Yes',
+    'draft_yes' => 'Sí',
     'draft_no' => 'No',
     'show_on_page' => 'Show on Page',
     'show_on_page_disabled' => 'Note: This is currently disabled for all pages in the Staticpage Configuration.',
-    'cache_time' => 'Cache Time',
+    'cache_time' => 'Tiempo de caché',
     'cache_time_desc' => 'This staticpage content will be cached for no longer than this many seconds. If 0 caching is disabled (3600 = 1 hour,  86400 = 1 day). Staticpages with PHP enabled or are a template will not be cached.',
     'autotag_desc_staticpage' => '[staticpage: id alternate title] - Displays a link to a static page using the static page title as the title. An alternate title may be specified but is not required.',
     'autotag_desc_staticpage_content' => '[staticpage_content: id alternate title] - Displays the contents of a staticpage.',
     'autotag_desc_page' => '[page: id alternate title] - Displays a link to a page (from the Static Page plugin) using the page title as the title. An alternate title may be specified but is not required.',
     'autotag_desc_page_content' => '[page_content: id] - Displays the contents of a page. (from Static Page plugin)',
-    'yes' => 'Yes',
+    'yes' => 'Sí',
     'used_by' => 'This template is assigned to %s page(s). It is possible this template is used more than specified here if the template is being retrieved via an autotag in another template.',
     'prev_page' => 'Previous page',
     'next_page' => 'Next page',
@@ -203,7 +203,7 @@ $LANG_confignames['staticpages'] = array(
 );
 
 $LANG_configsubgroups['staticpages'] = array(
-    'sg_main' => 'Main Settings'
+    'sg_main' => 'Configuración principal'
 );
 
 $LANG_tab['staticpages'] = array(
@@ -211,7 +211,7 @@ $LANG_tab['staticpages'] = array(
     'tab_whatsnew' => 'What\'s New Block',
     'tab_search' => 'Search Results',
     'tab_permissions' => 'Default Permissions',
-    'tab_autotag_permissions' => 'Autotag Usage Permissions'
+    'tab_autotag_permissions' => 'Permisos de uso de autotags'
 );
 
 $LANG_fs['staticpages'] = array(
@@ -219,7 +219,7 @@ $LANG_fs['staticpages'] = array(
     'fs_whatsnew' => 'What\'s New Block',
     'fs_search' => 'Search Results',
     'fs_permissions' => 'Default Permissions',
-    'fs_autotag_permissions' => 'Autotag Usage Permissions'
+    'fs_autotag_permissions' => 'Permisos de uso de autotags'
 );
 
 // Note: entries 0, 1, 9, 12, 17 are the same as in $LANG_configselects['Core']
@@ -230,7 +230,7 @@ $LANG_configselects['staticpages'] = array(
     3 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Label' => 'label'),
     4 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Author' => 'author'),
     5 => array('Hide' => 'hide', 'Show - Use Modified Date' => 'modified', 'Show - Use Created Date' => 'created'),
-    9 => array('Forward to page' => 'item', 'Display List' => 'list', 'Display Home' => 'home', 'Display Admin' => 'admin'),
+    9 => array('Forward to page' => 'item', 'Display List' => 'listado', 'Display Home' => 'home', 'Display Admin' => 'admin'),
     12 => array('No access' => 0, 'Read-Only' => 2, 'Read-Write' => 3),
     13 => array('No access' => 0, 'Use' => 2),
     17 => array('Comments Enabled' => 0, 'Comments Disabled' => -1),
