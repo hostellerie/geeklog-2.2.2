@@ -194,6 +194,7 @@ if ($targets === []) {
 
 $totalErrors = 0;
 $totalNotices = 0;
+$results = [];
 
 foreach ($targets as $file) {
     echo PHP_EOL . '== ' . basename($file) . ' ==' . PHP_EOL;
@@ -287,8 +288,33 @@ foreach ($targets as $file) {
         . count($notices) . ' notice(s)'
         . PHP_EOL;
 
-    $totalErrors += count($errors);
-    $totalNotices += count($notices);
+    $errorCount = count($errors);
+    $noticeCount = count($notices);
+
+    $results[] = [
+        'file' => basename($file),
+        'errors' => $errorCount,
+        'notices' => $noticeCount,
+    ];
+
+    $totalErrors += $errorCount;
+    $totalNotices += $noticeCount;
+}
+
+echo PHP_EOL . '== Language summary ==' . PHP_EOL;
+
+$maxFileLength = 0;
+foreach ($results as $result) {
+    $maxFileLength = max($maxFileLength, strlen($result['file']));
+}
+
+foreach ($results as $result) {
+    printf(
+        "%-{$maxFileLength}s  %4d error(s)  %5d notice(s)\n",
+        $result['file'],
+        $result['errors'],
+        $result['notices']
+    );
 }
 
 echo PHP_EOL
