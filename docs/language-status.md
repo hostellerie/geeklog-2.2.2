@@ -728,8 +728,8 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 
 | Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
 |---|---:|---:|---:|---:|---:|
-| chinese_simplified_utf-8.php | ⚠️ | 0 | 0 | 58 | 100.0% |
-| chinese_traditional_utf-8.php | ⚠️ | 0 | 0 | 57 | 100.0% |
+| chinese_simplified_utf-8.php | ⚠️ | 1 | 0 | 3 | 98.8% |
+| chinese_traditional_utf-8.php | ⚠️ | 1 | 0 | 3 | 98.8% |
 | french_canada_utf-8.php | ⚠️ | 0 | 0 | 5 | 100.0% |
 | french_france_utf-8.php | ⚠️ | 0 | 0 | 5 | 100.0% |
 | german_formal_utf-8.php | ⚠️ | 1 | 0 | 0 | 98.8% |
@@ -738,9 +738,9 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 | italian_utf-8.php | ❌ missing file | 80 | 0 | 0 | 0.0% |
 | japanese_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
 | persian_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
-| russian_utf-8.php | ⚠️ | 0 | 0 | 58 | 100.0% |
+| russian_utf-8.php | ⚠️ | 1 | 0 | 3 | 98.8% |
 | spanish_argentina_utf-8.php | ❌ missing file | 80 | 0 | 0 | 0.0% |
-| spanish_utf-8.php | ⚠️ | 0 | 0 | 58 | 100.0% |
+| spanish_utf-8.php | ⚠️ | 1 | 0 | 4 | 98.8% |
 
 ### Bundled plugin: recaptcha
 
