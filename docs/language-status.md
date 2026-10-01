@@ -774,13 +774,13 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 | french_france_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
 | german_formal_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
 | german_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
-| hebrew_utf-8.php | ⚠️ | 0 | 2 | 10 | 100.0% |
+| hebrew_utf-8.php | ⚠️ | 0 | 2 | 2 | 100.0% |
 | italian_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
 | japanese_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
 | persian_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
-| russian_utf-8.php | ⚠️ | 1 | 2 | 20 | 99.2% |
+| russian_utf-8.php | ⚠️ | 1 | 2 | 3 | 99.2% |
 | spanish_argentina_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
-| spanish_utf-8.php | ⚠️ | 0 | 2 | 34 | 100.0% |
+| spanish_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
 
 ### Bundled plugin: staticpages
 
