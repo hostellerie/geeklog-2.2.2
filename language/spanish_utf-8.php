@@ -2083,12 +2083,12 @@ $LANG_MONTH = array(
 
 $LANG_MONTH_SHORT = array(
     1 => 'Ene',
-    2 => 'Feb',
+    2 => 'feb.',
     3 => 'Mar',
     4 => 'Abr',
-    5 => 'May',
-    6 => 'Jun',
-    7 => 'Jul',
+    5 => 'may.',
+    6 => 'jun.',
+    7 => 'jul.',
     8 => 'Ago',
     9 => 'Sep',
     10 => 'Oct',
