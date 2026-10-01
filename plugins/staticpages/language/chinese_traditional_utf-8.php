@@ -231,16 +231,16 @@ $LANG_fs['staticpages'] = array(
 
 // Note: entries 0, 1, 9, 12, 17 are the same as in $LANG_configselects['Core']
 $LANG_configselects['staticpages'] = array(
-    0 => array('True' => 1, 'False' => 0),
-    1 => array('True' => true, 'False' => false),
-    2 => array('Date' => '日期', 'Page ID' => '頁面 ID', 'Title' => '標題'),
-    3 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Label' => '標籤'),
-    4 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Author' => '作者'),
-    5 => array('Hide' => '隱藏', 'Show - Use Modified Date' => '顯示 - 使用修改日期', 'Show - Use Created Date' => '顯示 - 使用建立日期'),
-    9 => array('Forward to page' => '轉到頁面', 'Display List' => '列出', 'Display Home' => '顯示首頁', 'Display Admin' => '顯示管理頁'),
-    12 => array('No access' => 0, 'Read-Only' => 2, 'Read-Write' => 3),
-    13 => array('No access' => 0, 'Use' => 2),
-    17 => array('Comments Enabled' => 0, 'Comments Disabled' => -1),
-    39 => array('None' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
-    41 => array('False' => 0, 'Likes and Dislikes' => 1, 'Likes Only' => 2)
+    0 => array('是' => 1, '否' => 0),
+    1 => array('是' => TRUE, '否' => FALSE),
+    2 => array('日期' => 'date', '頁面 ID' => 'id', '標題' => 'title'),
+    3 => array('日期' => 'date', '頁面 ID' => 'id', '標題' => 'title', '標籤' => 'label'),
+    4 => array('日期' => 'date', '頁面 ID' => 'id', '標題' => 'title', '作者' => 'author'),
+    5 => array('隱藏' => 'hide', '顯示 - 使用修改日期' => 'modified', '顯示 - 使用建立日期' => 'created'),
+    9 => array('轉到頁面' => 'item', '顯示清單' => 'list', '顯示首頁' => 'home', '顯示管理頁' => 'admin'),
+    12 => array('無權限' => 0, '唯讀' => 2, '讀寫' => 3),
+    13 => array('無權限' => 0, '使用' => 2),
+    17 => array('啟用評論' => 0, '停用評論' => -1),
+    39 => array('無' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
+    41 => array('否' => 0, '喜歡和不喜歡' => 1, '僅喜歡' => 2)
 );
