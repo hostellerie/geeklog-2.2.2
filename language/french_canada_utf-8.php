@@ -2003,11 +2003,11 @@ $LANG_TRB = array(
 # directory.php
 
 $LANG_DIR = array(
-    'title' => 'Article Directory',
-    'title_year' => 'Article Directory for %d',
-    'title_month_year' => 'Article Directory for %s %d',
-    'nav_top' => 'Back to Article Directory',
-    'no_articles' => 'No articles.'
+    'title' => 'Répertoire des articles',
+    'title_year' => 'Répertoire des articles pour %d',
+    'title_month_year' => 'Répertoire des articles pour %s %d',
+    'nav_top' => 'Retour au répertoire des articles',
+    'no_articles' => 'Aucun article.'
 );
 
 ###############################################################################
