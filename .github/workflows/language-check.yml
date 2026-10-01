@@ -7,11 +7,13 @@ on:
     paths:
       - 'language/**'
       - 'tools/check-languages.php'
+      - 'tools/language-identical-allowlist.php'
       - '.github/workflows/language-check.yml'
   pull_request:
     paths:
       - 'language/**'
       - 'tools/check-languages.php'
+      - 'tools/language-identical-allowlist.php'
       - '.github/workflows/language-check.yml'
   workflow_dispatch:
 
