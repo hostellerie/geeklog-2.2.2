@@ -711,7 +711,7 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 | chinese_simplified_utf-8.php | ⚠️ | 0 | 0 | 85 | 100.0% |
 | chinese_traditional_utf-8.php | ⚠️ | 0 | 0 | 85 | 100.0% |
 | french_canada_utf-8.php | ⚠️ | 0 | 0 | 103 | 100.0% |
-| french_france_utf-8.php | ⚠️ | 0 | 0 | 44 | 100.0% |
+| french_france_utf-8.php | ⚠️ | 0 | 0 | 4 | 100.0% |
 | german_formal_utf-8.php | ⚠️ | 0 | 1 | 36 | 100.0% |
 | german_utf-8.php | ⚠️ | 0 | 1 | 36 | 100.0% |
 | hebrew_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
