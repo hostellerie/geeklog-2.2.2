@@ -719,8 +719,8 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 | japanese_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
 | persian_utf-8.php | ⚠️ | 0 | 0 | 85 | 100.0% |
 | russian_utf-8.php | ⚠️ | 0 | 0 | 86 | 100.0% |
-| spanish_argentina_utf-8.php | ❌ missing file | 136 | 0 | 0 | 0.0% |
-| spanish_utf-8.php | ⚠️ | 0 | 0 | 88 | 100.0% |
+| spanish_argentina_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
+| spanish_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
 
 ### Bundled plugin: polls
 
