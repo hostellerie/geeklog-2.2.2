@@ -2272,25 +2272,25 @@ $LANG_STRUCT_DATA = array(
 # Localization of the Admin Configuration UI
 
 $LANG_CONFIG = array(
-    'home' => 'Home',
-    'admin_home' => 'Site Administration',
-    'sections' => 'Configuration Sections',
-    'restore' => 'Restore',
-    'add_element' => 'Add Element',
-    'save_changes' => 'Save Changes',
-    'reset_form' => 'Reset Form',
-    'changes_made' => 'Changes were successfully made to',
-    'title' => 'Configuration Manager',
-    'disable' => 'Click to disable this option',
-    'enable' => 'Enable',
-    'default_tab_name' => 'Main',
-    'search_configuration_label' => 'Search Configuration',
-    'error_validation_occurs' => 'There are invalid configuration values. Please correct these fields (just click the config variable to point you to the error field)'
+    'home' => 'Accueil',
+    'admin_home' => 'Administration du site',
+    'sections' => 'Sections de configuration',
+    'restore' => 'Restaurer',
+    'add_element' => 'Ajouter un élément',
+    'save_changes' => 'Enregistrer les modifications',
+    'reset_form' => 'Réinitialiser le formulaire',
+    'changes_made' => 'Les modifications ont été appliquées avec succès à',
+    'title' => 'Configuration de Geeklog'
+    'disable' => 'Cliquer pour désactiver cette option',
+    'enable' => 'Activer',
+    'default_tab_name' => 'Principal',
+    'search_configuration_label' => 'Rechercher dans la configuration',
+    'error_validation_occurs' => 'Il y a des valeurs non valide dansd la configuration. MErci de corriger ces champs (cliquer sur les variables pour vous indiquer les champs posant des problèmes).'
 );
 
 $LANG_configsections['Core'] = array(
     'label' => 'Geeklog',
-    'title' => 'Geeklog Configuration'
+    'title' => 'Configuration de Geeklog'
 );
 
 $LANG_confignames['Core'] = array(
