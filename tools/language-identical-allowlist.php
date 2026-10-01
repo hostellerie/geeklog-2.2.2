@@ -11,6 +11,23 @@
  */
 
 return [
+    'spanish_utf-8.php' => [
+        'LANG01:34',
+        'LANG03:17',
+        'LANG04:21',
+        'LANG21:6',
+        'LANG21:block_type_portal',
+        'LANG24:36',
+        'LANG24:80',
+        'LANG24:95',
+        'LANG27:51',
+        'LANG28:22',
+        'LANG32:21',
+        'LANG33:21',
+        'LANG_ACCESS:no',
+        'LANG_DB_BACKUP:bytes',
+        'LANG_TRB:send_error',
+    ],
     'german_utf-8.php' => [
         'LANG04:6',
         'LANG21:block_type_gldefault',
