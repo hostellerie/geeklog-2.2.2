@@ -915,7 +915,7 @@ $LANG_ENVCHECK = array(
 $LANG_DEMO = array(
     'header' => 'En-tête',
     'subject' => 'Objet :',
-    'to' => 'To:',
+    'to' => 'À :',
     'from' => 'De :',
     'priority' => 'Priorité :',
     'body' => 'Corps',
@@ -1601,8 +1601,8 @@ $LANG_ROUTER = array(
     20 => '<ul><li>Placeholders (@) must be the same both in a rule and its route.</li><li>A placeholder starts with "@", followed by an alphabet, optionally followed by any length of alphabet or digit.</li><li>Placeholders are case-sensitive.</li></ul>',
     21 => 'Code d’état',
     22 => 'Activé',
-    23 => 'Yes',
-    24 => 'No'
+    23 => 'Oui',
+    24 => 'Non'
 );
 
 ###############################################################################
@@ -2094,13 +2094,13 @@ $LANG_MONTH = array(
 
 $LANG_MONTH_SHORT = array(
     1 => 'Jan',
-    2 => 'Feb',
+    2 => 'Fév',
     3 => 'Mar',
-    4 => 'Apr',
-    5 => 'May',
-    6 => 'Jun',
-    7 => 'Jul',
-    8 => 'Aug',
+    4 => 'Avr',
+    5 => 'Mai',
+    6 => 'Juin',
+    7 => 'Juil',
+    8 => 'Août',
     9 => 'Sep',
     10 => 'Oct',
     11 => 'Nov',
@@ -2124,13 +2124,13 @@ $LANG_WEEK = array(
 # Short Weekday Names
 
 $LANG_WEEK_SHORT = array(
-    1 => 'Sun',
-    2 => 'Mon',
-    3 => 'Tue',
-    4 => 'Wed',
-    5 => 'Thu',
-    6 => 'Fri',
-    7 => 'Sat'
+    1 => 'Dim',
+    2 => 'Lun',
+    3 => 'Mar',
+    4 => 'Mer',
+    5 => 'Jeu',
+    6 => 'Ven',
+    7 => 'Sam'
 );
 
 ###############################################################################
@@ -2192,10 +2192,10 @@ $LANG_ADMIN = array(
     'approve' => 'Approuver',
     'device' => 'Appareil',
     'device_desc' => 'Sur quel appareil souhaitez-vous afficher cet élément ?',
-    'for_all' => 'All',
+    'for_all' => 'Tous',
     'for_mobile' => 'Pour mobile',
     'for_computer' => 'Pour ordinateur',
-    'all' => 'All',
+    'all' => 'Tous',
     'mobile' => 'Mobile',
     'computer' => 'Ordinateur',
     'edit_access_only' => 'Accès en modification uniquement'
