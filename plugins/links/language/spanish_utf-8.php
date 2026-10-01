@@ -223,7 +223,7 @@ $LANG_LINKS_STATUS = array(
 
 // Localization of the Admin Configuration UI
 $LANG_configsections['links'] = array(
-    'label' => 'Links',
+    'label' => 'Enlaces',
     'title' => 'Configuración de enlaces'
 );
 
@@ -273,7 +273,7 @@ $LANG_fs['links'] = array(
 $LANG_configselects['links'] = array(
     0 => array('True' => 1, 'False' => 0),
     1 => array('True' => true, 'False' => false),
-    9 => array('Forward to Linked Site' => 'item', 'Display Admin List' => 'list', 'Display Public List' => 'plugin', 'Display Home' => 'home', 'Display Admin' => 'admin'),
+    9 => array('Forward to Linked Site' => 'item', 'Mostrar lista administrativa' => 'list', 'Mostrar lista pública' => 'plugin', 'Mostrar inicio' => 'home', 'Mostrar administración' => 'admin'),
     12 => array('No access' => 0, 'Read-Only' => 2, 'Read-Write' => 3),
     13 => array('No access' => 0, 'Use' => 2),
     14 => array('Disabled' => 0, 'reCAPTCHA V2' => 1, 'reCAPTCHA V2 Invisible' => 2, 'reCAPTCHA V3' => 4)
