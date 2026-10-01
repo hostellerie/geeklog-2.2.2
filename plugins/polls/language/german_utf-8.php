@@ -93,7 +93,7 @@ $LANG25 = array(
     19 => 'Um eine Umfrage zu editieren oder zu löschen, auf das Edit-Icon klicken.  Um eine neue Umfrage zu eröffnen, bitte auf "Neu anlegen" oben klicken.',
     20 => 'Abstimmende',
     21 => 'Kein Zugang',
-    22 => "You are trying to access a poll that you don't have rights to.  This attempt has been logged. Please <a href=\"{$_CONF['site_admin_url']}/poll.php\">go back to the poll administration screen</a>.",
+    22 => "Sie versuchen, auf eine Umfrage zuzugreifen, für die Sie keine Berechtigung haben. Dieser Versuch wurde protokolliert. Bitte <a href=\"{$_CONF['site_admin_url']}/poll.php\">kehren Sie zur Umfrageverwaltung zurück</a>.",
     23 => 'Neue Umfrage',
     24 => 'Schaltzentrale',
     25 => 'Ja',
