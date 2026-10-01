@@ -494,12 +494,12 @@ $LANG04 = array(
 # Array index key matches preference div id
 
 $LANG_MYACCOUNT = array(
-    'pe_preview' => 'Preview',
-    'pe_namepass' => 'Username &amp; Password',
-    'pe_userinfo' => 'About You',
-    'pe_layout' => 'Layout &amp; Language',
-    'pe_content' => 'Content',
-    'pe_privacy' => 'Privacy'
+    'pe_preview' => 'Предпросмотр',
+    'pe_namepass' => 'Имя пользователя и пароль',
+    'pe_userinfo' => 'О вас',
+    'pe_layout' => 'Оформление и язык',
+    'pe_content' => 'Содержимое',
+    'pe_privacy' => 'Конфиденциальность'
 );
 
 ###############################################################################
