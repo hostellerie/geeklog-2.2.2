@@ -650,4 +650,27 @@ return [
         'LANG_LINKS_SUBMIT:9',
         'LANG_confignames:recaptcha',
     ],
+    'polls/french_france_utf-8.php' => [
+        'LANG_POLLS:votes',
+        'LANG_POLLS:stats_votes',
+        'LANG25:1',
+        'LANG25:31',
+        'LANG25:1002',
+    ],
+    'polls/french_canada_utf-8.php' => [
+        'LANG_POLLS:votes',
+        'LANG_POLLS:stats_votes',
+        'LANG25:1',
+        'LANG25:31',
+        'LANG25:1002',
+    ],
+    'polls/italian_utf-8.php' => [
+        'LANG25:26',
+    ],
+    'polls/spanish_utf-8.php' => [
+        'LANG25:26',
+    ],
+    'polls/spanish_argentina_utf-8.php' => [
+        'LANG25:26',
+    ],
 ];
