@@ -499,9 +499,9 @@ $LANG05 = array(
     4 => 'Article du jour',
     5 => 'Suivant',
     6 => 'Pr&eacute;c&eacute;dent',
-    7 => 'First',
-    8 => 'Last',
-    9 => 'Page navigation'
+    7 => 'Premier',
+    8 => 'Dernier',
+    9 => 'Navigation entre les pages'
 );
 
 ###############################################################################
