@@ -917,14 +917,14 @@ $LANG_ENVCHECK = array(
 # For Demo Mode (since v2.2.1)
 
 $LANG_DEMO = array(
-    'header' => 'Header',
-    'subject' => 'Subject:',
+    'header' => 'Заголовок',
+    'subject' => 'Тема:',
     'to' => 'To:',
-    'from' => 'From:',
-    'priority' => 'Priority:',
-    'body' => 'Body',
-    'notice' => 'Notice',
-    'emails_disabled_msg' => 'Please note sending emails is disabled in Demo mode. An email which would have been sent was:'
+    'from' => 'От:',
+    'priority' => 'Приоритет:',
+    'body' => 'Текст сообщения',
+    'notice' => 'Примечание',
+    'emails_disabled_msg' => 'Обратите внимание: в демонстрационном режиме отправка писем отключена. Ниже показано письмо, которое было бы отправлено:'
 );
 
 ###############################################################################
