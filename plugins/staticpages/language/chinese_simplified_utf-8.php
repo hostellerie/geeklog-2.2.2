@@ -43,7 +43,7 @@ $LANG_STATIC = array(
     'writtenby' => '作者',
     'date' => '更新日期',
     'title' => '标题',
-    'page_title' => 'Page Title',
+    'page_title' => '页面标题',
     'content' => '内容',
     'hits' => '采样数',
     'staticpagelist' => '静态页目录',
@@ -113,28 +113,28 @@ $LANG_STATIC = array(
     'copy' => '复制',
     'limit_results' => '限制结果',
     'search' => '搜寻',
-    'likes' => 'Likes',
+    'likes' => '赞',
     'submit' => '提交',
     'no_new_pages' => 'No new pages',
     'pages' => 'Pages',
-    'comments' => 'Comments',
+    'comments' => '评论',
     'template' => 'Template',
     'use_template' => 'Use Template',
     'template_msg' => 'When checked, this Static Page will be marked as a template.',
-    'none' => 'None',
+    'none' => '无',
     'use_template_msg' => 'If this Static Page is not a template, you can assign it to use a template. If a selection is made then remember that the content of this page must follow the proper XML format.',
     'draft' => 'Draft',
-    'draft_yes' => 'Yes',
-    'draft_no' => 'No',
+    'draft_yes' => '是',
+    'draft_no' => '否',
     'show_on_page' => 'Show on Page',
     'show_on_page_disabled' => 'Note: This is currently disabled for all pages in the Staticpage Configuration.',
-    'cache_time' => 'Cache Time',
+    'cache_time' => '缓存时间',
     'cache_time_desc' => 'This staticpage content will be cached for no longer than this many seconds. If 0 caching is disabled (3600 = 1 hour,  86400 = 1 day). Staticpages with PHP enabled or are a template will not be cached.',
     'autotag_desc_staticpage' => '[staticpage: id alternate title] - Displays a link to a static page using the static page title as the title. An alternate title may be specified but is not required.',
     'autotag_desc_staticpage_content' => '[staticpage_content: id alternate title] - Displays the contents of a staticpage.',
     'autotag_desc_page' => '[page: id alternate title] - Displays a link to a page (from the Static Page plugin) using the page title as the title. An alternate title may be specified but is not required.',
     'autotag_desc_page_content' => '[page_content: id] - Displays the contents of a page. (from Static Page plugin)',
-    'yes' => 'Yes',
+    'yes' => '是',
     'used_by' => 'This template is assigned to %s page(s). It is possible this template is used more than specified here if the template is being retrieved via an autotag in another template.',
     'prev_page' => 'Previous page',
     'next_page' => 'Next page',
@@ -186,14 +186,14 @@ $LANG_confignames['staticpages'] = array(
     'atom_max_items' => 'Max. Pages in Webservices Feed',
     'meta_tags' => 'Enable Meta Tags',
     'likes_pages' => 'Page Likes',
-    'comment_code' => 'Comment Default',
+    'comment_code' => '评论默认',
     'structured_data_type_default' => 'Structured Data Type Default',
-    'draft_flag' => 'Draft Flag Default',
+    'draft_flag' => '草稿标记预设',
     'disable_breadcrumbs_staticpages' => 'Disable Breadcrumbs',
     'default_cache_time' => 'Default Cache Time',
     'newstaticpagesinterval' => 'New Static Page Interval',
     'hidenewstaticpages' => 'Hide New Static Pages',
-    'title_trim_length' => 'Title Trim Length',
+    'title_trim_length' => '题目长度裁减',
     'includecenterblocks' => 'Include Center Block Static Pages',
     'includephp' => 'Include Static Pages with PHP',
     'includesearch' => 'Enable Static Pages in Search',
@@ -203,23 +203,23 @@ $LANG_confignames['staticpages'] = array(
 );
 
 $LANG_configsubgroups['staticpages'] = array(
-    'sg_main' => 'Main Settings'
+    'sg_main' => '主要设置'
 );
 
 $LANG_tab['staticpages'] = array(
     'tab_main' => 'Static Pages Main Settings',
-    'tab_whatsnew' => 'What\'s New Block',
+    'tab_whatsnew' => '有什么新的 组件',
     'tab_search' => 'Search Results',
-    'tab_permissions' => 'Default Permissions',
-    'tab_autotag_permissions' => 'Autotag Usage Permissions'
+    'tab_permissions' => '默认权限',
+    'tab_autotag_permissions' => '自动标签使用权限'
 );
 
 $LANG_fs['staticpages'] = array(
     'fs_main' => 'Static Pages Main Settings',
-    'fs_whatsnew' => 'What\'s New Block',
+    'fs_whatsnew' => '有什么新的 组件',
     'fs_search' => 'Search Results',
-    'fs_permissions' => 'Default Permissions',
-    'fs_autotag_permissions' => 'Autotag Usage Permissions'
+    'fs_permissions' => '默认权限',
+    'fs_autotag_permissions' => '自动标签使用权限'
 );
 
 // Note: entries 0, 1, 9, 12, 17 are the same as in $LANG_configselects['Core']
@@ -230,7 +230,7 @@ $LANG_configselects['staticpages'] = array(
     3 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Label' => 'label'),
     4 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Author' => 'author'),
     5 => array('Hide' => 'hide', 'Show - Use Modified Date' => 'modified', 'Show - Use Created Date' => 'created'),
-    9 => array('Forward to page' => 'item', 'Display List' => 'list', 'Display Home' => 'home', 'Display Admin' => 'admin'),
+    9 => array('Forward to page' => 'item', 'Display List' => '列出', 'Display Home' => 'home', 'Display Admin' => 'admin'),
     12 => array('No access' => 0, 'Read-Only' => 2, 'Read-Write' => 3),
     13 => array('No access' => 0, 'Use' => 2),
     17 => array('Comments Enabled' => 0, 'Comments Disabled' => -1),
