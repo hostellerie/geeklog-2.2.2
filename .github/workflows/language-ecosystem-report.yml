@@ -10,6 +10,8 @@ on:
       - 'tools/bundled-language-audit.php'
       - 'tools/bundled-plugin-identical-allowlist.php'
       - 'tools/plugin-support-status.php'
+      - 'tools/external-theme-language-audit.php'
+      - 'tools/external-language-components.php'
       - 'plugins/**/language/**'
       - '.github/workflows/language-ecosystem-report.yml'
   workflow_dispatch:
