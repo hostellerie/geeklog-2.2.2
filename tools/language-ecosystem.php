@@ -126,6 +126,276 @@ function GL_LANG_parseKeys(string $source): array
     return $keys;
 }
 
+
+
+/**
+ * Extract comparable language values from PHP source without executing it.
+ * Handles direct scalar assignments and simple array entries containing
+ * quoted strings and concatenated quoted strings/constants.
+ *
+ * @return array<string,string>
+ */
+function GL_LANG_parseValues(string $source): array
+{
+    $values = [];
+
+    if (preg_match_all(
+        '/\$(LANG[A-Za-z0-9_]+)\s*\[\s*([\'"])(.*?)\2\s*\]\s*=\s*([^;]+);/s',
+        $source,
+        $matches,
+        PREG_SET_ORDER
+    )) {
+        foreach ($matches as $match) {
+            $value = GL_LANG_evalSimpleStringExpression($match[4]);
+            if ($value !== null) {
+                $values[$match[1] . ':' . $match[3]] = $value;
+            }
+        }
+    }
+
+    if (!preg_match_all('/\$(LANG[A-Za-z0-9_]+)\s*=\s*(?:array\s*\(|\[)/', $source, $m, PREG_OFFSET_CAPTURE)) {
+        return $values;
+    }
+
+    foreach ($m[0] as $idx => $full) {
+        $var = $m[1][$idx][0];
+        $start = $full[1] + strlen($full[0]) - 1;
+        $open = $source[$start];
+        $close = $open === '(' ? ')' : ']';
+        $depth = 1;
+        $quote = null;
+        $escape = false;
+        $end = null;
+
+        for ($i = $start + 1, $len = strlen($source); $i < $len; ++$i) {
+            $ch = $source[$i];
+            if ($quote !== null) {
+                if ($escape) {
+                    $escape = false;
+                } elseif ($ch === '\\') {
+                    $escape = true;
+                } elseif ($ch === $quote) {
+                    $quote = null;
+                }
+                continue;
+            }
+            if ($ch === "'" || $ch === '"') {
+                $quote = $ch;
+                continue;
+            }
+            if ($ch === $open) {
+                ++$depth;
+            } elseif ($ch === $close) {
+                --$depth;
+                if ($depth === 0) {
+                    $end = $i;
+                    break;
+                }
+            }
+        }
+
+        if ($end === null) {
+            continue;
+        }
+
+        $body = substr($source, $start + 1, $end - $start - 1);
+        $parts = GL_LANG_splitTopLevel($body);
+
+        $implicit = 0;
+        foreach ($parts as $part) {
+            $part = trim($part);
+            if ($part === '') {
+                continue;
+            }
+
+            $arrow = GL_LANG_findTopLevelArrow($part);
+            if ($arrow === null) {
+                $key = (string) $implicit++;
+                $expr = $part;
+            } else {
+                $keyExpr = trim(substr($part, 0, $arrow));
+                $expr = trim(substr($part, $arrow + 2));
+                $key = null;
+                if (preg_match('/^[\'"](.*)[\'"]$/s', $keyExpr, $km)) {
+                    $key = stripcslashes($km[1]);
+                } elseif (preg_match('/^-?\d+$/', $keyExpr)) {
+                    $key = (string) ((int) $keyExpr);
+                    $implicit = max($implicit, ((int) $key) + 1);
+                }
+                if ($key === null) {
+                    continue;
+                }
+            }
+
+            $value = GL_LANG_evalSimpleStringExpression($expr);
+            if ($value !== null) {
+                $values[$var . ':' . $key] = $value;
+            }
+        }
+    }
+
+    return $values;
+}
+
+/** @return list<string> */
+function GL_LANG_splitTopLevel(string $text): array
+{
+    $parts = [];
+    $start = 0;
+    $depth = 0;
+    $quote = null;
+    $escape = false;
+    $length = strlen($text);
+
+    for ($i = 0; $i < $length; ++$i) {
+        $ch = $text[$i];
+        if ($quote !== null) {
+            if ($escape) {
+                $escape = false;
+            } elseif ($ch === '\\') {
+                $escape = true;
+            } elseif ($ch === $quote) {
+                $quote = null;
+            }
+            continue;
+        }
+        if ($ch === "'" || $ch === '"') {
+            $quote = $ch;
+            continue;
+        }
+        if ($ch === '(' || $ch === '[' || $ch === '{') {
+            ++$depth;
+            continue;
+        }
+        if ($ch === ')' || $ch === ']' || $ch === '}') {
+            --$depth;
+            continue;
+        }
+        if ($ch === ',' && $depth === 0) {
+            $parts[] = substr($text, $start, $i - $start);
+            $start = $i + 1;
+        }
+    }
+    $parts[] = substr($text, $start);
+    return $parts;
+}
+
+function GL_LANG_findTopLevelArrow(string $text): ?int
+{
+    $depth = 0;
+    $quote = null;
+    $escape = false;
+    $length = strlen($text);
+
+    for ($i = 0; $i < $length - 1; ++$i) {
+        $ch = $text[$i];
+        if ($quote !== null) {
+            if ($escape) {
+                $escape = false;
+            } elseif ($ch === '\\') {
+                $escape = true;
+            } elseif ($ch === $quote) {
+                $quote = null;
+            }
+            continue;
+        }
+        if ($ch === "'" || $ch === '"') {
+            $quote = $ch;
+            continue;
+        }
+        if ($ch === '(' || $ch === '[' || $ch === '{') {
+            ++$depth;
+            continue;
+        }
+        if ($ch === ')' || $ch === ']' || $ch === '}') {
+            --$depth;
+            continue;
+        }
+        if ($depth === 0 && $ch === '=' && $text[$i + 1] === '>') {
+            return $i;
+        }
+    }
+
+    return null;
+}
+
+function GL_LANG_evalSimpleStringExpression(string $expr): ?string
+{
+    $expr = trim($expr);
+    if ($expr === '') {
+        return null;
+    }
+
+    $tokens = token_get_all('<?php ' . $expr . ';');
+    $result = '';
+    $sawString = false;
+
+    foreach ($tokens as $token) {
+        if (!is_array($token)) {
+            if (in_array($token, ['.', ';'], true)) {
+                continue;
+            }
+            if (trim($token) === '') {
+                continue;
+            }
+            return null;
+        }
+
+        if (in_array($token[0], [T_OPEN_TAG, T_WHITESPACE, T_COMMENT, T_DOC_COMMENT], true)) {
+            continue;
+        }
+
+        if ($token[0] === T_CONSTANT_ENCAPSED_STRING) {
+            $raw = $token[1];
+            $quote = $raw[0];
+            $body = substr($raw, 1, -1);
+            $result .= $quote === "'" ? str_replace(["\\\\", "\\'"], ["\\", "'"], $body) : stripcslashes($body);
+            $sawString = true;
+            continue;
+        }
+
+        if ($token[0] === T_STRING && preg_match('/^[A-Z][A-Z0-9_]*$/', $token[1])) {
+            $result .= '{' . $token[1] . '}';
+            continue;
+        }
+
+        return null;
+    }
+
+    return $sawString ? $result : null;
+}
+
+/** @return list<string> */
+function GL_LANG_placeholders(string $value): array
+{
+    $signature = [];
+    $nextArgument = 1;
+
+    preg_match_all(
+        '/%(?:(\d+)\$)?[-+0#]*\d*(?:\.\d+)?([bcdeEfFgGosuxX])(?![0-9A-Fa-f])/',
+        $value,
+        $matches,
+        PREG_SET_ORDER
+    );
+    foreach ($matches as $match) {
+        $position = $match[1] !== '' ? (int) $match[1] : $nextArgument++;
+        $signature[] = 'arg:' . $position . ':' . strtolower($match[2]);
+    }
+
+    preg_match_all('/%([nit])(?![A-Za-z0-9_])/', $value, $customMatches);
+    foreach ($customMatches[1] ?? [] as $placeholder) {
+        $signature[] = 'geeklog:' . $placeholder;
+    }
+
+    preg_match_all('/\{[A-Za-z_][A-Za-z0-9_]*\}/', $value, $symbolic);
+    foreach ($symbolic[0] ?? [] as $placeholder) {
+        $signature[] = 'symbolic:' . $placeholder;
+    }
+
+    sort($signature);
+    return $signature;
+}
+
 function GL_LANG_findFile(array $files, array $prefixes): ?array
 {
     $candidates = [];
@@ -189,7 +459,7 @@ function GL_LANG_auditPlugins(string $org, array $recommendations): array
     $langs = GL_LANG_ecosystemLanguages($recommendations);
     $summary = [];
     foreach ($langs as $code => $def) {
-        $summary[$code] = ['name' => $def['name'], 'core' => $def['core'], 'complete' => 0, 'partial' => 0, 'missing' => 0, 'present' => 0];
+        $summary[$code] = ['name' => $def['name'], 'core' => $def['core'], 'complete' => 0, 'partial' => 0, 'missing' => 0, 'present' => 0, 'placeholder_errors' => 0, 'identical' => 0];
     }
 
     $plugins = [];
@@ -214,7 +484,9 @@ function GL_LANG_auditPlugins(string $org, array $recommendations): array
         if ($english === null || empty($english['download_url'])) {
             continue;
         }
-        $reference = GL_LANG_parseKeys(GL_LANG_githubRaw((string) $english['download_url']));
+        $referenceSource = GL_LANG_githubRaw((string) $english['download_url']);
+        $reference = GL_LANG_parseKeys($referenceSource);
+        $referenceValues = GL_LANG_parseValues($referenceSource);
         if ($reference === []) {
             continue;
         }
@@ -229,12 +501,38 @@ function GL_LANG_auditPlugins(string $org, array $recommendations): array
             }
 
             ++$summary[$code]['present'];
-            $translated = GL_LANG_parseKeys(GL_LANG_githubRaw((string) $file['download_url']));
+            $translatedSource = GL_LANG_githubRaw((string) $file['download_url']);
+            $translated = GL_LANG_parseKeys($translatedSource);
+            $translatedValues = GL_LANG_parseValues($translatedSource);
             $missing = count(array_diff_key($reference, $translated));
             $coverage = count($reference) > 0 ? ((count($reference) - $missing) / count($reference)) * 100 : 100.0;
-            $state = $missing === 0 ? 'complete' : 'partial';
+
+            $placeholderErrors = 0;
+            $identical = 0;
+            foreach ($referenceValues as $key => $referenceValue) {
+                if (!array_key_exists($key, $translatedValues)) {
+                    continue;
+                }
+                $translatedValue = $translatedValues[$key];
+                if (GL_LANG_placeholders($referenceValue) !== GL_LANG_placeholders($translatedValue)) {
+                    ++$placeholderErrors;
+                }
+                if ($referenceValue !== '' && $translatedValue === $referenceValue) {
+                    ++$identical;
+                }
+            }
+
+            $state = ($missing === 0 && $placeholderErrors === 0) ? 'complete' : 'partial';
             ++$summary[$code][$state];
-            $plugins[$name][$code] = ['state' => $state, 'missing' => $missing, 'coverage' => $coverage];
+            $summary[$code]['placeholder_errors'] += $placeholderErrors;
+            $summary[$code]['identical'] += $identical;
+            $plugins[$name][$code] = [
+                'state' => $state,
+                'missing' => $missing,
+                'coverage' => $coverage,
+                'placeholder_errors' => $placeholderErrors,
+                'identical' => $identical,
+            ];
         }
     }
 
@@ -278,11 +576,12 @@ function GL_LANG_writeReport(string $path, array $coreResults, ?array $pluginAud
         $lines[] = '';
         $lines[] = 'Plugins audited: **' . $pluginAudit['audited'] . '**';
         $lines[] = '';
-        $lines[] = '| Language | Core | Complete | Partial | Missing |';
-        $lines[] = '|---|---:|---:|---:|---:|';
+        $lines[] = '| Language | Core | Complete | Partial | Missing | Placeholder errors | Identical to English |';
+        $lines[] = '|---|---:|---:|---:|---:|---:|---:|';
         foreach ($pluginAudit['languages'] as $status) {
             $lines[] = '| ' . $status['name'] . ' | ' . ($status['core'] ? '✅' : '❌')
-                . ' | ' . $status['complete'] . ' | ' . $status['partial'] . ' | ' . $status['missing'] . ' |';
+                . ' | ' . $status['complete'] . ' | ' . $status['partial'] . ' | ' . $status['missing']
+                . ' | ' . $status['placeholder_errors'] . ' | ' . $status['identical'] . ' |';
         }
 
         $lines[] = '';
@@ -297,7 +596,9 @@ function GL_LANG_writeReport(string $path, array $coreResults, ?array $pluginAud
                 }
                 $label = $st['state'] === 'missing'
                     ? '❌ missing'
-                    : '⚠️ ' . $st['missing'] . ' missing (' . number_format($st['coverage'], 1) . '%)';
+                    : '⚠️ ' . $st['missing'] . ' missing (' . number_format($st['coverage'], 1) . '%)'
+                        . (($st['placeholder_errors'] ?? 0) > 0 ? ', ' . $st['placeholder_errors'] . ' placeholder error(s)' : '')
+                        . (($st['identical'] ?? 0) > 0 ? ', ' . $st['identical'] . ' identical string(s)' : '');
                 $gaps[] = '- [' . $plugin . '](https://github.com/' . $pluginAudit['organization'] . '/' . $plugin . ') — ' . $label;
             }
             if ($gaps !== []) {
