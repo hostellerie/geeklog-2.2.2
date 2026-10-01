@@ -643,8 +643,8 @@ $LANG10 = array(
     1 => 'Statistiques du site',
     2 => 'Nombre de clics sur le site',
     3 => 'Nombre d\'articles',
-    4 => 'Site Statistic',
-    5 => "Overall Site Statistics for {$_CONF['site_name']}",
+    4 => 'Statistiques du site',
+    5 => "Statistiques générales du site {$_CONF['site_name']}",
     6 => '',
     7 => 'Top-10 des articles les plus regard&eacute;s',
     8 => 'Titre d\'article',
@@ -664,15 +664,15 @@ $LANG10 = array(
     22 => 'Top-10 des articles les plus envoy&eacute;s par courriel',
     23 => 'Courriels',
     24 => 'Personne n\'a encore envoy&eacute; d\'article par courriel',
-    25 => 'Top Ten Trackback Commented Articles',
-    26 => 'No trackback comments found.',
-    27 => 'Number of active users',
+    25 => 'Top-10 des meilleurs Trackbacks commentés',
+    26 => 'Aucun commentaire de trackback trouvé.',
+    27 => 'Nombre d\'utilisateurs actifs',
     28 => '',
     29 => '',
-    30 => 'Hits',
+    30 => 'Clics',
     31 => '',
-    32 => 'Top Ten Liked Articles',
-    33 => 'No liked articles found.'
+    32 => 'Les 10 articles les plus appréciés',
+    33 => 'Aucun article apprécié trouvé.'
 );
 
 ###############################################################################
