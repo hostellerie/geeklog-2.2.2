@@ -2046,20 +2046,20 @@ $LANG_SECTEST = array(
 # %s    scale, "hrs", "weeks"
 
 $LANG_WHATSNEW = array(
-    'new_string' => '%n new %i in the last %t %s',
-    'new_last' => 'last %t %s',
+    'new_string' => '%n nouveaux %i au cours des %t dernières %s',
+    'new_last' => '%t dernières %s',
     'minutes' => 'minutes',
-    'hours' => 'hours',
-    'days' => 'days',
-    'weeks' => 'weeks',
-    'months' => 'months',
-    'years' => 'years',
+    'hours' => 'heures',
+    'days' => 'jours',
+    'weeks' => 'semaines',
+    'months' => 'mois',
+    'years' => 'années',
     'minute' => 'minute',
-    'hour' => 'hour',
-    'day' => 'day',
-    'week' => 'week',
-    'month' => 'month',
-    'year' => 'year'
+    'hour' => 'heure',
+    'day' => 'jour',
+    'week' => 'semaine',
+    'month' => 'mois',
+    'year' => 'année'
 );
 
 ###############################################################################
