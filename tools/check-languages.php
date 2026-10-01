@@ -22,6 +22,7 @@ $ecosystemHelperFile = $root . '/tools/language-ecosystem.php';
 $recommendationsFile = $root . '/tools/language-recommendations.php';
 $bundledHelperFile = $root . '/tools/bundled-language-audit.php';
 $bundledAllowlistFile = $root . '/tools/bundled-plugin-identical-allowlist.php';
+$pluginSupportStatusFile = $root . '/tools/plugin-support-status.php';
 
 if (!is_file($referenceFile)) {
     fwrite(STDERR, "Reference file not found: {$referenceFile}\n");
@@ -419,7 +420,8 @@ if ($checkPlugins || $reportPath !== null) {
 if ($checkPlugins && function_exists('GL_LANG_auditPlugins')) {
     echo PHP_EOL . '== Plugin ecosystem audit ==' . PHP_EOL;
     try {
-        $pluginAudit = GL_LANG_auditPlugins($pluginOrg, $recommendations);
+        $pluginSupportStatus = is_file($pluginSupportStatusFile) ? include $pluginSupportStatusFile : [];
+        $pluginAudit = GL_LANG_auditPlugins($pluginOrg, $recommendations, $pluginSupportStatus);
         echo 'Audited ' . $pluginAudit['audited'] . ' plugin(s) in ' . $pluginOrg . PHP_EOL;
     } catch (Throwable $e) {
         fwrite(STDERR, '[ERROR] Plugin ecosystem audit failed: ' . $e->getMessage() . PHP_EOL);
