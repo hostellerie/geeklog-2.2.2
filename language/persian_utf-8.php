@@ -801,8 +801,8 @@ $LANG_LIKES = array(
     'last_num_likes_by' => 'Last %s Likes and Dislikes by %s',
     'msg_no_likes' => 'هیچ پسند یا نپسندیدنی برای این کاربر یافت نشد.',
     'total_num_likes' => 'تعداد کل پسندها و نپسندیدن‌ها:',
-    'title_liked' => '%s پسندیده شد در ', old token
-    'title_disliked' => '%s نپسندیده شد در ', old token
+    'title_liked' => '%s پسندیده شد در ',
+    'title_disliked' => '%s نپسندیده شد در ',
     'articles' => 'Articles',
     'comments' => 'Comments'
 );
