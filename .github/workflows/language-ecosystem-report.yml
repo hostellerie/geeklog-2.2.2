@@ -9,6 +9,7 @@ on:
       - 'tools/language-recommendations.php'
       - 'tools/bundled-language-audit.php'
       - 'tools/bundled-plugin-identical-allowlist.php'
+      - 'tools/plugin-support-status.php'
       - 'plugins/**/language/**'
       - '.github/workflows/language-ecosystem-report.yml'
   workflow_dispatch:
