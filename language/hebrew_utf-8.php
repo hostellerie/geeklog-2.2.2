@@ -276,7 +276,7 @@ $LANG03 = array(
     'read_comment' => 'Read the full comment at',
     'comment_for' => 'The above comment is for the following item',
     'comment_page_title' => 'Comments for %s',
-    'comments' => 'Comments'
+    'comments' => 'תגובות'
 );
 
 ###############################################################################
@@ -751,58 +751,58 @@ $LANG12 = array(
 # LIKES feature since Geeklog 2.2.1
 
 $LANG_LIKES = array(
-    'like' => 'Like',
-    'unlike' => 'Unlike',
-    'dislike' => 'Dislike',
-    'undislike' => 'Undislike',
-    'likes' => 'Likes',
-    'unlikes' => 'Unlikes',
-    'dislikes' => 'Dislikes',
-    'undislikes' => 'Undislikes',
-    'i_like_this' => 'I like this',
-    'i_dislike_this' => 'I dislike this',
-    'thanks_for_action' => 'Thanks for voting!',
-    'likes_speedlimit' => 'You last used the Likes system on an item %s seconds ago. This site requires at least %s seconds between using the Likes system',
-    'likes_ip_error' => 'Your IP address has already performed this Likes action.',
-    'likes_uid_error' => 'Your User account has already performed this Likes action.',
-    'own_item_error' => 'Either you own the item or do not have permission to Like/Dislike it.',
-    'liked_by' => 'Liked by:',
-    'disliked_by' => 'Disliked by:',
-    'num_anon_users' => '<br' . XHTML . '>%s Anonymous Users',
-    'one_anon_users' => '<br' . XHTML . '>1 Anonymous User',
-    'num_more_users' => '<br' . XHTML . '>+%s more Users',
+    'like' => 'אהבתי',
+    'unlike' => 'ביטול אהבתי',
+    'dislike' => 'לא אהבתי',
+    'undislike' => 'ביטול לא אהבתי',
+    'likes' => 'אהבתי',
+    'unlikes' => 'ביטולי אהבתי',
+    'dislikes' => 'לא אהבתי',
+    'undislikes' => 'ביטולי לא אהבתי',
+    'i_like_this' => 'אני אוהב את זה',
+    'i_dislike_this' => 'אני לא אוהב את זה',
+    'thanks_for_action' => 'תודה על ההצבעה!',
+    'likes_speedlimit' => 'השתמשתם לאחרונה במערכת אהבתי לפני %s שניות. האתר דורש לפחות %s שניות בין פעולות במערכת אהבתי',
+    'likes_ip_error' => 'כתובת ה-IP שלכם כבר ביצעה פעולה זו.',
+    'likes_uid_error' => 'חשבון המשתמש שלכם כבר ביצע פעולה זו.',
+    'own_item_error' => 'או שהפריט שייך לכם או שאין לכם הרשאה לסמן אהבתי/לא אהבתי.',
+    'liked_by' => 'אהבו:',
+    'disliked_by' => 'לא אהבו:',
+    'num_anon_users' => '<br' . XHTML . '>%s משתמשים אנונימיים',
+    'one_anon_users' => '<br' . XHTML . '>משתמש אנונימי אחד',
+    'num_more_users' => '<br' . XHTML . '>+%s משתמשים נוספים',
     'username_in_likes_list' => '<br' . XHTML . '>%s',
     'autotag_desc_likes_block' => "[likes_block:aid action:aid wrapper:wid class:likes-autotag type: subtype: time:604800 max:10 cache:3600 line:1 length:20]\n	- Displays the Likes block. No attributes are required. If attribute not specified then default in configuration used. \n	- action = 1 (likes only), 2 (dislikes only), or 3 (both) \n	- wrapper = 0 (no wrapper), 1 (block wrapper with title), div wrapper with css class), or both\n	- class = Specifies the css class used by the div wrapper if enabled else default likes-autotag will be used \n	- type = Either empty (for all types) or include 1 supported like type. For example 'article' or 'comment'\n	- subtype = Specify a sub type of type if needed\n	- time = Display items that are this many seconds old. 0 will display all items\n	- max = Maximum number of items to display\n	- cache = Cached for no longer than this many seconds. If 0 caching is disabled\n	- line = Display likes icons on new line\n	- length = Trim item title length to this many characters",
-    'num_likes_in_time_limit' => 'The last number of Likes this item received within the time specified.',
-    'num_dislikes_in_time_limit' => 'The last number of Dislikes this item received within the time specified.',
-    'num_likes_total' => 'The total number of Likes this item has received.',
-    'num_dislikes_total' => 'The total number of Dislikes this item has received.',
-    'likes_time_span' => 'Most Likes in the last %t %s',
-    'dislikes_time_span' => 'Most Dislikes in the last %t %s',
-    'all_time_span' => 'Most engaging in the last %t %s',
-    'whats_liked' => 'Whats Liked',
-    'whats_recently_liked' => 'Whats Recently Liked',
-    'whats_disliked' => 'Whats Disliked',
-    'whats_recently_disliked' => 'Whats Recently Disliked',
-    'whats_popular' => 'Whats Popular',
-    'whats_recently_popular' => 'Whats Recently Popular',
-    'whats_liked_type' => 'Liked %s',
-    'whats_recently_liked_type' => 'Recently Liked %s',
-    'whats_disliked_type' => 'Disliked %s',
-    'whats_recently_disliked_type' => 'Recently Disliked %s',
-    'whats_popular_type' => 'Popular %s',
-    'whats_recently_popular_type' => 'Recently Popular %s',
-    'no_liked_items_in_time_limit' => 'There have been no Likes during the time specified.',
-    'no_disliked_items_in_time_limit' => 'There have been no Dislikes during the time specified.',
-    'no_action_items_in_time_limit' => 'There have been no Likes or Dislikes during the time specified.',
-    'no_liked_items' => 'There are no Liked items.',
-    'no_disliked_items' => 'There are no Disliked items.',
-    'no_action_items' => 'There are no Liked or Disliked items.',
+    'num_likes_in_time_limit' => 'מספר סימוני אהבתי שהפריט קיבל בתקופה שנבחרה.',
+    'num_dislikes_in_time_limit' => 'מספר סימוני לא אהבתי שהפריט קיבל בתקופה שנבחרה.',
+    'num_likes_total' => 'המספר הכולל של סימוני אהבתי שהפריט קיבל.',
+    'num_dislikes_total' => 'המספר הכולל של סימוני לא אהבתי שהפריט קיבל.',
+    'likes_time_span' => 'הכי הרבה אהבתי ב-%t %s האחרונים',
+    'dislikes_time_span' => 'הכי הרבה לא אהבתי ב-%t %s האחרונים',
+    'all_time_span' => 'הכי הרבה מעורבות ב-%t %s האחרונים',
+    'whats_liked' => 'מה אהבו',
+    'whats_recently_liked' => 'מה אהבו לאחרונה',
+    'whats_disliked' => 'מה לא אהבו',
+    'whats_recently_disliked' => 'מה לא אהבו לאחרונה',
+    'whats_popular' => 'מה פופולרי',
+    'whats_recently_popular' => 'מה פופולרי לאחרונה',
+    'whats_liked_type' => '%s שאהבו',
+    'whats_recently_liked_type' => '%s שאהבו לאחרונה',
+    'whats_disliked_type' => '%s שלא אהבו',
+    'whats_recently_disliked_type' => '%s שלא אהבו לאחרונה',
+    'whats_popular_type' => '%s פופולרי',
+    'whats_recently_popular_type' => '%s פופולרי לאחרונה',
+    'no_liked_items_in_time_limit' => 'לא נרשמו סימוני אהבתי בתקופה שנבחרה.',
+    'no_disliked_items_in_time_limit' => 'לא נרשמו סימוני לא אהבתי בתקופה שנבחרה.',
+    'no_action_items_in_time_limit' => 'לא נרשמו סימוני אהבתי או לא אהבתי בתקופה שנבחרה.',
+    'no_liked_items' => 'אין פריטים שסומנו אהבתי.',
+    'no_disliked_items' => 'אין פריטים שסומנו לא אהבתי.',
+    'no_action_items' => 'אין פריטים שסומנו אהבתי או לא אהבתי.',
     'last_num_likes_by' => 'Last %s Likes and Dislikes by %s',
-    'msg_no_likes' => 'No likes or dislikes found by user.',
-    'total_num_likes' => 'Total number of likes and dislikes:',
-    'title_liked' => '%s Liked on ',
-    'title_disliked' => '%s Disliked on ',
+    'msg_no_likes' => 'לא נמצאו סימוני אהבתי או לא אהבתי למשתמש.',
+    'total_num_likes' => 'המספר הכולל של אהבתי ולא אהבתי:',
+    'title_liked' => '%s אהב בתאריך ', 
+    'title_disliked' => '%s לא אהב בתאריך ', 
     'articles' => 'Articles',
     'comments' => 'Comments'
 );
@@ -815,12 +815,12 @@ $LANG_LIKES = array(
 # admin/logviewer.php
 
 $LANG_LOGVIEW = array(
-    'log_viewer' => 'Log Viewer',
-    'info' => 'Geeklog log file administration.',
-    'logs' => 'Logs',
-    'view' => 'View Log File',
-    'clear' => 'Clear Log File',
-    'log_file' => 'Log File'
+    'log_viewer' => 'מציג יומן',
+    'info' => 'ניהול קובצי היומן של Geeklog.',
+    'logs' => 'יומנים',
+    'view' => 'הצגת קובץ יומן',
+    'clear' => 'ניקוי קובץ יומן',
+    'log_file' => 'קובץ יומן'
 );
 
 ###############################################################################
@@ -903,14 +903,14 @@ $LANG_ENVCHECK = array(
 # For Demo Mode (since v2.2.1)
 
 $LANG_DEMO = array(
-    'header' => 'Header',
-    'subject' => 'Subject:',
+    'header' => 'כותרת',
+    'subject' => 'נושא:',
     'to' => 'To:',
-    'from' => 'From:',
-    'priority' => 'Priority:',
-    'body' => 'Body',
-    'notice' => 'Notice',
-    'emails_disabled_msg' => 'Please note sending emails is disabled in Demo mode. An email which would have been sent was:'
+    'from' => 'מאת:',
+    'priority' => 'עדיפות:',
+    'body' => 'תוכן',
+    'notice' => 'הודעה',
+    'emails_disabled_msg' => 'שימו לב ששליחת דוא"ל מושבתת במצב הדגמה. ההודעה שהייתה נשלחת היא:'
 );
 
 ###############################################################################
@@ -1552,16 +1552,16 @@ $LANG33 = array(
 # admin/language.php (since v2.1.2)
 
 $LANG_LANG = array(
-    'language_admin_title' => 'Language Overrides',
+    'language_admin_title' => 'עקיפות שפה',
     'language_manager' => 'Language Manager',
     'new_language_msg' => 'To modify or delete a language item, click on that item\'s edit icon below. To create a new item, click on "Create New" above.',
     'language_editor' => 'Language Editor',
     'id' => 'ID',
-    'language' => 'Language',
+    'language' => 'שפה',
     'name' => 'Name',
     'var_name' => 'Var Name',
-    'name_tip' => 'Required just for language arrays.',
-    'var_name_tip' => 'Can be a regular variable or array. Do not include the dollar sign at the beginning of the variable/array name.',
+    'name_tip' => 'נדרש רק עבור מערכי שפה.',
+    'var_name_tip' => 'יכול להיות משתנה רגיל או מערך. אין לכלול את סימן הדולר בתחילת שם המשתנה או המערך.',
     'value' => 'Value'
 );
 
@@ -1570,27 +1570,27 @@ $LANG_LANG = array(
 
 $LANG_ROUTER = array(
     1 => 'URL routing',
-    2 => 'Routing Manager',
+    2 => 'מנהל ניתוב',
     3 => 'ID',
     4 => 'method',
     5 => 'rule',
     6 => 'route',
     7 => 'priority',
-    8 => 'Increase priority',
-    9 => 'Decrease priority',
-    10 => 'Edit routing',
+    8 => 'הגדלת עדיפות',
+    9 => 'הקטנת עדיפות',
+    10 => 'עריכת ניתוב',
     11 => 'To modify or delete a route, click on the route\'s edit icon below. To create a new route, click on "Create New" above.  When you use placeholders (@), you must define the same placeholders in a rule and its route.',
-    12 => 'Bad request method',
-    13 => 'Rule is a mandatory item.',
-    14 => 'Route is a mandatory item.',
-    15 => 'Placeholders (@) in a rule and those in a route must be the same.',
-    16 => 'Route must not start with "/index.php/".',
-    17 => 'Database error occurred.',
-    18 => '<strong>To enable URL routing, you have to enable URL rewrite in the Configuration.</strong>',
-    19 => '<strong>To enable URL routing, you have to enable URL routing in the Configuration.</strong>',
+    12 => 'שיטת בקשה לא תקינה',
+    13 => 'כלל הוא שדה חובה.',
+    14 => 'נתיב הוא שדה חובה.',
+    15 => 'מצייני המקום (@) בכלל ובנתיב חייבים להיות זהים.',
+    16 => 'הנתיב אינו יכול להתחיל ב-"/index.php/".',
+    17 => 'אירעה שגיאת מסד נתונים.',
+    18 => '<strong>כדי להפעיל ניתוב כתובות URL, יש להפעיל שכתוב URL בהגדרות.</strong>',
+    19 => '<strong>כדי להפעיל ניתוב כתובות URL, יש להפעיל את ניתוב ה-URL בהגדרות.</strong>',
     20 => '<ul><li>Placeholders (@) must be the same both in a rule and its route.</li><li>A placeholder starts with "@", followed by an alphabet, optionally followed by any length of alphabet or digit.</li><li>Placeholders are case-sensitive.</li></ul>',
-    21 => 'Status Code',
-    22 => 'Enabled',
+    21 => 'קוד מצב',
+    22 => 'מופעל',
     23 => 'Yes',
     24 => 'No'
 );
@@ -2263,8 +2263,8 @@ $LANG_structureddatatypes = array(
 );
 
 $LANG_STRUCT_DATA = array(
-    'lang_structured_data_type' => 'Structured Data Type',
-    'autotag_desc_structureddata' => '[structureddata:schema_property]Property Value[/structureddata] - Adds a property to the structured data of the content that the autotag is embedded in.'
+    'lang_structured_data_type' => 'סוג נתונים מובנים',
+    'autotag_desc_structureddata' => '[structureddata:schema_property]ערך מאפיין[/structureddata] - מוסיף מאפיין לנתונים המובנים של התוכן שבו משובץ התג האוטומטי.'
 );
 
 ###############################################################################
@@ -2804,7 +2804,7 @@ $LANG_VALIDATION = array(
     'default' => 'שדה זה מכיל ערך שגוי',
     'notEmpty' => 'שדה זה לא יכול להיות ריק',
     'alphaNumeric' => 'שדה זה חייב להיות עם אותיות ומספרים',
-    'alphaNumericOrEmpty' => 'This field must be alpha numeric or empty',
+    'alphaNumericOrEmpty' => 'שדה זה חייב להיות אלפאנומרי או ריק',
     'between' => 'שדה זה חייב להיות בטווח המצוין',
     'blank' => 'שדה זה חייב להיות ריק',
     'comparison' => 'שדה זה לא תואם את תהליך ההשוואה',
@@ -2833,7 +2833,7 @@ $LANG_VALIDATION = array(
     'rdf_limit' => 'שדה זה חייב להיות מספר או שעה בסגנון 24h',
     'path' => 'הנתיב לא קיים',
     'file' => 'הקובץ לא קיים',
-    'fileName' => 'This field must be a proper file name',
+    'fileName' => 'שדה זה חייב להכיל שם קובץ תקין',
     'search_limits' => 'שדה זה חייב להיות מספר מופרד עם פסיק',
     'num_search_results' => 'שדה זה חייב להיות מספר ומתוך \'search_limits\' שלעיל',
     'theme' => 'ספריית הנושא העיצובי לא קיימת',
@@ -2845,7 +2845,7 @@ $LANG_VALIDATION = array(
     'single_char' => 'שדה חייב להיות תו בודד',
     'page_navigation_max_pages' => 'שדה זה חייב להיות בטווח 2 - 21',
     'hash' => 'שדה זה להיות בפונקציית קידוד הנתמכת על ידי גרסת ה-PHP שלכם',
-    'config_setting_lang_array' => 'Each element requires a unique language shortcut (\'en\', \'de\', etc.) and the corresponding field must contain a value',
-    'config_setting_lang_array_element_req' => 'Requires at least one element. Each element requires a unique language shortcut (\'en\', \'de\', etc.) and the corresponding field must contain a value'
+    'config_setting_lang_array' => 'כל רכיב דורש קוד שפה ייחודי (כגון \'en\' או \'de\') והשדה המתאים חייב להכיל ערך',
+    'config_setting_lang_array_element_req' => 'נדרש לפחות רכיב אחד. כל רכיב דורש קוד שפה ייחודי (כגון \'en\' או \'de\') והשדה המתאים חייב להכיל ערך'
 );
 
