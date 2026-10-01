@@ -106,7 +106,7 @@ $LANG_SX00 = array (
     'import_failure' => '<p><strong>Fehler:</strong> Keine Einträge gefunden.',
     'allow_url_fopen' => '<p>Leider erlaubt Ihre Webserver-Konfiguration das Lesen entfernter Dateien nicht (<code>allow_url_fopen</code> ist deaktiviert). Laden Sie die Blacklist von der folgenden URL herunter und in Geeklogs Verzeichnis "data" hoch, <span style="font-family: monospace;">%s</span>, bevor Sie es erneut versuchen:',
     'documentation' => 'Spam-X-Plugin-Dokumentation',
-    'emailmsg' => "Ein neuer Spam-Beitrag wurde auf \\"%s\\" eingereicht\\nBenutzer-UID: \\"%s\\"\\n\\nInhalt:\\"%s\\"",
+    'emailmsg' => "Ein neuer Spam-Beitrag wurde auf \"%s\" eingereicht\nBenutzer-UID: \"%s\"\n\nInhalt:\"%s\"",
     'emailsubject' => 'Spam-Beitrag auf %s',
     'ipblack' => 'Spam-X-IP-Blacklist',
     'ipofurlblack' => 'Spam-X-Blacklist für URL-IP-Adressen',
@@ -118,7 +118,7 @@ $LANG_SX00 = array (
     'counter' => 'Zähler',
 
     'stats_headline' => 'Spam-X-Statistik',
-    'stats_page_title' => 'Blacklist',
+    'stats_page_title' => 'Sperrliste',
     'stats_entries' => 'Einträge',
     'stats_mtblacklist' => 'MT-Blacklist',
     'stats_pblacklist' => 'Persönliche Blacklist',
