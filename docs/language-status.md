@@ -770,8 +770,8 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 |---|---:|---:|---:|---:|---:|
 | chinese_simplified_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
 | chinese_traditional_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
-| french_canada_utf-8.php | ⚠️ | 0 | 2 | 33 | 100.0% |
-| french_france_utf-8.php | ⚠️ | 0 | 2 | 33 | 100.0% |
+| french_canada_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
+| french_france_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
 | german_formal_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
 | german_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
 | hebrew_utf-8.php | ⚠️ | 0 | 2 | 10 | 100.0% |
@@ -788,7 +788,7 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 
 | Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
 |---|---:|---:|---:|---:|---:|
-| chinese_simplified_utf-8.php | ⚠️ | 4 | 0 | 32 | 96.7% |
+| chinese_simplified_utf-8.php | ⚠️ | 4 | 0 | 24 | 96.7% |
 | chinese_traditional_utf-8.php | ⚠️ | 4 | 0 | 32 | 96.7% |
 | french_canada_utf-8.php | ⚠️ | 4 | 0 | 46 | 96.7% |
 | french_france_utf-8.php | ⚠️ | 4 | 0 | 35 | 96.7% |
