@@ -13,6 +13,8 @@ on:
       - 'tools/bundled-language-audit.php'
       - 'tools/bundled-plugin-identical-allowlist.php'
       - 'tools/plugin-support-status.php'
+      - 'tools/external-theme-language-audit.php'
+      - 'tools/external-language-components.php'
       - '.github/workflows/language-check.yml'
   pull_request:
     paths:
@@ -46,6 +48,8 @@ jobs:
           php -l tools/bundled-language-audit.php
           php -l tools/bundled-plugin-identical-allowlist.php
           php -l tools/plugin-support-status.php
+          php -l tools/external-theme-language-audit.php
+          php -l tools/external-language-components.php
 
       - name: Lint UTF-8 language files
         run: find language -maxdepth 1 -name '*_utf-8.php' -print0 | xargs -0 -n1 php -l
