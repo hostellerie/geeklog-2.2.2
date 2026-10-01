@@ -744,8 +744,8 @@ $LANG12 = array(
     51 => 'Localisation',
     52 => 'Supprimer',
     53 => 'Cr&eacute;er un compte',
-    54 => 'Article Introduction',
-    55 => 'Article Body'
+    54 => 'Introduction',
+    55 => 'Corps'
 );
 
 ###############################################################################
