@@ -15,7 +15,7 @@ global $LANG32;
 $LANG_SX00 = array (
     'inst1' => '<p>Wenn Sie dies tun, können andere ',
     'inst2' => 'Ihre persönliche Blacklist anzeigen und importieren, und wir können eine effektivere ',
-    'inst3' => 'verteilte Datenbank aufbauen.</p><p>Wenn Sie Ihre Website eingetragen haben und nicht möchten, dass sie in der Liste bleibt, ',
+    'inst3' => 'verteilte Datenbank aufbauen.</p><p>Wenn Sie Ihre Website eingetragen haben und nicht möchten, dass sie in der Liste verbleiben soll ',
     'inst4' => 'senden Sie bitte eine E-Mail an <a href="mailto:spamx@pigstye.net">spamx@pigstye.net</a>. ',
     'inst5' => 'Alle Anfragen werden berücksichtigt.',
     'submit' => 'Absenden',
