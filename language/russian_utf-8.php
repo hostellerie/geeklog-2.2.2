@@ -2027,25 +2027,25 @@ $LANG_DIR = array(
 # admin/sectest.php
 
 $LANG_SECTEST = array(
-    'sectest' => 'Geeklog Security Check',
-    'results' => 'Results of the Security Check',
-    'okay' => 'Everything seems to be in order.',
-    'please_fix' => 'Please fix the above issues before using your site!',
-    'please_note' => 'Please note that no site is ever 100% secure. This script can only test for obvious security issues.',
-    'stay_informed' => 'To stay informed about new Geeklog releases and possible security issues, we suggest that you subscribe to the (low-traffic) %s mailing list and/or use the %s option in your Admin menu from time to time to check for available updates.',
-    'public_html' => '"public_html" should never be part of your site\'s URL.  Please read the part about public_html in the %s again and change your setup accordingly before you proceed.',
-    'installation' => 'installation instructions',
-    'directory' => 'directory',
-    'failed_tmp' => 'Failed to create a temporary file in your %s directory. Check your directory permissions!',
-    'fix_it' => 'This is a security risk and should be fixed!',
-    'reachable' => 'Your %s is reachable from the web.',
-    'not_reachable' => 'Good! Your %s is not reachable from the web.',
-    'not_sure' => 'Got an HTTP result code %s when trying to test your %s. Not sure what to make of it ...',
-    'remove_inst' => 'You should really remove the install directory %s once you have your site up and running without any errors.',
-    'remove_inst2' => 'Keeping it around would allow malicious users the ability to destroy your current install, take over your site, or retrieve sensitive information.',
-    'inst_removed' => 'Good! You seem to have removed the install directory already.',
+    'sectest' => 'Проверка безопасности Geeklog',
+    'results' => 'Результаты проверки безопасности',
+    'okay' => 'Похоже, всё в порядке.',
+    'please_fix' => 'Исправьте указанные выше проблемы перед использованием сайта!',
+    'please_note' => 'Учтите, что ни один сайт не бывает защищён на 100%. Этот скрипт проверяет только очевидные проблемы безопасности.',
+    'stay_informed' => 'Чтобы получать сведения о новых версиях Geeklog и возможных проблемах безопасности, рекомендуем подписаться на малонагруженный список рассылки %s и/или время от времени использовать пункт %s в меню администратора для проверки обновлений.',
+    'public_html' => '"public_html" не должен быть частью URL вашего сайта. Перед продолжением ещё раз прочитайте раздел о public_html в %s и измените настройки соответствующим образом.',
+    'installation' => 'инструкциях по установке',
+    'directory' => 'каталог',
+    'failed_tmp' => 'Не удалось создать временный файл в каталоге %s. Проверьте права доступа к каталогу!',
+    'fix_it' => 'Это угроза безопасности, которую необходимо устранить!',
+    'reachable' => 'Ваш %s доступен из Интернета.',
+    'not_reachable' => 'Хорошо! Ваш %s недоступен из Интернета.',
+    'not_sure' => 'При проверке %s получен HTTP-код %s. Невозможно однозначно определить результат ...',
+    'remove_inst' => 'После успешного запуска сайта без ошибок следует удалить каталог установки %s.',
+    'remove_inst2' => 'Если оставить его на месте, злоумышленники смогут повредить установленную систему, захватить сайт или получить конфиденциальные данные.',
+    'inst_removed' => 'Хорошо! Похоже, каталог установки уже удалён.',
     'fix_password' => 'Вы всё ещё не изменили <strong>пароль по умолчанию</strong> «password» для учётной записи администратора по умолчанию.',
-    'password_okay' => 'Good! You seem to have changed the default account password already.'
+    'password_okay' => 'Хорошо! Похоже, пароль учётной записи по умолчанию уже изменён.'
 );
 
 ###############################################################################
