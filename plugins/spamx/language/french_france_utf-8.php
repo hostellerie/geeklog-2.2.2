@@ -101,7 +101,7 @@ $LANG_SX00 = array(
     'note5' => 'sont vérifiés à partir des plus récents -- vérifier plus de commentaires ',
     'note6' => 'nécessite plus de temps pour la vérification</p>',
     'masshead' => '<hr' . XHTML . '><h1 style="text-align: center;">Suppression de commentaires en lot</h1>',
-    'masstb' => '<hr' . XHTML . '><h1 style="text-align: center;">Mass Delete Trackback Spam</h1>',
+    'masstb' => 'Suppression en masse des rétroliens indésirables',
     'comdel' => ' commentaires supprimés.',
     'initial_Pimport' => '<p>Importer Liste Noire Personnelle"',
     'initial_import' => 'Importer Liste Noire Principale Originale',
