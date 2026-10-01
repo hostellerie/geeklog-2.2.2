@@ -8,6 +8,8 @@
  * Usage:
  *   php tools/check-languages.php
  *   php tools/check-languages.php language/french_france_utf-8.php
+ *   php tools/check-languages.php --plugins
+ *   php tools/check-languages.php --plugins --report=docs/language-status.md
  */
 
 declare(strict_types=1);
@@ -16,6 +18,8 @@ $root = dirname(__DIR__);
 $referenceFile = $root . '/language/english_utf-8.php';
 $benchmarkFile = $root . '/language/french_france_utf-8.php';
 $identicalAllowlistFile = $root . '/tools/language-identical-allowlist.php';
+$ecosystemHelperFile = $root . '/tools/language-ecosystem.php';
+$recommendationsFile = $root . '/tools/language-recommendations.php';
 
 if (!is_file($referenceFile)) {
     fwrite(STDERR, "Reference file not found: {$referenceFile}\n");
@@ -170,10 +174,31 @@ $benchmark = is_file($benchmarkFile) ? loadLanguageFile($benchmarkFile) : null;
 $identicalAllowlist = is_file($identicalAllowlistFile)
     ? include $identicalAllowlistFile
     : [];
+$checkPlugins = false;
+$reportPath = null;
+$pluginOrg = getenv('GEEKLOG_PLUGIN_ORG') ?: 'Geeklog-Plugins';
+$positionalArgs = [];
+
+foreach (array_slice($argv, 1) as $argument) {
+    if ($argument === '--plugins') {
+        $checkPlugins = true;
+        continue;
+    }
+    if ($argument === '--report') {
+        $reportPath = 'docs/language-status.md';
+        continue;
+    }
+    if (str_starts_with($argument, '--report=')) {
+        $reportPath = substr($argument, strlen('--report='));
+        continue;
+    }
+    $positionalArgs[] = $argument;
+}
+
 $targets = [];
 
-if ($argc > 1) {
-    foreach (array_slice($argv, 1) as $argument) {
+if ($positionalArgs !== []) {
+    foreach ($positionalArgs as $argument) {
         $file = $argument;
 
         if (!str_starts_with($file, DIRECTORY_SEPARATOR)) {
@@ -373,5 +398,41 @@ echo PHP_EOL
     . $totalReviews . ' review item(s), '
     . $totalInfos . ' info item(s)'
     . PHP_EOL;
+
+$pluginAudit = null;
+$recommendations = is_file($recommendationsFile) ? include $recommendationsFile : [];
+
+if ($checkPlugins || $reportPath !== null) {
+    if (!is_file($ecosystemHelperFile)) {
+        fwrite(STDERR, "[ERROR] Ecosystem helper not found: {$ecosystemHelperFile}\n");
+        ++$totalErrors;
+    } else {
+        require_once $ecosystemHelperFile;
+    }
+}
+
+if ($checkPlugins && function_exists('GL_LANG_auditPlugins')) {
+    echo PHP_EOL . '== Plugin ecosystem audit ==' . PHP_EOL;
+    try {
+        $pluginAudit = GL_LANG_auditPlugins($pluginOrg, $recommendations);
+        echo 'Audited ' . $pluginAudit['audited'] . ' plugin(s) in ' . $pluginOrg . PHP_EOL;
+    } catch (Throwable $e) {
+        fwrite(STDERR, '[ERROR] Plugin ecosystem audit failed: ' . $e->getMessage() . PHP_EOL);
+        ++$totalErrors;
+    }
+}
+
+if ($reportPath !== null && function_exists('GL_LANG_writeReport')) {
+    if (!str_starts_with($reportPath, DIRECTORY_SEPARATOR)) {
+        $reportPath = $root . DIRECTORY_SEPARATOR . $reportPath;
+    }
+    try {
+        GL_LANG_writeReport($reportPath, $results, $pluginAudit, $recommendations);
+        echo 'Wrote report: ' . $reportPath . PHP_EOL;
+    } catch (Throwable $e) {
+        fwrite(STDERR, '[ERROR] Report generation failed: ' . $e->getMessage() . PHP_EOL);
+        ++$totalErrors;
+    }
+}
 
 exit($totalErrors > 0 ? 1 : 0);
