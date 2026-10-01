@@ -816,12 +816,12 @@ $LANG_LIKES = array(
 # admin/logviewer.php
 
 $LANG_LOGVIEW = array(
-    'log_viewer' => 'Log Viewer',
-    'info' => 'Geeklog log file administration.',
-    'logs' => 'Logs',
-    'view' => 'View Log File',
-    'clear' => 'Clear Log File',
-    'log_file' => 'Log File'
+    'log_viewer' => '日誌檢視器',
+    'info' => 'Geeklog 日誌檔案管理。',
+    'logs' => '日誌',
+    'view' => '檢視日誌檔案',
+    'clear' => '清空日誌檔案',
+    'log_file' => '日誌檔案',
 );
 
 ###############################################################################
@@ -904,14 +904,14 @@ $LANG_ENVCHECK = array(
 # For Demo Mode (since v2.2.1)
 
 $LANG_DEMO = array(
-    'header' => 'Header',
-    'subject' => 'Subject:',
+    'header' => '郵件標頭',
+    'subject' => '主旨：',
     'to' => 'To:',
-    'from' => 'From:',
-    'priority' => 'Priority:',
-    'body' => 'Body',
-    'notice' => 'Notice',
-    'emails_disabled_msg' => 'Please note sending emails is disabled in Demo mode. An email which would have been sent was:'
+    'from' => '寄件者：',
+    'priority' => '優先順序：',
+    'body' => '本文',
+    'notice' => '提示',
+    'emails_disabled_msg' => '請注意，示範模式下已停用郵件傳送。原本會寄出的郵件如下：',
 );
 
 ###############################################################################
@@ -1392,14 +1392,14 @@ $LANG31 = array(
     24 => '全部失敗',
     25 => '-- 請選小組 --',
     26 => '請填寫所有表格上的欄位元和選擇一個小組。',
-    27 => 'The following template variables are available in <strong>Subject</strong> and <strong>Message</strong>: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
+    27 => '以下範本變數可用於 <strong>主旨</strong> 和 <strong>訊息</strong>：{uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
     'email_divider' => '------------------------------------------------------------',
     'email_divider_html' => '<hr' . XHTML . '>',
     'sig_divider' => '---',
     'sig_divider_html' => '---<br' . XHTML . '>',
-    'email_footer_msg_noreply' => 'The address used to send this email is not monitored. Please do not reply to this email.',
-    'email_footer_msg_content' => 'If content from the website is displayed in this email, there may be layout changes which result in formatting issues.',
-    'ip_address_email' => 'IP address that initiated email:'
+    'email_footer_msg_noreply' => '用於寄送此郵件的地址無人監控，請勿回覆此郵件。',
+    'email_footer_msg_content' => '如果郵件中顯示網站內容，版面變化可能導致格式問題。',
+    'ip_address_email' => '觸發郵件的 IP 位址：',
 );
 
 ###############################################################################
@@ -1543,26 +1543,26 @@ $LANG33 = array(
     50 => "跟網址有關 ({$_CONF['site_url']})",
     51 => '你所選的檔案名已經在另一個文流中用著了。請選另一個。',
     52 => '錯誤: 檔案名已存在',
-    53 => 'All Frontpage Articles',
-    54 => 'Please select the type of feed to create.',
+    53 => '所有首頁文章',
+    54 => '請選擇要建立的 Feed 類型。',
     55 => 'Articles',
-    'num_articles' => '%s Article(s)'
+    'num_articles' => '%s 篇文章',
 );
 
 ###############################################################################
 # admin/language.php (since v2.1.2)
 
 $LANG_LANG = array(
-    'language_admin_title' => 'Language Overrides',
+    'language_admin_title' => '語言覆寫',
     'language_manager' => 'Language Manager',
     'new_language_msg' => 'To modify or delete a language item, click on that item\'s edit icon below. To create a new item, click on "Create New" above.',
     'language_editor' => 'Language Editor',
     'id' => 'ID',
-    'language' => 'Language',
+    'language' => '語言',
     'name' => 'Name',
     'var_name' => 'Var Name',
-    'name_tip' => 'Required just for language arrays.',
-    'var_name_tip' => 'Can be a regular variable or array. Do not include the dollar sign at the beginning of the variable/array name.',
+    'name_tip' => '僅語言陣列需要此項。',
+    'var_name_tip' => '可以是一般變數或陣列。變數/陣列名稱開頭不要包含美元符號。',
     'value' => 'Value'
 );
 
@@ -1571,27 +1571,27 @@ $LANG_LANG = array(
 
 $LANG_ROUTER = array(
     1 => 'URL routing',
-    2 => 'Routing Manager',
+    2 => '路由管理器',
     3 => 'ID',
     4 => 'method',
     5 => 'rule',
     6 => 'route',
     7 => 'priority',
-    8 => 'Increase priority',
-    9 => 'Decrease priority',
-    10 => 'Edit routing',
+    8 => '提高優先順序',
+    9 => '降低優先順序',
+    10 => '編輯路由',
     11 => 'To modify or delete a route, click on the route\'s edit icon below. To create a new route, click on "Create New" above.  When you use placeholders (@), you must define the same placeholders in a rule and its route.',
-    12 => 'Bad request method',
-    13 => 'Rule is a mandatory item.',
-    14 => 'Route is a mandatory item.',
-    15 => 'Placeholders (@) in a rule and those in a route must be the same.',
-    16 => 'Route must not start with "/index.php/".',
-    17 => 'Database error occurred.',
-    18 => '<strong>To enable URL routing, you have to enable URL rewrite in the Configuration.</strong>',
-    19 => '<strong>To enable URL routing, you have to enable URL routing in the Configuration.</strong>',
+    12 => '要求方法無效',
+    13 => '規則為必填項。',
+    14 => '路由為必填項。',
+    15 => '規則和路由中的預留位置（@）必須一致。',
+    16 => '路由不能以「/index.php/」開頭。',
+    17 => '發生資料庫錯誤。',
+    18 => '<strong>要啟用 URL 路由，必須先在設定中啟用 URL 重寫。</strong>',
+    19 => '<strong>要啟用 URL 路由，必須先在設定中啟用 URL 路由。</strong>',
     20 => '<ul><li>Placeholders (@) must be the same both in a rule and its route.</li><li>A placeholder starts with "@", followed by an alphabet, optionally followed by any length of alphabet or digit.</li><li>Placeholders are case-sensitive.</li></ul>',
-    21 => 'Status Code',
-    22 => 'Enabled',
+    21 => '狀態碼',
+    22 => '已啟用',
     23 => 'Yes',
     24 => 'No'
 );
@@ -1790,13 +1790,13 @@ $LANG_ACCESS = array(
     'listusers' => '列出用戶',
     'listthem' => '列出',
     'usersingroup' => '屬於 "%s" 小組的用戶',
-    'usersingroupmsg' => 'A list of users that belong to the group. Users lists here may belong directly to the group or are inherited from another group that has been added to this group.',
+    'usersingroupmsg' => '屬於該群組的使用者清單。這裡的使用者可能直接屬於該群組，也可能繼承自已加入此群組的其他群組。',
     'usergroupadmin' => '用戶小組管理',
     'add' => '加入',
     'remove' => '免除',
     'availmembers' => '可用的成員',
     'groupmembers' => '小組成員',
-    'inheritmembers' => 'Inherited Group Members',
+    'inheritmembers' => '繼承的群組成員',
     'canteditgroup' => '若要修改此小組, 你必要時這個小組的成員. 若你認為這是錯誤, 請你聯絡系統管理員.',
     'cantlistgroup' => '要看此小組的會員，你必須是此小組的會員。你若認為這是錯誤，請聯絡系統管理員。',
     'editgroupmsg' => '若要修改小組會員，點擊會員名，然後用增加或刪除的按鈕. 如果一個會員是一個小組的會員，他們的名字只會顯現在右邊. 一旦完成，按 <b>保存</b> 來更新小組，然後回到小組管理主頁.',
@@ -1808,7 +1808,7 @@ $LANG_ACCESS = array(
     'plugin_access_denied_msg' => '你在非法的進入插件管理頁.  請注意所有的非法登入都被登記.',
     'groupexists' => '小組名稱已存在',
     'groupexistsmsg' => '目前已有用此名的小組. 小組名稱必須獨特.',
-    'demo_mode_denied_msg' => 'This feature is currently disabled while the site is in Demo Mode.'
+    'demo_mode_denied_msg' => '網站處於示範模式時，此功能目前已停用。',
 );
 
 ###############################################################################
@@ -1899,7 +1899,7 @@ $LANG_404 = array(
     1 => '404 錯誤',
     2 => '咦，我到處都看過了但找不到<b>%s</b>.',
     3 => "<p>很抱歉，但你要求的檔不存在。請檢查<a href=\"{$_CONF['site_url']}\">主頁</a>或<a href=\"{$_CONF['site_url']}/search.php\">搜索頁</a>看看能發現什麽。",
-    4 => "<p>We're sorry, but the page you have requested does not exist. We recommend going back to this <a href=\"%s\">related page</a>, or you may want to check the <a href=\"{$_CONF['site_url']}/\">home page</a>, or the <a href=\"{$_CONF['site_url']}/search.php\">search page</a> to see if you can find what you lost."
+    4 => "<p>很抱歉，您要求的頁面不存在。建議返回此<a href=\"%s\">相關頁面</a>，或查看<a href=\"{$_CONF['site_url']}/\">首頁</a>或<a href=\"{$_CONF['site_url']}/search.php\">搜尋頁面</a>尋找所需內容。",
 );
 
 ###############################################################################
@@ -2053,13 +2053,13 @@ $LANG_WHATSNEW = array(
     'days' => '日',
     'weeks' => '周',
     'months' => '月',
-    'years' => 'years',
+    'years' => '年',
     'minute' => '分鐘',
     'hour' => '小時',
     'day' => '日',
     'week' => '周',
     'month' => '月',
-    'year' => 'year'
+    'year' => '年',
 );
 
 ###############################################################################
@@ -2095,7 +2095,7 @@ $LANG_MONTH_SHORT = array(
     9 => 'Sep',
     10 => 'Oct',
     11 => 'Nov',
-    12 => 'Decr'
+    12 => '12月',
 );
 
 ###############################################################################
@@ -2264,8 +2264,8 @@ $LANG_structureddatatypes = array(
 );
 
 $LANG_STRUCT_DATA = array(
-    'lang_structured_data_type' => 'Structured Data Type',
-    'autotag_desc_structureddata' => '[structureddata:schema_property]Property Value[/structureddata] - Adds a property to the structured data of the content that the autotag is embedded in.'
+    'lang_structured_data_type' => '結構化資料類型',
+    'autotag_desc_structureddata' => '[structureddata:schema_property]屬性值[/structureddata] - 向自動標籤所在內容的結構化資料中新增一個屬性。',
 );
 
 ###############################################################################
@@ -2281,11 +2281,11 @@ $LANG_CONFIG = array(
     'reset_form' => '恢復表格原狀',
     'changes_made' => '更改已成功地安置於',
     'title' => '設定管理',
-    'disable' => 'Click to disable this option',
-    'enable' => 'Enable',
-    'default_tab_name' => 'Main',
-    'search_configuration_label' => 'Search Configuration',
-    'error_validation_occurs' => 'There are invalid configuration values. Please correct these fields (just click the config variable to point you to the error field)'
+    'disable' => '點擊停用此選項',
+    'enable' => '啟用',
+    'default_tab_name' => '主要',
+    'search_configuration_label' => '搜尋設定',
+    'error_validation_occurs' => '存在無效的設定值。請修正這些欄位（點擊設定變數即可定位到錯誤欄位）',
 );
 
 $LANG_configsections['Core'] = array(
