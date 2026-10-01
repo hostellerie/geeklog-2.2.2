@@ -106,7 +106,7 @@ $LANG_SX00 = array (
     'import_failure' => '<p><strong>错误：</strong>未找到条目。',
     'allow_url_fopen' => '<p>抱歉，您的 Web 服务器配置不允许读取远程文件（<code>allow_url_fopen</code> 已关闭）。请从以下 URL 下载黑名单，并将其上传到 Geeklog 的 "data" 目录 <span style="font-family: monospace;">%s</span>，然后重试：',
     'documentation' => 'Spam-X 插件文档',
-    'emailmsg' => "在 \\"%s\\" 收到新的垃圾内容\\n用户 UID：\\"%s\\"\\n\\n内容：\\"%s\\"",
+    'emailmsg' => "在 \"%s\" 收到新的垃圾内容\n用户 UID：\"%s\"\n\n内容：\"%s\"",
     'emailsubject' => '%s 上的垃圾内容',
     'ipblack' => 'Spam-X IP 黑名单',
     'ipofurlblack' => 'Spam-X URL IP 黑名单',
