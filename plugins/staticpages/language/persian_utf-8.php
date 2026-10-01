@@ -64,25 +64,25 @@ $LANG_STATIC = array(
     'access_denied' => 'دسترسی ممنوع است',
     'access_denied_msg' => 'شما به‌صورت غیرمجاز در تلاش برای دسترسی به یکی از صفحات مدیریت صفحات ایستا هستید. توجه داشته باشید که همه تلاش‌های دسترسی غیرمجاز ثبت می‌شوند.',
     'all_html_allowed' => 'استفاده از همه HTML مجاز است',
-    'results' => 'Static Pages Results',
+    'results' => 'نتایج صفحات ایستا',
     'author' => 'نویسنده',
     'no_title_or_content' => 'حداقل باید فیلدهای <b>عنوان</b> و <b>محتوا</b> را تکمیل کرده و یک <b>موضوع</b> را انتخاب کنید.',
     'title_error_saving' => 'خطا هنگام ذخیره صفحه',
     'template_xml_error' => 'در نشانه‌گذاری XML شما <em>خطا</em> وجود دارد. این صفحه برای استفاده از صفحه‌ای دیگر به‌عنوان الگو تنظیم شده است، بنابراین متغیرهای الگو باید با نشانه‌گذاری XML تعریف شوند. برای اطلاعات بیشتر به <a href="http://wiki.geeklog.net/Static_Pages_Plugin#Template_Static_Pages" target="_blank">ویکی Geeklog</a> مراجعه کنید. این خطا باید پیش از ذخیره صفحه اصلاح شود.',
     'no_such_page_anon' => 'لطفاً وارد شوید.',
-    'no_page_access_msg' => 'ممکن است وارد سایت نشده باشید یا عضو {$_CONF[\'site_name\']} نباشید. برای دسترسی کامل، لطفاً <a href="{$_CONF[\'site_url\']}/users.php?mode=new">عضو {$_CONF[\'site_name\']} شوید</a>'{$_CONF['site_url']}/users.php?mode=new\"> become a member</a> of {$_CONF['site_name']} to receive full membership access",
+    'no_page_access_msg' => "ممکن است وارد سایت نشده باشید یا عضو {$_CONF['site_name']} نباشید. برای دسترسی کامل، لطفاً <a href=\"{$_CONF['site_url']}/users.php?mode=new\">عضو {$_CONF['site_name']} شوید</a>.",
     'php_msg' => 'PHP: ',
     'php_warn' => 'هشدار: اگر این گزینه را فعال کنید، کد PHP موجود در صفحه اجرا خواهد شد. با احتیاط استفاده کنید!',
     'exit_msg' => 'نوع خروج: ',
     'exit_info' => 'برای نمایش پیام «ورود الزامی است» فعال کنید. برای بررسی امنیتی و پیام معمولی، آن را غیرفعال بگذارید.',
     'deny_msg' => 'دسترسی به این صفحه مجاز نیست. ممکن است صفحه جابه‌جا یا حذف شده باشد، یا مجوز کافی برای مشاهده آن نداشته باشید.',
-    'stats_headline' => 'Top Ten Static Pages',
+    'stats_headline' => 'ده صفحه ایستای برتر',
     'stats_page_title' => 'عنوان صفحه',
     'stats_hits' => 'بازدیدها',
     'stats_no_hits' => 'به نظر می‌رسد در این سایت صفحه ایستایی وجود ندارد یا هنوز کسی آن‌ها را مشاهده نکرده است.',
     'id' => 'شناسه',
     'duplicate_id' => 'شناسه‌ای که برای این صفحه ایستا انتخاب کرده‌اید قبلاً استفاده شده است. لطفاً شناسه دیگری انتخاب کنید.',
-    'instructions' => 'To modify or delete a static page, click on that page\'s edit icon below. To view a static page, click on the title of the page you wish to view. To create a new static page, click on "Create New" above. Click on on the copy icon to create a copy of an existing page.',
+    'instructions' => 'برای ویرایش یا حذف یک صفحه ایستا، روی نماد ویرایش آن کلیک کنید. برای مشاهده صفحه، روی عنوان آن کلیک کنید. برای ایجاد صفحه جدید، روی «ایجاد جدید» کلیک کنید. نماد کپی یک نسخه از صفحه موجود ایجاد می‌کند.',
     'centerblock' => 'بلوک مرکزی: ',
     'centerblock_msg' => 'در صورت انتخاب، این صفحه ایستا به‌صورت بلوک مرکزی در صفحه اصلی موضوع‌های اختصاص‌یافته نمایش داده می‌شود.',
     'topic' => 'موضوع',
@@ -107,7 +107,7 @@ $LANG_STATIC = array(
     'select_php_none' => 'PHP اجرا نشود',
     'select_php_return' => 'اجرای PHP (return)',
     'select_php_free' => 'اجرای PHP',
-    'php_not_activated' => "The use of PHP in static pages is not activated. Please see the <a href=\"{$_CONF['site_url']}/docs/english/staticpages.html#php\">documentation</a> for details.",
+    'php_not_activated' => 'استفاده از PHP در صفحات ایستا فعال نیست. برای جزئیات به <a href="' . $_CONF['site_url'] . '/docs/english/staticpages.html#php">مستندات</a> مراجعه کنید.',
     'printable_format' => 'قالب مناسب چاپ',
     'copy' => 'نسخه',
     'limit_results' => 'محدود کردن نتایج',
@@ -138,9 +138,9 @@ $LANG_STATIC = array(
     'prev_page' => 'صفحه قبلی',
     'next_page' => 'صفحه بعدی',
     'parent_page' => 'صفحه والد',
-    'page_desc' => 'Setting a previous and/or next page will add HTML link elements rel=”next” and rel=”prev” to the header to indicate the relationship between pages in a paginated series. Actual page navigation links are not added to the page. You have to add these yourself. NOTE: Parent page is currently not being used.',
+    'page_desc' => 'تنظیم صفحه قبلی و/یا بعدی، رابطه میان صفحات یک مجموعه صفحه‌بندی‌شده را مشخص می‌کند. پیوندهای ناوبری به‌صورت خودکار به صفحه افزوده نمی‌شوند و باید آن‌ها را خودتان اضافه کنید. توجه: صفحه والد در حال حاضر استفاده نمی‌شود.',
     'num_pages' => '%s صفحه',
-    'search_desc' => 'Control if page appears in search. Default depends on setting in Configuration and depends on page type (if it is a Center Block, Uses a Template, or Uses PHP).',
+    'search_desc' => 'مشخص می‌کند آیا صفحه در نتایج جستجو نمایش داده شود یا نه. مقدار پیش‌فرض به تنظیمات افزونه و نوع صفحه بستگی دارد؛ برای مثال بلوک مرکزی، استفاده از الگو یا استفاده از PHP.',
     'likes_desc' => 'تعیین می‌کند کنترل پسندیدن در صفحه نمایش داده شود یا نه و به چه صورت. مقدار پیش‌فرض به تنظیمات افزونه بستگی دارد. صفحاتی که به‌صورت بلوک مرکزی نمایش داده می‌شوند این کنترل را نشان نمی‌دهند. صفحات الگو از این تنظیم استفاده نمی‌کنند.'
 );
 
@@ -157,55 +157,55 @@ $LANG_staticpages_likes = array(
     2  => 'فقط پسندیدن',
 );
 
-$PLG_staticpages_MESSAGE15 = 'Your comment has been submitted for review and will be published when approved by a moderator.';
-$PLG_staticpages_MESSAGE19 = 'Your page has been successfully saved.';
-$PLG_staticpages_MESSAGE20 = 'Your page has been successfully deleted.';
-$PLG_staticpages_MESSAGE21 = 'This page does not exist yet. To create the page, please fill in the form below. If you are here by mistake, click the Cancel button.';
-$PLG_staticpages_MESSAGE22 = 'You could not delete the page. It is a template staticpage and it is currently assigned to 1 or more staticpages.';
+$PLG_staticpages_MESSAGE15 = 'نظر شما برای بررسی ارسال شد و پس از تأیید مدیر منتشر خواهد شد.';
+$PLG_staticpages_MESSAGE19 = 'صفحه با موفقیت ذخیره شد.';
+$PLG_staticpages_MESSAGE20 = 'صفحه با موفقیت حذف شد.';
+$PLG_staticpages_MESSAGE21 = 'این صفحه هنوز وجود ندارد. برای ایجاد آن، فرم زیر را تکمیل کنید. اگر اشتباهی به این صفحه آمده‌اید، روی لغو کلیک کنید.';
+$PLG_staticpages_MESSAGE22 = 'امکان حذف صفحه وجود ندارد؛ این صفحه یک الگو است و در حال حاضر به یک یا چند صفحه ایستا اختصاص داده شده است.';
 
 // Messages for the plugin upgrade
-$PLG_staticpages_MESSAGE3001 = 'Plugin upgrade not supported.';
+$PLG_staticpages_MESSAGE3001 = 'ارتقای افزونه پشتیبانی نمی‌شود.';
 $PLG_staticpages_MESSAGE3002 = $LANG32[9];
 
 // Localization of the Admin Configuration UI
 $LANG_configsections['staticpages'] = array(
-    'label' => 'Static Pages',
-    'title' => 'Static Pages Configuration'
+    'label' => 'صفحات ایستا',
+    'title' => 'پیکربندی صفحات ایستا'
 );
 
 $LANG_confignames['staticpages'] = array(
-    'allow_php' => 'Allow PHP?',
-    'enable_eval_php_save' => 'Parse PHP on Save of Page',
-    'sort_by' => 'Sort Centerblocks by',
-    'sort_menu_by' => 'Sort Menu Entries by',
-    'sort_list_by' => 'Sort Admin List by',
-    'delete_pages' => 'Delete Pages with Owner?',
-    'in_block' => 'Wrap Pages in Block?',
-    'show_hits' => 'Show Hits?',
-    'show_date' => 'Show Date?',
-    'filter_html' => 'Filter HTML?',
-    'censor' => 'Censor Content?',
-    'default_permissions' => 'Page Default Permissions',
-    'autotag_permissions_staticpage' => '[staticpage: ] Permissions',
-    'autotag_permissions_staticpage_content' => '[staticpage_content: ] Permissions',
-    'aftersave' => 'After Saving Page',
-    'atom_max_items' => 'Max. Pages in Webservices Feed',
-    'meta_tags' => 'Enable Meta Tags',
-    'likes_pages' => 'Page Likes',
-    'comment_code' => 'پیشفرض نظر',
-    'structured_data_type_default' => 'Structured Data Type Default',
-    'draft_flag' => 'پیشفرض پرچم پیش نویس',
-    'disable_breadcrumbs_staticpages' => 'Disable Breadcrumbs',
-    'default_cache_time' => 'Default Cache Time',
-    'newstaticpagesinterval' => 'New Static Page Interval',
-    'hidenewstaticpages' => 'New Static Pages',
-    'title_trim_length' => 'عنوان کوتاه کردن طول',
-    'includecenterblocks' => 'Include Center Block Static Pages',
-    'includephp' => 'Include Static Pages with PHP',
-    'includesearch' => 'Enable Static Pages in Search',
-    'includesearchcenterblocks' => 'Include Center Block Static Pages',
-    'includesearchphp' => 'Include Static Pages with PHP',
-    'includesearchtemplate' => 'Include Template Static Pages'
+    'allow_php' => 'اجازه PHP؟',
+    'enable_eval_php_save' => 'تحلیل PHP هنگام ذخیره صفحه',
+    'sort_by' => 'مرتب‌سازی بلوک‌های مرکزی بر اساس',
+    'sort_menu_by' => 'مرتب‌سازی موارد منو بر اساس',
+    'sort_list_by' => 'مرتب‌سازی فهرست مدیریت بر اساس',
+    'delete_pages' => 'حذف صفحات همراه با مالک؟',
+    'in_block' => 'نمایش صفحات در بلوک؟',
+    'show_hits' => 'نمایش بازدیدها؟',
+    'show_date' => 'نمایش تاریخ؟',
+    'filter_html' => 'فیلتر HTML؟',
+    'censor' => 'سانسور محتوا؟',
+    'default_permissions' => 'مجوزهای پیش‌فرض صفحه',
+    'autotag_permissions_staticpage' => 'مجوزهای [staticpage: ]',
+    'autotag_permissions_staticpage_content' => 'مجوزهای [staticpage_content: ]',
+    'aftersave' => 'پس از ذخیره صفحه',
+    'atom_max_items' => 'حداکثر صفحات در خوراک خدمات وب',
+    'meta_tags' => 'فعال‌سازی متاتگ‌ها',
+    'likes_pages' => 'پسندهای صفحه',
+    'comment_code' => 'حالت پیش‌فرض نظرات',
+    'structured_data_type_default' => 'نوع پیش‌فرض داده ساخت‌یافته',
+    'draft_flag' => 'حالت پیش‌فرض پیش‌نویس',
+    'disable_breadcrumbs_staticpages' => 'غیرفعال‌سازی مسیر راهنما',
+    'default_cache_time' => 'زمان پیش‌فرض حافظه نهان',
+    'newstaticpagesinterval' => 'بازه صفحات ایستای جدید',
+    'hidenewstaticpages' => 'صفحات ایستای جدید',
+    'title_trim_length' => 'حداکثر طول عنوان',
+    'includecenterblocks' => 'شامل کردن صفحات ایستا به‌صورت بلوک مرکزی',
+    'includephp' => 'شامل کردن صفحات ایستا دارای PHP',
+    'includesearch' => 'فعال‌سازی صفحات ایستا در جستجو',
+    'includesearchcenterblocks' => 'شامل کردن صفحات ایستا به‌صورت بلوک مرکزی',
+    'includesearchphp' => 'شامل کردن صفحات ایستا دارای PHP',
+    'includesearchtemplate' => 'شامل کردن صفحات ایستای الگو'
 );
 
 $LANG_configsubgroups['staticpages'] = array(
@@ -213,33 +213,33 @@ $LANG_configsubgroups['staticpages'] = array(
 );
 
 $LANG_tab['staticpages'] = array(
-    'tab_main' => 'Static Pages Main Settings',
+    'tab_main' => 'تنظیمات اصلی صفحات ایستا',
     'tab_whatsnew' => 'بلوک موارد جدید',
-    'tab_search' => 'Search Results',
-    'tab_permissions' => 'Default Permissions',
-    'tab_autotag_permissions' => 'مجوز های استفاده از برچسب خودکار'
+    'tab_search' => 'نتایج جستجو',
+    'tab_permissions' => 'مجوزهای پیش‌فرض',
+    'tab_autotag_permissions' => 'مجوزهای استفاده از برچسب خودکار'
 );
 
 $LANG_fs['staticpages'] = array(
-    'fs_main' => 'Static Pages Main Settings',
+    'fs_main' => 'تنظیمات اصلی صفحات ایستا',
     'fs_whatsnew' => 'بلوک موارد جدید',
-    'fs_search' => 'Search Results',
-    'fs_permissions' => 'Default Permissions',
-    'fs_autotag_permissions' => 'مجوز های استفاده از برچسب خودکار'
+    'fs_search' => 'نتایج جستجو',
+    'fs_permissions' => 'مجوزهای پیش‌فرض',
+    'fs_autotag_permissions' => 'مجوزهای استفاده از برچسب خودکار'
 );
 
 // Note: entries 0, 1, 9, 12, 17 are the same as in $LANG_configselects['Core']
 $LANG_configselects['staticpages'] = array(
-    0 => array('True' => 1, 'False' => 0),
-    1 => array('True' => true, 'False' => false),
-    2 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title'),
-    3 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Label' => 'label'),
-    4 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Author' => 'author'),
-    5 => array('Hide' => 'hide', 'Show - Use Modified Date' => 'modified', 'Show - Use Created Date' => 'created'),
-    9 => array('Forward to page' => 'item', 'Display List' => 'فهرست', 'Display Home' => 'home', 'Display Admin' => 'admin'),
-    12 => array('No access' => 0, 'Read-Only' => 2, 'Read-Write' => 3),
-    13 => array('No access' => 0, 'Use' => 2),
-    17 => array('Comments Enabled' => 0, 'Comments Disabled' => -1),
-    39 => array('None' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
-    41 => array('False' => 0, 'Likes and Dislikes' => 1, 'Likes Only' => 2)
+    0 => array('درست' => 1, 'نادرست' => 0),
+    1 => array('درست' => true, 'نادرست' => false),
+    2 => array('تاریخ' => 'date', 'شناسه صفحه' => 'id', 'عنوان' => 'title'),
+    3 => array('تاریخ' => 'date', 'شناسه صفحه' => 'id', 'عنوان' => 'title', 'برچسب' => 'label'),
+    4 => array('تاریخ' => 'date', 'شناسه صفحه' => 'id', 'عنوان' => 'title', 'نویسنده' => 'author'),
+    5 => array('پنهان' => 'hide', 'نمایش - استفاده از تاریخ ویرایش' => 'modified', 'نمایش - استفاده از تاریخ ایجاد' => 'created'),
+    9 => array('رفتن به صفحه' => 'item', 'نمایش فهرست' => 'list', 'نمایش خانه' => 'home', 'نمایش مدیریت' => 'admin'),
+    12 => array('بدون دسترسی' => 0, 'فقط خواندنی' => 2, 'خواندن و نوشتن' => 3),
+    13 => array('بدون دسترسی' => 0, 'استفاده' => 2),
+    17 => array('نظرات فعال' => 0, 'نظرات غیرفعال' => -1),
+    39 => array('هیچ‌کدام' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
+    41 => array('نادرست' => 0, 'پسندیدن و نپسندیدن' => 1, 'فقط پسندیدن' => 2)
 );
