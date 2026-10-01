@@ -1889,7 +1889,7 @@ $LANG_BUTTONS = array(
     8 => 'Personnaliser',
     9 => 'Chercher',
     10 => 'Recherche avanc&eacute;e',
-    11 => 'Directory'
+    11 => 'Répertoire'
 );
 
 ###############################################################################
