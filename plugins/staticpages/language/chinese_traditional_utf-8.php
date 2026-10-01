@@ -146,9 +146,16 @@ $LANG_STATIC = array(
 );
 
 $LANG_staticpages_search = array(
-    0 => 'Excluded',
-    1 => 'Use Default',
-    2 => 'Included'
+    0  => '排除',
+    1  => '使用預設值',
+    2  => '包含'
+);
+
+$LANG_staticpages_likes = array(
+    -1 => '使用預設值',
+    0  => '停用',
+    1  => '喜歡和不喜歡',
+    2  => '僅喜歡',
 );
 
 $PLG_staticpages_MESSAGE15 = 'Your comment has been submitted for review and will be published when approved by a moderator.';
