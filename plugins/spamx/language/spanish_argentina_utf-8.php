@@ -1,7 +1,7 @@
 <?php
 
 /**
- * File: spanish_utf-8.php
+ * File: spanish_argentina_utf-8.php
  * This is the Spanish language page for the Geeklog Spam-X Plug-in!
  * 
  * Copyright (C) 2004-2005 by the following authors:
@@ -31,11 +31,11 @@ $LANG_SX00 = array(
     'impinst2' => 'Este primero envía tu sitio web al sitio Gplugs/Spam-X para que pueda añadirse al listado principal de ',
     'impinst2a' => 'sitios que comparten sus listas negras. (Nota: Si tienes varios sitios puede que te interese designar uno de ellos como el ',
     'impinst2b' => 'principal y sólo  incluir su nombre. Esto te permitirá actualizar tus sitios con facilidad y mantener una lista más pequeña.) ',
-    'impinst2c' => 'Después de pulsar sobre el botón de Enviar, pulsa sobre [atrás]en tu navegador para volver aquí.',
-    'impinst3' => 'Se enviarán los siguientes valores: (puedes editarlos si están equivocados).',
+    'impinst2c' => 'Después de hacer clic en Enviar, usá [atrás] en el navegador para volver acá.',
+    'impinst3' => 'Se enviarán los siguientes valores (podés editarlos si son incorrectos).',
     'availb' => 'Listas Negras Disponibles',
-    'clickv' => 'Cliquea para ver la Lista Negra',
-    'clicki' => 'Cliquea para Importar la Lista Negra',
+    'clickv' => 'Hacé clic para ver la lista negra',
+    'clicki' => 'Hacé clic para importar la lista negra',
     'ok' => 'OK',
     'rsscreated' => 'Se creó la fuente RSS',
     'add1' => 'Se han Añadido ',
@@ -47,8 +47,8 @@ $LANG_SX00 = array(
     'e3' => 'Para añadir las palabras desde la lista de palabras censuradas de Geeklogs CensorList Pulsa el Botón:',
     'addcen' => 'Añadir Lista de Palabras Censuradas',
     'addentry' => 'Añadir dato',
-    'e1' => 'Para Borrar el dato cliquéalo.',
-    'e2' => 'Para Añadir un dato, introdúcelo en la caja y pulsa sobre Añadir.  Los datos pueden presentarse con Expresiones Normales de Perl.',
+    'e1' => 'Para borrar una entrada, hacé clic sobre ella.',
+    'e2' => 'Para agregar una entrada, ingresala en el campo y hacé clic en Agregar. Las entradas pueden usar expresiones regulares de Perl.',
     'pblack' => 'Lista Negra Personal de Spam-X',
     'sfseblack' => 'Lista negra de correo SFS de Spam-X',
     'conmod' => 'Configurar el uso del módulo de Spam-X',
