@@ -114,7 +114,7 @@ $LANG_STATIC = array(
     'copy' => 'Kopieren',
     'limit_results' => 'Ergebnisse einschränken',
     'search' => 'Suchen',
-    'likes' => 'Likes',
+    'likes' => 'Gefällt-mir-Angaben',
     'submit' => 'Absenden',
     'no_new_pages' => 'Keine neuen Seiten',
     'pages' => 'SEITEN',
@@ -129,13 +129,13 @@ $LANG_STATIC = array(
     'draft_no' => 'Nein',
     'show_on_page' => 'Show on Page',
     'show_on_page_disabled' => 'Note: This is currently disabled for all pages in the Staticpage Configuration.',
-    'cache_time' => 'Cache Time',
+    'cache_time' => 'Cache-Dauer',
     'cache_time_desc' => 'This staticpage content will be cached for no longer than this many seconds. If 0 caching is disabled (3600 = 1 hour,  86400 = 1 day). Staticpages with PHP enabled or are a template will not be cached.',
     'autotag_desc_staticpage' => '[staticpage: id alternate title] - Displays a link to a static page using the static page title as the title. An alternate title may be specified but is not required.',
     'autotag_desc_staticpage_content' => '[staticpage_content: id alternate title] - Displays the contents of a staticpage.',
     'autotag_desc_page' => '[page: id alternate title] - Displays a link to a page (from the Static Page plugin) using the page title as the title. An alternate title may be specified but is not required.',
     'autotag_desc_page_content' => '[page_content: id] - Displays the contents of a page. (from Static Page plugin)',
-    'yes' => 'Yes',
+    'yes' => 'Ja',
     'used_by' => 'This template is assigned to %s page(s). It is possible this template is used more than specified here if the template is being retrieved via an autotag in another template.',
     'prev_page' => 'Previous page',
     'next_page' => 'Next page',
@@ -209,10 +209,10 @@ $LANG_configsubgroups['staticpages'] = array(
 
 $LANG_tab['staticpages'] = array(
     'tab_main' => 'Static Pages Main Settings',
-    'tab_whatsnew' => 'What\'s New Block',
+    'tab_whatsnew' => 'Was-ist-neu-Block',
     'tab_search' => 'Search Results',
     'tab_permissions' => 'Default Permissions',
-    'tab_autotag_permissions' => 'Autotag Usage Permissions'
+    'tab_autotag_permissions' => 'Autotag-Rechte'
 );
 
 $LANG_fs['staticpages'] = array(
@@ -220,7 +220,7 @@ $LANG_fs['staticpages'] = array(
     'fs_whatsnew' => 'Was-ist-neu-Block',
     'fs_search' => 'Suchergebnisse',
     'fs_permissions' => 'Grundeinstellungen Rechte',
-    'fs_autotag_permissions' => 'Autotag Usage Permissions'
+    'fs_autotag_permissions' => 'Autotag-Rechte'
 );
 
 // Note: entries 0, 1, 9, 12, 17 are the same as in $LANG_configselects['Core']
