@@ -105,9 +105,18 @@ function loadLanguageFile(string $file): array
 }
 
 /**
- * Return printf-style placeholders in appearance order.
+ * Return a normalized placeholder signature.
  *
- * Literal %% is ignored because it consumes no argument.
+ * printf placeholders are normalized by argument position and conversion type,
+ * so a translation may reorder arguments safely when positional placeholders
+ * such as %2$d and %1$s are used. Literal %% is ignored.
+ *
+ * Geeklog also uses symbolic placeholders such as %n, %i and %t in a few
+ * language strings. These are tracked separately.
+ *
+ * The expression deliberately rejects a space as a printf flag and rejects a
+ * conversion immediately followed by a hexadecimal digit. This avoids common
+ * false positives such as "100% secure" and URL percent-encoding like "%E3".
  *
  * @param mixed $value
  * @return list<string>
@@ -118,13 +127,30 @@ function placeholders($value): array
         return [];
     }
 
+    $signature = [];
+    $nextArgument = 1;
+
     preg_match_all(
-        '/%(?:(\d+)\$)?[-+0\' #]*\d*(?:\.\d+)?[bcdeEfFgGosuxX]/',
+        '/%(?:(\\d+)\\$)?[-+0#]*\\d*(?:\\.\\d+)?([bcdeEfFgGosuxX])(?![0-9A-Fa-f])/',
         $value,
-        $matches
+        $matches,
+        PREG_SET_ORDER
     );
 
-    return $matches[0] ?? [];
+    foreach ($matches as $match) {
+        $position = $match[1] !== '' ? (int) $match[1] : $nextArgument++;
+        $signature[] = 'arg:' . $position . ':' . strtolower($match[2]);
+    }
+
+    preg_match_all('/%([nit])(?![A-Za-z0-9_])/', $value, $customMatches);
+
+    foreach ($customMatches[1] ?? [] as $placeholder) {
+        $signature[] = 'geeklog:' . $placeholder;
+    }
+
+    sort($signature);
+
+    return $signature;
 }
 
 /**
