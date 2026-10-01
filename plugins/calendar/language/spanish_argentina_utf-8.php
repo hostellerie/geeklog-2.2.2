@@ -1,10 +1,11 @@
 <?php
 
 ###############################################################################
-# spanish_utf-8.php
-# This is the spanish language page for the Geeklog Calendar Plug-in!
+# spanish_argentina_utf-8.php
+# This is the Argentine Spanish language page for the Geeklog Calendar Plug-in!
 #
-# Copyright (C) 2007 José R. Valverde
+# Based on the Spanish translation by José R. Valverde
+# Argentine Spanish variant maintained for Geeklog 2.2.2
 # jrvalverde@cnb.uam.es
 #
 # Copyright (C) 2001 Tony Bibbs
