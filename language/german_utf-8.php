@@ -502,7 +502,7 @@ $LANG05 = array(
     6 => 'zurück',
     7 => 'Anfang',
     8 => 'Ende',
-    9 => 'Page navigation'
+    9 => 'Seitennavigation',
 );
 
 ###############################################################################
@@ -516,8 +516,8 @@ $LANG08 = array(
     5 => 'Fehler: Username nicht bekannt.',
     6 => 'Es ist ein Fehler aufgetreten.',
     7 => 'Userprofil für',
-    8 => 'Username',
-    9 => 'User URL',
+    8 => 'Benutzername',
+    9 => 'Benutzer-URL',
     10 => 'Eine Mail schicken an',
     11 => 'Dein Name:',
     12 => 'Deine E-Mail:',
@@ -547,14 +547,14 @@ $LANG08 = array(
     36 => 'Kopie:',
     37 => 'Ich möchte eine Kopie der E-Mail bekommen',
     38 => "Dies ist eine Kopie der E-Mail, die Du von <{$_CONF['site_url']}> an %s geschickt hast:",
-    39 => 'Your last message was ',
-    40 => " seconds ago.  This site requires at least {$_CONF['speedlimit']} seconds between sending messages",
-    41 => 'This user doesn\'t exist.',
-    42 => 'This users email address doesn\'t exist. This most likely means is is an OAuth user account.',
-    43 => 'This users email address is invalid.',
-    44 => 'This users status is set to something other than Active or New Password therefore the email address is assumed bad.',
-    45 => "This is a message sent from {$_CONF['site_name']} by %s. Any replies will need to be sent to the email address: %s",
-    46 => "To unsubscribe from the Daily Digest, login to {$_CONF['site_name']} at {$_CONF['site_url']}. Then visit the user settings page at {$_CONF['site_url']}/usersettings.php and view the Content Tab. You can then unsubscribe to the Daily Digest by deselecting all topics and saving your profile."
+    39 => 'Deine letzte Nachricht wurde vor ',
+    40 => " Sekunden gesendet. Zwischen zwei Nachrichten müssen mindestens {$_CONF['speedlimit']} Sekunden liegen.",
+    41 => 'Dieser Benutzer existiert nicht.',
+    42 => 'Für diesen Benutzer ist keine E-Mail-Adresse vorhanden. Wahrscheinlich handelt es sich um ein OAuth-Konto.',
+    43 => 'Die E-Mail-Adresse dieses Benutzers ist ungültig.',
+    44 => 'Der Benutzerstatus ist weder Aktiv noch Neues Passwort; daher wird die E-Mail-Adresse als ungültig betrachtet.',
+    45 => "Diese Nachricht wurde auf {$_CONF['site_name']} von %s gesendet. Antworten müssen an folgende E-Mail-Adresse gehen: %s",
+    46 => "Um den Daily Digest abzubestellen, melde Dich bei {$_CONF['site_name']} unter {$_CONF['site_url']} an. Öffne dann {$_CONF['site_url']}/usersettings.php, wähle den Reiter Inhalt, entferne alle Kategorien und speichere Dein Profil.",
 );
 
 ###############################################################################
@@ -596,7 +596,7 @@ $LANG09 = array(
     33 => 'URL',
     34 => 'Ort',
     35 => 'Ganztägig',
-    36 => 'Key Word Type',
+    36 => 'Schlüsselworttyp',
     37 => '',
     38 => '',
     39 => '',
@@ -633,8 +633,8 @@ $LANG09 = array(
     70 => 'Nicht verfügbar ...',
     71 => 'aufsteigend',
     72 => 'absteigend',
-    73 => 'Submit',
-    74 => 'Limit Results'
+    73 => 'Absenden',
+    74 => 'Ergebnisse begrenzen',
 );
 
 ###############################################################################
@@ -644,8 +644,8 @@ $LANG10 = array(
     1 => 'Site-Statistik',
     2 => 'Gesamtzahl der Seitenabrufe',
     3 => 'Anzahl Artikel (Kommentare)',
-    4 => 'Site Statistic',
-    5 => "Overall Site Statistics for {$_CONF['site_name']}",
+    4 => 'Website-Statistik',
+    5 => "Gesamtstatistik für {$_CONF['site_name']}",
     6 => '',
     7 => 'Top Ten der Artikel',
     8 => 'Artikelüberschrift',
@@ -672,8 +672,8 @@ $LANG10 = array(
     29 => '',
     30 => 'Angezeigt',
     31 => '',
-    32 => 'Top Ten Liked Articles',
-    33 => 'No liked articles found.'
+    32 => 'Top Ten der beliebtesten Artikel',
+    33 => 'Keine bewerteten Artikel gefunden.',
 );
 
 ###############################################################################
@@ -692,7 +692,7 @@ $LANG11 = array(
 # submit.php
 
 $LANG12 = array(
-    1 => 'To submit a %s you are required to be logged in as a user.',
+    1 => 'Um einen %s einzureichen, musst Du als Benutzer angemeldet sein.',
     2 => 'Anmelden',
     3 => 'Neuer User',
     4 => '',
@@ -717,8 +717,8 @@ $LANG12 = array(
     23 => 'Bitte alle Felder des Formulars ausfüllen. Alle Felder werden benötigt.',
     24 => 'Beitrag gespeichert',
     25 => 'Der %s-Beitrag wurde gespeichert.',
-    26 => 'Speed Limit',
-    27 => 'Username',
+    26 => 'Zeitlimit',
+    27 => 'Benutzername',
     28 => 'Kategorie',
     29 => 'Artikel',
     30 => 'Dein letzter Beitrag war vor ',
@@ -806,7 +806,7 @@ $LANG_LIKES = array(
     'title_liked' => '%s gefällt seit ', 
     'title_disliked' => '%s gefällt nicht seit ', 
     'articles' => 'Articles',
-    'comments' => 'Comments'
+    'comments' => 'Kommentare',
 );
 
 ###############################################################################
@@ -817,12 +817,12 @@ $LANG_LIKES = array(
 # admin/logviewer.php
 
 $LANG_LOGVIEW = array(
-    'log_viewer' => 'Log Viewer',
-    'info' => 'Geeklog log file administration.',
+    'log_viewer' => 'Log-Anzeige',
+    'info' => 'Verwaltung der Geeklog-Logdateien.',
     'logs' => 'Logs',
-    'view' => 'View Log File',
-    'clear' => 'Clear Log File',
-    'log_file' => 'Log File'
+    'view' => 'Logdatei anzeigen',
+    'clear' => 'Logdatei leeren',
+    'log_file' => 'Logdatei',
 );
 
 ###############################################################################
@@ -905,14 +905,14 @@ $LANG_ENVCHECK = array(
 # For Demo Mode (since v2.2.1)
 
 $LANG_DEMO = array(
-    'header' => 'Header',
-    'subject' => 'Subject:',
+    'header' => 'Kopfbereich',
+    'subject' => 'Betreff:',
     'to' => 'To:',
-    'from' => 'From:',
-    'priority' => 'Priority:',
-    'body' => 'Body',
-    'notice' => 'Notice',
-    'emails_disabled_msg' => 'Please note sending emails is disabled in Demo mode. An email which would have been sent was:'
+    'from' => 'Von:',
+    'priority' => 'Priorität:',
+    'body' => 'Nachricht',
+    'notice' => 'Hinweis',
+    'emails_disabled_msg' => 'Im Demo-Modus ist der E-Mail-Versand deaktiviert. Folgende E-Mail wäre versendet worden:',
 );
 
 ###############################################################################
@@ -922,12 +922,12 @@ $LANG20 = array(
     1 => 'Bitte authentifizieren!',
     2 => 'Zugriff verweigert! Anmeldeinformation ungültig',
     3 => 'Ungültiges Passwort für User',
-    4 => 'Username:',
+    4 => 'Benutzername:',
     5 => 'Passwort:',
     6 => 'Zugriffe auf die Administrationsseiten dieser Website werden aufgezeichnet und kontrolliert.<br' . XHTML . '>Diese Seiten sind nur für befugte Personen zugänglich.',
     7 => 'einloggen',
-    8 => 'Login',
-    9 => 'This page is for the use of authorized personnel only. Please note all access to administrative portions of this web site are logged and reviewed.'
+    8 => 'Anmelden',
+    9 => 'Diese Seite ist nur für befugte Personen bestimmt. Alle Zugriffe auf Verwaltungsbereiche werden protokolliert und überprüft.',
 );
 
 ###############################################################################
@@ -980,7 +980,7 @@ $LANG21 = array(
     44 => 'Multiple',
     45 => "Du hast keine Zugriffsrechte für diesen Block. Dieser Zugriffsversuch wurde protokolliert. <a href=\"{$_CONF['site_admin_url']}/block.php\">Zurück zum Administrator-Menü</a>.",
     46 => 'Bewegen',
-    47 => 'None',
+    47 => 'Keine',
     48 => 'Block-Name',
     49 => ' (keine Leerzeichen, muss eindeutig sein)',
     50 => 'Der Block-Name kann nicht leer sein',
@@ -1004,30 +1004,30 @@ $LANG21 = array(
     68 => 'Der Newsfeed für diesen Portalblock ist zu lang, um angezeigt zu werden. Bitte eine maximale Anzahl Artikel angeben, die für den Block importiert werden soll. Dieses entweder im Blockeditor einstellen oder in der allgemeinen Voreinstelung in der Geeklog Konfiguration.',
     69 => 'Plugin-Name',
     70 => 'CSS ID',
-    71 => 'This field is optional',
-    72 => 'CSS Classes',
-    73 => 'This field is optional.  You can specify multiple classes separated by space',
-    'autotag_desc_block' => '[block:name class:block-autotag] - Displays a block. Class not required. Class specifies the css class and will wrap the block in a div. The class block-autotag will always be included with the div.',
-    'newlines' => 'Newlines',
-    'convert_newlines' => 'Check to convert newlines (EOL) into line break HTML element',
+    71 => 'Dieses Feld ist optional',
+    72 => 'CSS-Klassen',
+    73 => 'Dieses Feld ist optional. Mehrere Klassen können durch Leerzeichen getrennt angegeben werden',
+    'autotag_desc_block' => '[block:name class:block-autotag] - Zeigt einen Block an. Die Klasse ist optional und legt die CSS-Klasse für einen umschließenden div fest. Die Klasse block-autotag wird immer hinzugefügt.',
+    'newlines' => 'Zeilenumbrüche',
+    'convert_newlines' => 'Zeilenumbrüche (EOL) in HTML-Zeilenumbrüche umwandeln',
     'position' => 'Position',
-    'cache_time' => 'Cache Time',
+    'cache_time' => 'Cache-Dauer',
     'cache_time_desc' => 'This block will be cached for no longer than this many seconds. If 0 caching is disabled. (3600 = 1 hour,  86400 = 1 day)',
     'block_type_gldefault' => 'System',
     'block_type_normal' => 'Normal',
     'block_type_phpblock' => 'PHP',
     'block_type_portal' => 'Portal',
-    'block_type_dynamic' => 'Dynamic'
+    'block_type_dynamic' => 'Dynamisch',
 );
 
 ###############################################################################
 # Block Locations
 
 $LANG23 = array(
-    'blocks_article_footer_name' => 'Article Footer',
-    'blocks_article_footer_desc' => 'Display Blocks in article Footer',
-    'blocks_article_topic_list_name' => 'Article Topic List',
-    'blocks_article_topic_list_desc' => 'Displays Blocks right after every X number of articles in topics.'
+    'blocks_article_footer_name' => 'Artikel-Fußbereich',
+    'blocks_article_footer_desc' => 'Blöcke im Fußbereich des Artikels anzeigen',
+    'blocks_article_topic_list_name' => 'Artikel-Kategorieliste',
+    'blocks_article_topic_list_desc' => 'Zeigt nach jeweils X Artikeln in Kategorien Blöcke an.',
 );
 
 ###############################################################################
@@ -1082,8 +1082,8 @@ $LANG24 = array(
     46 => '<b>HINWEIS:</b> Wenn Du hier ein Datum in der Zukunft einstellst, wird der Artikel erst veröffentlicht, wenn dieser Zeitpunkt erreicht ist. Bis dahin wird der Artikel auch nicht in der RSS-Datei, der Suche und der Statistik erscheinen.',
     47 => 'Bilder',
     48 => 'image',
-    49 => 'right',
-    50 => 'left',
+    49 => 'rechts',
+    50 => 'links',
     51 => '<p>Die oben ausgewählten Bilder können im Artikel verwendet werden, indem dafür spezielle Platzhalter in den Text eingefügt werden. Diese Platzhalter sind [imageX], [imageX_right] und [imageX_left], wobei statt des X jeweils die Nummer des Bildes eingetragen werden muss.<br' . XHTML . '>HINWEIS: Es müssen alle ausgewählten Bilder verwendet werden. Andernfalls kann der Artikel nicht gespeichert werden.<br' . XHTML . '>',
     52 => '',
     53 => 'wurde nicht verwendet. Du musst dieses Bild im Text des Artikels verwenden oder es löschen bevor Du Deine Änderungen sichern kannst.',
@@ -1125,16 +1125,16 @@ $LANG24 = array(
     89 => 'Metatag Description',
     90 => 'Metatag Keywords',
     91 => 'Du kannst aber jederzeit auf "Vorschau" klicken, um diese Zeit zu verlängern.',
-    92 => 'You might also like',
+    92 => 'Das könnte Sie auch interessieren',
     93 => '#',
-    94 => 'Resized',
+    94 => 'Skaliert',
     95 => 'Original',
-    96 => 'Upload | Replace',
-    97 => 'No Image',
+    96 => 'Hochladen | Ersetzen',
+    97 => 'Kein Bild',
     'autotag_desc_story' => '[article: id alternate title] - Displays a link to an article using the Article Title as the title. An alternate title may be specified but is not required.',
-    'autotag_desc_article' => '[article: id alternate title] - Displays a link to an article using the Article Title as the title. An alternate title may be specified but is not required.',
-    'cache_time' => 'Cache Time',
-    'cache_time_desc' => 'This article will be cached for no longer than this many seconds. If 0 caching is disabled. If -1 cached until article is edited again. (3600 = 1 hour,  86400 = 1 day)'
+    'autotag_desc_article' => '[article: id alternate title] - Zeigt einen Link zu einem Artikel mit dem Artikeltitel an. Ein alternativer Titel kann optional angegeben werden.',
+    'cache_time' => 'Cache-Dauer',
+    'cache_time_desc' => 'Dieser Artikel wird höchstens für diese Anzahl Sekunden zwischengespeichert. 0 deaktiviert den Cache, -1 hält ihn bis zur nächsten Bearbeitung. (3600 = 1 Stunde, 86400 = 1 Tag)',
 );
 
 ###############################################################################
@@ -1338,28 +1338,28 @@ $LANG29 = array(
     13 => 'Kategorie',
     14 => 'Datum',
     15 => 'Kategorie',
-    16 => 'Username',
+    16 => 'Benutzername',
     17 => 'Name',
     18 => 'E-Mail',
     34 => 'Schaltzentrale',
     35 => 'Beiträge: Artikel',
     36 => 'Bezug oder Kommentar',
-    37 => 'Author',
+    37 => 'Autor',
     38 => 'Abschicken',
     39 => 'Derzeit gibt es keine Beiträge zu moderieren.',
     40 => 'Neue User',
     41 => 'Beiträge: Kommentare',
-    42 => 'Username',
+    42 => 'Alle löschen',
     43 => 'Moderation aufheben?',
-    44 => 'Results of your moderation',
-    45 => 'Approved %1$d items and deleted %2$d items of user submissions.',
-    46 => 'User Profile Updated',
-    'core' => 'Core',
+    44 => 'Ergebnisse der Moderation',
+    45 => '%1$d Einträge freigegeben und %2$d Benutzereinsendungen gelöscht.',
+    46 => 'Benutzerprofil aktualisiert',
+    'core' => 'Kern',
     'plugins' => 'Plugins',
-    'tools' => 'Tools',
-    'users' => 'Users',
+    'tools' => 'Werkzeuge',
+    'users' => 'Benutzer',
     'submissions_desc' => 'To modify or delete a user submssion, click on that item\'s edit icon below. To approve and delete multiple submissions use the radio options in the lists and then click submit.',
-    'max_invalid_login' => 'Max Invalid Logins Reached for User',
+    'max_invalid_login' => 'Maximale Anzahl ungültiger Anmeldungen für Benutzer erreicht',
     'max_invalid_login_msg' => 'This user has reached the maximum number of invalid login attempts () within the specified time limit ( seconds). The last IP to make an invalid login attempt is %s. Either the real user has forgotten the password for their account, or someone else is attempting to guess the password for this user account.'
 );
 
@@ -1374,12 +1374,12 @@ $LANG31 = array(
     5 => 'Nachricht',
     6 => 'Senden',
     7 => 'Alle User',
-    8 => 'Admin',
+    8 => 'Benutzername',
     9 => 'Optionen',
     10 => 'HTML',
     11 => 'Wichtige Nachricht!',
     12 => 'Abschicken',
-    13 => 'Reset',
+    13 => 'Betreff',
     14 => 'User-Einstellungen ignorieren',
     15 => 'Fehler beim Senden an: ',
     16 => 'E-Mail erfolgreich gesendet an: ',
@@ -1393,21 +1393,21 @@ $LANG31 = array(
     24 => 'Keine erfolgreich',
     25 => '-- Gruppe wählen --',
     26 => 'Um eine E-Mail verschicken zu können, müssen alle Felder ausgefüllt und eine Gruppe von Benutzern aus dem Drop-Down-Menü ausgewählt werden.',
-    27 => 'The following template variables are available in <strong>Subject</strong> and <strong>Message</strong>: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
+    27 => 'Folgende Template-Variablen stehen in <strong>Betreff</strong> und <strong>Nachricht</strong> zur Verfügung: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
     'email_divider' => '------------------------------------------------------------',
     'email_divider_html' => '<hr' . XHTML . '>',
     'sig_divider' => '---',
     'sig_divider_html' => '---<br' . XHTML . '>',
-    'email_footer_msg_noreply' => 'The address used to send this email is not monitored. Please do not reply to this email.',
-    'email_footer_msg_content' => 'If content from the website is displayed in this email, there may be layout changes which result in formatting issues.',
-    'ip_address_email' => 'IP address that initiated email:'
+    'email_footer_msg_noreply' => 'Die für diese E-Mail verwendete Absenderadresse wird nicht überwacht. Bitte antworten Sie nicht auf diese E-Mail.',
+    'email_footer_msg_content' => 'Wenn Inhalte der Website in dieser E-Mail angezeigt werden, können Layoutänderungen zu Formatierungsproblemen führen.',
+    'ip_address_email' => 'IP-Adresse, die die E-Mail ausgelöst hat:',
 );
 
 ###############################################################################
 # admin/plugins.php
 
 $LANG32 = array(
-    1 => 'Installing plugins could possibly cause damage to your Geeklog installation and, possibly, to your system.  It is important that you only install plugins downloaded from the <a href="https://www.geeklog.net">Geeklog Homepage</a> as we thoroughly test all plugins submitted to our site on a variety of operating systems.  It is important that you understand that the plugin installation process will require the execution of a few filesystem commands which could lead to security problems particularly if you use plugins from third party sites.  Even with this warning you are getting, we do not gaurantee the success of any installation nor are we liable for damage caused by installing a Geeklog plugin.  In other words, install at your own risk.  For the wary, directions on how to manually install a plugin is included with each plugin package.',
+    1 => 'Plugin-Manager',
     2 => 'Plugin-Installation -- Disclaimer',
     3 => 'Plugin-Installationsformular',
     4 => 'Plugin-Datei',
@@ -1421,7 +1421,7 @@ $LANG32 = array(
     12 => '(kein Name angegeben)',
     13 => 'Plugin-Editor',
     14 => 'Neues Plugin',
-    'installed_plugins' => 'Installed Plugins',
+    'installed_plugins' => 'Installierte Plugins',
     15 => 'Schaltzentrale',
     16 => 'Name des Plugins',
     17 => 'Plugin-Version',
@@ -1465,10 +1465,10 @@ $LANG32 = array(
     55 => 'Deinstalliert',
     56 => 'Falsche Version',
     57 => 'Die Lade-Reihenfolge von einem oder mehrere Plugins wurde geändert, um Abhängigkeiten aufzulösen.',
-    58 => 'The load order of one or more plugins has been altered in order to resolve dependencies',
-    59 => 'Info',
+    58 => 'Version',
+    59 => 'Status',
     60 => 'Schließen',
-    61 => 'Status',
+    61 => 'Aktualisieren',
     62 => 'Plugin installieren',
     63 => 'Dieses Plugin kann nicht installiert werden',
     64 => 'Dieses Plugin kann nicht aktiviert werden',
@@ -1477,12 +1477,12 @@ $LANG32 = array(
     67 => 'Das Verzeichnis "%s" ist nicht beschreibbar.',
     68 => 'Du hast nicht die nötigen Rechte, um Plugins installieren zu können.',
     69 => 'Du hast nicht die nötigen Rechte, um Plugins hochladen zu können.',
-    'delete' => 'Delete',
-    'delete_plugin' => 'Delete Plugin and all of its files?',
-    'click_to_delete_msg' => 'Click to Delete this Plugin files',
-    'really_delete_msg' => 'Really Delete %s Plugin files?',
+    'delete' => 'Löschen',
+    'delete_plugin' => 'Plugin und alle zugehörigen Dateien löschen?',
+    'click_to_delete_msg' => 'Klicken, um die Plugin-Dateien zu löschen',
+    'really_delete_msg' => 'Plugin-Dateien von %s wirklich löschen?',
     99 => 'Ein unbekannter Fehler ist aufgetreten',
-    100 => 'Ok.',
+    100 => 'Aktualisierung verfügbar',
     101 => 'Die Datei zum Hochladen ist größer als die Einstellung upload_max_filesize auf dem Webspace erlaubt.',
     102 => 'Die Datei zum Hochladen ist größer als die Einstellung MAX_FILE_SIZE, die im HTML-Formular angegeben wurde.',
     103 => 'Die Datei wurde nur teilweise hochgeladen.',
@@ -1517,7 +1517,7 @@ $LANG33 = array(
     23 => 'Alle Artikel',
     24 => 'Newsfeed-Editor',
     25 => 'Newsfeed-Titel',
-    26 => 'Limit',
+    26 => 'Autor',
     27 => 'Länge d. Einträge',
     28 => '(0 = ohne Text, 1 = kompletter Text, anderer Wert = nur so viele Zeichen)',
     29 => 'Beschreibung',
@@ -1537,7 +1537,7 @@ $LANG33 = array(
     43 => 'Alle',
     44 => 'Keine',
     45 => 'Newsfeed-Link für Kategorie',
-    46 => 'Limit Results',
+    46 => 'Keine Artikel gefunden.',
     47 => 'Suchen',
     48 => 'Ändern',
     49 => 'Newsfeed-Logo',
@@ -1547,23 +1547,23 @@ $LANG33 = array(
     53 => 'Alle auf der Startseite',
     54 => 'Bitte die Art des Newsfeeds auswählen.',
     55 => 'Artikel',
-    'num_articles' => '%s Article(s)'
+    'num_articles' => '%s Artikel',
 );
 
 ###############################################################################
 # admin/language.php (since v2.1.2)
 
 $LANG_LANG = array(
-    'language_admin_title' => 'Language Overrides',
+    'language_admin_title' => 'Sprachüberschreibungen',
     'language_manager' => 'Language Manager',
     'new_language_msg' => 'To modify or delete a language item, click on that item\'s edit icon below. To create a new item, click on "Create New" above.',
     'language_editor' => 'Language Editor',
     'id' => 'ID',
-    'language' => 'Language',
+    'language' => 'Sprache',
     'name' => 'Name',
     'var_name' => 'Var Name',
-    'name_tip' => 'Required just for language arrays.',
-    'var_name_tip' => 'Can be a regular variable or array. Do not include the dollar sign at the beginning of the variable/array name.',
+    'name_tip' => 'Nur für Sprach-Arrays erforderlich.',
+    'var_name_tip' => 'Kann eine normale Variable oder ein Array sein. Das Dollarzeichen am Anfang des Variablen-/Arraynamens nicht angeben.',
     'value' => 'Value'
 );
 
@@ -1771,13 +1771,13 @@ $LANG_ACCESS = array(
     'groupmsg' => 'Security-Gruppen auf dieser Site sind hierarchisch organisiert. Wenn Du diese Gruppe zu einer der folgenden Gruppen hinzufügst, bekommt diese Gruppe die gleichen Rechte wie die unten ausgewählte(n). Wenn möglich, sollten Gruppenrechte durch Auswahl von Gruppen aus dieser Liste vergeben werden. Werden nur einzelne Rechte benötigt, können diese auch aus der Liste der Rechte weiter unten ausgewählt werden. Um diese Gruppe zu einer der folgenden hinzuzufügen, kannst Du die gewünschte(n) Gruppe(n) einfach anklicken.',
     'coregroupmsg' => "Diese Gruppe ist eine Core-Gruppe auf {$_CONF['site_name']}. Die Rechte dieser Gruppe können daher nicht geändert werden. Das Folgende ist eine (nicht veränderbare) Liste der Gruppen, zu der diese Gruppe gehört.",
     'rightsdescr' => 'Die folgenden Rechte können an eine Gruppe entweder direkt (durch Auswählen) oder indirekt vergeben werden (wenn die Gruppe zu einer anderen Gruppe gehört, die diese Rechte hat). Die im Folgenden aufgeführten Rechte ohne Checkbox sind indirekte Rechte, die von einer anderen Gruppe geerbt wurden, zu der die aktuelle Gruppe gehört. Alle anderen Rechte können hier direkt vergeben werden.',
-    'lock' => 'Lock',
+    'lock' => 'Sperren',
     'members' => 'Mitglieder',
     'anonymous' => 'Gast',
     'permissions' => 'Rechte',
     'permissionskey' => 'R = lesen, E = editieren, Editier-Rechte setzen Lese-Rechte voraus',
-    'edit' => 'Edit',
-    'none' => 'None',
+    'edit' => 'Bearbeiten',
+    'none' => 'Keine',
     'accessdenied' => 'Zugriff verweigert',
     'storydenialmsg' => "Du hast nicht die nötigen Rechte, um diesen Artikel zu lesen. Möglicherweise bist Du kein registrierter User von {$_CONF['site_name']}. Bitte melde Dich als <a href=\"{$_CONF['site_url']}/users.php?mode=new\" rel=\"nofollow\">neuer User</a> von {$_CONF['site_name']} an um vollen Zugriff auf alle Bereiche zu bekommen.",
     'nogroupsforcoregroup' => 'Diese Gruppe gehört zu keiner anderen Gruppe.',
@@ -1791,13 +1791,13 @@ $LANG_ACCESS = array(
     'listusers' => 'Mitglieder',
     'listthem' => 'anzeigen',
     'usersingroup' => 'Mitglieder der Gruppe "%s"',
-    'usersingroupmsg' => 'A list of users that belong to the group. Users lists here may belong directly to the group or are inherited from another group that has been added to this group.',
+    'usersingroupmsg' => 'Liste der Benutzer dieser Gruppe. Benutzer können der Gruppe direkt angehören oder aus einer anderen hinzugefügten Gruppe geerbt sein.',
     'usergroupadmin' => 'Usergruppen-Verwaltung',
     'add' => 'Hinzufügen',
     'remove' => 'Löschen',
     'availmembers' => 'Verfügbare Mitglieder',
     'groupmembers' => 'Mitglieder der Gruppe',
-    'inheritmembers' => 'Inherited Group Members',
+    'inheritmembers' => 'Geerbte Gruppenmitglieder',
     'canteditgroup' => 'Um diese Gruppe bearbeiten zu können, musst Du selbst ein Mitglied der Gruppe sein. Wende Dich bitte an den Systemadministrator wenn Du der Meinung bist, dass das ein Fehler wäre.',
     'cantlistgroup' => 'Um die Mitglieder dieser Gruppe sehen zu können, musst Du selbst ein Mitglied der Gruppe sein. Wende Dich bitte an den Systemadministrator wenn Du der Meinung bist, dass das ein Fehler wäre.',
     'editgroupmsg' => 'Um die Gruppenmitgliedschaft eines Users zu ändern, den Usernamen anklicken und entsprechend Hinzufügen oder Löschen anklicken. Nur User in der rechten Liste sind Mitglieder der Gruppe. Um die Änderungen zu übernehmen und zur Gruppenliste zurückzukehren, den Button <b>Speichern</b> klicken.',
@@ -1809,7 +1809,7 @@ $LANG_ACCESS = array(
     'plugin_access_denied_msg' => 'Du versuchst ohne Berechtigung auf die Plugin-Verwaltungsseite zuzugreifen.  Bitte beachte, dass alle Versuche, ohne Berechtigung auf diese Seite zuzugreifen, aufgezeichnet werden.',
     'groupexists' => 'Gruppenname existiert schon',
     'groupexistsmsg' => 'Es existiert bereits eine Gruppe mit diesem Namen. Gruppennamen müssen eindeutig sein.',
-    'demo_mode_denied_msg' => 'This feature is currently disabled while the site is in Demo Mode.'
+    'demo_mode_denied_msg' => 'Diese Funktion ist im Demo-Modus derzeit deaktiviert.',
 );
 
 ###############################################################################
@@ -1880,7 +1880,7 @@ $LANG_DB_BACKUP = array(
 ###############################################################################
 
 $LANG_BUTTONS = array(
-    1 => 'Home',
+    1 => 'Startseite',
     2 => 'Kontakt',
     3 => 'Beitrag',
     4 => '',
@@ -1900,7 +1900,7 @@ $LANG_404 = array(
     1 => 'Fehler 404',
     2 => 'Hmm, ich habe alles versucht, aber <b>%s</b> war nicht aufzufinden.',
     3 => "<p>Sorry, diese Seite oder Datei existiert nicht. Du könntest es auf der <a href=\"{$_CONF['site_url']}\">Startseite</a> oder mit der <a href=\"{$_CONF['site_url']}/search.php\">Suchfunktion</a> probieren, vielleicht wirst Du ja fündig ...",
-    4 => "<p>We're sorry, but the page you have requested does not exist. We recommend going back to this <a href=\"%s\">related page</a>, or you may want to check the <a href=\"{$_CONF['site_url']}/\">home page</a>, or the <a href=\"{$_CONF['site_url']}/search.php\">search page</a> to see if you can find what you lost."
+    4 => "<p>Die angeforderte Seite existiert leider nicht. Gehe zurück zur <a href=\"%s\">zugehörigen Seite</a> oder prüfe die <a href=\"{$_CONF['site_url']}/\">Startseite</a> bzw. die <a href=\"{$_CONF['site_url']}/search.php\">Suche</a>.",
 );
 
 ###############################################################################
@@ -2096,7 +2096,7 @@ $LANG_MONTH_SHORT = array(
     9 => 'Sep',
     10 => 'Oct',
     11 => 'Nov',
-    12 => 'Decr'
+    12 => 'Dez',
 );
 
 ###############################################################################
@@ -2265,15 +2265,15 @@ $LANG_structureddatatypes = array(
 );
 
 $LANG_STRUCT_DATA = array(
-    'lang_structured_data_type' => 'Structured Data Type',
-    'autotag_desc_structureddata' => '[structureddata:schema_property]Property Value[/structureddata] - Adds a property to the structured data of the content that the autotag is embedded in.'
+    'lang_structured_data_type' => 'Typ strukturierter Daten',
+    'autotag_desc_structureddata' => '[structureddata:schema_property]Eigenschaftswert[/structureddata] - Fügt den strukturierten Daten des Inhalts eine Eigenschaft hinzu.',
 );
 
 ###############################################################################
 # Localization of the Admin Configuration UI
 
 $LANG_CONFIG = array(
-    'home' => 'Home',
+    'home' => 'Startseite',
     'admin_home' => 'Verwaltung der Site',
     'sections' => 'Bereich Konfiguration',
     'restore' => 'Zurücksetzen',
@@ -2284,9 +2284,9 @@ $LANG_CONFIG = array(
     'title' => 'Konfigurations-Manager',
     'disable' => 'Funktion deaktivieren',
     'enable' => 'Funktion aktivieren',
-    'default_tab_name' => 'Main',
+    'default_tab_name' => 'Allgemein',
     'search_configuration_label' => 'Konfiguration durchsuchen',
-    'error_validation_occurs' => 'There are invalid configuration values. Please correct these fields (just click the config variable to point you to the error field)'
+    'error_validation_occurs' => 'Einige Konfigurationswerte sind ungültig. Bitte korrigieren Sie die markierten Felder.',
 );
 
 $LANG_configsections['Core'] = array(
