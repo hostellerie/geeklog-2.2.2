@@ -1373,7 +1373,7 @@ $LANG31 = array(
     5 => 'Message',
     6 => '&agrave;:',
     7 => 'Tous les membres',
-    8 => 'Admin',
+    8 => 'Administrateur',
     9 => 'Options',
     10 => 'HTML',
     11 => 'message urgent!',
@@ -1392,14 +1392,14 @@ $LANG31 = array(
     24 => 'Pas de succ&egrave;s',
     25 => '-- Choisir un groupe --',
     26 => 'Remplissez tous les champs et choisissez un groupe parmi la liste.',
-    27 => 'The following template variables are available in <strong>Subject</strong> and <strong>Message</strong>: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
+    27 => 'Les variables de template suivantes sont disponibles dans <strong>Objet</strong> et <strong>Message</strong> : {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
     'email_divider' => '------------------------------------------------------------',
     'email_divider_html' => '<hr' . XHTML . '>',
     'sig_divider' => '---',
     'sig_divider_html' => '---<br' . XHTML . '>',
-    'email_footer_msg_noreply' => 'The address used to send this email is not monitored. Please do not reply to this email.',
-    'email_footer_msg_content' => 'If content from the website is displayed in this email, there may be layout changes which result in formatting issues.',
-    'ip_address_email' => 'IP address that initiated email:'
+    'email_footer_msg_noreply' => 'L’adresse utilisée pour envoyer cet email n’est pas surveillée. Merci de ne pas répondre à cet email.',
+    'email_footer_msg_content' => 'Si du contenu du site est affiché dans cet email, des différences de mise en page peuvent entraîner des problèmes de formatage.',
+    'ip_address_email' => 'Adresse IP à l’origine de l’email :'
 );
 
 ###############################################################################
