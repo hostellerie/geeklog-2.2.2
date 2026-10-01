@@ -500,7 +500,7 @@ $LANG05 = array(
     6 => 'הקודם',
     7 => 'הראשון',
     8 => 'האחרון',
-    9 => 'Page navigation'
+    9 => 'ניווט בדפים'
 );
 
 ###############################################################################
@@ -547,12 +547,12 @@ $LANG08 = array(
     38 => "זהו עותק של אימייל ששלחתם אל\n%s\nמ-\n<{$_CONF['site_url']}>:",
     39 => 'הודעתכם האחרונה הייתה לפני ',
     40 => " שניות.  אתר זה דורש לפחות {$_CONF['speedlimit']} שניות בין שליחת הודעות",
-    41 => 'This user doesn\'t exist.',
-    42 => 'This users email address doesn\'t exist. This most likely means is is an OAuth user account.',
-    43 => 'This users email address is invalid.',
-    44 => 'This users status is set to something other than Active or New Password therefore the email address is assumed bad.',
-    45 => "This is a message sent from {$_CONF['site_name']} by %s. Any replies will need to be sent to the email address: %s",
-    46 => "To unsubscribe from the Daily Digest, login to {$_CONF['site_name']} at {$_CONF['site_url']}. Then visit the user settings page at {$_CONF['site_url']}/usersettings.php and view the Content Tab. You can then unsubscribe to the Daily Digest by deselecting all topics and saving your profile."
+    41 => 'משתמש זה אינו קיים.',
+    42 => 'למשתמש זה אין כתובת דוא"ל. סביר שמדובר בחשבון OAuth.',
+    43 => 'כתובת הדוא"ל של משתמש זה אינה תקינה.',
+    44 => 'מצב המשתמש אינו פעיל או "סיסמה חדשה", ולכן כתובת הדוא"ל נחשבת לא תקינה.',
+    45 => "הודעה זו נשלחה מ-{$_CONF['site_name']} על ידי %s. תשובות יש לשלוח לכתובת הדוא\"ל: %s",
+    46 => "כדי לבטל את המנוי לתקציר היומי, התחברו ל-{$_CONF['site_name']} ב-{$_CONF['site_url']}. לאחר מכן עברו להגדרות המשתמש ב-{$_CONF['site_url']}/usersettings.php, פתחו את לשונית התוכן, בטלו את בחירת כל הנושאים ושמרו את הפרופיל."
 );
 
 ###############################################################################
@@ -594,7 +594,7 @@ $LANG09 = array(
     33 => 'כתובת אתר',
     34 => 'מיקום',
     35 => 'יום שלם',
-    36 => 'Key Word Type',
+    36 => 'סוג מילת מפתח',
     37 => '',
     38 => '',
     39 => '',
@@ -631,8 +631,8 @@ $LANG09 = array(
     70 => 'לא זמין ...',
     71 => 'סדר עולה',
     72 => 'סדר יורד',
-    73 => 'Submit',
-    74 => 'Limit Results'
+    73 => 'שליחה',
+    74 => 'הגבלת תוצאות'
 );
 
 ###############################################################################
@@ -642,8 +642,8 @@ $LANG10 = array(
     1 => 'סטטיסטיקת האתר',
     2 => 'סך הכל כניסות למערכת',
     3 => 'מאמרים (תגובות) במערכת',
-    4 => 'Site Statistic',
-    5 => "Overall Site Statistics for {$_CONF['site_name']}",
+    4 => 'סטטיסטיקות האתר',
+    5 => "סטטיסטיקות כלליות עבור {$_CONF['site_name']}",
     6 => '',
     7 => 'עשרת המאמרים הנצפים ביותר',
     8 => 'כותרת המאמר',
@@ -670,8 +670,8 @@ $LANG10 = array(
     29 => '',
     30 => 'צפיות',
     31 => '',
-    32 => 'Top Ten Liked Articles',
-    33 => 'No liked articles found.'
+    32 => 'עשרת המאמרים האהובים ביותר',
+    33 => 'לא נמצאו מאמרים שסומנו אהבתי.'
 );
 
 ###############################################################################
@@ -804,7 +804,7 @@ $LANG_LIKES = array(
     'title_liked' => '%s אהב בתאריך ', 
     'title_disliked' => '%s לא אהב בתאריך ', 
     'articles' => 'Articles',
-    'comments' => 'Comments'
+    'comments' => 'תגובות'
 );
 
 ###############################################################################
@@ -924,8 +924,8 @@ $LANG20 = array(
     5 => 'סיסמה',
     6 => 'כל נסיונות הגישה לאיזורים הניהוליים של אתר זה נרשמים ביומן ונבדקים.<br' . XHTML . '>עמוד זה נועד לשימושם של אנשים מאושרים בלבד.',
     7 => 'כניסה למערכת',
-    8 => 'Login',
-    9 => 'This page is for the use of authorized personnel only. Please note all access to administrative portions of this web site are logged and reviewed.'
+    8 => 'כניסה',
+    9 => 'דף זה מיועד לשימוש מורשים בלבד. כל גישה לאזורי הניהול של האתר נרשמת ונבדקת.'
 );
 
 ###############################################################################
@@ -1002,30 +1002,30 @@ $LANG21 = array(
     68 => 'הזנה זו לקוביית מידע זו של פורטל היא ארוכה מדי להצגה. אנא הגדירו מספר מקסימלי של מאמרים כדי לייבא לקוביית המידע במסך ההגדרות של קוביות המידע, או מקסימום גלובלי במסך הכיוון של Geeklog.',
     69 => 'שם ה-plugin',
     70 => 'CSS ID',
-    71 => 'This field is optional',
-    72 => 'CSS Classes',
-    73 => 'This field is optional.  You can specify multiple classes separated by space',
-    'autotag_desc_block' => '[block:name class:block-autotag] - Displays a block. Class not required. Class specifies the css class and will wrap the block in a div. The class block-autotag will always be included with the div.',
-    'newlines' => 'Newlines',
-    'convert_newlines' => 'Check to convert newlines (EOL) into line break HTML element',
+    71 => 'שדה זה אופציונלי',
+    72 => 'מחלקות CSS',
+    73 => 'שדה זה אופציונלי. ניתן לציין כמה מחלקות המופרדות ברווח',
+    'autotag_desc_block' => '[block:name class:block-autotag] - מציג בלוק. אין חובה לציין class. אם צוין, הבלוק ייעטף ב-div עם מחלקת ה-CSS המתאימה. המחלקה block-autotag תמיד תיכלל.',
+    'newlines' => 'שורות חדשות',
+    'convert_newlines' => 'סמנו כדי להמיר שורות חדשות (EOL) לתגי מעבר שורה ב-HTML',
     'position' => 'Position',
-    'cache_time' => 'Cache Time',
-    'cache_time_desc' => 'This block will be cached for no longer than this many seconds. If 0 caching is disabled. If -1 cached until block is edited again. (3600 = 1 hour,  86400 = 1 day)',
-    'block_type_gldefault' => 'System',
+    'cache_time' => 'זמן מטמון',
+    'cache_time_desc' => 'הבלוק יישמר במטמון לכל היותר למספר שניות זה. 0 מבטל מטמון. ‎-1 שומר במטמון עד לעריכה הבאה של הבלוק. (3600 = שעה, 86400 = יום)',
+    'block_type_gldefault' => 'מערכת',
     'block_type_normal' => 'Normal',
     'block_type_phpblock' => 'PHP',
-    'block_type_portal' => 'Portal',
-    'block_type_dynamic' => 'Dynamic'
+    'block_type_portal' => 'פורטל',
+    'block_type_dynamic' => 'דינמי'
 );
 
 ###############################################################################
 # Block Locations
 
 $LANG23 = array(
-    'blocks_article_footer_name' => 'Article Footer',
-    'blocks_article_footer_desc' => 'Display Blocks in article Footer',
-    'blocks_article_topic_list_name' => 'Article Topic List',
-    'blocks_article_topic_list_desc' => 'Displays Blocks right after every X number of articles in topics.'
+    'blocks_article_footer_name' => 'תחתית מאמר',
+    'blocks_article_footer_desc' => 'הצגת בלוקים בתחתית המאמר',
+    'blocks_article_topic_list_name' => 'רשימת נושאי מאמרים',
+    'blocks_article_topic_list_desc' => 'מציג בלוקים לאחר כל X מאמרים ברשימות נושאים.'
 );
 
 ###############################################################################
@@ -1120,19 +1120,19 @@ $LANG24 = array(
     86 => 'עורך מתקדם',
     87 => 'סטטיסטיקות מאמר',
     88 => 'פורמט בנוסח וויקי',
-    89 => 'Meta Description',
-    90 => 'Meta Keywords',
+    89 => 'תיאור מטא',
+    90 => 'מילות מפתח מטא',
     91 => 'הנכם יכולים תמיד ללחוץ על "תצוגה מקדימה" כדי להאריך את תוקף התפוגה.',
-    92 => 'You might also like',
+    92 => 'אולי תאהבו גם',
     93 => '#',
-    94 => 'Resized',
-    95 => 'Original',
-    96 => 'Upload | Replace',
-    97 => 'No Image',
+    94 => 'שונה גודל',
+    95 => 'מקורי',
+    96 => 'העלאה | החלפה',
+    97 => 'ללא תמונה',
     'autotag_desc_story' => '[article: id alternate title] - מציג קישור למאמר תוך שימוש בכותרת המאמר בתור הכותרת. ניתן לציין כותרת אלטרנטיבית אך זו לא חובה.',
-    'autotag_desc_article' => '[article: id alternate title] - Displays a link to an article using the Article Title as the title. An alternate title may be specified but is not required.',
-    'cache_time' => 'Cache Time',
-    'cache_time_desc' => 'This article will be cached for no longer than this many seconds. If 0 caching is disabled. If -1 cached until article is edited again. (3600 = 1 hour,  86400 = 1 day)'
+    'autotag_desc_article' => '[article: id alternate title] - מציג קישור למאמר באמצעות כותרת המאמר. ניתן לציין כותרת חלופית אך אין חובה.',
+    'cache_time' => 'זמן מטמון',
+    'cache_time_desc' => 'המאמר יישמר במטמון לכל היותר למספר שניות זה. 0 מבטל מטמון. ‎-1 שומר במטמון עד לעריכה הבאה של המאמר. (3600 = שעה, 86400 = יום)'
 );
 
 ###############################################################################
@@ -1308,17 +1308,17 @@ $LANG28 = array(
     88 => 'קבוצת ברירת מחדל',
     89 => 'אפשרו לקבוצה זו להיות קבוצת ברירת מחדל למשתמשים חדשים',
     90 => 'הוסיפו את השינוי של "קבוצת ברירת מחדל" לחשבונות משתמשים קיימים',
-    91 => 'Send password to user',
-    92 => 'Only for new users or when changing password for existing user.',
-    'convert_remote' => 'Check here to convert from remote to a local account',
-    'convert_remote_desc' => 'When a remote account is converted to a local account, a password will be automatically generated. If the account does not have a confirmed email address, the account will be locked after it is converted since the user will have no way of retrieving the password. Once converted and if the account is active and has an email address the user will be emailed the password or they can request the password by using the forget password link from the Login page. For user accounts that do not have an active status and valid email you will have to manually notify the user of the account change and how to login.',
-    'contributed' => 'Contributed',
+    91 => 'שליחת סיסמה למשתמש',
+    92 => 'רק עבור משתמשים חדשים או בעת שינוי סיסמה למשתמש קיים.',
+    'convert_remote' => 'סמנו כאן כדי להמיר חשבון מרוחק לחשבון מקומי',
+    'convert_remote_desc' => 'בעת המרת חשבון מרוחק לחשבון מקומי נוצרת סיסמה אוטומטית. אם אין לחשבון כתובת דוא"ל מאומתת, החשבון יינעל לאחר ההמרה משום שלא תהיה דרך לשחזר את הסיסמה. אם החשבון פעיל ויש לו כתובת דוא"ל, הסיסמה תישלח למשתמש או שניתן לבקש אותה דרך קישור שכחת הסיסמה בדף הכניסה. עבור חשבונות שאינם פעילים או שאין להם דוא"ל תקין, יש להודיע למשתמש ידנית על שינוי החשבון ועל אופן ההתחברות.',
+    'contributed' => 'תרומות',
     'na' => 'NA',
-    'nothing' => 'Nothing',
+    'nothing' => 'ללא',
     'autotag_desc_user' => '[user: id alternate title] - הציגו קישור למשתמש תוך שימוש בשם המשתמש בתור הכותרת. ניתן לציין כותרת אלטרנטיבית אך זו לא חובה.',
-    'USER_ACCOUNT_LOCKED' => 'Locked',
-    'USER_ACCOUNT_NEW_EMAIL' => 'New Email Required',
-    'USER_ACCOUNT_NEW_PASSWORD' => 'New Password Required'
+    'USER_ACCOUNT_LOCKED' => 'נעול',
+    'USER_ACCOUNT_NEW_EMAIL' => 'נדרש דוא"ל חדש',
+    'USER_ACCOUNT_NEW_PASSWORD' => 'נדרשת סיסמה חדשה'
 );
 
 ###############################################################################
@@ -1342,22 +1342,22 @@ $LANG29 = array(
     34 => 'שליטה ובקרה',
     35 => 'הגשות מאמרים',
     36 => 'הורה או תגובה',
-    37 => 'Author',
+    37 => 'מחבר',
     38 => 'אישור',
     39 => 'אין הגשות שדורשות פיקוח בזמן זה',
     40 => 'הגשות של משתמשים',
     41 => 'הגשות תגובות',
     42 => 'שם משתמש',
     43 => 'האם לפרסם אוטומטית תגובות?',
-    44 => 'Results of your moderation',
-    45 => 'Approved %1$d items and deleted %2$d items of user submissions.',
-    46 => 'User Profile Updated',
-    'core' => 'Core',
+    44 => 'תוצאות המודרציה שלכם',
+    45 => 'אושרו %1$d פריטים ונמחקו %2$d פריטי משתמש.',
+    46 => 'פרופיל המשתמש עודכן',
+    'core' => 'ליבה',
     'plugins' => 'Plugins',
-    'tools' => 'Tools',
-    'users' => 'Users',
+    'tools' => 'כלים',
+    'users' => 'משתמשים',
     'submissions_desc' => 'To modify or delete a user submssion, click on that item\'s edit icon below. To approve and delete multiple submissions use the radio options in the lists and then click submit.',
-    'max_invalid_login' => 'Max Invalid Logins Reached for User',
+    'max_invalid_login' => 'המשתמש הגיע למספר המרבי של ניסיונות כניסה שגויים',
     'max_invalid_login_msg' => 'This user has reached the maximum number of invalid login attempts () within the specified time limit ( seconds). The last IP to make an invalid login attempt is %s. Either the real user has forgotten the password for their account, or someone else is attempting to guess the password for this user account.'
 );
 
@@ -1391,14 +1391,14 @@ $LANG31 = array(
     24 => 'אין הצלחות',
     25 => '-- ביחרו קבוצה --',
     26 => 'אנא מלאו את כל השדות בטופס וביחרו קבוצת משתמשים מתיבת הבחירה.',
-    27 => 'The following template variables are available in <strong>Subject</strong> and <strong>Message</strong>: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
+    27 => 'משתני התבנית הבאים זמינים ב-<strong>נושא</strong> וב-<strong>הודעה</strong>: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
     'email_divider' => '------------------------------------------------------------',
     'email_divider_html' => '<hr' . XHTML . '>',
     'sig_divider' => '---',
     'sig_divider_html' => '---<br' . XHTML . '>',
-    'email_footer_msg_noreply' => 'The address used to send this email is not monitored. Please do not reply to this email.',
-    'email_footer_msg_content' => 'If content from the website is displayed in this email, there may be layout changes which result in formatting issues.',
-    'ip_address_email' => 'IP address that initiated email:'
+    'email_footer_msg_noreply' => 'הכתובת ששימשה לשליחת הודעה זו אינה מנוטרת. אין להשיב להודעה זו.',
+    'email_footer_msg_content' => 'אם מוצג בהודעה תוכן מהאתר, ייתכנו שינויי פריסה שעלולים לגרום לבעיות עיצוב.',
+    'ip_address_email' => 'כתובת ה-IP שיזמה את ההודעה:'
 );
 
 ###############################################################################
@@ -1419,7 +1419,7 @@ $LANG32 = array(
     12 => 'שום שם של plugin לא ניתן ל-plugineditor()',
     13 => 'מרכז מידע Plugins',
     14 => 'Plugins שהוסרו',
-    'installed_plugins' => 'Installed Plugins',
+    'installed_plugins' => 'תוספים מותקנים',
     15 => 'מרכז הניהול',
     16 => 'שם ה-Plugin',
     17 => 'גירסת ה-Plugin',
@@ -1475,10 +1475,10 @@ $LANG32 = array(
     67 => 'הספרייה "%s" אינה ניתנת לכתיבה.',
     68 => 'אין לכם את ההרשאות הנחוצות להתקנת plugins.',
     69 => 'אין לכם את ההרשאות הנחוצות להעלאת plugins.',
-    'delete' => 'Delete',
-    'delete_plugin' => 'Delete Plugin and all of its files?',
-    'click_to_delete_msg' => 'Click to Delete this Plugin files',
-    'really_delete_msg' => 'Really Delete %s Plugin files?',
+    'delete' => 'מחיקה',
+    'delete_plugin' => 'למחוק את התוסף ואת כל הקבצים שלו?',
+    'click_to_delete_msg' => 'לחצו כדי למחוק את קובצי התוסף',
+    'really_delete_msg' => 'האם באמת למחוק את קובצי התוסף %s?',
     99 => 'התרחשה שגיאה לא ידועה',
     100 => 'אישור.',
     101 => 'הקובץ שהועלה עובר את הוראת upload_max_filesize directive ב-php.ini.',
@@ -1545,7 +1545,7 @@ $LANG33 = array(
     53 => 'כל המאמרים של העמוד הראשי',
     54 => 'אנא ביחרו איזה סוג הזנה יש ליצור.',
     55 => 'מאמרים',
-    'num_articles' => '%s Article(s)'
+    'num_articles' => '%s מאמרים'
 );
 
 ###############################################################################
@@ -1789,13 +1789,13 @@ $LANG_ACCESS = array(
     'listusers' => 'חברים',
     'listthem' => 'רשימה',
     'usersingroup' => 'חברים בקבוצה "%s"',
-    'usersingroupmsg' => 'A list of users that belong to the group. Users lists here may belong directly to the group or are inherited from another group that has been added to this group.',
+    'usersingroupmsg' => 'רשימת המשתמשים השייכים לקבוצה. משתמשים המופיעים כאן עשויים להשתייך ישירות לקבוצה או להיות בירושה מקבוצה אחרת שנוספה אליה.',
     'usergroupadmin' => 'ניהול קבוצות משתמשים',
     'add' => 'הוספה',
     'remove' => 'הסרה',
     'availmembers' => 'חברים אפשריים',
     'groupmembers' => 'חברי הקבוצה',
-    'inheritmembers' => 'Inherited Group Members',
+    'inheritmembers' => 'חברי קבוצה בירושה',
     'canteditgroup' => 'כדי לערוך קבוצה זו, הינכם חייב להיות חברים בה. אנא צור קשר עם מנהלי המערכת אם הנכם מרגישים שמדובר בטעות.',
     'cantlistgroup' => 'כדי לצפות ברשימת חברי קבוצה זו, הינכם חייב להיות חברים בה בעצמך. אנא צרו קשר עם מנהלי המערכת אם הנכם מרגישים שמדובר בטעות.',
     'editgroupmsg' => 'על מנת לשנות את הרישום לקבוצות, ליחצו על שם החבר/ים והשתמשו בכפתורי ההוספה והסרה. אם החבר הוא חבר באותה קבוצה, שמם יופיע בצד הימני [השמאלי במצב שפה RTL] בלבד. ברגע שסיימתם - ליחצו על <b>Save</b> כדי לעדכן את הקבוצה ולחזור לעמוד ניהול הקבוצות הראשי.',
@@ -1807,7 +1807,7 @@ $LANG_ACCESS = array(
     'plugin_access_denied_msg' => 'הנכם מנסים באופן לא חוקי לגשת לעמוד ניהול ה-plugins. אנא שימו לב שכל הנסיונות לגשת לעמוד זה באופן לא חוקי נרשמות ביומן.',
     'groupexists' => 'שם הקבוצה כבר קיים',
     'groupexistsmsg' => 'כבר יש קבוצה בשם זה. שמות קבוצות חייבים להיות ייחודיים.',
-    'demo_mode_denied_msg' => 'This feature is currently disabled while the site is in Demo Mode.'
+    'demo_mode_denied_msg' => 'תכונה זו מושבתת כעת כאשר האתר במצב הדגמה.'
 );
 
 ###############################################################################
@@ -1895,10 +1895,10 @@ $LANG_BUTTONS = array(
 # 404.php
 
 $LANG_404 = array(
-    1 => '404 Error',
+    1 => 'שגיאת 404',
     2 => 'לא נמצא העמוד <b>%s</b>.',
     3 => "<p>מצטערים, אבל הקובץ שביקשתם לקבל לא קיים. אנא הרגישו חופשי לבדוק את <a href=\"{$_CONF['site_url']}\">העמוד הראשי</a> או את <a href=\"{$_CONF['site_url']}/search.php\">עמוד החיפוש</a> כדי לראות אם תוכלו למצוא את מה שאיבדתם.",
-    4 => "<p>We're sorry, but the page you have requested does not exist. We recommend going back to this <a href=\"%s\">related page</a>, or you may want to check the <a href=\"{$_CONF['site_url']}/\">home page</a>, or the <a href=\"{$_CONF['site_url']}/search.php\">search page</a> to see if you can find what you lost."
+    4 => "<p>מצטערים, הדף שביקשתם אינו קיים. מומלץ לחזור אל <a href=\"%s\">הדף הקשור</a>, או לבדוק את <a href=\"{$_CONF['site_url']}/\">דף הבית</a> או את <a href=\"{$_CONF['site_url']}/search.php\">דף החיפוש</a>."
 );
 
 ###############################################################################
@@ -2094,7 +2094,7 @@ $LANG_MONTH_SHORT = array(
     9 => 'Sep',
     10 => 'Oct',
     11 => 'Nov',
-    12 => 'Decr'
+    12 => 'דצמ׳'
 );
 
 ###############################################################################
