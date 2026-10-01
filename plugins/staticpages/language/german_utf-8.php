@@ -69,8 +69,8 @@ $LANG_STATIC = array(
     'results' => 'Gefundene Statische Seiten',
     'author' => 'Autor',
     'no_title_or_content' => 'Bitte mindestens die Felder <b>Titel</b> und <b>Inhalt</b> ausfüllen.',
-    'title_error_saving' => 'Error Saving Page',
-    'template_xml_error' => 'You have an <em>error in your XML markup</em>. This page is set to use another page as a template and therefore requires template variables to be defined using XML markup. Please see our <a href="http://wiki.geeklog.net/Static_Pages_Plugin#Template_Static_Pages" target="_blank">Geeklog Wiki</a> for more information on how to do this as it must be corrected before the page can be saved.',
+    'title_error_saving' => 'Fehler beim Speichern der Seite',
+    'template_xml_error' => 'Die XML-Auszeichnung enthält einen <em>Fehler</em>. Diese Seite verwendet eine andere Seite als Vorlage und benötigt daher Vorlagenvariablen im XML-Format. Weitere Informationen finden Sie im <a href="http://wiki.geeklog.net/Static_Pages_Plugin#Template_Static_Pages" target="_blank">Geeklog-Wiki</a>. Der Fehler muss behoben werden, bevor die Seite gespeichert werden kann.',
     'no_such_page_anon' => 'Bitte einloggen.',
     'no_page_access_msg' => "Dies könnte passiert sein, weil Du nicht eingeloggt bist, oder kein Mitglied bist von  {$_CONF['site_name']}. Bitte <a href=\"{$_CONF['site_url']}/users.php?mode=new\"> Mitglied werden</a> bei {$_CONF['site_name']}, um vollen Zugriff zu erhalten.",
     'php_msg' => 'PHP: ',
@@ -127,23 +127,23 @@ $LANG_STATIC = array(
     'draft' => 'Entwurf',
     'draft_yes' => 'Ja',
     'draft_no' => 'Nein',
-    'show_on_page' => 'Show on Page',
-    'show_on_page_disabled' => 'Note: This is currently disabled for all pages in the Staticpage Configuration.',
+    'show_on_page' => 'Auf Seite anzeigen',
+    'show_on_page_disabled' => 'Hinweis: Diese Option ist derzeit in der Konfiguration der statischen Seiten für alle Seiten deaktiviert.',
     'cache_time' => 'Cache-Dauer',
     'cache_time_desc' => 'This staticpage content will be cached for no longer than this many seconds. If 0 caching is disabled (3600 = 1 hour,  86400 = 1 day). Staticpages with PHP enabled or are a template will not be cached.',
-    'autotag_desc_staticpage' => '[staticpage: id alternate title] - Displays a link to a static page using the static page title as the title. An alternate title may be specified but is not required.',
+    'autotag_desc_staticpage' => '[staticpage: id alternativer Titel] - Zeigt einen Link zu einer statischen Seite an und verwendet deren Seitentitel. Ein alternativer Titel kann optional angegeben werden.',
     'autotag_desc_staticpage_content' => '[staticpage_content: id alternate title] - Displays the contents of a staticpage.',
-    'autotag_desc_page' => '[page: id alternate title] - Displays a link to a page (from the Static Page plugin) using the page title as the title. An alternate title may be specified but is not required.',
-    'autotag_desc_page_content' => '[page_content: id] - Displays the contents of a page. (from Static Page plugin)',
+    'autotag_desc_page' => '[page: id alternativer Titel] - Zeigt einen Link zu einer Seite des Plugins Statische Seiten an und verwendet deren Seitentitel. Ein alternativer Titel kann optional angegeben werden.',
+    'autotag_desc_page_content' => '[page_content: id] - Zeigt den Inhalt einer Seite des Plugins Statische Seiten an.',
     'yes' => 'Ja',
-    'used_by' => 'This template is assigned to %s page(s). It is possible this template is used more than specified here if the template is being retrieved via an autotag in another template.',
-    'prev_page' => 'Previous page',
-    'next_page' => 'Next page',
-    'parent_page' => 'Parent page',
+    'used_by' => 'Diese Vorlage ist %s Seite(n) zugewiesen. Sie kann von weiteren Seiten verwendet werden, wenn sie über ein Autotag in einer anderen Vorlage geladen wird.',
+    'prev_page' => 'Vorherige Seite',
+    'next_page' => 'Nächste Seite',
+    'parent_page' => 'Übergeordnete Seite',
     'page_desc' => 'Setting a previous and/or next page will add HTML link elements rel=”next” and rel=”prev” to the header to indicate the relationship between pages in a paginated series. Actual page navigation links are not added to the page. You have to add these yourself. NOTE: Parent page is currently not being used.',
-    'num_pages' => '%s Page(s)',
+    'num_pages' => '%s Seite(n)',
     'search_desc' => 'Control if page appears in search. Default depends on setting in Configuration and depends on page type (if it is a Center Block, Uses a Template, or Uses PHP).',
-    'likes_desc' => 'Determines if and how likes control appears on page. Default depends on setting in Plugin Configuration. Pages displayed in a Center Blocks will not display a likes control. Pages that are a template do not use this setting.'
+    'likes_desc' => 'Legt fest, ob und wie die Gefällt-mir-Steuerung auf der Seite angezeigt wird. Der Standardwert hängt von der Plugin-Konfiguration ab. Seiten, die als Centerblock angezeigt werden, zeigen diese Steuerung nicht. Vorlagen verwenden diese Einstellung nicht.'
 );
 
 $LANG_staticpages_search = array(
@@ -170,7 +170,7 @@ $LANG_configsections['staticpages'] = array(
 
 $LANG_confignames['staticpages'] = array(
     'allow_php' => 'PHP erlauben?',
-    'enable_eval_php_save' => 'Parse PHP on Save of Page',
+    'enable_eval_php_save' => 'PHP beim Speichern der Seite auswerten',
     'sort_by' => 'Centerblocks sortieren nach',
     'sort_menu_by' => 'Menüeinträge sortieren nach',
     'sort_list_by' => 'Adminliste sortieren nach',
@@ -181,17 +181,17 @@ $LANG_confignames['staticpages'] = array(
     'filter_html' => 'HTML filtern?',
     'censor' => 'Inhalt zensieren?',
     'default_permissions' => 'Grundeinstellungen Statische Seiten',
-    'autotag_permissions_staticpage' => '[staticpage: ] Permissions',
-    'autotag_permissions_staticpage_content' => '[staticpage_content: ] Permissions',
+    'autotag_permissions_staticpage' => 'Berechtigungen für [staticpage: ]',
+    'autotag_permissions_staticpage_content' => 'Berechtigungen für [staticpage_content: ]',
     'aftersave' => 'Nach dem Speichern der Seiten',
     'atom_max_items' => 'Max. Seiten in Webservices Newsfeed',
     'meta_tags' => 'Meta-Tags verwenden',
-    'likes_pages' => 'Page Likes',
+    'likes_pages' => 'Gefällt mir für Seiten',
     'comment_code' => 'Kommentar Grundeinstellung',
-    'structured_data_type_default' => 'Structured Data Type Default',
+    'structured_data_type_default' => 'Standardtyp für strukturierte Daten',
     'draft_flag' => 'Als Grundeinstellung auf Entwurf',
-    'disable_breadcrumbs_staticpages' => 'Disable Breadcrumbs',
-    'default_cache_time' => 'Default Cache Time',
+    'disable_breadcrumbs_staticpages' => 'Breadcrumbs deaktivieren',
+    'default_cache_time' => 'Standard-Cachezeit',
     'newstaticpagesinterval' => 'Zeitabstand für neue Seiten',
     'hidenewstaticpages' => 'Neue Seiten ausblenden',
     'title_trim_length' => 'Titel abschneiden nach',
@@ -200,7 +200,7 @@ $LANG_confignames['staticpages'] = array(
     'includesearch' => 'Statische Seiten durchsuchen',
     'includesearchcenterblocks' => 'Centerblock-Seiten berücksichtigen',
     'includesearchphp' => 'Seiten mit PHP berücksichtigen',
-    'includesearchtemplate' => 'Include Template Static Pages'
+    'includesearchtemplate' => 'Vorlagen-Seiten einbeziehen'
 );
 
 $LANG_configsubgroups['staticpages'] = array(
@@ -208,10 +208,10 @@ $LANG_configsubgroups['staticpages'] = array(
 );
 
 $LANG_tab['staticpages'] = array(
-    'tab_main' => 'Static Pages Main Settings',
+    'tab_main' => 'Haupteinstellungen für statische Seiten',
     'tab_whatsnew' => 'Was-ist-neu-Block',
-    'tab_search' => 'Search Results',
-    'tab_permissions' => 'Default Permissions',
+    'tab_search' => 'Suchergebnisse',
+    'tab_permissions' => 'Standardberechtigungen',
     'tab_autotag_permissions' => 'Autotag-Rechte'
 );
 
@@ -229,7 +229,7 @@ $LANG_configselects['staticpages'] = array(
     1 => array('Ja' => true, 'Nein' => false),
     2 => array('Datum' => 'date', 'Seiten-ID' => 'id', 'Titel' => 'title'),
     3 => array('Datum' => 'date', 'Seiten-ID' => 'id', 'Titel' => 'title', 'Menüpunkt' => 'label'),
-    4 => array('Datum' => 'date', 'Seiten-ID' => 'id', 'Titel' => 'title', 'Author' => 'author'),
+    4 => array('Datum' => 'date', 'Seiten-ID' => 'id', 'Titel' => 'title', 'Author' => 'Autor'),
     5 => array('Verbergen' => 'hide', 'Anzeigen - Modifiziertes Datum benutzen' => 'modified', 'Anzeigen - Datum der Erstellung benutzen' => 'created'),
     9 => array('Zur Seite weiterleiten' => 'item', 'Liste anzeigen' => 'list', 'Startseite' => 'home', 'Schaltzentrale' => 'admin'),
     12 => array('Kein Zugang' => 0, 'Nur lesen' => 2, 'Lesen-Schreiben' => 3),
