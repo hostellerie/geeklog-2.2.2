@@ -231,16 +231,16 @@ $LANG_fs['staticpages'] = array(
 
 // Note: entries 0, 1, 9, 12, 17 are the same as in $LANG_configselects['Core']
 $LANG_configselects['staticpages'] = array(
-    0 => array('True' => 1, 'False' => 0),
-    1 => array('True' => true, 'False' => false),
-    2 => array('Date' => '日期', 'Page ID' => '页面 ID', 'Title' => '标题'),
-    3 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Label' => '标签'),
-    4 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Author' => '作者'),
-    5 => array('Hide' => '隐藏', 'Show - Use Modified Date' => '显示 - 使用修改日期', 'Show - Use Created Date' => '显示 - 使用创建日期'),
-    9 => array('Forward to page' => '转到页面', 'Display List' => '列出', 'Display Home' => '显示首页', 'Display Admin' => '显示管理页'),
-    12 => array('No access' => 0, 'Read-Only' => 2, 'Read-Write' => 3),
-    13 => array('No access' => 0, 'Use' => 2),
-    17 => array('Comments Enabled' => 0, 'Comments Disabled' => -1),
-    39 => array('None' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
-    41 => array('False' => 0, 'Likes and Dislikes' => 1, 'Likes Only' => 2)
+    0 => array('是' => 1, '否' => 0),
+    1 => array('是' => TRUE, '否' => FALSE),
+    2 => array('日期' => 'date', '页面 ID' => 'id', '标题' => 'title'),
+    3 => array('日期' => 'date', '页面 ID' => 'id', '标题' => 'title', '标签' => 'label'),
+    4 => array('日期' => 'date', '页面 ID' => 'id', '标题' => 'title', '作者' => 'author'),
+    5 => array('隐藏' => 'hide', '显示 - 使用修改日期' => 'modified', '显示 - 使用创建日期' => 'created'),
+    9 => array('转到页面' => 'item', '显示列表' => 'list', '显示首页' => 'home', '显示管理页' => 'admin'),
+    12 => array('无权限' => 0, '只读' => 2, '读写' => 3),
+    13 => array('无权限' => 0, '使用' => 2),
+    17 => array('启用评论' => 0, '禁用评论' => -1),
+    39 => array('无' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
+    41 => array('否' => 0, '喜欢和不喜欢' => 1, '仅喜欢' => 2)
 );
