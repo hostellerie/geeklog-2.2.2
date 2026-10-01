@@ -276,7 +276,7 @@ $LANG03 = array(
     'read_comment' => 'Read the full comment at',
     'comment_for' => 'The above comment is for the following item',
     'comment_page_title' => 'Comments for %s',
-    'comments' => 'Comments'
+    'comments' => 'نظرات'
 );
 
 ###############################################################################
@@ -751,58 +751,58 @@ $LANG12 = array(
 # LIKES feature since Geeklog 2.2.1
 
 $LANG_LIKES = array(
-    'like' => 'Like',
-    'unlike' => 'Unlike',
-    'dislike' => 'Dislike',
-    'undislike' => 'Undislike',
-    'likes' => 'Likes',
-    'unlikes' => 'Unlikes',
-    'dislikes' => 'Dislikes',
-    'undislikes' => 'Undislikes',
-    'i_like_this' => 'I like this',
-    'i_dislike_this' => 'I dislike this',
-    'thanks_for_action' => 'Thanks for voting!',
-    'likes_speedlimit' => 'You last used the Likes system on an item %s seconds ago. This site requires at least %s seconds between using the Likes system',
-    'likes_ip_error' => 'Your IP address has already performed this Likes action.',
-    'likes_uid_error' => 'Your User account has already performed this Likes action.',
-    'own_item_error' => 'Either you own the item or do not have permission to Like/Dislike it.',
-    'liked_by' => 'Liked by:',
-    'disliked_by' => 'Disliked by:',
-    'num_anon_users' => '<br' . XHTML . '>%s Anonymous Users',
-    'one_anon_users' => '<br' . XHTML . '>1 Anonymous User',
-    'num_more_users' => '<br' . XHTML . '>+%s more Users',
+    'like' => 'پسندیدن',
+    'unlike' => 'لغو پسندیدن',
+    'dislike' => 'نپسندیدن',
+    'undislike' => 'لغو نپسندیدن',
+    'likes' => 'پسندها',
+    'unlikes' => 'لغو پسندها',
+    'dislikes' => 'نپسندیدن‌ها',
+    'undislikes' => 'لغو نپسندیدن‌ها',
+    'i_like_this' => 'این را می‌پسندم',
+    'i_dislike_this' => 'این را نمی‌پسندم',
+    'thanks_for_action' => 'از رأی شما سپاسگزاریم!',
+    'likes_speedlimit' => 'آخرین بار %s ثانیه پیش از سامانه پسند برای یک مورد استفاده کردید. این سایت حداقل %s ثانیه فاصله بین استفاده‌های سامانه پسند نیاز دارد',
+    'likes_ip_error' => 'این نشانی IP قبلاً این عمل پسند را انجام داده است.',
+    'likes_uid_error' => 'حساب کاربری شما قبلاً این عمل پسند را انجام داده است.',
+    'own_item_error' => 'یا مالک این مورد هستید یا اجازه پسندیدن/نپسندیدن آن را ندارید.',
+    'liked_by' => 'پسندیده‌شده توسط:',
+    'disliked_by' => 'نپسندیده‌شده توسط:',
+    'num_anon_users' => '<br' . XHTML . '>%s کاربر ناشناس',
+    'one_anon_users' => '<br' . XHTML . '>1 کاربر ناشناس',
+    'num_more_users' => '<br' . XHTML . '>+%s کاربر دیگر',
     'username_in_likes_list' => '<br' . XHTML . '>%s',
     'autotag_desc_likes_block' => "[likes_block:aid action:aid wrapper:wid class:likes-autotag type: subtype: time:604800 max:10 cache:3600 line:1 length:20]\n	- Displays the Likes block. No attributes are required. If attribute not specified then default in configuration used. \n	- action = 1 (likes only), 2 (dislikes only), or 3 (both) \n	- wrapper = 0 (no wrapper), 1 (block wrapper with title), div wrapper with css class), or both\n	- class = Specifies the css class used by the div wrapper if enabled else default likes-autotag will be used \n	- type = Either empty (for all types) or include 1 supported like type. For example 'article' or 'comment'\n	- subtype = Specify a sub type of type if needed\n	- time = Display items that are this many seconds old. 0 will display all items\n	- max = Maximum number of items to display\n	- cache = Cached for no longer than this many seconds. If 0 caching is disabled\n	- line = Display likes icons on new line\n	- length = Trim item title length to this many characters",
-    'num_likes_in_time_limit' => 'The last number of Likes this item received within the time specified.',
-    'num_dislikes_in_time_limit' => 'The last number of Dislikes this item received within the time specified.',
-    'num_likes_total' => 'The total number of Likes this item has received.',
-    'num_dislikes_total' => 'The total number of Dislikes this item has received.',
-    'likes_time_span' => 'Most Likes in the last %t %s',
-    'dislikes_time_span' => 'Most Dislikes in the last %t %s',
-    'all_time_span' => 'Most engaging in the last %t %s',
-    'whats_liked' => 'Whats Liked',
-    'whats_recently_liked' => 'Whats Recently Liked',
-    'whats_disliked' => 'Whats Disliked',
-    'whats_recently_disliked' => 'Whats Recently Disliked',
-    'whats_popular' => 'Whats Popular',
-    'whats_recently_popular' => 'Whats Recently Popular',
-    'whats_liked_type' => 'Liked %s',
-    'whats_recently_liked_type' => 'Recently Liked %s',
-    'whats_disliked_type' => 'Disliked %s',
-    'whats_recently_disliked_type' => 'Recently Disliked %s',
-    'whats_popular_type' => 'Popular %s',
-    'whats_recently_popular_type' => 'Recently Popular %s',
-    'no_liked_items_in_time_limit' => 'There have been no Likes during the time specified.',
-    'no_disliked_items_in_time_limit' => 'There have been no Dislikes during the time specified.',
-    'no_action_items_in_time_limit' => 'There have been no Likes or Dislikes during the time specified.',
-    'no_liked_items' => 'There are no Liked items.',
-    'no_disliked_items' => 'There are no Disliked items.',
-    'no_action_items' => 'There are no Liked or Disliked items.',
+    'num_likes_in_time_limit' => 'تعداد پسندهای این مورد در بازه زمانی مشخص‌شده.',
+    'num_dislikes_in_time_limit' => 'تعداد نپسندیدن‌های این مورد در بازه زمانی مشخص‌شده.',
+    'num_likes_total' => 'تعداد کل پسندهای دریافت‌شده برای این مورد.',
+    'num_dislikes_total' => 'تعداد کل نپسندیدن‌های دریافت‌شده برای این مورد.',
+    'likes_time_span' => 'بیشترین پسند در %t %s گذشته',
+    'dislikes_time_span' => 'بیشترین نپسندیدن در %t %s گذشته',
+    'all_time_span' => 'بیشترین تعامل در %t %s گذشته',
+    'whats_liked' => 'موارد پسندیده‌شده',
+    'whats_recently_liked' => 'موارد اخیراً پسندیده‌شده',
+    'whats_disliked' => 'موارد نپسندیده‌شده',
+    'whats_recently_disliked' => 'موارد اخیراً نپسندیده‌شده',
+    'whats_popular' => 'موارد محبوب',
+    'whats_recently_popular' => 'موارد اخیراً محبوب',
+    'whats_liked_type' => '%s پسندیده‌شده',
+    'whats_recently_liked_type' => '%s اخیراً پسندیده‌شده',
+    'whats_disliked_type' => '%s نپسندیده‌شده',
+    'whats_recently_disliked_type' => '%s اخیراً نپسندیده‌شده',
+    'whats_popular_type' => '%s محبوب',
+    'whats_recently_popular_type' => '%s اخیراً محبوب',
+    'no_liked_items_in_time_limit' => 'در بازه زمانی مشخص‌شده هیچ پسندی ثبت نشده است.',
+    'no_disliked_items_in_time_limit' => 'در بازه زمانی مشخص‌شده هیچ نپسندیدنی ثبت نشده است.',
+    'no_action_items_in_time_limit' => 'در بازه زمانی مشخص‌شده هیچ پسند یا نپسندیدنی ثبت نشده است.',
+    'no_liked_items' => 'هیچ مورد پسندیده‌شده‌ای وجود ندارد.',
+    'no_disliked_items' => 'هیچ مورد نپسندیده‌شده‌ای وجود ندارد.',
+    'no_action_items' => 'هیچ مورد پسندیده یا نپسندیده‌شده‌ای وجود ندارد.',
     'last_num_likes_by' => 'Last %s Likes and Dislikes by %s',
-    'msg_no_likes' => 'No likes or dislikes found by user.',
-    'total_num_likes' => 'Total number of likes and dislikes:',
-    'title_liked' => '%s Liked on ',
-    'title_disliked' => '%s Disliked on ',
+    'msg_no_likes' => 'هیچ پسند یا نپسندیدنی برای این کاربر یافت نشد.',
+    'total_num_likes' => 'تعداد کل پسندها و نپسندیدن‌ها:',
+    'title_liked' => '%s پسندیده شد در ', old token
+    'title_disliked' => '%s نپسندیده شد در ', old token
     'articles' => 'Articles',
     'comments' => 'Comments'
 );
@@ -903,14 +903,14 @@ $LANG_ENVCHECK = array(
 # For Demo Mode (since v2.2.1)
 
 $LANG_DEMO = array(
-    'header' => 'Header',
-    'subject' => 'Subject:',
+    'header' => 'سربرگ',
+    'subject' => 'موضوع:',
     'to' => 'To:',
-    'from' => 'From:',
-    'priority' => 'Priority:',
-    'body' => 'Body',
-    'notice' => 'Notice',
-    'emails_disabled_msg' => 'Please note sending emails is disabled in Demo mode. An email which would have been sent was:'
+    'from' => 'از:',
+    'priority' => 'اولویت:',
+    'body' => 'متن پیام',
+    'notice' => 'توجه',
+    'emails_disabled_msg' => 'توجه داشته باشید که ارسال ایمیل در حالت نمایشی غیرفعال است. ایمیلی که در حالت عادی ارسال می‌شد به این صورت بود:'
 );
 
 ###############################################################################
@@ -1560,8 +1560,8 @@ $LANG_LANG = array(
     'language' => 'زبان',
     'name' => 'عنصر متغیر',
     'var_name' => 'نام متغیر',
-    'name_tip' => 'Required just for language arrays.',
-    'var_name_tip' => 'Can be a regular variable or array. Do not include the dollar sign at the beginning of the variable/array name.',
+    'name_tip' => 'فقط برای آرایه‌های زبان الزامی است.',
+    'var_name_tip' => 'می‌تواند یک متغیر عادی یا آرایه باشد. علامت دلار را در ابتدای نام متغیر یا آرایه وارد نکنید.',
     'value' => 'مقدار جدید'
 );
 
@@ -2263,8 +2263,8 @@ $LANG_structureddatatypes = array(
 );
 
 $LANG_STRUCT_DATA = array(
-    'lang_structured_data_type' => 'Structured Data Type',
-    'autotag_desc_structureddata' => '[structureddata:schema_property]Property Value[/structureddata] - Adds a property to the structured data of the content that the autotag is embedded in.'
+    'lang_structured_data_type' => 'نوع داده ساخت‌یافته',
+    'autotag_desc_structureddata' => '[structureddata:schema_property]مقدار ویژگی[/structureddata] - یک ویژگی به داده ساخت‌یافته محتوایی که این برچسب خودکار در آن قرار دارد اضافه می‌کند.'
 );
 
 ###############################################################################
@@ -2804,7 +2804,7 @@ $LANG_VALIDATION = array(
     'default' => 'این رشته شامل یک مقدار نامعتبر است',
     'notEmpty' => 'این رشته نباید خالی باشد',
     'alphaNumeric' => 'این رشته باید حرفی عددی باشد',
-    'alphaNumericOrEmpty' => 'This field must be alpha numeric or empty',
+    'alphaNumericOrEmpty' => 'این رشته باید حرفی‌عددی یا خالی باشد',
     'between' => 'این رشته باید در یک محدوده مشخصی باشد',
     'blank' => 'این رشته باید خالی باشد',
     'comparison' => 'این رشته با عمل مقایسه تطابق ندارد',
@@ -2845,7 +2845,7 @@ $LANG_VALIDATION = array(
     'single_char' => 'این رشته باید یک کاراکتر واحد باشد',
     'page_navigation_max_pages' => 'این رشته باید بین ۲ - ۲۱ باشد',
     'hash' => 'این رشته باید یک تابع مخلوط باشد که توسط نسخه پی اچ پی شما پشتیبانی می شود',
-    'config_setting_lang_array' => 'Each element requires a unique language shortcut (\'en\', \'de\', etc.) and the corresponding field must contain a value',
-    'config_setting_lang_array_element_req' => 'Requires at least one element. Each element requires a unique language shortcut (\'en\', \'de\', etc.) and the corresponding field must contain a value'
+    'config_setting_lang_array' => 'هر عنصر به یک کد زبان یکتا (مانند \'en\' یا \'de\') نیاز دارد و رشته متناظر باید دارای مقدار باشد',
+    'config_setting_lang_array_element_req' => 'حداقل یک عنصر لازم است. هر عنصر به یک کد زبان یکتا (مانند \'en\' یا \'de\') نیاز دارد و رشته متناظر باید دارای مقدار باشد'
 );
 
