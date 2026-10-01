@@ -144,9 +144,16 @@ $LANG_STATIC = array(
 );
 
 $LANG_staticpages_search = array(
-    0 => 'Excluded',
-    1 => 'Use Default',
-    2 => 'Included'
+    0  => 'לא נכלל',
+    1  => 'השתמש בברירת מחדל',
+    2  => 'נכלל'
+);
+
+$LANG_staticpages_likes = array(
+    -1 => 'השתמש בברירת מחדל',
+    0  => 'מושבת',
+    1  => 'אהבתי ולא אהבתי',
+    2  => 'אהבתי בלבד',
 );
 
 $PLG_staticpages_MESSAGE15 = 'תגובתכם נשלחה לסקירה ותפורסם כאשר תאושר על ידי המשגיחים.';
