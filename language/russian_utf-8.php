@@ -556,17 +556,17 @@ $LANG08 = array(
     33 => 'Читайте полную статью на',
     34 => 'Конец сообщения',
     35 => 'Извините, но установки данного пользователя не позволяют ему отправить сообщение.',
-    36 => 'Copy:',
-    37 => 'Send me a copy of this email',
-    38 => "This is a copy of the email that you sent to %s from <{$_CONF['site_url']}>:",
-    39 => 'Your last message was ',
-    40 => " seconds ago.  This site requires at least {$_CONF['speedlimit']} seconds between sending messages",
-    41 => 'This user doesn\'t exist.',
-    42 => 'This users email address doesn\'t exist. This most likely means is is an OAuth user account.',
-    43 => 'This users email address is invalid.',
-    44 => 'This users status is set to something other than Active or New Password therefore the email address is assumed bad.',
-    45 => "This is a message sent from {$_CONF['site_name']} by %s. Any replies will need to be sent to the email address: %s",
-    46 => "To unsubscribe from the Daily Digest, login to {$_CONF['site_name']} at {$_CONF['site_url']}. Then visit the user settings page at {$_CONF['site_url']}/usersettings.php and view the Content Tab. You can then unsubscribe to the Daily Digest by deselecting all topics and saving your profile."
+    36 => 'Копия:',
+    37 => 'Отправить мне копию этого письма',
+    38 => "Это копия письма, которое вы отправили пользователю %s с сайта <{$_CONF['site_url']}>:",
+    39 => 'Ваше последнее сообщение было отправлено ', 
+    40 => " секунд назад. Между отправкой сообщений должно пройти не менее {$_CONF['speedlimit']} секунд",
+    41 => 'Такого пользователя не существует.',
+    42 => 'У этого пользователя нет адреса электронной почты. Скорее всего, это учётная запись OAuth.',
+    43 => 'Адрес электронной почты этого пользователя недействителен.',
+    44 => 'Статус пользователя отличается от «Активен» или «Новый пароль», поэтому адрес электронной почты считается недействительным.',
+    45 => "Это сообщение отправлено с сайта {$_CONF['site_name']} пользователем %s. Ответы необходимо отправлять на адрес: %s",
+    46 => "Чтобы отказаться от ежедневного дайджеста, войдите на {$_CONF['site_name']} по адресу {$_CONF['site_url']}. Затем откройте настройки пользователя на {$_CONF['site_url']}/usersettings.php и перейдите на вкладку «Содержимое». Снимите выбор со всех тем и сохраните профиль."
 );
 
 ###############################################################################
