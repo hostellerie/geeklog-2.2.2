@@ -106,7 +106,7 @@ $LANG_SX00 = array (
     'import_failure' => '<p><strong>خطا:</strong> موردی پیدا نشد.',
     'allow_url_fopen' => '<p>متأسفیم، پیکربندی وب‌سرور شما اجازهٔ خواندن فایل‌های راه‌دور را نمی‌دهد (<code>allow_url_fopen</code> خاموش است). فهرست سیاه را از نشانی زیر بارگیری کرده و در شاخهٔ "data" در Geeklog، <span style="font-family: monospace;">%s</span>، بارگذاری کنید و دوباره تلاش کنید:',
     'documentation' => 'مستندات افزونهٔ Spam-X',
-    'emailmsg' => "یک مطلب هرزنامهٔ جدید در \\"%s\\" ارسال شده است\\nشناسهٔ کاربر: \\"%s\\"\\n\\nمحتوا:\\"%s\\"",
+    'emailmsg' => "یک مطلب هرزنامهٔ جدید در \"%s\" ارسال شده است\nشناسهٔ کاربر: \"%s\"\n\nمحتوا:\"%s\"",
     'emailsubject' => 'هرزنامه در %s',
     'ipblack' => 'فهرست سیاه IP در Spam-X',
     'ipofurlblack' => 'فهرست سیاه IP نشانی‌ها در Spam-X',
