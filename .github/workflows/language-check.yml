@@ -34,6 +34,9 @@ jobs:
       - name: Lint checker
         run: php -l tools/check-languages.php
 
+      - name: Lint UTF-8 language files
+        run: find language -maxdepth 1 -name '*_utf-8.php' -print0 | xargs -0 -n1 php -l
+
       - name: Check French translation
         run: php tools/check-languages.php language/french_france_utf-8.php
 
