@@ -2264,8 +2264,8 @@ $LANG_structureddatatypes = array(
 );
 
 $LANG_STRUCT_DATA = array(
-    'lang_structured_data_type' => 'Structured Data Type',
-    'autotag_desc_structureddata' => '[structureddata:schema_property]Property Value[/structureddata] - Adds a property to the structured data of the content that the autotag is embedded in.'
+    'lang_structured_data_type' => 'Type de données structurées',
+    'autotag_desc_structureddata' => '[structureddata:propriété_schema]Valeur de la propriété[/structureddata] - Ajoute une propriété aux données structurées du contenu dans lequel l’autotag est inséré.'
 );
 
 ###############################################################################
