@@ -33,7 +33,7 @@
 | 1 | Turkish | tr | ltr | 0 |
 | 1 | Indonesian | id | ltr | 0 |
 | 2 | Ukrainian | uk | ltr | 0 |
-| 2 | Portuguese (Portugal) | pt-PT | ltr | 1 |
+| 2 | Portuguese (Portugal) | pt-PT | ltr | 0 |
 | 2 | Vietnamese | vi | ltr | 0 |
 | 2 | Thai | th | ltr | 0 |
 | 3 | Czech | cs | ltr | 0 |
@@ -42,92 +42,79 @@
 
 ## Geeklog-Plugins coverage
 
-Plugins audited: **34**
+Active plugins audited: **21**
+Legacy plugins excluded from language targets: **13**
 
 | Language | Core | Complete | Partial | Missing | Placeholder errors | Identical to English |
 |---|---:|---:|---:|---:|---:|---:|
-| French | ✅ | 10 | 4 | 20 | 14 | 308 |
-| German | ✅ | 3 | 1 | 30 | 17 | 300 |
-| Spanish | ✅ | 1 | 1 | 32 | 15 | 152 |
-| Italian | ✅ | 2 | 1 | 31 | 15 | 163 |
-| Japanese | ✅ | 10 | 3 | 21 | 9 | 146 |
-| Russian | ✅ | 0 | 0 | 34 | 0 | 0 |
-| Chinese (Simplified) | ✅ | 0 | 0 | 34 | 0 | 0 |
-| Chinese (Traditional) | ✅ | 0 | 0 | 34 | 0 | 0 |
-| Hebrew | ✅ | 0 | 1 | 33 | 18 | 259 |
-| Persian | ✅ | 5 | 2 | 27 | 1 | 16 |
-| Portuguese (Brazil) | ❌ | 0 | 0 | 34 | 0 | 0 |
-| Arabic | ❌ | 0 | 0 | 34 | 0 | 0 |
-| Dutch | ❌ | 0 | 2 | 32 | 15 | 356 |
-| Polish | ❌ | 0 | 0 | 34 | 0 | 0 |
-| Korean | ❌ | 0 | 1 | 33 | 15 | 157 |
-| Hindi | ❌ | 0 | 0 | 34 | 0 | 0 |
-| Turkish | ❌ | 0 | 0 | 34 | 0 | 0 |
-| Indonesian | ❌ | 0 | 0 | 34 | 0 | 0 |
-| Ukrainian | ❌ | 0 | 0 | 34 | 0 | 0 |
-| Portuguese (Portugal) | ❌ | 1 | 0 | 33 | 0 | 1 |
-| Vietnamese | ❌ | 0 | 0 | 34 | 0 | 0 |
-| Thai | ❌ | 0 | 0 | 34 | 0 | 0 |
-| Czech | ❌ | 0 | 0 | 34 | 0 | 0 |
-| Swedish | ❌ | 1 | 2 | 31 | 17 | 345 |
-| Bengali | ❌ | 0 | 0 | 34 | 0 | 0 |
+| French | ✅ | 8 | 4 | 9 | 14 | 302 |
+| German | ✅ | 0 | 1 | 20 | 17 | 225 |
+| Spanish | ✅ | 0 | 1 | 20 | 15 | 152 |
+| Italian | ✅ | 0 | 1 | 20 | 15 | 163 |
+| Japanese | ✅ | 4 | 3 | 14 | 9 | 112 |
+| Russian | ✅ | 0 | 0 | 21 | 0 | 0 |
+| Chinese (Simplified) | ✅ | 0 | 0 | 21 | 0 | 0 |
+| Chinese (Traditional) | ✅ | 0 | 0 | 21 | 0 | 0 |
+| Hebrew | ✅ | 0 | 1 | 20 | 18 | 259 |
+| Persian | ✅ | 2 | 2 | 17 | 1 | 14 |
+| Portuguese (Brazil) | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Arabic | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Dutch | ❌ | 0 | 2 | 19 | 15 | 356 |
+| Polish | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Korean | ❌ | 0 | 1 | 20 | 15 | 157 |
+| Hindi | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Turkish | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Indonesian | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Ukrainian | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Portuguese (Portugal) | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Vietnamese | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Thai | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Czech | ❌ | 0 | 0 | 21 | 0 | 0 |
+| Swedish | ❌ | 1 | 2 | 18 | 17 | 345 |
+| Bengali | ❌ | 0 | 0 | 21 | 0 | 0 |
+
+
+### Legacy external plugins
+
+These plugins remain visible but are excluded from translation coverage targets and future language-file proposals:
+
+`Bad-Behavior2`, `dokuwiki`, `faqman`, `flickr`, `jquery`, `langsel`, `mdigest`, `nettools`, `quiz`, `searchrank`, `tag`, `themedit`, `vthemes`
 
 ## Plugin translation gaps
 
 ### French
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 8 missing (98.6%), 13 placeholder error(s), 107 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ⚠️ 66 missing (67.5%), 15 identical string(s)
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ⚠️ 0 missing (100.0%), 1 placeholder error(s), 22 identical string(s)
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ⚠️ 1 missing (99.8%), 58 identical string(s)
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
 
 ### German
 
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 17 placeholder error(s), 225 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -137,33 +124,21 @@ Plugins audited: **34**
 
 ### Spanish
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 15 placeholder error(s), 152 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -178,27 +153,16 @@ Plugins audited: **34**
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 15 placeholder error(s), 163 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -211,21 +175,14 @@ Plugins audited: **34**
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ⚠️ 1 missing (97.6%), 1 placeholder error(s), 1 identical string(s)
 - [ban](https://github.com/Geeklog-Plugins/ban) — ⚠️ 0 missing (100.0%), 1 placeholder error(s), 2 identical string(s)
 - [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 7 missing (98.8%), 7 placeholder error(s), 81 identical string(s)
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -235,34 +192,21 @@ Plugins audited: **34**
 
 ### Russian
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -272,34 +216,21 @@ Plugins audited: **34**
 
 ### Chinese (Simplified)
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -309,34 +240,21 @@ Plugins audited: **34**
 
 ### Chinese (Traditional)
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -346,34 +264,21 @@ Plugins audited: **34**
 
 ### Hebrew
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 18 placeholder error(s), 259 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -384,28 +289,18 @@ Plugins audited: **34**
 ### Persian
 
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ⚠️ 4 missing (91.1%), 1 placeholder error(s), 1 identical string(s)
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ⚠️ 24 missing (88.2%), 4 identical string(s)
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -415,34 +310,21 @@ Plugins audited: **34**
 
 ### Portuguese (Brazil)
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -452,34 +334,21 @@ Plugins audited: **34**
 
 ### Arabic
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -489,34 +358,21 @@ Plugins audited: **34**
 
 ### Dutch
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ⚠️ 3 missing (97.3%), 40 identical string(s)
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 15 placeholder error(s), 316 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -526,34 +382,21 @@ Plugins audited: **34**
 
 ### Polish
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -563,34 +406,21 @@ Plugins audited: **34**
 
 ### Korean
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 15 placeholder error(s), 157 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -600,34 +430,21 @@ Plugins audited: **34**
 
 ### Hindi
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -637,34 +454,21 @@ Plugins audited: **34**
 
 ### Turkish
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -674,34 +478,21 @@ Plugins audited: **34**
 
 ### Indonesian
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -711,34 +502,21 @@ Plugins audited: **34**
 
 ### Ukrainian
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -749,32 +527,20 @@ Plugins audited: **34**
 ### Portuguese (Portugal)
 
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -784,34 +550,21 @@ Plugins audited: **34**
 
 ### Vietnamese
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -821,34 +574,21 @@ Plugins audited: **34**
 
 ### Thai
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -858,34 +598,21 @@ Plugins audited: **34**
 
 ### Czech
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -895,33 +622,20 @@ Plugins audited: **34**
 
 ### Swedish
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ⚠️ 5 missing (95.5%), 25 identical string(s)
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ⚠️ 30 missing (94.7%), 17 placeholder error(s), 311 identical string(s)
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
@@ -931,34 +645,21 @@ Plugins audited: **34**
 
 ### Bengali
 
-- [searchrank](https://github.com/Geeklog-Plugins/searchrank) — ❌ missing
 - [autotags](https://github.com/Geeklog-Plugins/autotags) — ❌ missing
-- [langsel](https://github.com/Geeklog-Plugins/langsel) — ❌ missing
 - [gus](https://github.com/Geeklog-Plugins/gus) — ❌ missing
 - [ban](https://github.com/Geeklog-Plugins/ban) — ❌ missing
 - [forum](https://github.com/Geeklog-Plugins/forum) — ❌ missing
 - [messenger](https://github.com/Geeklog-Plugins/messenger) — ❌ missing
-- [quiz](https://github.com/Geeklog-Plugins/quiz) — ❌ missing
 - [captcha](https://github.com/Geeklog-Plugins/captcha) — ❌ missing
-- [flickr](https://github.com/Geeklog-Plugins/flickr) — ❌ missing
-- [jquery](https://github.com/Geeklog-Plugins/jquery) — ❌ missing
 - [menu](https://github.com/Geeklog-Plugins/menu) — ❌ missing
 - [maps](https://github.com/Geeklog-Plugins/maps) — ❌ missing
 - [classifieds](https://github.com/Geeklog-Plugins/classifieds) — ❌ missing
-- [mdigest](https://github.com/Geeklog-Plugins/mdigest) — ❌ missing
 - [hello](https://github.com/Geeklog-Plugins/hello) — ❌ missing
 - [contact](https://github.com/Geeklog-Plugins/contact) — ❌ missing
 - [paypal](https://github.com/Geeklog-Plugins/paypal) — ❌ missing
 - [downloads](https://github.com/Geeklog-Plugins/downloads) — ❌ missing
-- [tag](https://github.com/Geeklog-Plugins/tag) — ❌ missing
 - [ogp](https://github.com/Geeklog-Plugins/ogp) — ❌ missing
-- [dokuwiki](https://github.com/Geeklog-Plugins/dokuwiki) — ❌ missing
-- [Bad-Behavior2](https://github.com/Geeklog-Plugins/Bad-Behavior2) — ❌ missing
-- [nettools](https://github.com/Geeklog-Plugins/nettools) — ❌ missing
-- [faqman](https://github.com/Geeklog-Plugins/faqman) — ❌ missing
 - [faq](https://github.com/Geeklog-Plugins/faq) — ❌ missing
-- [themedit](https://github.com/Geeklog-Plugins/themedit) — ❌ missing
-- [vthemes](https://github.com/Geeklog-Plugins/vthemes) — ❌ missing
 - [IndexNow](https://github.com/Geeklog-Plugins/IndexNow) — ❌ missing
 - [maintenance](https://github.com/Geeklog-Plugins/maintenance) — ❌ missing
 - [analytics](https://github.com/Geeklog-Plugins/analytics) — ❌ missing
