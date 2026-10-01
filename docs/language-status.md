@@ -674,7 +674,7 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 
 | Plugin | Ready for PR | Blocking languages |
 |---|---:|---:|
-| calendar | ❌ | 13 |
+| calendar | ❌ | 11 |
 | links | ❌ | 13 |
 | polls | ❌ | 12 |
 | recaptcha | ❌ | 12 |
@@ -690,17 +690,17 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 |---|---:|---:|---:|---:|---:|
 | chinese_simplified_utf-8.php | ❌ missing file | 126 | 0 | 0 | 0.0% |
 | chinese_traditional_utf-8.php | ❌ missing file | 126 | 0 | 0 | 0.0% |
-| french_canada_utf-8.php | ⚠️ | 0 | 0 | 23 | 100.0% |
+| french_canada_utf-8.php | ⚠️ | 0 | 0 | 9 | 100.0% |
 | french_france_utf-8.php | ⚠️ | 0 | 0 | 4 | 100.0% |
-| german_formal_utf-8.php | ⚠️ | 0 | 1 | 4 | 100.0% |
-| german_utf-8.php | ⚠️ | 0 | 1 | 4 | 100.0% |
-| hebrew_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
+| german_formal_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
+| german_utf-8.php | ⚠️ | 0 | 0 | 2 | 100.0% |
+| hebrew_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
 | italian_utf-8.php | ❌ missing file | 126 | 0 | 0 | 0.0% |
 | japanese_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
-| persian_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
-| russian_utf-8.php | ⚠️ | 0 | 0 | 14 | 100.0% |
+| persian_utf-8.php | ✅ | 0 | 0 | 0 | 100.0% |
+| russian_utf-8.php | ⚠️ | 0 | 0 | 1 | 100.0% |
 | spanish_argentina_utf-8.php | ❌ missing file | 126 | 0 | 0 | 0.0% |
-| spanish_utf-8.php | ⚠️ | 0 | 0 | 16 | 100.0% |
+| spanish_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
 
 ### Bundled plugin: links
 
