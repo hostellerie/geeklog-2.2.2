@@ -2014,25 +2014,25 @@ $LANG_DIR = array(
 # admin/sectest.php
 
 $LANG_SECTEST = array(
-    'sectest' => 'Geeklog Security Check',
-    'results' => 'Results of the Security Check',
-    'okay' => 'Everything seems to be in order.',
-    'please_fix' => 'Please fix the above issues before using your site!',
-    'please_note' => 'Please note that no site is ever 100% secure. This script can only test for obvious security issues.',
-    'stay_informed' => 'To stay informed about new Geeklog releases and possible security issues, we suggest that you subscribe to the (low-traffic) %s mailing list and/or use the %s option in your Admin menu from time to time to check for available updates.',
-    'public_html' => '"public_html" should never be part of your site\'s URL.  Please read the part about public_html in the %s again and change your setup accordingly before you proceed.',
-    'installation' => 'installation instructions',
-    'directory' => 'directory',
-    'failed_tmp' => 'Failed to create a temporary file in your %s directory. Check your directory permissions!',
-    'fix_it' => 'This is a security risk and should be fixed!',
-    'reachable' => 'Your %s is reachable from the web.',
-    'not_reachable' => 'Good! Your %s is not reachable from the web.',
-    'not_sure' => 'Got an HTTP result code %s when trying to test your %s. Not sure what to make of it ...',
-    'remove_inst' => 'You should really remove the install directory %s once you have your site up and running without any errors.',
-    'remove_inst2' => 'Keeping it around would allow malicious users the ability to destroy your current install, take over your site, or retrieve sensitive information.',
-    'inst_removed' => 'Good! You seem to have removed the install directory already.',
+    'sectest' => 'Vérification de sécurité de Geeklog',
+    'results' => 'Résultats de la vérification de sécurité',
+    'okay' => 'Tout semble être en ordre.',
+    'please_fix' => 'Veuillez corriger les problèmes ci-dessus avant d\'utiliser votre site !',
+    'please_note' => 'Aucun site n\'est jamais sécurisé à 100 %. Ce script ne peut détecter que les problèmes de sécurité évidents.',
+    'stay_informed' => 'Pour rester informé des nouvelles versions de Geeklog et des éventuels problèmes de sécurité, nous vous recommandons de vous abonner à la liste de diffusion %s, peu active, et/ou d\'utiliser de temps à autre l\'option %s du menu d\'administration afin de vérifier les mises à jour disponibles.',
+    'public_html' => '"public_html" ne devrait jamais faire partie de l\'URL de votre site. Relisez la section consacrée à public_html dans les %s et modifiez votre installation avant de continuer.',
+    'installation' => 'instructions d\'installation',
+    'directory' => 'répertoire',
+    'failed_tmp' => 'Impossible de créer un fichier temporaire dans votre répertoire %s. Vérifiez les permissions du répertoire !',
+    'fix_it' => 'Il s\'agit d\'un risque de sécurité qui doit être corrigé !',
+    'reachable' => 'Votre %s est accessible depuis le Web.',
+    'not_reachable' => 'Parfait ! Votre %s n\'est pas accessible depuis le Web.',
+    'not_sure' => 'Le test de votre %s a renvoyé le code HTTP %s. Impossible d\'en tirer une conclusion certaine.',
+    'remove_inst' => 'Vous devriez supprimer le répertoire d\'installation %s une fois votre site opérationnel et sans erreur.',
+    'remove_inst2' => 'Le conserver permettrait à des utilisateurs malveillants de détruire votre installation actuelle, de prendre le contrôle de votre site ou de récupérer des informations sensibles.',
+    'inst_removed' => 'Parfait ! Le répertoire d\'installation semble déjà avoir été supprimé.',
     'fix_password' => 'Vous n\'avez pas encore remplacé le <strong>mot de passe par défaut</strong> « password » du compte administrateur par défaut.',
-    'password_okay' => 'Good! You seem to have changed the default account password already.'
+    'password_okay' => 'Parfait ! Le mot de passe du compte par défaut semble avoir été modifié.'
 );
 
 ###############################################################################
