@@ -684,7 +684,7 @@ $LANG11 = array(
     3 => 'Version imprimable',
     4 => 'Option des articles',
     5 => '',
-    6 => 'Subscribe to \'%s\''
+    6 => "S'abonner à '%s'"
 );
 
 ###############################################################################
