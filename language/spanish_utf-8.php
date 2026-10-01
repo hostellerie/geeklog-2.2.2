@@ -479,12 +479,12 @@ $LANG04 = array(
 # Array index key matches preference div id
 
 $LANG_MYACCOUNT = array(
-    'pe_preview' => 'Preview',
-    'pe_namepass' => 'Username &amp; Password',
-    'pe_userinfo' => 'About You',
-    'pe_layout' => 'Layout &amp; Language',
-    'pe_content' => 'Content',
-    'pe_privacy' => 'Privacy'
+    'pe_preview' => 'Vista previa',
+    'pe_namepass' => 'Usuario y contraseña',
+    'pe_userinfo' => 'Sobre ti',
+    'pe_layout' => 'Diseño e idioma',
+    'pe_content' => 'Contenido',
+    'pe_privacy' => 'Privacidad',
 );
 
 ###############################################################################
@@ -499,7 +499,7 @@ $LANG05 = array(
     6 => 'Anterior',
     7 => 'Primero',
     8 => 'Ultimo',
-    9 => 'Page navigation'
+    9 => 'Navegación de páginas',
 );
 
 ###############################################################################
@@ -541,17 +541,17 @@ $LANG08 = array(
     33 => 'Lee la Noticia completa en',
     34 => 'Fin del mensaje',
     35 => 'Lo siento, este usuario prefiere no recibir mensajes.',
-    36 => 'Copy:',
-    37 => 'Send me a copy of this email',
+    36 => 'Copia:',
+    37 => 'Enviarme una copia de este correo',
     38 => "This is a copy of the email that you sent to %s from <{$_CONF['site_url']}>:",
-    39 => 'Your last message was ',
-    40 => " seconds ago.  This site requires at least {$_CONF['speedlimit']} seconds between sending messages",
-    41 => 'This user doesn\'t exist.',
-    42 => 'This users email address doesn\'t exist. This most likely means is is an OAuth user account.',
-    43 => 'This users email address is invalid.',
-    44 => 'This users status is set to something other than Active or New Password therefore the email address is assumed bad.',
-    45 => "This is a message sent from {$_CONF['site_name']} by %s. Any replies will need to be sent to the email address: %s",
-    46 => "To unsubscribe from the Daily Digest, login to {$_CONF['site_name']} at {$_CONF['site_url']}. Then visit the user settings page at {$_CONF['site_url']}/usersettings.php and view the Content Tab. You can then unsubscribe to the Daily Digest by deselecting all topics and saving your profile."
+    39 => 'Tu último mensaje fue hace ',
+    40 => " segundos. Este sitio requiere al menos {$_CONF['speedlimit']} segundos entre mensajes",
+    41 => 'Este usuario no existe.',
+    42 => 'Este usuario no tiene dirección de correo electrónico. Probablemente se trate de una cuenta OAuth.',
+    43 => 'La dirección de correo de este usuario no es válida.',
+    44 => 'El estado de este usuario no es Activo ni Nueva contraseña, por lo que su dirección de correo se considera no válida.',
+    45 => "Este mensaje fue enviado desde {$_CONF['site_name']} por %s. Las respuestas deben enviarse a: %s",
+    46 => "Para darte de baja del resumen diario, inicia sesión en {$_CONF['site_name']} en {$_CONF['site_url']}. Visita después {$_CONF['site_url']}/usersettings.php, abre la pestaña Contenido, desmarca todos los temas y guarda tu perfil.",
 );
 
 ###############################################################################
@@ -593,7 +593,7 @@ $LANG09 = array(
     33 => 'URL',
     34 => 'Ubicación',
     35 => 'Todo el dia',
-    36 => 'Key Word Type',
+    36 => 'Tipo de palabra clave',
     37 => '',
     38 => '',
     39 => '',
@@ -621,17 +621,17 @@ $LANG09 = array(
     61 => 'Refinar búsqueda',
     62 => '#',
     63 => 'Description',
-    64 => 'Showing %1$d - %2$d of %3$d results',
+    64 => 'Mostrando %1$d - %2$d de %3$d resultados',
     65 => 'Article',
-    66 => 'Comment',
-    67 => 'Show %d Results',
+    66 => 'Comentario',
+    67 => 'Mostrar %d resultados',
     68 => 'Sort By',
-    69 => 'Titles Only',
-    70 => 'Not available ...',
+    69 => 'Solo títulos',
+    70 => 'No disponible…',
     71 => 'asc',
     72 => 'desc',
-    73 => 'Submit',
-    74 => 'Limit Results'
+    73 => 'Enviar',
+    74 => 'Limitar resultados',
 );
 
 ###############################################################################
@@ -641,8 +641,8 @@ $LANG10 = array(
     1 => 'Estadísticas del sitio',
     2 => 'Total de accesos al sistema',
     3 => 'Noticias(Comentarios) en el sistema',
-    4 => 'Site Statistic',
-    5 => "Overall Site Statistics for {$_CONF['site_name']}",
+    4 => 'Estadísticas del sitio',
+    5 => "Estadísticas generales de {$_CONF['site_name']}",
     6 => '',
     7 => 'Las 10 Noticias más leídas',
     8 => 'Título de la Noticia',
@@ -667,10 +667,10 @@ $LANG10 = array(
     27 => 'Número de usuarios activos',
     28 => '',
     29 => '',
-    30 => 'Hits',
+    30 => 'Visitas',
     31 => '',
-    32 => 'Top Ten Liked Articles',
-    33 => 'No liked articles found.'
+    32 => 'Diez artículos con más Me gusta',
+    33 => 'No se encontraron artículos con Me gusta.',
 );
 
 ###############################################################################
@@ -682,7 +682,7 @@ $LANG11 = array(
     3 => 'Versión para imprimir',
     4 => 'Opciones de la Noticia',
     5 => '',
-    6 => 'Subscribe to \'%s\''
+    6 => "Suscribirse a '%s'",
 );
 
 ###############################################################################
@@ -742,8 +742,8 @@ $LANG12 = array(
     51 => 'Lugar',
     52 => 'Borrar',
     53 => 'Crea una cuenta',
-    54 => 'Article Introduction',
-    55 => 'Article Body'
+    54 => 'Introducción del artículo',
+    55 => 'Cuerpo del artículo',
 );
 
 ###############################################################################
@@ -923,8 +923,8 @@ $LANG20 = array(
     5 => 'Contraseña:',
     6 => 'Todo acceso a las partes administrativas queda registrado y revisado.<br' . XHTML . '>Esta página es para uso exclusivo del personal autorizado.',
     7 => 'Identificación',
-    8 => 'Login',
-    9 => 'This page is for the use of authorized personnel only. Please note all access to administrative portions of this web site are logged and reviewed.'
+    8 => 'Iniciar sesión',
+    9 => 'Esta página es solo para personal autorizado. Todos los accesos a las áreas administrativas del sitio quedan registrados y son revisados.',
 );
 
 ###############################################################################
@@ -935,7 +935,7 @@ $LANG21 = array(
     2 => 'No tienes los derechos suficientes para editar este bloque.',
     3 => 'Editor de Bloques',
     4 => 'Ha habido un problema con la lectura deesta transmisión (ver error.log para más detalles).',
-    5 => 'Yes',
+    5 => 'Sí',
     6 => 'No',
     7 => 'Todo',
     8 => 'Nivel de seguridad del bloque',
@@ -950,11 +950,11 @@ $LANG21 = array(
     17 => 'Contenido del Bloque',
     18 => 'Por favor completa los campos Título, Nivel de Seguridad y Contenido del bloque',
     19 => 'Administrador',
-    20 => 'Regular Blocks',
+    20 => 'Bloques normales',
     21 => 'Nivel de Seguridad',
-    22 => 'Dynamic Blocks',
+    22 => 'Bloques dinámicos',
     23 => 'Número de Orden',
-    24 => 'Dynamic',
+    24 => 'Dinámico',
     25 => 'Para modificar o borrar un bloque, selecciónalo más abajo. Para crear uno nuevo, selecciona \'Nuevo Bloque\' arriba.',
     26 => 'Bloque de maquetación',
     27 => 'Bloque de PHP',
@@ -977,10 +977,10 @@ $LANG21 = array(
     44 => 'Multiple',
     45 => "Estás intentando acceder a un bloque al que no tienes derechos de acceso.  Este intento se ha registrado. Por favor <a href=\"{$_CONF['site_admin_url']}/block.php\">regresa a la pantalla de administración de bloques</a>.",
     46 => 'Nuevo Bloque',
-    47 => 'None',
+    47 => 'Ninguno',
     48 => 'Nombre del Bloque',
     49 => ' (sin espacios y tiene que ser único)',
-    50 => 'The Block Name can not be empty',
+    50 => 'El nombre del bloque no puede estar vacío',
     51 => 'incluye http://',
     52 => 'Si dejas este campo en blanco no se mostrará el ícono de ayuda',
     53 => 'Habilitado',
@@ -998,33 +998,33 @@ $LANG21 = array(
     65 => 'Orden',
     66 => 'Autotags',
     67 => 'Marcar para permitir Autotags',
-    68 => 'The feed for this portal block is too long to display. Please set a maximum number of articles to import for the block in the block setup screen, or a global maximum in Geeklog Configuration.',
-    69 => 'Plugin Name',
+    68 => 'El feed de este bloque de portal es demasiado largo para mostrarse. Define un número máximo de artículos en la configuración del bloque o un máximo global en la configuración de Geeklog.',
+    69 => 'Nombre del plugin',
     70 => 'CSS ID',
-    71 => 'This field is optional',
-    72 => 'CSS Classes',
-    73 => 'This field is optional.  You can specify multiple classes separated by space',
-    'autotag_desc_block' => '[block:name class:block-autotag] - Displays a block. Class not required. Class specifies the css class and will wrap the block in a div. The class block-autotag will always be included with the div.',
-    'newlines' => 'Newlines',
-    'convert_newlines' => 'Check to convert newlines (EOL) into line break HTML element',
+    71 => 'Este campo es opcional',
+    72 => 'Clases CSS',
+    73 => 'Este campo es opcional. Puedes indicar varias clases separadas por espacios',
+    'autotag_desc_block' => '[block:name class:block-autotag] - Muestra un bloque. La clase es opcional y define la clase CSS del div que envolverá el bloque. La clase block-autotag siempre se incluirá.',
+    'newlines' => 'Saltos de línea',
+    'convert_newlines' => 'Convertir los saltos de línea (EOL) en elementos HTML de salto de línea',
     'position' => 'Position',
-    'cache_time' => 'Cache Time',
+    'cache_time' => 'Tiempo de caché',
     'cache_time_desc' => 'This block will be cached for no longer than this many seconds. If 0 caching is disabled. (3600 = 1 hour,  86400 = 1 day)',
-    'block_type_gldefault' => 'System',
+    'block_type_gldefault' => 'Sistema',
     'block_type_normal' => 'Normal',
     'block_type_phpblock' => 'PHP',
     'block_type_portal' => 'Portal',
-    'block_type_dynamic' => 'Dynamic'
+    'block_type_dynamic' => 'Dinámico',
 );
 
 ###############################################################################
 # Block Locations
 
 $LANG23 = array(
-    'blocks_article_footer_name' => 'Article Footer',
-    'blocks_article_footer_desc' => 'Display Blocks in article Footer',
-    'blocks_article_topic_list_name' => 'Article Topic List',
-    'blocks_article_topic_list_desc' => 'Displays Blocks right after every X number of articles in topics.'
+    'blocks_article_footer_name' => 'Pie del artículo',
+    'blocks_article_footer_desc' => 'Mostrar bloques en el pie del artículo',
+    'blocks_article_topic_list_name' => 'Lista de temas de artículos',
+    'blocks_article_topic_list_desc' => 'Muestra bloques después de cada X artículos en los temas.',
 );
 
 ###############################################################################
@@ -1051,7 +1051,7 @@ $LANG24 = array(
     18 => 'Accesos',
     19 => 'Comentarios',
     20 => 'Ping',
-    21 => 'Send Ping',
+    21 => 'Enviar ping',
     22 => 'Listado de Noticias',
     23 => 'Para modificar o borrar una Noticia selecciona el número de Noticia más abajo. Para ver la Noticia selecciona el título de la misma. Para crear una nueva Noticia selecciona \'Enviar Noticia\' más arriba.',
     24 => 'La ID que has elegido para este tema ya está siendo utilizada. Por favor, utiliza otra ID.',
@@ -1093,7 +1093,7 @@ $LANG24 = array(
     60 => '',
     61 => 'Auto archivo',
     62 => 'Auto borrado',
-    63 => 'Disable Comments',
+    63 => 'Desactivar comentarios',
     64 => '',
     65 => '',
     66 => '',
@@ -1118,20 +1118,20 @@ $LANG24 = array(
     85 => 'Mostrar todo',
     86 => 'Editor avanzado',
     87 => 'Estadísticas de historias',
-    88 => 'Wiki-style format',
-    89 => 'Meta Description',
-    90 => 'Meta Keywords',
-    91 => 'You can always hit "Preview" to extend the expiry time.',
-    92 => 'You might also like',
+    88 => 'Formato estilo wiki',
+    89 => 'Meta descripción',
+    90 => 'Meta palabras clave',
+    91 => 'Siempre puedes pulsar Vista previa para ampliar el tiempo de caducidad.',
+    92 => 'También te puede gustar',
     93 => '#',
-    94 => 'Resized',
+    94 => 'Redimensionada',
     95 => 'Original',
-    96 => 'Upload | Replace',
-    97 => 'No Image',
+    96 => 'Subir | Sustituir',
+    97 => 'Sin imagen',
     'autotag_desc_story' => '[article: id alternate title] - Displays a link to an article using the Article Title as the title. An alternate title may be specified but is not required.',
-    'autotag_desc_article' => '[article: id alternate title] - Displays a link to an article using the Article Title as the title. An alternate title may be specified but is not required.',
-    'cache_time' => 'Cache Time',
-    'cache_time_desc' => 'This article will be cached for no longer than this many seconds. If 0 caching is disabled. If -1 cached until article is edited again. (3600 = 1 hour,  86400 = 1 day)'
+    'autotag_desc_article' => '[article: id alternate title] - Muestra un enlace a un artículo usando su título. Se puede indicar un título alternativo de forma opcional.',
+    'cache_time' => 'Tiempo de caché',
+    'cache_time_desc' => 'Este artículo se almacenará en caché como máximo durante este número de segundos. 0 desactiva la caché y -1 la mantiene hasta la siguiente edición del artículo. (3600 = 1 hora, 86400 = 1 día)',
 );
 
 ###############################################################################
@@ -1293,31 +1293,31 @@ $LANG28 = array(
     74 => 'Usuarios recientes',
     75 => 'Usuarios que se registraron en los últimos ',
     76 => ' meses',
-    77 => 'Email site login reminder to selected users',
-    78 => 'Send Reminder',
-    79 => 'No User selected for reminders',
-    80 => 'Successfully sent Reminders',
+    77 => 'Enviar recordatorio de inicio de sesión a los usuarios seleccionados',
+    78 => 'Enviar recordatorio',
+    79 => 'No se seleccionaron usuarios para los recordatorios',
+    80 => 'Recordatorios enviados correctamente',
     81 => 'Reminder to verify account for %s',
     82 => "Your account on {$_CONF['site_name']} has not been accesssed since %s and will be disabled if not accessed in the 30 days.",
     83 => "Your account on {$_CONF['site_name']} has not been used since it was created and will deleted soon if not accessed.",
     84 => "Your login name is: %s  for our site: {$_CONF['site_url']}",
     85 => 'Si has olvidado la contraseña, utiliza el siguiente enlace:',
-    86 => 'Include',
-    87 => 'Reminders',
-    88 => 'Default Group',
-    89 => 'Check to make this a default group for new users',
-    90 => 'Apply "Default Group" change to existing user accounts',
-    91 => 'Send password to user',
-    92 => 'Only for new users or when changing password for existing user.',
-    'convert_remote' => 'Check here to convert from remote to a local account',
-    'convert_remote_desc' => 'When a remote account is converted to a local account, a password will be automatically generated. If the account does not have a confirmed email address, the account will be locked after it is converted since the user will have no way of retrieving the password. Once converted and if the account is active and has an email address the user will be emailed the password or they can request the password by using the forget password link from the Login page. For user accounts that do not have an active status and valid email you will have to manually notify the user of the account change and how to login.',
-    'contributed' => 'Contributed',
+    86 => 'Incluir',
+    87 => 'Recordatorios',
+    88 => 'Grupo predeterminado',
+    89 => 'Marcar para convertir este grupo en predeterminado para usuarios nuevos',
+    90 => 'Aplicar el cambio de Grupo predeterminado a las cuentas existentes',
+    91 => 'Enviar contraseña al usuario',
+    92 => 'Solo para usuarios nuevos o al cambiar la contraseña de un usuario existente.',
+    'convert_remote' => 'Marcar para convertir una cuenta remota en una cuenta local',
+    'convert_remote_desc' => 'Al convertir una cuenta remota en local se genera automáticamente una contraseña. Si la cuenta no tiene un correo confirmado, quedará bloqueada porque el usuario no podrá recuperar la contraseña. Si está activa y dispone de correo, se le enviará la contraseña o podrá solicitarla mediante el enlace de contraseña olvidada. Para cuentas no activas o sin correo válido deberás avisar manualmente al usuario del cambio y de cómo iniciar sesión.',
+    'contributed' => 'Contribuciones',
     'na' => 'NA',
-    'nothing' => 'Nothing',
+    'nothing' => 'Nada',
     'autotag_desc_user' => '[user: id alternate title] - Displays a link to a User using the Username as the title. An alternate title may be specified but is not required.',
-    'USER_ACCOUNT_LOCKED' => 'Locked',
-    'USER_ACCOUNT_NEW_EMAIL' => 'New Email Required',
-    'USER_ACCOUNT_NEW_PASSWORD' => 'New Password Required'
+    'USER_ACCOUNT_LOCKED' => 'Bloqueada',
+    'USER_ACCOUNT_NEW_EMAIL' => 'Se requiere nuevo correo electrónico',
+    'USER_ACCOUNT_NEW_PASSWORD' => 'Se requiere nueva contraseña',
 );
 
 ###############################################################################
@@ -1340,23 +1340,23 @@ $LANG29 = array(
     18 => 'correo electrónico',
     34 => 'Página de administración',
     35 => 'Envíos de Noticias',
-    36 => 'Parent or Comment',
-    37 => 'Author',
+    36 => 'Elemento superior o comentario',
+    37 => 'Autor',
     38 => 'Enviar',
     39 => 'No hay envíos para moderar en este momento',
     40 => 'Envios del(a) usuario(a)',
-    41 => 'Comment Submissions',
-    42 => 'Username',
-    43 => 'Auto-publish Comments?',
-    44 => 'Results of your moderation',
-    45 => 'Approved %1$d items and deleted %2$d items of user submissions.',
-    46 => 'User Profile Updated',
-    'core' => 'Core',
+    41 => 'Comentarios pendientes',
+    42 => 'Nombre de usuario',
+    43 => '¿Publicar automáticamente los comentarios?',
+    44 => 'Resultados de la moderación',
+    45 => 'Se aprobaron %1$d elementos y se eliminaron %2$d envíos de usuarios.',
+    46 => 'Perfil de usuario actualizado',
+    'core' => 'Núcleo',
     'plugins' => 'Plugins',
-    'tools' => 'Tools',
-    'users' => 'Users',
+    'tools' => 'Herramientas',
+    'users' => 'Usuarios',
     'submissions_desc' => 'To modify or delete a user submssion, click on that item\'s edit icon below. To approve and delete multiple submissions use the radio options in the lists and then click submit.',
-    'max_invalid_login' => 'Max Invalid Logins Reached for User',
+    'max_invalid_login' => 'Se alcanzó el máximo de inicios de sesión no válidos para el usuario',
     'max_invalid_login_msg' => 'This user has reached the maximum number of invalid login attempts () within the specified time limit ( seconds). The last IP to make an invalid login attempt is %s. Either the real user has forgotten the password for their account, or someone else is attempting to guess the password for this user account.'
 );
 
@@ -1390,14 +1390,14 @@ $LANG31 = array(
     24 => 'No ha habido envíos satisfactorios',
     25 => '-- Selecciona el Grupo --',
     26 => 'Por favor, rellena todos los campos del formulario y selecciona un grupo de usuarios de la lista desplegable.',
-    27 => 'The following template variables are available in <strong>Subject</strong> and <strong>Message</strong>: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
+    27 => 'Las siguientes variables de plantilla están disponibles en <strong>Asunto</strong> y <strong>Mensaje</strong>: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
     'email_divider' => '------------------------------------------------------------',
     'email_divider_html' => '<hr' . XHTML . '>',
     'sig_divider' => '---',
     'sig_divider_html' => '---<br' . XHTML . '>',
-    'email_footer_msg_noreply' => 'The address used to send this email is not monitored. Please do not reply to this email.',
-    'email_footer_msg_content' => 'If content from the website is displayed in this email, there may be layout changes which result in formatting issues.',
-    'ip_address_email' => 'IP address that initiated email:'
+    'email_footer_msg_noreply' => 'La dirección usada para enviar este correo no se supervisa. No respondas a este mensaje.',
+    'email_footer_msg_content' => 'Si este correo muestra contenido del sitio, puede haber cambios de diseño que provoquen problemas de formato.',
+    'ip_address_email' => 'Dirección IP que inició el envío:',
 );
 
 ###############################################################################
@@ -1537,30 +1537,30 @@ $LANG33 = array(
     46 => 'Limitar resultados',
     47 => 'Buscar',
     48 => 'Editar',
-    49 => 'Feed Logo',
+    49 => 'Logotipo del feed',
     50 => "Relativo a la URL del sitio ({$_CONF['site_url']})",
     51 => 'El nombre elegido ya está en uso por otra transmisión. Por favor elige uno distinto.',
     52 => 'Error: fichero existente',
-    53 => 'All Frontpage Articles',
-    54 => 'Please select the type of feed to create.',
+    53 => 'Todos los artículos de la portada',
+    54 => 'Selecciona el tipo de feed que deseas crear.',
     55 => 'Articles',
-    'num_articles' => '%s Article(s)'
+    'num_articles' => '%s artículo(s)',
 );
 
 ###############################################################################
 # admin/language.php (since v2.1.2)
 
 $LANG_LANG = array(
-    'language_admin_title' => 'Language Overrides',
+    'language_admin_title' => 'Anulaciones de idioma',
     'language_manager' => 'Language Manager',
     'new_language_msg' => 'To modify or delete a language item, click on that item\'s edit icon below. To create a new item, click on "Create New" above.',
     'language_editor' => 'Language Editor',
     'id' => 'ID',
-    'language' => 'Language',
+    'language' => 'Idioma',
     'name' => 'Name',
     'var_name' => 'Var Name',
-    'name_tip' => 'Required just for language arrays.',
-    'var_name_tip' => 'Can be a regular variable or array. Do not include the dollar sign at the beginning of the variable/array name.',
+    'name_tip' => 'Solo es obligatorio para matrices de idioma.',
+    'var_name_tip' => 'Puede ser una variable normal o una matriz. No incluyas el signo de dólar al principio del nombre.',
     'value' => 'Value'
 );
 
@@ -1788,13 +1788,13 @@ $LANG_ACCESS = array(
     'listusers' => 'Listado de Usuarios',
     'listthem' => 'listado',
     'usersingroup' => 'Usuarios en el grupo %s',
-    'usersingroupmsg' => 'A list of users that belong to the group. Users lists here may belong directly to the group or are inherited from another group that has been added to this group.',
+    'usersingroupmsg' => 'Lista de usuarios que pertenecen al grupo. Pueden pertenecer directamente al grupo o heredarse de otro grupo añadido a este.',
     'usergroupadmin' => 'Administración del grupo de usuarios',
     'add' => 'Añadir',
     'remove' => 'Borrar',
     'availmembers' => 'Miembros disponibles',
     'groupmembers' => 'Miembros del grupo',
-    'inheritmembers' => 'Inherited Group Members',
+    'inheritmembers' => 'Miembros heredados del grupo',
     'canteditgroup' => 'Para editar este grupo, tienes que ser un miembro del grupo. Por favor, contacta con el administrador del sistema si crees que esto es un error.',
     'cantlistgroup' => 'Para ver los miembros de este grupo, tienes que ser un miembro tú mismo(a). Por favor contacta con el administrador del sistema y crees que esto es un error.',
     'editgroupmsg' => 'Para cambiar miembros del grupo, pulsqa sobre sus nombres y usar los botones añadir o eliminar. Si el miembro ya pertenece al grupo, su nombre solo aparecerá en la lista de la derecha. Cuando termines, pulsa <b>Guardar</b> para actualizar el grupo y vovler a la página principal de adminitración de grupos.',
@@ -1806,7 +1806,7 @@ $LANG_ACCESS = array(
     'plugin_access_denied_msg' => 'Estas intentando acceder ilegalmente a una página de administración de plugin. Por favor, observa que todos los intentos de acceder esta página ilegalmente se anotan.',
     'groupexists' => 'Ya existe un grupo con ese nombre',
     'groupexistsmsg' => 'Ya existe un grupo con ese nombre. Los nombres de grupo deben ser únicos.',
-    'demo_mode_denied_msg' => 'This feature is currently disabled while the site is in Demo Mode.'
+    'demo_mode_denied_msg' => 'Esta función está desactivada mientras el sitio está en modo demo.',
 );
 
 ###############################################################################
@@ -1829,7 +1829,7 @@ $LANG_DB_BACKUP = array(
     'size' => 'Tamaño',
     'bytes' => 'Bytes',
     'total_number' => 'Número total de copias de seguridad: %d',
-    'download' => 'Click to download this file',
+    'download' => 'Haz clic para descargar este archivo',
     'convert_menu' => 'Convertir a InnoDB',
     'convert_title' => 'Convertir a tablas InnoDB',
     'convert_myisam_menu' => 'Convertir a MyISAM',
@@ -1897,7 +1897,7 @@ $LANG_404 = array(
     1 => 'Error 404',
     2 => 'Vaya, he buscado por todos los sitios, pero no puedo encontrar <b>%s</b>.',
     3 => "<p>Lo sentimos, pero el fichero que pides no existe. Por favor, consulta la <a href=\"{$_CONF['site_url']}\">página principal</a> o la <a href=\"{$_CONF['site_url']}/search.php\">página de búsqueda</a> para ver si puedes encontrar lo que has perdido.",
-    4 => "<p>We're sorry, but the page you have requested does not exist. We recommend going back to this <a href=\"%s\">related page</a>, or you may want to check the <a href=\"{$_CONF['site_url']}/\">home page</a>, or the <a href=\"{$_CONF['site_url']}/search.php\">search page</a> to see if you can find what you lost."
+    4 => "<p>Lo sentimos, la página solicitada no existe. Puedes volver a esta <a href=\"%s\">página relacionada</a>, consultar la <a href=\"{$_CONF['site_url']}/\">página principal</a> o usar la <a href=\"{$_CONF['site_url']}/search.php\">búsqueda</a>.",
 );
 
 ###############################################################################
@@ -2051,13 +2051,13 @@ $LANG_WHATSNEW = array(
     'days' => 'días',
     'weeks' => 'semanas',
     'months' => 'meses',
-    'years' => 'years',
+    'years' => 'años',
     'minute' => 'minuto',
     'hour' => 'hora',
     'day' => 'día',
     'week' => 'semana',
     'month' => 'mes',
-    'year' => 'year'
+    'year' => 'año',
 );
 
 ###############################################################################
@@ -2093,7 +2093,7 @@ $LANG_MONTH_SHORT = array(
     9 => 'Sep',
     10 => 'Oct',
     11 => 'Nov',
-    12 => 'Decr'
+    12 => 'Dic',
 );
 
 ###############################################################################
@@ -2262,28 +2262,28 @@ $LANG_structureddatatypes = array(
 );
 
 $LANG_STRUCT_DATA = array(
-    'lang_structured_data_type' => 'Structured Data Type',
-    'autotag_desc_structureddata' => '[structureddata:schema_property]Property Value[/structureddata] - Adds a property to the structured data of the content that the autotag is embedded in.'
+    'lang_structured_data_type' => 'Tipo de datos estructurados',
+    'autotag_desc_structureddata' => '[structureddata:schema_property]Valor de la propiedad[/structureddata] - Añade una propiedad a los datos estructurados del contenido donde se inserta el autotag.',
 );
 
 ###############################################################################
 # Localization of the Admin Configuration UI
 
 $LANG_CONFIG = array(
-    'home' => 'Home',
-    'admin_home' => 'Site Administration',
-    'sections' => 'Configuration Sections',
-    'restore' => 'Restore',
-    'add_element' => 'Add Element',
-    'save_changes' => 'Save Changes',
-    'reset_form' => 'Reset Form',
-    'changes_made' => 'Changes were successfully made to',
-    'title' => 'Configuration Manager',
-    'disable' => 'Click to disable this option',
-    'enable' => 'Enable',
-    'default_tab_name' => 'Main',
-    'search_configuration_label' => 'Search Configuration',
-    'error_validation_occurs' => 'There are invalid configuration values. Please correct these fields (just click the config variable to point you to the error field)'
+    'home' => 'Inicio',
+    'admin_home' => 'Administración del sitio',
+    'sections' => 'Secciones de configuración',
+    'restore' => 'Restaurar',
+    'add_element' => 'Añadir elemento',
+    'save_changes' => 'Guardar cambios',
+    'reset_form' => 'Restablecer formulario',
+    'changes_made' => 'Los cambios se realizaron correctamente en',
+    'title' => 'Gestor de configuración',
+    'disable' => 'Haz clic para desactivar esta opción',
+    'enable' => 'Activar',
+    'default_tab_name' => 'Principal',
+    'search_configuration_label' => 'Buscar en la configuración',
+    'error_validation_occurs' => 'Hay valores de configuración no válidos. Corrige los campos indicados.',
 );
 
 $LANG_configsections['Core'] = array(
