@@ -1290,14 +1290,14 @@ $LANG28 = array(
     44 => 'In attesa di Autorizzazione ',
     45 => 'Attivo',
     46 => 'Stato Utente',
-    'user_status_desc' => 'Spiegazione di tutti i possibili stati utente: <ul>'
-        <li><strong>Awaiting Activation</strong> - New account awaiting user to login. Email has been sent but not verified. This is only set for a new account and is an automated status (Admins cannot set accounts to this status manually)</li>
-        <li><strong>Awaiting Authorization</strong> - New account awaiting moderator approval in the User Submission Queue. When User Submission approved, user will be sent email with password. This is only set for a new account and is an automated status (Admins cannot set accounts to this status manually)</li>
-        <li><strong>Active</strong> - This is an Active account.</li>
-        <li><strong>Banned</strong> -  This Account is banned/disabled. Username is crossed out on the site for any content they have submitted, User cannot login, emails to account is disabled, and profile cannot be viewed by any user except Admins.</li>
-        <li><strong>Locked</strong> - This Account is locked. User cannot login, emails to account is disabled, but profile can still be viewed by all.</li>
-        <li><strong>New Email Required</strong> - Emails to account is disabled. When user logs in again they must submit new email address and verify before access to rest of the website (under this user account). Status stays the same until email is verified. If "Require User Email" config option true then any users who login (includes remote accounts) that do not have an email address will automatically switch to this status.</li>
-        <li><strong>New Password Required</strong> -  When the user logs in they must submit a new password before access to rest of website (under this user account). This is only for regular accounts and not remote accounts.</li>
+    'user_status_desc' => 'Spiegazione di tutti i possibili stati utente: <ul>
+        <li><strong>In attesa di attivazione</strong> - Nuovo account in attesa del primo accesso dell\'utente. L\'email è stata inviata ma non ancora verificata. Questo stato viene assegnato automaticamente solo ai nuovi account e non può essere impostato manualmente dagli amministratori.</li>
+        <li><strong>In attesa di autorizzazione</strong> - Nuovo account in attesa dell\'approvazione di un moderatore nella coda degli utenti. Dopo l\'approvazione, all\'utente verrà inviata un\'email con la password. È uno stato automatico riservato ai nuovi account.</li>
+        <li><strong>Attivo</strong> - Account attivo.</li>
+        <li><strong>Bloccato</strong> - Account disabilitato. Il nome utente viene barrato nei contenuti pubblicati, l\'utente non può accedere, le email all\'account sono disabilitate e il profilo è visibile solo agli amministratori.</li>
+        <li><strong>Chiuso</strong> - Account chiuso. L\'utente non può accedere e le email sono disabilitate, ma il profilo può ancora essere visualizzato.</li>
+        <li><strong>Nuova email richiesta</strong> - Le email all\'account sono disabilitate. Al successivo accesso l\'utente deve inserire e verificare un nuovo indirizzo email prima di poter usare il resto del sito. Lo stato rimane invariato finché l\'email non viene verificata.</li>
+        <li><strong>Nuova password richiesta</strong> - Al successivo accesso l\'utente deve impostare una nuova password prima di poter usare il resto del sito. Questo vale solo per gli account locali e non per quelli remoti.</li>
         </ul>
     ',
     47 => 'Modifica',
