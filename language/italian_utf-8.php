@@ -205,7 +205,7 @@ $LANG01 = array(
     'github' => 'Login with GitHub',
     'ctl' => 'Clear Cache',
     'ok' => 'OK',
-    'filemanager' => 'File Manager'
+    'filemanager' => 'File Manager',
     'error_invalid_password' => 'Error, invalid password for username',
     'error_filemanager_disabled' => 'Filemanager is disabled',
     'terms_of_use' => 'Terms of Use',
@@ -272,7 +272,7 @@ $LANG03 = array(
     103 => 'Ban this user',
     104 => 'Ban this IP address with the Spamx plugin',
     105 => 'IP Address',
-    106 => 'Perform bulk action on comments and comment submissions including approval, deleting, and banning of user or IP address.'
+    106 => 'Perform bulk action on comments and comment submissions including approval, deleting, and banning of user or IP address.',
     'record_edit' => 'Record user and time of edit?',
     'ban_plugin_ban_ip' => 'Ban this IP address with the Ban plugin',
     'num_comments' => '%s Comment(s)',
@@ -460,7 +460,7 @@ $LANG04 = array(
     'user_login_message' => 'Please login below. You must enter both a username and password.',
     'user_remote_login_desc_long' => 'Click on one of the button(s) below to login and/or register via an account you have on another supported remote service. Please note, you must have an account on the remote service. If you are creating a new account on this website, then the remote service may ask you to give this website permissions to access information like your name, email address, and profile photo.',
 	'remote_register_instructions' => "<strong>Please note:</strong> To register and create an account via Remote Login, please visit the <a href=\"{$_CONF['site_url']}/users.php\" rel=\"nofollow\">User Login</a>.",
-    'user_logged_in_message' => "You are already logged in. Whould you like to <a href=\"{$_CONF['site_url']}/users.php?mode=logout\" rel=\"nofollow\">logout</a>?"
+    'user_logged_in_message' => "You are already logged in. Whould you like to <a href=\"{$_CONF['site_url']}/users.php?mode=logout\" rel=\"nofollow\">logout</a>?",
     'user_max_login_attempts' => 'Max Login Attempts and Speed Limit Reached',
     'tfa_two_factor_auth' => 'Two Factor Authentication',
     'tfa_help1' => 'Make sure to install "Google Authenticator" application on your mobile device before you enable Two Factor Authentication.',
@@ -515,12 +515,12 @@ $LANG_MYACCOUNT = array(
 $LANG05 = array(
     1 => 'Non ci sono Notizie da visualizzare',
     2 => '<br' . XHTML . '>Non ci sono nuovi articoli da visualizzare. Questo perché o non ci sono nuovi articoli relativi a questo argomento o le tue preferenze utente sono troppo restrittive ',
-    3 => '',
+    3 => ''
     4 => 'Articolo del giorno',
     5 => 'Successivo',
     6 => 'Precedente',
     7 => 'Primo',
-    8 => 'Ultimo'
+    8 => 'Ultimo',
     9 => 'Page navigation'
 );
 
@@ -570,7 +570,7 @@ $LANG08 = array(
     40 => " seconds ago.  This site requires at least {$_CONF['speedlimit']} seconds between sending messages",
     41 => 'This user doesn\'t exist.',
     42 => 'This users email address doesn\'t exist. This most likely means is is an OAuth user account.',
-    43 => 'This users email address is invalid.'
+    43 => 'This users email address is invalid.',
     44 => 'This users status is set to something other than Active or New Password therefore the email address is assumed bad.',
     45 => "This is a message sent from {$_CONF['site_name']} by %s. Any replies will need to be sent to the email address: %s",
 	46 => "To unsubscribe from the Daily Digest, login to {$_CONF['site_name']} at {$_CONF['site_url']}. Then visit the user settings page at {$_CONF['site_url']}/usersettings.php and view the Content Tab. You can then unsubscribe to the Daily Digest by deselecting all topics and saving your profile."
@@ -690,7 +690,7 @@ $LANG10 = array(
     28 => '',
     29 => '',
     30 => 'Visite',
-    31 => ''
+    31 => '',
     32 => 'Top Ten Liked Articles',
     33 => 'No liked articles found.',
 );
@@ -936,7 +936,7 @@ $LANG_ENVCHECK = array(
     'showhide_phpinfo' => 'Show/Hide Full PHP Info',
     'view_online' => 'Click here %s to view online',
     'no_new_items' => 'No New Items',
-    'max_execution_time' => 'Geeklog recommends the PHP default value of 30 seconds as a minimum, but plugin uploads and other operations may take longer than this depending upon your hosting environment.  If safe_mode (above) is Off, you may be able to increase this by modifying the value of <b>max_execution_time</b> in your php.ini file.'
+    'max_execution_time' => 'Geeklog recommends the PHP default value of 30 seconds as a minimum, but plugin uploads and other operations may take longer than this depending upon your hosting environment.  If safe_mode (above) is Off, you may be able to increase this by modifying the value of <b>max_execution_time</b> in your php.ini file.',
     'phpinfo_disabled'          => 'In order to view the current php settings, you will have to contact your host and enable access to the phpinfo() function.'
 );
 
@@ -950,7 +950,7 @@ $LANG20 = array(
     4 => 'Nome Utente:',
     5 => 'Password:',
     6 => 'Tutti gli accessi alle parti amministrative di questo sito sono registrate e controllate.<br' . XHTML . '>Questa pagina e per il solo personale autorizzato.',
-    7 => 'Entra'
+    7 => 'Entra',
     8 => 'Login',
     9 => 'This page is for the use of authorized personnel only. Please note all access to administrative portions of this web site are logged and reviewed.'
 );
@@ -1231,7 +1231,7 @@ $LANG27 = array(
     'autotag_desc_related_items' => '[related_items:id type:plugin max:max_items_listed trim:max_length include:plugin] - Create a clickable list of related items based on the item id and type.',
     'no_related_items' => 'No related items found.',
     'topics:' => 'Topics:',
-    'filed_under:' => 'Filed under:'
+    'filed_under:' => 'Filed under:',
     'topic_title' => 'Topic Title',
     'topic_title_desc' => 'Used as the page title for the topic. If empty the topic name will be used.',
     'move_topic_up' => 'Move topic up the sort order',
@@ -1351,7 +1351,7 @@ $LANG28 = array(
     'contributed' => 'Contributed',
     'na' => 'NA',
     'nothing' => 'Nothing',
-    'autotag_desc_user' => '[user: id alternate title] - Displays a link to a User using the Username as the title. An alternate title may be specified but is not required.'
+    'autotag_desc_user' => '[user: id alternate title] - Displays a link to a User using the Username as the title. An alternate title may be specified but is not required.',
     'USER_ACCOUNT_LOCKED' => 'Locked',
     'USER_ACCOUNT_NEW_EMAIL' => 'New Email Required',
     'USER_ACCOUNT_NEW_PASSWORD' => 'New Password Required'
@@ -1392,7 +1392,7 @@ $LANG29 = array(
     'plugins' => 'Plugins',
     'tools' => 'Tools',
     'users' => 'Users',
-    'submissions_desc' => 'To modify or delete a user submssion, click on that item\'s edit icon below. To approve and delete multiple submissions use the radio options in the lists and then click submit.'
+    'submissions_desc' => 'To modify or delete a user submssion, click on that item\'s edit icon below. To approve and delete multiple submissions use the radio options in the lists and then click submit.',
     'max_invalid_login' => 'Max Invalid Logins Reached for User',
     'max_invalid_login_msg' => "This user has reached the maximum number of invalid login attempts ({$_CONF['invalidloginattempts']}) within the specified time limit ({$_CONF['invalidloginmaxtime']} seconds). The last IP to make an invalid login attempt is %s. Either the real user has forgotten the password for their account, or someone else is attempting to guess the password for this user account."
 );
@@ -1427,7 +1427,7 @@ $LANG31 = array(
     24 => 'Nessuna esecuzione',
     25 => '-- Seleziona Gruppo --',
     26 => 'Prego compila tutti i campi del form e seleziona un gruppo dal menú a tendina.',
-    27 => 'The following template variables are available in <strong>Subject</strong> and <strong>Message</strong>: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}'
+    27 => 'The following template variables are available in <strong>Subject</strong> and <strong>Message</strong>: {uid}, {username}, {fullname}, {email}, {homepage}, {theme}, {language}, {location}, {lastgranted}, {lastlogin}, {site_url}, {site_name}, {site_slogan}, {owner_name}, {copyrightyear}, {site_mail}, {noreply_mail}',
 	'email_divider' => '------------------------------------------------------------', 
 	'email_divider_html' => '<hr>',
 	'sig_divider' => '---',
@@ -1451,7 +1451,7 @@ $LANG32 = array(
     8 => 'Controllo Compatibilitá Plug-in Fallita',
     9 => 'Questo plug-in richiede una nuova versione di Geeklog. Puoi aggiornare la tua copia di <a href="https://www.geeklog.net">Geeklog</a> o prendere una nuova versione del plug-in.',
     10 => '<br' . XHTML . '><b>Al momento nessun plug-in risulta installato.</b><br' . XHTML . '><br' . XHTML . '>',
-    11 => 'Per modificare o eliminare un plug-in, fai clic sul numero del plug-in dalla lista sottostante. <br' . XHTML . '>Per apprendere su come usare il plug-in, fai clic sul nome del plug-in e sarai redirezionato direttamente al sito del plug-in. <br' . XHTML . '>Per installare o aggiornare un plug-in fai clic su nuovo-plug-in sopra.',
+	11 => 'Per modificare o eliminare un plug-in, fai clic sul numero del plug-in dalla lista sottostante. <br' . XHTML . '>Per apprendere su come usare il plug-in, fai clic sul nome del plug-in e sarai redirezionato direttamente al sito del plug-in. <br' . XHTML . '>Per installare o aggiornare un plug-in fai clic su nuovo-plug-in sopra.',
     12 => 'nessun nome di plug-in fornito da plugineditor()',
     13 => 'Editor Plug-in',
 	'installed_plugins' => 'Installed Plugins',
@@ -1584,7 +1584,7 @@ $LANG33 = array(
     52 => 'Errore: il nome del file é giá utilizzato',
     53 => 'Tutti gli articoli di copertina',
     54 => 'Seleziona il tipo di flusso da creare.',
-    55 => 'Articoli'
+    55 => 'Articoli',
     'num_articles' => '%s Article(s)'
 
 );
@@ -1629,7 +1629,7 @@ $LANG_ROUTER = array(
     17 => 'Database error occurred.',
     18 => '<strong>To enable URL routing, you have to enable URL rewrite in the Configuration.</strong>',
     19 => '<strong>To enable URL routing, you have to enable URL routing in the Configuration.</strong>',
-    20 => '<ul><li>Placeholders (@) must be the same both in a rule and its route.</li><li>A placeholder starts with "@", followed by an alphabet, optionally followed by any length of alphabet or digit.</li><li>Placeholders are case-sensitive.</li></ul>'
+    20 => '<ul><li>Placeholders (@) must be the same both in a rule and its route.</li><li>A placeholder starts with "@", followed by an alphabet, optionally followed by any length of alphabet or digit.</li><li>Placeholders are case-sensitive.</li></ul>',
     21 => 'Status Code',
     22 => 'Enabled',
     23 => 'Yes',
@@ -1769,9 +1769,9 @@ $MESSAGE = array(
     153 => 'You last emailed an article %1$d seconds ago.  This site requires at least %2$d seconds between emailing articles.',
 	160 => 'The plugin files was successfully deleted.',
     161 => 'The archive includes a file whose name includes an unsafe character.',
-    400 => 'Non tutti i campi sono stati validati con successo.',
+    400 => 'Non tutti i campi sono stati validati con successo.'
     401 => 'Inserisci il tuo nome completo',
-    500 => 'The Template Cache has been successfully cleared.'
+    500 => 'The Template Cache has been successfully cleared.',
     501 => 'A verification message has been sent to your email address. Please click on the link in the email to confirm your email address and update your account. If you log into your account again before you verify your email address you will be asked again for a email address.<br' . XHTML . '><br' . XHTML . '>Please note you have now been successfully logged out so you can complete this verification.',
     502 => 'Your request for a new email has expired. Please try again below.',
     503 => 'Your email has been successfully verified.',
@@ -1847,7 +1847,7 @@ $LANG_ACCESS = array(
     'group_id' => 'ID del Gruppo',
     'plugin_access_denied_msg' => 'You are illegally trying access a plugin administration page.  Please note that all attempts to illegally access this page are logged.',
     'groupexists' => 'Il nome del Gruppo é giá utilizzato',
-    'groupexistsmsg' => 'Il nome del Gruppo é giá utilizzato. Nomi dei gruppi devomo essere unici.'
+    'groupexistsmsg' => 'Il nome del Gruppo é giá utilizzato. Nomi dei gruppi devomo essere unici.',
     'demo_mode_denied_msg' => 'This feature is currently disabled while the site is in Demo Mode.'
 );
 
@@ -1860,7 +1860,7 @@ $LANG_DB_BACKUP = array(
 	'site_db_backup'      => "{$_CONF['site_name']} Database Backup",
     'create_backup' => 'Backup Database',
     'do_backup' => 'Esegui il Backup',
-    'backup_successful' => 'Il Backup é stato eseguito correttamente.',
+	'backup_successful' => 'Il Backup é stato eseguito correttamente.',
 	'backup_error'   	  => 'Error performing database backup.',
     'db_explanation' => 'Per creare un nuovo Backup del tuo sistema Geeklog, fai clic sul bottone sottostante',
     'backup_instructions' => 'To create a new backup of your site database, select the "Do Backup" button below. This will backup all current Geeklog tables. You can download a copy of the backup from the main Database Administration Screen.',
@@ -1912,7 +1912,7 @@ $LANG_DB_BACKUP = array(
     'disable_purge' => '("0" to disable purging.)',
     'use_gzip' => 'Use GZip if available',
     'configure' => 'Configure',
-    'config_instructions' => 'Select any tables you wish to exclude from the backup. Other options can be found in the Geeklog Configuration under the Database tab.'
+    'config_instructions' => 'Select any tables you wish to exclude from the backup. Other options can be found in the Geeklog Configuration under the Database tab.',
 	'config_successful'   => 'Tables to Backup list was saved successfully.'
 );
 
@@ -2243,7 +2243,7 @@ $LANG_ADMIN = array(
     'for_computer' => 'For Computer',
     'all' => 'All',
     'mobile' => 'Mobile',
-    'computer' => 'Computer'
+    'computer' => 'Computer',
     'edit_access_only'  => 'Edit Access Only'
 );
 
@@ -2291,7 +2291,7 @@ $LANG_frontpagecodes = array(
 
 $LANG_postmodes = array(
     'plaintext' => 'Testo non formattato',
-    'html' => 'Testo in formato HTML',
+    'html' => 'Testo in formato HTML'
 );
 
 $LANG_sortcodes = array(
@@ -2910,7 +2910,7 @@ $LANG_VALIDATION = array(
     'timezone' => 'Fuso orario invalido',
     'single_char' => 'Questo campo deve essere un solo carattere',
     'page_navigation_max_pages' => 'This field must be between 2 - 21',
-    'hash' => 'This field must be a hash function supported by your version of PHP'
+    'hash' => 'This field must be a hash function supported by your version of PHP',
     'config_setting_lang_array' => 'Each element requires a unique language shortcut (\'en\', \'de\', etc.) and the corresponding field must contain a value',
     'config_setting_lang_array_element_req' => 'Requires at least one element. Each element requires a unique language shortcut (\'en\', \'de\', etc.) and the corresponding field must contain a value'
 );
