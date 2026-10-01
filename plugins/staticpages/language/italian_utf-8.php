@@ -39,7 +39,7 @@ $LANG_STATIC = array(
     'staticpageeditor' => 'Editor Pagine Statiche',
     'writtenby' => 'Scritto da',
     'date' => 'Ultimo Agg.',
-    'title' => 'Configurazione delle Pagine Statiche',
+    'title' => 'Titolo',
     'page_title' => 'Titolo della pagina',
     'content' => 'Contenuto',
     'hits' => 'Visite',
@@ -53,12 +53,12 @@ $LANG_STATIC = array(
     'noblocks' => 'Nessun Blocco',
     'leftblocks' => 'Blocchi a Sinistra',
     'addtomenu' => 'Agg. al Menu',
-    'label' => 'Pagine Statiche',
+    'label' => 'Etichetta',
     'nopages' => 'Nessuna pagina statica al momento nel sistema',
-    'Salva' => 'save',
-    'Anteprima' => 'preview',
-    'Cancella' => 'delete',
-    'Elimina' => 'cancel',
+    'save' => 'Salva',
+    'preview' => 'Anteprima',
+    'delete' => 'Elimina',
+    'cancel' => 'Annulla',
     'access_denied' => 'Accesso Negato',
     'access_denied_msg' => 'Stai tentando di accedere illegalmente all\'Amministrazione Pagine Statiche.  Prego nota che tutti i tentativi di accesso illegali sono registrati',
     'all_html_allowed' => 'Tutto l\'HTML permesso',
@@ -68,7 +68,7 @@ $LANG_STATIC = array(
     'title_error_saving' => 'Errore durante il salvataggio della pagina',
     'template_xml_error' => 'Il markup XML contiene un <em>errore</em>. Questa pagina utilizza un’altra pagina come modello e richiede quindi che le variabili del modello siano definite con markup XML. Consulta il <a href="http://wiki.geeklog.net/Static_Pages_Plugin#Template_Static_Pages" target="_blank">Wiki di Geeklog</a> per maggiori informazioni. L’errore deve essere corretto prima di salvare la pagina.',
     'no_such_page_anon' => 'Prego entra nel sito..',
-    'no_page_access_msg' => "This could be because you're not logged in, or not a member of {$_CONF['site_name']}. Please <a href=\"{$_CONF['site_url']}/users.php?mode=new\"> become a member</a> of {$_CONF['site_name']} to receive full membership access",
+    'no_page_access_msg' => "Questo può dipendere dal fatto che non hai effettuato l'accesso o non sei membro di {$_CONF['site_name']}. <a href=\"{$_CONF['site_url']}/users.php?mode=new\">Registrati</a> su {$_CONF['site_name']} per ottenere l'accesso completo.",
     'php_msg' => 'PHP: ',
     'php_warn' => 'Attenzione: il codice PHP della tua pagina sará valutato se abiliti questa opzione. <br',
     'exit_msg' => 'Tipo Uscita: ',
@@ -105,7 +105,7 @@ $LANG_STATIC = array(
     'select_php_none' => 'non eseguire PHP',
     'select_php_return' => 'esegui PHP (return)',
     'select_php_free' => 'esegui PHP',
-    'php_not_activated' => 'L’uso di PHP nelle pagine statiche non è attivato. Consulta la <a href="\' . $_CONF[\'site_url\'] . \'/docs/english/staticpages.html#php">documentazione</a> per i dettagli.' . $_CONF['site_url'] . '/docs/english/staticpages.html#php">documentation</a> for details.',
+    'php_not_activated' => 'L\'uso di PHP nelle pagine statiche non è attivato. Consulta la <a href="' . $_CONF['site_url'] . '/docs/english/staticpages.html#php">documentazione</a> per i dettagli.',
     'printable_format' => 'Formato Stampabile',
     'copy' => 'Copia',
     'limit_results' => 'Limita i Risultati della ricerca',
@@ -119,15 +119,15 @@ $LANG_STATIC = array(
     'use_template' => 'Usa modello',
     'template_msg' => 'Se selezionata, questa pagina statica verrà contrassegnata come modello.',
     'none' => 'Nessuno',
-    'use_template_msg' => 'If this Static Page is not a template, you can assign it to use a template. If a selection is made then remember that the content of this page must follow the proper XML format.',    'draft' => 'Bozza',
+    'use_template_msg' => 'Se questa pagina statica non è un modello, puoi assegnarle un modello. Se ne selezioni uno, ricorda che il contenuto della pagina deve rispettare il formato XML corretto. Per maggiori informazioni consulta il <a href="http://wiki.geeklog.net/Static_Pages_Plugin#Template_Static_Pages" target="_blank">Wiki di Geeklog</a>.',    'draft' => 'Bozza',
     'draft_yes' => 'Si',
     'draft_no' => 'No',
     'show_on_page' => 'Mostra nella pagina',
     'show_on_page_disabled' => 'Nota: questa opzione è attualmente disattivata per tutte le pagine nella configurazione delle pagine statiche.',
     'cache_time'        => 'Durata cache',
-    'cache_time_desc'   => 'This staticpage content will be cached for no longer than this many seconds. If 0 caching is disabled (3600 = 1 hour,  86400 = 1 day). Staticpages with PHP enabled or are a template will not be cached.',
+    'cache_time_desc'   => 'Il contenuto di questa pagina statica verrà memorizzato nella cache al massimo per questo numero di secondi. 0 disattiva la cache, -1 mantiene la cache fino alla successiva modifica della pagina. Le pagine con PHP attivo o usate come modello non vengono memorizzate nella cache. (3600 = 1 ora, 86400 = 1 giorno)',
     'autotag_desc_staticpage' => '[staticpage: id titolo alternativo] - Visualizza un collegamento a una pagina statica usando il titolo della pagina. È possibile specificare un titolo alternativo, ma non è obbligatorio.',
-    'autotag_desc_staticpage_content' => '[staticpage_content: id alternate title] - Displays the contents of a staticpage.',
+    'autotag_desc_staticpage_content' => '[staticpage_content: id] - Visualizza il contenuto di una pagina statica.',
     'autotag_desc_page' => '[page: id titolo alternativo] - Visualizza un collegamento a una pagina del plugin Pagine statiche usando il titolo della pagina. È possibile specificare un titolo alternativo, ma non è obbligatorio.',
     'autotag_desc_page_content' => '[page_content: id] - Visualizza il contenuto di una pagina del plugin Pagine statiche.',
     'yes' => 'Si',
@@ -135,36 +135,36 @@ $LANG_STATIC = array(
     'prev_page' => 'Pagina precedente',
     'next_page' => 'Pagina successiva',
     'parent_page' => 'Pagina principale',
-    'page_desc' => 'Setting a previous and/or next page will add HTML link elements rel=”next” and rel=”prev” to the header to indicate the relationship between pages in a paginated series. Actual page navigation links are not added to the page. You have to add these yourself. NOTE: Parent page is currently not being used.',
+    'page_desc' => 'Impostare una pagina precedente e/o successiva indica la relazione tra le pagine di una serie impaginata. I collegamenti di navigazione non vengono aggiunti automaticamente alla pagina e devono essere inseriti manualmente. NOTA: la pagina principale al momento non viene utilizzata.',
     'num_pages' => '%s pagina/e',
-    'search_desc' => 'Control if page appears in search. Default depends on setting in Configuration and depends on page type (if it is a Center Block, Uses a Template, or Uses PHP).',
+    'search_desc' => 'Controlla se la pagina appare nella ricerca. Il valore predefinito dipende dalla configurazione del plugin e dal tipo di pagina (blocco centrale, uso di un modello o uso di PHP).',
 	'likes_desc' => 'Determina se e come il controllo Mi piace viene visualizzato nella pagina. Il valore predefinito dipende dalla configurazione del plugin. Le pagine visualizzate come blocchi centrali non mostrano questo controllo. Le pagine usate come modello non utilizzano questa impostazione.'      
 );
 
-$PLG_staticpages_MESSAGE15 = 'Your comment has been submitted for review and will be published when approved by a moderator.';
-$PLG_staticpages_MESSAGE19 = 'Your page has been successfully saved.';
-$PLG_staticpages_MESSAGE20 = 'Your page has been successfully deleted.';
-$PLG_staticpages_MESSAGE21 = 'This page does not exist yet. To create the page, please fill in the form below. If you are here by mistake, click the Cancel button.';
-$PLG_staticpages_MESSAGE22 = 'You could not delete the page. It is a template staticpage and it is currently assigned to 1 or more staticpages.';
+$PLG_staticpages_MESSAGE15 = 'Il commento è stato inviato per la revisione e sarà pubblicato dopo l’approvazione di un moderatore.';
+$PLG_staticpages_MESSAGE19 = 'La pagina è stata salvata correttamente.';
+$PLG_staticpages_MESSAGE20 = 'La pagina è stata eliminata correttamente.';
+$PLG_staticpages_MESSAGE21 = 'Questa pagina non esiste ancora. Per crearla, compila il modulo seguente. Se sei qui per errore, fai clic su Annulla.';
+$PLG_staticpages_MESSAGE22 = 'Impossibile eliminare la pagina: è un modello attualmente assegnato a una o più pagine statiche.';
 
 // Messages for the plugin upgrade
-$PLG_staticpages_MESSAGE3001 = 'Plugin upgrade not supported.';
+$PLG_staticpages_MESSAGE3001 = 'L’aggiornamento del plugin non è supportato.';
 $PLG_staticpages_MESSAGE3002 = $LANG32[9];
 
 // Search options for pages
 $LANG_staticpages_search = array(
-    0  => 'Excluded',
-    1  => 'Use Default',
-    2  => 'Included'
+    0  => 'Esclusa',
+    1  => 'Usa valore predefinito',
+    2  => 'Inclusa'
 );
 
 // Likes options for pages 
 // The same values for these options will match values for the config option "likes_pages"
 $LANG_staticpages_likes = array(
-	-1  => 'Use Default',
-    0   => 'Disabled', 
+	-1   => 'Mi piace e Non mi piace',
+    0   => 'Disattivato', 
     1   => 'Likes and Dislikes',
-	2   => 'Likes Only',
+	2   => 'Solo Mi piace',
 );
 
 // Localization of the Admin Configuration UI
