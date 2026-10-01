@@ -536,7 +536,7 @@ $LANG08 = array(
     26 => 'Ce formulaire vous permet d\'envoyer un courriel &agrave; tous les membres s&eacute;lectionn&eacute;s. Tous les champs sont obligatoires.',
     27 => 'Message court',
     28 => '%s a &eacute;crit: ',
-    29 => "Voici les articles du jour {$_CONF['site_name']} pour ",
+    29 => "Voici le résumé quotidien de {$_CONF['site_name']} pour le %s. Vous trouverez ci-dessous les derniers articles publiés depuis le précédent envoi.",
     30 => ' lettre d\'information de ',
     31 => 'Titre',
     32 => 'Date',
@@ -1303,7 +1303,7 @@ $LANG28 = array(
     82 => "Your account on {$_CONF['site_name']} has not been accesssed since %s and will be disabled if not accessed in the 30 days.",
     83 => "Your account on {$_CONF['site_name']} has not been used since it was created and will deleted soon if not accessed.",
     84 => "Your login name is: %s  for our site: {$_CONF['site_url']}",
-    85 => 'If you have forgotten the password use the following link: %s',
+    85 => 'Si vous avez oublié votre mot de passe, utilisez le lien suivant :',
     86 => 'Include',
     87 => 'Reminders',
     88 => 'Default Group',
@@ -1897,7 +1897,7 @@ $LANG_BUTTONS = array(
 
 $LANG_404 = array(
     1 => 'Erreur 404',
-    2 => 'Le syst&egrave;me ne trouve pas <b>http://</b>.',
+    2 => '<p>Impossible de trouver :</p><p><b>%s</b></p>',
     3 => "<p>Le fichier que vous demandez n'existe pas. Allez &agrave; la <a href=\'{$_CONF['site_url']}\'>page principale</a> ou la <a href=\'{$_CONF['site_url']}/search.php\'>page de recherche</a> afin de retrouver ce que vous avez perdu.",
     4 => "<p>We're sorry, but the page you have requested does not exist. We recommend going back to this <a href=\"%s\">related page</a>, or you may want to check the <a href=\"{$_CONF['site_url']}/\">home page</a>, or the <a href=\"{$_CONF['site_url']}/search.php\">search page</a> to see if you can find what you lost."
 );
@@ -2031,7 +2031,7 @@ $LANG_SECTEST = array(
     'remove_inst' => 'You should really remove the install directory %s once you have your site up and running without any errors.',
     'remove_inst2' => 'Keeping it around would allow malicious users the ability to destroy your current install, take over your site, or retrieve sensitive information.',
     'inst_removed' => 'Good! You seem to have removed the install directory already.',
-    'fix_password' => 'You still have not changed the <strong>default password</strong> from "password" on %s Root user account(s).',
+    'fix_password' => 'Vous n\'avez pas encore remplacé le <strong>mot de passe par défaut</strong> « password » du compte administrateur par défaut.',
     'password_okay' => 'Good! You seem to have changed the default account password already.'
 );
 
