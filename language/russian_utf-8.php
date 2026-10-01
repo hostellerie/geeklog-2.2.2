@@ -1803,25 +1803,25 @@ $LANG_ACCESS = array(
     'listusers' => 'Список пользователей',
     'listthem' => 'список',
     'usersingroup' => 'Пользователей в группе %s',
-    'usersingroupmsg' => 'A list of users that belong to the group. Users lists here may belong directly to the group or are inherited from another group that has been added to this group.',
+    'usersingroupmsg' => 'Список пользователей, входящих в группу. Пользователи могут принадлежать группе напрямую или быть унаследованы из другой группы, добавленной в эту группу.',
     'usergroupadmin' => 'Администрирование групп пользователей',
     'add' => 'Добавить',
     'remove' => 'Удалить',
     'availmembers' => 'Доступные пользователи',
     'groupmembers' => 'Члены группы',
-    'inheritmembers' => 'Inherited Group Members',
+    'inheritmembers' => 'Унаследованные участники группы',
     'canteditgroup' => 'Чтобы править эту группу, вы должны быть в составе группы. Если вы считаете это ошибкой, уведомите системного администратора.',
     'cantlistgroup' => 'Чтобы увидеть состав группы, вы сами доложны быть в её составе. Если вы считаете это ошибкой, уведомите системного администратора.',
     'editgroupmsg' => 'To modify the group membership, click on the member names(s) and use the add or remove buttons. If the member is a member of the group, their name will appear on the right side only. Once you are complete - press <b>Save</b> to update the group and return to the main group admin page.',
-    'listgroupmsg' => 'Listing of all current members in the group: <b>%s</b>',
+    'listgroupmsg' => 'Список всех текущих участников группы: <b>%s</b>',
     'search' => 'Поиск',
     'submit' => 'Принять',
-    'limitresults' => 'Limit Results',
-    'group_id' => 'Group ID',
+    'limitresults' => 'Ограничить результаты',
+    'group_id' => 'ID группы',
     'plugin_access_denied_msg' => 'Вы пытаетесь нелегально получить доступ к странице администрирования. Учтите, что все подобные попытки протоколируются и Ваш провайдер также о них узнает.',
     'groupexists' => 'Такое имя группы уже есть',
     'groupexistsmsg' => 'Уже есть группа с таким именем. Имена групп должны быть уникальны.',
-    'demo_mode_denied_msg' => 'This feature is currently disabled while the site is in Demo Mode.'
+    'demo_mode_denied_msg' => 'Эта функция отключена, пока сайт работает в демонстрационном режиме.'
 );
 
 ###############################################################################
