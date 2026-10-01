@@ -91,6 +91,8 @@ function GL_LANG_auditBundledPlugins(string $root, array $allowlist = []): array
 
             $placeholderErrors = 0;
             $reviews = 0;
+            $placeholderKeys = [];
+            $reviewKeys = [];
 
             foreach ($referenceValues as $key => $referenceValue) {
                 if (!array_key_exists($key, $translatedValues)) {
@@ -101,6 +103,7 @@ function GL_LANG_auditBundledPlugins(string $root, array $allowlist = []): array
 
                 if (GL_LANG_placeholders($referenceValue) !== GL_LANG_placeholders($translatedValue)) {
                     ++$placeholderErrors;
+                    $placeholderKeys[] = $key;
                 }
 
                 if (
@@ -109,6 +112,7 @@ function GL_LANG_auditBundledPlugins(string $root, array $allowlist = []): array
                     && !in_array($key, $allowed, true)
                 ) {
                     ++$reviews;
+                    $reviewKeys[] = $key;
                 }
             }
 
@@ -126,6 +130,8 @@ function GL_LANG_auditBundledPlugins(string $root, array $allowlist = []): array
                 'missing' => $missing,
                 'placeholder_errors' => $placeholderErrors,
                 'reviews' => $reviews,
+                'placeholder_keys' => $placeholderKeys,
+                'review_keys' => $reviewKeys,
                 'coverage' => $coverage,
             ];
         }
