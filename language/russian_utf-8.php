@@ -549,7 +549,7 @@ $LANG08 = array(
     26 => 'Эта форма позволит Вам отправить электронное сообщение выбранному пользователю.  Все поля обязательны.',
     27 => 'Короткое сообщение',
     28 => '%s пишет: ',
-    29 => "Это дневной дайджест с {$_CONF['site_name']} для ",
+    29 => "Это ежедневный дайджест {$_CONF['site_name']} за %s. Ниже перечислены последние статьи, опубликованные с момента предыдущей отправки.",
     30 => ' Дневной новостной бюллетень для ',
     31 => 'Название',
     32 => 'Дата',
@@ -596,7 +596,7 @@ $LANG09 = array(
     21 => 'по',
     22 => '(Формат даты ММ-ДД-ГГГГ)',
     23 => 'Хиты',
-    24 => 'Найдено',
+    24 => 'Найдено элементов: %d',
     25 => 'совпадений для',
     26 => 'пунктов за',
     27 => 'секунд',
@@ -704,7 +704,7 @@ $LANG11 = array(
 # submit.php
 
 $LANG12 = array(
-    1 => 'Для публикации Вы должны быть зарегестрированы как пользователь.',
+    1 => 'Чтобы отправить %s, необходимо войти в систему как зарегистрированный пользователь.',
     2 => 'Войти',
     3 => 'Новый пользователь',
     4 => '',
@@ -1316,7 +1316,7 @@ $LANG28 = array(
     82 => "Your account on {$_CONF['site_name']} has not been accesssed since %s and will be disabled if not accessed in the 30 days.",
     83 => "Your account on {$_CONF['site_name']} has not been used since it was created and will deleted soon if not accessed.",
     84 => "Your login name is: %s  for our site: {$_CONF['site_url']}",
-    85 => 'If you have forgotten the password use the following link: %s',
+    85 => 'Если вы забыли пароль, воспользуйтесь следующей ссылкой:',
     86 => 'Include',
     87 => 'Reminders',
     88 => 'Default Group',
@@ -2044,7 +2044,7 @@ $LANG_SECTEST = array(
     'remove_inst' => 'You should really remove the install directory %s once you have your site up and running without any errors.',
     'remove_inst2' => 'Keeping it around would allow malicious users the ability to destroy your current install, take over your site, or retrieve sensitive information.',
     'inst_removed' => 'Good! You seem to have removed the install directory already.',
-    'fix_password' => 'You still have not changed the <strong>default password</strong> from "password" on %s Root user account(s).',
+    'fix_password' => 'Вы всё ещё не изменили <strong>пароль по умолчанию</strong> «password» для учётной записи администратора по умолчанию.',
     'password_okay' => 'Good! You seem to have changed the default account password already.'
 );
 
