@@ -231,16 +231,16 @@ $LANG_fs['staticpages'] = array(
 
 // Note: entries 0, 1, 9, 12, 17 are the same as in $LANG_configselects['Core']
 $LANG_configselects['staticpages'] = array(
-    0 => array('True' => 1, 'False' => 0),
-    1 => array('True' => true, 'False' => false),
-    2 => array('Date' => 'Fecha', 'Page ID' => 'ID de página', 'Title' => 'Título'),
-    3 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Label' => 'Etiqueta'),
-    4 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Author' => 'Autor'),
-    5 => array('Hide' => 'Ocultar', 'Show - Use Modified Date' => 'Mostrar - usar fecha de modificación', 'Show - Use Created Date' => 'Mostrar - usar fecha de creación'),
-    9 => array('Forward to page' => 'Ir a la página', 'Display List' => 'listado', 'Display Home' => 'Mostrar inicio', 'Display Admin' => 'Mostrar administración'),
-    12 => array('No access' => 0, 'Read-Only' => 2, 'Read-Write' => 3),
-    13 => array('No access' => 0, 'Use' => 2),
-    17 => array('Comments Enabled' => 0, 'Comments Disabled' => -1),
-    39 => array('None' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
-    41 => array('False' => 0, 'Likes and Dislikes' => 1, 'Likes Only' => 2)
+    0 => array('Verdadero' => 1, 'Falso' => 0),
+    1 => array('Verdadero' => TRUE, 'Falso' => FALSE),
+    2 => array('Fecha' => 'date', 'ID de página' => 'id', 'Título' => 'title'),
+    3 => array('Fecha' => 'date', 'ID de página' => 'id', 'Título' => 'title', 'Etiqueta' => 'label'),
+    4 => array('Fecha' => 'date', 'ID de página' => 'id', 'Título' => 'title', 'Autor' => 'author'),
+    5 => array('Ocultar' => 'hide', 'Mostrar - usar fecha de modificación' => 'modified', 'Mostrar - usar fecha de creación' => 'created'),
+    9 => array('Ir a la página' => 'item', 'Mostrar lista' => 'list', 'Mostrar inicio' => 'home', 'Mostrar administración' => 'admin'),
+    12 => array('Sin acceso' => 0, 'Solo lectura' => 2, 'Lectura y escritura' => 3),
+    13 => array('Sin acceso' => 0, 'Usar' => 2),
+    17 => array('Comentarios activados' => 0, 'Comentarios desactivados' => -1),
+    39 => array('Ninguno' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
+    41 => array('Falso' => 0, 'Me gusta y No me gusta' => 1, 'Solo Me gusta' => 2)
 );
