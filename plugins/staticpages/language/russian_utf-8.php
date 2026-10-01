@@ -34,7 +34,7 @@ global $LANG32;
 
 $LANG_STATIC = array(
     'newpage' => 'Новая страница',
-    'adminhome' => 'Home администратора',
+    'adminhome' => 'Главная администратора',
     'staticpages' => 'Статические страницы',
     'staticpageeditor' => 'Редактор статических страниц',
     'writtenby' => 'Автор',
@@ -42,7 +42,7 @@ $LANG_STATIC = array(
     'title' => 'Заголовок',
     'page_title' => 'Заголовок страницы',
     'content' => 'Содержимое',
-    'hits' => 'Хиты',
+    'hits' => 'Просмотры',
     'staticpagelist' => 'Список статических страниц',
     'url' => 'URL',
     'edit' => 'Редактировать',
@@ -76,7 +76,7 @@ $LANG_STATIC = array(
     'deny_msg' => 'Доступ к этой странице запрещён. Страница могла быть перемещена или удалена, либо у вас недостаточно прав.',
     'stats_headline' => 'Десять самых популярных страниц',
     'stats_page_title' => 'Заголовок страницы',
-    'stats_hits' => 'Хиты',
+    'stats_hits' => 'Просмотры',
     'stats_no_hits' => 'Похоже, на сайте нет статических страниц или их ещё никто не просматривал.',
     'id' => 'ID',
     'duplicate_id' => 'Выбранный идентификатор статической страницы уже используется. Выберите другой ID.',
@@ -105,7 +105,7 @@ $LANG_STATIC = array(
     'select_php_none' => 'не выполнять PHP',
     'select_php_return' => 'выполнить PHP (return)',
     'select_php_free' => 'выполнить PHP',
-    'php_not_activated' => 'Использование PHP на статических страницах не активировано. Подробности см. в документации.',
+    'php_not_activated' => 'Использование PHP на статических страницах не активировано. Подробности см. в <a href="' . $_CONF['site_url'] . '/docs/english/staticpages.html#php">документации</a>.',
     'printable_format' => 'Версия для печати',
     'copy' => 'Копировать',
     'limit_results' => 'Ограничить результаты',
@@ -141,14 +141,14 @@ $LANG_STATIC = array(
 	'likes_desc' => 'Определяет, отображается ли на странице управление отметками «Нравится» и каким образом. Значение по умолчанию зависит от настроек плагина. Страницы, показанные как центральные блоки, не отображают этот элемент. Страницы-шаблоны эту настройку не используют.'      
 );
 
-$PLG_staticpages_MESSAGE15 = 'Your comment has been submitted for review and will be published when approved by a moderator.';
-$PLG_staticpages_MESSAGE19 = 'Your page has been successfully saved.';
-$PLG_staticpages_MESSAGE20 = 'Your page has been successfully deleted.';
-$PLG_staticpages_MESSAGE21 = 'This page does not exist yet. To create the page, please fill in the form below. If you are here by mistake, click the Cancel button.';
-$PLG_staticpages_MESSAGE22 = 'You could not delete the page. It is a template staticpage and it is currently assigned to 1 or more staticpages.';
+$PLG_staticpages_MESSAGE15 = 'Ваш комментарий отправлен на проверку и будет опубликован после одобрения модератором.';
+$PLG_staticpages_MESSAGE19 = 'Страница успешно сохранена.';
+$PLG_staticpages_MESSAGE20 = 'Страница успешно удалена.';
+$PLG_staticpages_MESSAGE21 = 'Эта страница ещё не существует. Чтобы создать её, заполните форму ниже. Если вы попали сюда по ошибке, нажмите «Отмена».';
+$PLG_staticpages_MESSAGE22 = 'Страницу удалить нельзя: это шаблон, который в настоящее время назначен одной или нескольким статическим страницам.';
 
 // Messages for the plugin upgrade
-$PLG_staticpages_MESSAGE3001 = 'Plugin upgrade not supported.';
+$PLG_staticpages_MESSAGE3001 = 'Обновление плагина не поддерживается.';
 $PLG_staticpages_MESSAGE3002 = $LANG32[9];
 
 // Search options for pages
@@ -161,85 +161,85 @@ $LANG_staticpages_search = array(
 // Likes options for pages 
 // The same values for these options will match values for the config option "likes_pages"
 $LANG_staticpages_likes = array(
-	-1   => 'Нравится и Не нравится',
-    0   => 'Отключено', 
-    1   => 'Нравится и Не нравится',
-	2   => 'Только Нравится',
+    -1 => 'Использовать значение по умолчанию',
+    0  => 'Отключено',
+    1  => 'Нравится и Не нравится',
+    2  => 'Только Нравится',
 );
 
 // Localization of the Admin Configuration UI
 $LANG_configsections['staticpages'] = array(
-    'label' => 'Static Pages',
-    'title' => 'Static Pages Configuration'
+    'label' => 'Статические страницы',
+    'title' => 'Настройка статических страниц'
 );
 
 $LANG_confignames['staticpages'] = array(
-    'allow_php' => 'Allow PHP?',
-    'enable_eval_php_save' => 'Parse PHP on Save of Page',
-    'sort_by' => 'Sort Centerblocks by',
-    'sort_menu_by' => 'Sort Menu Entries by',
-    'sort_list_by' => 'Sort Admin List by',
-    'delete_pages' => 'Delete Pages with Owner?',
-    'in_block' => 'Wrap Pages in Block?',
-    'show_hits' => 'Show Hits?',
-    'show_date' => 'Show Date?',
-    'filter_html' => 'Filter HTML?',
-    'censor' => 'Censor Content?',
-    'default_permissions' => 'Page Default Permissions',
-    'autotag_permissions_staticpage' => '[staticpage: ] Permissions',
-    'autotag_permissions_staticpage_content' => '[staticpage_content: ] Permissions',
-    'aftersave' => 'After Saving Page',
-    'atom_max_items' => 'Max. Pages in Webservices Feed',
-    'meta_tags' => 'Enable Meta Tags',
-	'likes_pages' => 'Page Likes',
-    'comment_code' => 'Comment Default',
-    'structured_data_type_default' => 'Structured Data Type Default',
-    'draft_flag' => 'Draft Flag Default',
-    'disable_breadcrumbs_staticpages' => 'Disable Breadcrumbs',
-    'default_cache_time' => 'Default Cache Time',
-    'newstaticpagesinterval' => 'New Static Page Interval',
-    'hidenewstaticpages' => 'New Static Pages',
-    'title_trim_length' => 'Title Trim Length',
-    'includecenterblocks' => 'Include Center Block Static Pages',
-    'includephp' => 'Include Static Pages with PHP',
-    'includesearch' => 'Enable Static Pages in Search',
-    'includesearchcenterblocks' => 'Include Center Block Static Pages',
-    'includesearchphp' => 'Include Static Pages with PHP',
-    'includesearchtemplate' => 'Include Template Static Pages'
+    'allow_php' => 'Разрешить PHP?',
+    'enable_eval_php_save' => 'Разбирать PHP при сохранении страницы',
+    'sort_by' => 'Сортировать центральные блоки по',
+    'sort_menu_by' => 'Сортировать пункты меню по',
+    'sort_list_by' => 'Сортировать список администрирования по',
+    'delete_pages' => 'Удалять страницы вместе с владельцем?',
+    'in_block' => 'Показывать страницы внутри блока?',
+    'show_hits' => 'Показывать просмотры?',
+    'show_date' => 'Показывать дату?',
+    'filter_html' => 'Фильтровать HTML?',
+    'censor' => 'Фильтровать содержимое?',
+    'default_permissions' => 'Права страницы по умолчанию',
+    'autotag_permissions_staticpage' => 'Права [staticpage: ]',
+    'autotag_permissions_staticpage_content' => 'Права [staticpage_content: ]',
+    'aftersave' => 'После сохранения страницы',
+    'atom_max_items' => 'Макс. страниц в ленте веб-сервисов',
+    'meta_tags' => 'Включить метатеги',
+    'likes_pages' => 'Отметки «Нравится» для страниц',
+    'comment_code' => 'Комментарии по умолчанию',
+    'structured_data_type_default' => 'Тип структурированных данных по умолчанию',
+    'draft_flag' => 'Черновик по умолчанию',
+    'disable_breadcrumbs_staticpages' => 'Отключить хлебные крошки',
+    'default_cache_time' => 'Время кэша по умолчанию',
+    'newstaticpagesinterval' => 'Интервал новых статических страниц',
+    'hidenewstaticpages' => 'Новые статические страницы',
+    'title_trim_length' => 'Максимальная длина заголовка',
+    'includecenterblocks' => 'Включать статические страницы-центральные блоки',
+    'includephp' => 'Включать статические страницы с PHP',
+    'includesearch' => 'Включать статические страницы в поиск',
+    'includesearchcenterblocks' => 'Включать статические страницы-центральные блоки',
+    'includesearchphp' => 'Включать статические страницы с PHP',
+    'includesearchtemplate' => 'Включать статические страницы-шаблоны'
 );
 
 $LANG_configsubgroups['staticpages'] = array(
-    'sg_main' => 'Main Settings'
+    'sg_main' => 'Основные настройки'
 );
 
 $LANG_tab['staticpages'] = array(
-    'tab_main' => 'Static Pages Main Settings',
-    'tab_whatsnew' => 'What\'s New Block',
-    'tab_search' => 'Search Results',
-    'tab_permissions' => 'Default Permissions',
-    'tab_autotag_permissions' => 'Autotag Usage Permissions'
+    'tab_main' => 'Основные настройки статических страниц',
+    'tab_whatsnew' => 'Блок «Что нового»',
+    'tab_search' => 'Результаты поиска',
+    'tab_permissions' => 'Права по умолчанию',
+    'tab_autotag_permissions' => 'Права использования автотегов'
 );
 
 $LANG_fs['staticpages'] = array(
-    'fs_main' => 'Static Pages Main Settings',
-    'fs_whatsnew' => 'What\'s New Block',
-    'fs_search' => 'Search Results',
-    'fs_permissions' => 'Default Permissions',
-    'fs_autotag_permissions' => 'Autotag Usage Permissions'
+    'fs_main' => 'Основные настройки статических страниц',
+    'fs_whatsnew' => 'Блок «Что нового»',
+    'fs_search' => 'Результаты поиска',
+    'fs_permissions' => 'Права по умолчанию',
+    'fs_autotag_permissions' => 'Права использования автотегов'
 );
 
 // Note: entries 0, 1, 9, 12, 17, 39, 41 are the same as in $LANG_configselects['Core']
 $LANG_configselects['staticpages'] = array(
-    0 => array('True' => 1, 'False' => 0),
-    1 => array('True' => TRUE, 'False' => FALSE),
-    2 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title'),
-    3 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Label' => 'label'),
-    4 => array('Date' => 'date', 'Page ID' => 'id', 'Title' => 'title', 'Author' => 'author'),
-    5 => array('Hide' => 'hide', 'Show - Use Modified Date' => 'modified', 'Show - Use Created Date' => 'created'),
-    9 => array('Forward to page' => 'item', 'Display List' => 'список', 'Display Home' => 'home', 'Display Admin' => 'admin'),
-    12 => array('No access' => 0, 'Read-Only' => 2, 'Read-Write' => 3),
-    13 => array('No access' => 0, 'Use' => 2),
-    17 => array('Comments Enabled' => 0, 'Comments Disabled' => -1),
-    39 => array('None' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
-	41 => array('False' => 0, 'Likes and Dislikes' => 1, 'Likes Only' => 2)
+    0 => array('Истина' => 1, 'Ложь' => 0),
+    1 => array('Истина' => TRUE, 'Ложь' => FALSE),
+    2 => array('Дата' => 'date', 'ID страницы' => 'id', 'Заголовок' => 'title'),
+    3 => array('Дата' => 'date', 'ID страницы' => 'id', 'Заголовок' => 'title', 'Метка' => 'label'),
+    4 => array('Дата' => 'date', 'ID страницы' => 'id', 'Заголовок' => 'title', 'Автор' => 'author'),
+    5 => array('Скрыть' => 'hide', 'Показать — дата изменения' => 'modified', 'Показать — дата создания' => 'created'),
+    9 => array('Перейти к странице' => 'item', 'Показать список' => 'list', 'Показать главную' => 'home', 'Показать администрирование' => 'admin'),
+    12 => array('Нет доступа' => 0, 'Только чтение' => 2, 'Чтение и запись' => 3),
+    13 => array('Нет доступа' => 0, 'Использовать' => 2),
+    17 => array('Комментарии включены' => 0, 'Комментарии отключены' => -1),
+    39 => array('Нет' => '', 'WebPage' => 'core-webpage', 'Article' => 'core-article', 'NewsArticle' => 'core-newsarticle', 'BlogPosting' => 'core-blogposting'),
+    41 => array('Ложь' => 0, 'Нравится и Не нравится' => 1, 'Только Нравится' => 2)
 );
