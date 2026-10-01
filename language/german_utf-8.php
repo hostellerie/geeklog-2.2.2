@@ -537,7 +537,7 @@ $LANG08 = array(
     26 => 'Mit diesem Formular kannst Du eine E-Mail an diesen User schicken. Alle Felder müssen ausgefüllt werden.',
     27 => 'Kurze Nachricht',
     28 => '%s schrieb: ',
-    29 => "Dies sind die neuen Artikel auf {$_CONF['site_name']} vom ",
+    29 => "Dies sind die neuen Artikel auf {$_CONF['site_name']} vom %s.",
     30 => ' - Neue Artikel vom ',
     31 => 'Titel',
     32 => 'Datum',
@@ -1304,7 +1304,7 @@ $LANG28 = array(
     82 => "Dein Account auf der Seite {$_CONF['site_name']} wurde nicht benutzt seit %s und wird deaktiviert, wenn Du nicht innerhalb 30 Tagen einloggst.",
     83 => "Dein Account auf der Seite {$_CONF['site_name']} wurde seit der Einrichtung nicht benutzt und wird gelöscht, wenn Du nicht in Kürze einloggst.",
     84 => "Dein Einlogname ist: %s  auf der Site: {$_CONF['site_url']}",
-    85 => 'Wenn Du das Passwort vergessen hast, benutze folgenden Link: %s',
+    85 => 'Wenn Du das Passwort vergessen hast, benutze folgenden Link:',
     86 => 'Enthalten',
     87 => 'Erinnerungen',
     88 => 'Voreingestellte Gruppe',
@@ -2032,7 +2032,7 @@ $LANG_SECTEST = array(
     'remove_inst' => 'Das Installations-Verzeichnis %s sollte entfernt werden, sobald der Webauftritt fehlerfrei läuft.',
     'remove_inst2' => 'Es beizubehalten würde Angreifern die Möglichkeit geben, den Webauftritt zu zerstören, den Auftritt zu kapern oder wichtige Informationen zu erlangen.',
     'inst_removed' => 'Prima! Das Installations-Verzeichnis ist schon entfernt worden.',
-    'fix_password' => 'Das <strong>Standardkennwort</strong> "password" des %s Root-Admin-Accounts wurde noch nicht geändert.',
+    'fix_password' => 'Das <strong>Standardkennwort</strong> "password" des Root-Admin-Accounts wurde noch nicht geändert.',
     'password_okay' => 'Prima! Das Standardkennwort ist schon ausgetauscht worden.'
 );
 
