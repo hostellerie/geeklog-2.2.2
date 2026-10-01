@@ -821,3 +821,27 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 | russian_utf-8.php | ❌ missing file | 15 | 0 | 0 | 0.0% |
 | spanish_argentina_utf-8.php | ❌ missing file | 15 | 0 | 0 | 0.0% |
 | spanish_utf-8.php | ❌ missing file | 15 | 0 | 0 | 0.0% |
+
+## External themes and components
+
+### Eclipse
+
+Repository: https://github.com/hostellerie/eclipse
+Language directory: eclipse/language
+**Ready for language PR:** ❌ No
+
+| Language file | Status | Missing keys | Placeholder errors | Identical to English | Coverage |
+|---|---:|---:|---:|---:|---:|
+| french.php | ✅ | 0 | 0 | 15 | 100.0% |
+| german_formal.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+| german.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+| hebrew.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+| italian.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+| japanese.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+| persian.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+| russian.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+| spanish_argentina.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+| spanish.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+| chinese_simplified.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+| chinese_traditional.php | ❌ missing file | 229 | 0 | 0 | 0.0% |
+
