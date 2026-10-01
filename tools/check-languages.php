@@ -61,13 +61,24 @@ function loadLanguageFile(string $file): array
         // Scalar Geeklog value used by a few language strings.
         $_DB_dbms = '';
 
-        // Constants concatenated into language strings.
-        if (!defined('XHTML')) {
-            define('XHTML', ' /');
-        }
+        // Language files also concatenate a small number of Geeklog constants
+        // (for example XHTML, VERSION, TOPIC_ALL_OPTION). Detect uppercase
+        // constant tokens and provide neutral values when Geeklog itself has
+        // not been bootstrapped. PHP/runtime constants already defined are left
+        // untouched.
+        foreach (token_get_all($source) as $token) {
+            if (!is_array($token) || $token[0] !== T_STRING) {
+                continue;
+            }
 
-        if (!defined('VERSION')) {
-            define('VERSION', '');
+            $constantName = $token[1];
+
+            if (
+                preg_match('/^[A-Z][A-Z0-9_]*$/', $constantName)
+                && !defined($constantName)
+            ) {
+                define($constantName, '');
+            }
         }
 
         include $__file;
