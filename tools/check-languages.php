@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 $root = dirname(__DIR__);
 $referenceFile = $root . '/language/english_utf-8.php';
+$benchmarkFile = $root . '/language/french_france_utf-8.php';
 
 if (!is_file($referenceFile)) {
     fwrite(STDERR, "Reference file not found: {$referenceFile}\n");
@@ -164,6 +165,7 @@ function displayKey(string $arrayName, $key): string
 }
 
 $reference = loadLanguageFile($referenceFile);
+$benchmark = is_file($benchmarkFile) ? loadLanguageFile($benchmarkFile) : null;
 $targets = [];
 
 if ($argc > 1) {
@@ -193,7 +195,8 @@ if ($targets === []) {
 }
 
 $totalErrors = 0;
-$totalNotices = 0;
+$totalReviews = 0;
+$totalInfos = 0;
 $results = [];
 
 foreach ($targets as $file) {
@@ -214,7 +217,8 @@ foreach ($targets as $file) {
     }
 
     $errors = [];
-    $notices = [];
+    $reviews = [];
+    $infos = [];
 
     if (strtolower((string) $language['charset']) !== 'utf-8') {
         $errors[] = '$LANG_CHARSET should be utf-8; found '
@@ -266,12 +270,35 @@ foreach ($targets as $file) {
                 && is_string($translatedValue)
                 && $translatedValue === $referenceValue
             ) {
-                $notices[] = 'Same as English at ' . displayKey($arrayName, $key);
+                $benchmarkValue = null;
+                $benchmarkHasValue = false;
+
+                if (
+                    $benchmark !== null
+                    && isset($benchmark['arrays'][$arrayName])
+                    && array_key_exists($key, $benchmark['arrays'][$arrayName])
+                ) {
+                    $benchmarkHasValue = true;
+                    $benchmarkValue = $benchmark['arrays'][$arrayName][$key];
+                }
+
+                if (
+                    basename($file) !== basename($benchmarkFile)
+                    && $benchmarkHasValue
+                    && is_string($benchmarkValue)
+                    && $benchmarkValue !== $referenceValue
+                ) {
+                    $reviews[] = 'Likely untranslated at '
+                        . displayKey($arrayName, $key);
+                } else {
+                    $infos[] = 'Same as English (benchmark-compatible) at '
+                        . displayKey($arrayName, $key);
+                }
             }
         }
 
         foreach (array_diff_key($translatedValues, $referenceValues) as $key => $_value) {
-            $notices[] = 'Extra key ' . displayKey($arrayName, $key);
+            $infos[] = 'Extra key ' . displayKey($arrayName, $key);
         }
     }
 
@@ -279,26 +306,34 @@ foreach ($targets as $file) {
         echo '[ERROR] ' . $message . PHP_EOL;
     }
 
-    foreach ($notices as $message) {
-        echo '[NOTICE] ' . $message . PHP_EOL;
+    foreach ($reviews as $message) {
+        echo '[REVIEW] ' . $message . PHP_EOL;
+    }
+
+    foreach ($infos as $message) {
+        echo '[INFO] ' . $message . PHP_EOL;
     }
 
     echo 'Summary: '
         . count($errors) . ' error(s), '
-        . count($notices) . ' notice(s)'
+        . count($reviews) . ' review item(s), '
+        . count($infos) . ' info item(s)'
         . PHP_EOL;
 
     $errorCount = count($errors);
-    $noticeCount = count($notices);
+    $reviewCount = count($reviews);
+    $infoCount = count($infos);
 
     $results[] = [
         'file' => basename($file),
         'errors' => $errorCount,
-        'notices' => $noticeCount,
+        'reviews' => $reviewCount,
+        'infos' => $infoCount,
     ];
 
     $totalErrors += $errorCount;
-    $totalNotices += $noticeCount;
+    $totalReviews += $reviewCount;
+    $totalInfos += $infoCount;
 }
 
 echo PHP_EOL . '== Language summary ==' . PHP_EOL;
@@ -310,17 +345,19 @@ foreach ($results as $result) {
 
 foreach ($results as $result) {
     printf(
-        "%-{$maxFileLength}s  %4d error(s)  %5d notice(s)\n",
+        "%-{$maxFileLength}s  %4d error(s)  %5d review item(s)  %5d info item(s)\n",
         $result['file'],
         $result['errors'],
-        $result['notices']
+        $result['reviews'],
+        $result['infos']
     );
 }
 
 echo PHP_EOL
     . 'Checked ' . count($targets) . ' file(s): '
     . $totalErrors . ' error(s), '
-    . $totalNotices . ' notice(s)'
+    . $totalReviews . ' review item(s), '
+    . $totalInfos . ' info item(s)'
     . PHP_EOL;
 
 exit($totalErrors > 0 ? 1 : 0);
