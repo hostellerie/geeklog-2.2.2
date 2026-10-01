@@ -1036,10 +1036,10 @@ $LANG21 = array(
 # Block Locations
 
 $LANG23 = array(
-    'blocks_article_footer_name' => 'Article Footer',
-    'blocks_article_footer_desc' => 'Display Blocks in article Footer',
-    'blocks_article_topic_list_name' => 'Article Topic List',
-    'blocks_article_topic_list_desc' => 'Displays Blocks right after every X number of articles in topics.'
+    'blocks_article_footer_name' => 'Подвал статьи',
+    'blocks_article_footer_desc' => 'Отображать блоки в подвале статьи',
+    'blocks_article_topic_list_name' => 'Список статей темы',
+    'blocks_article_topic_list_desc' => 'Отображает блоки после каждых X статей в списках тем.'
 );
 
 ###############################################################################
