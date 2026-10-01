@@ -120,12 +120,12 @@ $LANG25 = array(
     1003 => 'Descripción'
 );
 
-$PLG_polls_MESSAGE15 = 'Your comment has been submitted for review and will be published when approved by a moderator.';
+$PLG_polls_MESSAGE15 = 'Su comentario se ha enviado para revisión y se publicará cuando lo apruebe un moderador.';
 $PLG_polls_MESSAGE19 = 'Tu encuesta se guardó satisfactoriamente.';
 $PLG_polls_MESSAGE20 = 'Tu encuesta se ha borrado satisfactoriamente.';
 
 // Messages for the plugin upgrade
-$PLG_polls_MESSAGE3001 = 'Plugin upgrade not supported.';
+$PLG_polls_MESSAGE3001 = 'La actualización del plugin no está soportada.';
 $PLG_polls_MESSAGE3002 = $LANG32[9];
 
 // Localization of the Admin Configuration UI
