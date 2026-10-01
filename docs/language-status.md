@@ -768,8 +768,8 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 
 | Language file | Status | Missing keys | Placeholder errors | Review | Coverage |
 |---|---:|---:|---:|---:|---:|
-| chinese_simplified_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
-| chinese_traditional_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
+| chinese_simplified_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
+| chinese_traditional_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
 | french_canada_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
 | french_france_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
 | german_formal_utf-8.php | ⚠️ | 1 | 0 | 5 | 99.2% |
@@ -777,7 +777,7 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 | hebrew_utf-8.php | ⚠️ | 0 | 2 | 2 | 100.0% |
 | italian_utf-8.php | ⚠️ | 0 | 2 | 6 | 100.0% |
 | japanese_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
-| persian_utf-8.php | ❌ missing file | 129 | 0 | 0 | 0.0% |
+| persian_utf-8.php | ⚠️ | 0 | 0 | 3 | 100.0% |
 | russian_utf-8.php | ⚠️ | 1 | 2 | 3 | 99.2% |
 | spanish_argentina_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
 | spanish_utf-8.php | ⚠️ | 0 | 2 | 3 | 100.0% |
@@ -790,12 +790,12 @@ These plugins ship with Geeklog itself. A plugin is **Ready for PR** only when e
 |---|---:|---:|---:|---:|---:|
 | chinese_simplified_utf-8.php | ⚠️ | 4 | 0 | 24 | 96.7% |
 | chinese_traditional_utf-8.php | ⚠️ | 4 | 0 | 24 | 96.7% |
-| french_canada_utf-8.php | ⚠️ | 4 | 0 | 34 | 96.7% |
+| french_canada_utf-8.php | ⚠️ | 4 | 0 | 7 | 96.7% |
 | french_france_utf-8.php | ⚠️ | 4 | 0 | 7 | 96.7% |
-| german_formal_utf-8.php | ⚠️ | 4 | 0 | 23 | 96.7% |
-| german_utf-8.php | ⚠️ | 4 | 0 | 23 | 96.7% |
-| hebrew_utf-8.php | ⚠️ | 4 | 0 | 17 | 96.7% |
-| italian_utf-8.php | ⚠️ | 0 | 0 | 92 | 100.0% |
+| german_formal_utf-8.php | ⚠️ | 4 | 0 | 10 | 96.7% |
+| german_utf-8.php | ⚠️ | 4 | 0 | 10 | 96.7% |
+| hebrew_utf-8.php | ⚠️ | 4 | 0 | 4 | 96.7% |
+| italian_utf-8.php | ⚠️ | 4 | 0 | 12 | 96.7% |
 | japanese_utf-8.php | ⚠️ | 4 | 2 | 3 | 96.7% |
 | persian_utf-8.php | ⚠️ | 4 | 0 | 80 | 96.7% |
 | russian_utf-8.php | ⚠️ | 0 | 0 | 90 | 100.0% |
