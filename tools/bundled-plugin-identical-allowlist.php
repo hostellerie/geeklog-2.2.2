@@ -190,6 +190,7 @@ return [
         'LANG_LINKS_STATUS:999',
         'LANG_LINKS_SUBMIT:9',
         'LANG_confignames:recaptcha',
+        'LANG_LINKS_ADMIN:31',
     ],
     'links/french_france_utf-8.php' => [
         'LANG_LINKS_STATUS:100',
@@ -235,6 +236,7 @@ return [
         'LANG_LINKS_STATUS:999',
         'LANG_LINKS_SUBMIT:9',
         'LANG_confignames:recaptcha',
+        'LANG_LINKS_ADMIN:31',
     ],
     'links/german_formal_utf-8.php' => [
         'LANG_LINKS_STATUS:100',
@@ -280,6 +282,11 @@ return [
         'LANG_LINKS_STATUS:999',
         'LANG_LINKS_SUBMIT:9',
         'LANG_confignames:recaptcha',
+        'LANG_LINKS:14',
+        'LANG_LINKS:114',
+        'LANG_LINKS_STATS:stats_page_title',
+        'LANG_LINKS_SUBMIT:2',
+        'LANG_LINKS_ADMIN:num_links',
     ],
     'links/german_utf-8.php' => [
         'LANG_LINKS_STATUS:100',
@@ -325,6 +332,11 @@ return [
         'LANG_LINKS_STATUS:999',
         'LANG_LINKS_SUBMIT:9',
         'LANG_confignames:recaptcha',
+        'LANG_LINKS:14',
+        'LANG_LINKS:114',
+        'LANG_LINKS_STATS:stats_page_title',
+        'LANG_LINKS_SUBMIT:2',
+        'LANG_LINKS_ADMIN:num_links',
     ],
     'links/hebrew_utf-8.php' => [
         'LANG_LINKS_STATUS:100',
