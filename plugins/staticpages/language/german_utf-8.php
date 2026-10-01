@@ -147,9 +147,16 @@ $LANG_STATIC = array(
 );
 
 $LANG_staticpages_search = array(
-    0 => 'Excluded',
-    1 => 'Use Default',
-    2 => 'Included'
+    0  => 'Ausgeschlossen',
+    1  => 'Standard verwenden',
+    2  => 'Eingeschlossen'
+);
+
+$LANG_staticpages_likes = array(
+    -1 => 'Standard verwenden',
+    0  => 'Deaktiviert',
+    1  => 'Gefällt mir und Gefällt mir nicht',
+    2  => 'Nur Gefällt mir',
 );
 
 $PLG_staticpages_MESSAGE15 = 'Der Kommentar wurde gespeichert, muss aber noch von einem Moderator freigegeben werden.';
