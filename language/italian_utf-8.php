@@ -2340,8 +2340,8 @@ $LANG_CONFIG = array(
     'enable' => 'Abilita',
     'default_tab_name' => 'Main',
     'search_configuration_label' => 'Search Configuration',
-    'error_validation_occurs' => 'There are invalid configuration values. Please correct these fields (just click the config variable to point you to the error field)'
-                                    '(just click the config variable to point you to the error field)'
+    'error_validation_occurs' => 'Sono presenti valori di configurazione non validi. Correggi questi campi ' .
+                                    '(fai clic sulla variabile di configurazione per andare al campo con l\'errore)'
 );
 
 $LANG_configsections['Core'] = array(
