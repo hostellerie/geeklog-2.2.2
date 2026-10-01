@@ -501,7 +501,7 @@ $LANG05 = array(
     6 => '上頁',
     7 => '第一',
     8 => '最終',
-    9 => 'Page navigation'
+    9 => '頁面導覽',
 );
 
 ###############################################################################
@@ -543,17 +543,17 @@ $LANG08 = array(
     33 => '完整的文章在：',
     34 => '電郵結束',
     35 => '對不起，此用戶不願意收電信.',
-    36 => 'Copy:',
-    37 => 'Send me a copy of this email',
+    36 => '副本：',
+    37 => '寄給我此郵件的副本',
     38 => "This is a copy of the email that you sent to %s from <{$_CONF['site_url']}>:",
-    39 => 'Your last message was ',
-    40 => " seconds ago.  This site requires at least {$_CONF['speedlimit']} seconds between sending messages",
-    41 => 'This user doesn\'t exist.',
-    42 => 'This users email address doesn\'t exist. This most likely means is is an OAuth user account.',
-    43 => 'This users email address is invalid.',
-    44 => 'This users status is set to something other than Active or New Password therefore the email address is assumed bad.',
-    45 => "This is a message sent from {$_CONF['site_name']} by %s. Any replies will need to be sent to the email address: %s",
-    46 => "To unsubscribe from the Daily Digest, login to {$_CONF['site_name']} at {$_CONF['site_url']}. Then visit the user settings page at {$_CONF['site_url']}/usersettings.php and view the Content Tab. You can then unsubscribe to the Daily Digest by deselecting all topics and saving your profile."
+    39 => '您上次傳送訊息是在 ',
+    40 => " 秒前。本站要求兩次傳送訊息之間至少間隔 {$_CONF['speedlimit']} 秒",
+    41 => '該使用者不存在。',
+    42 => '該使用者沒有電子郵件地址，可能是 OAuth 使用者帳戶。',
+    43 => '該使用者的電子郵件地址無效。',
+    44 => '該使用者狀態不是「啟用」或「新密碼」，因此其電子郵件地址被視為無效。',
+    45 => "此訊息由 %s 透過 {$_CONF['site_name']} 傳送。回覆請寄至電子郵件地址：%s",
+    46 => "要取消每日摘要訂閱，請登入 {$_CONF['site_name']}（{$_CONF['site_url']}），然後造訪 {$_CONF['site_url']}/usersettings.php 的使用者設定頁面並開啟「內容」分頁。取消選取所有主題並儲存個人資料即可退訂。",
 );
 
 ###############################################################################
@@ -595,7 +595,7 @@ $LANG09 = array(
     33 => 'URL',
     34 => '地點',
     35 => '所有日子',
-    36 => 'Key Word Type',
+    36 => '關鍵字類型',
     37 => '',
     38 => '',
     39 => '',
@@ -623,17 +623,17 @@ $LANG09 = array(
     61 => '改進搜尋',
     62 => '#',
     63 => 'Description',
-    64 => 'Showing %1$d - %2$d of %3$d results',
+    64 => '顯示第 %1$d - %2$d 項，共 %3$d 項結果',
     65 => 'Article',
-    66 => 'Comment',
-    67 => 'Show %d Results',
+    66 => '評論',
+    67 => '顯示 %d 項結果',
     68 => 'Sort By',
-    69 => 'Titles Only',
-    70 => 'Not available ...',
+    69 => '僅搜尋標題',
+    70 => '不可用……',
     71 => 'asc',
     72 => 'desc',
-    73 => 'Submit',
-    74 => 'Limit Results'
+    73 => '送出',
+    74 => '限制結果',
 );
 
 ###############################################################################
@@ -643,8 +643,8 @@ $LANG10 = array(
     1 => '本站統計資料',
     2 => '系統點擊總數',
     3 => '文章(評論)總數',
-    4 => 'Site Statistic',
-    5 => "Overall Site Statistics for {$_CONF['site_name']}",
+    4 => '網站統計',
+    5 => "{$_CONF['site_name']} 的整體網站統計",
     6 => '',
     7 => '採樣數最高的十個文章',
     8 => '文章標題',
@@ -671,8 +671,8 @@ $LANG10 = array(
     29 => '',
     30 => '採樣數',
     31 => '',
-    32 => 'Top Ten Liked Articles',
-    33 => 'No liked articles found.'
+    32 => '最受歡迎的十篇文章',
+    33 => '找不到獲讚文章。',
 );
 
 ###############################################################################
@@ -684,7 +684,7 @@ $LANG11 = array(
     3 => '可印的文章格式',
     4 => '文章選項',
     5 => '',
-    6 => 'Subscribe to \'%s\''
+    6 => "訂閱「%s」",
 );
 
 ###############################################################################
@@ -925,8 +925,8 @@ $LANG20 = array(
     5 => '密碼：',
     6 => '這頁只供授權人員使用。<br' . XHTML . '>所有存取將被記錄和檢查。',
     7 => '登入',
-    8 => 'Login',
-    9 => 'This page is for the use of authorized personnel only. Please note all access to administrative portions of this web site are logged and reviewed.'
+    8 => '登入',
+    9 => '此頁面僅供授權人員使用。請注意，對本站管理區域的所有存取都會被記錄並審核。',
 );
 
 ###############################################################################
@@ -937,8 +937,8 @@ $LANG21 = array(
     2 => '你沒有權去編輯這個元件。',
     3 => '組件編輯器',
     4 => '讀取此文流時發現錯誤，請在你的錯誤記錄檔案 error.log 裏看細節.',
-    5 => 'Yes',
-    6 => 'No',
+    5 => '是',
+    6 => '否',
     7 => '所有',
     8 => '元件安全水平',
     9 => '組件次序',
@@ -952,11 +952,11 @@ $LANG21 = array(
     17 => '元件內容',
     18 => '請填寫元件的標題和內容。',
     19 => '組件管理員',
-    20 => 'Regular Blocks',
+    20 => '一般區塊',
     21 => '元件安全水平',
-    22 => 'Dynamic Blocks',
+    22 => '動態區塊',
     23 => '組件次序',
-    24 => 'Dynamic',
+    24 => '動態',
     25 => '點擊下面的組件可修改或刪除它，點擊上面的新元件可創造一個新的。',
     26 => '版面組件',
     27 => 'PHP 組件',
@@ -979,10 +979,10 @@ $LANG21 = array(
     44 => 'Multiple',
     45 => "企圖存取不允許的元件已被記錄。請<a href=\"{$_CONF['site_admin_url']}/block.php\">反回組件管理員晝面</a>。",
     46 => '新組件',
-    47 => 'None',
+    47 => '無',
     48 => '組件名',
     49 => ' (不可有空隔和必須是唯一的)',
-    50 => 'The Block Name can not be empty',
+    50 => '區塊名稱不可為空',
     51 => '包括 http://',
     52 => '如果這裏留白，元件的求助檔圖示將不被顯示',
     53 => '使有效',
@@ -1001,32 +1001,32 @@ $LANG21 = array(
     66 => '自動標籤',
     67 => '打勾來准許自動標籤',
     68 => '這入口組件的新聞饋入太長. 請在組件設定區裏設定最多文章數限，或在志樂的全面設定區裏設定最多文章數限。',
-    69 => 'Plugin Name',
+    69 => '外掛名稱',
     70 => 'CSS ID',
-    71 => 'This field is optional',
-    72 => 'CSS Classes',
-    73 => 'This field is optional.  You can specify multiple classes separated by space',
-    'autotag_desc_block' => '[block:name class:block-autotag] - Displays a block. Class not required. Class specifies the css class and will wrap the block in a div. The class block-autotag will always be included with the div.',
-    'newlines' => 'Newlines',
-    'convert_newlines' => 'Check to convert newlines (EOL) into line break HTML element',
+    71 => '此欄位可選',
+    72 => 'CSS 類別',
+    73 => '此欄位可選。可指定多個以空格分隔的類別',
+    'autotag_desc_block' => '[block:name class:block-autotag] - 顯示一個區塊。class 可選；啟用時用於指定包裹區塊的 div 的 CSS 類別。div 一律包含 block-autotag 類別。',
+    'newlines' => '換行',
+    'convert_newlines' => '將換行符號（EOL）轉換為 HTML 換行元素',
     'position' => 'Position',
-    'cache_time' => 'Cache Time',
+    'cache_time' => '快取時間',
     'cache_time_desc' => 'This block will be cached for no longer than this many seconds. If 0 caching is disabled. (3600 = 1 hour,  86400 = 1 day)',
-    'block_type_gldefault' => 'System',
+    'block_type_gldefault' => '系統',
     'block_type_normal' => 'Normal',
     'block_type_phpblock' => 'PHP',
-    'block_type_portal' => 'Portal',
-    'block_type_dynamic' => 'Dynamic'
+    'block_type_portal' => '入口網站',
+    'block_type_dynamic' => '動態',
 );
 
 ###############################################################################
 # Block Locations
 
 $LANG23 = array(
-    'blocks_article_footer_name' => 'Article Footer',
-    'blocks_article_footer_desc' => 'Display Blocks in article Footer',
-    'blocks_article_topic_list_name' => 'Article Topic List',
-    'blocks_article_topic_list_desc' => 'Displays Blocks right after every X number of articles in topics.'
+    'blocks_article_footer_name' => '文章頁尾',
+    'blocks_article_footer_desc' => '在文章頁尾顯示區塊',
+    'blocks_article_topic_list_name' => '文章主題清單',
+    'blocks_article_topic_list_desc' => '在主題清單中每 X 篇文章後顯示區塊。',
 );
 
 ###############################################################################
@@ -1095,7 +1095,7 @@ $LANG24 = array(
     60 => '',
     61 => '過期後自動封存',
     62 => '過期後自動刪除',
-    63 => 'Disable Comments',
+    63 => '關閉評論',
     64 => '',
     65 => '',
     66 => '',
@@ -1121,19 +1121,19 @@ $LANG24 = array(
     86 => '高等編輯器',
     87 => '文章統計',
     88 => 'Wiki 式的格式',
-    89 => 'Meta Description',
-    90 => 'Meta Keywords',
-    91 => 'You can always hit "Preview" to extend the expiry time.',
-    92 => 'You might also like',
+    89 => 'Meta 描述',
+    90 => 'Meta 關鍵字',
+    91 => '您可以隨時點擊「預覽」來延長到期時間。',
+    92 => '您可能也會喜歡',
     93 => '#',
-    94 => 'Resized',
-    95 => 'Original',
-    96 => 'Upload | Replace',
-    97 => 'No Image',
+    94 => '已縮放',
+    95 => '原始',
+    96 => '上傳 | 取代',
+    97 => '無圖片',
     'autotag_desc_story' => '[article: id alternate title] - Displays a link to an article using the Article Title as the title. An alternate title may be specified but is not required.',
-    'autotag_desc_article' => '[article: id alternate title] - Displays a link to an article using the Article Title as the title. An alternate title may be specified but is not required.',
-    'cache_time' => 'Cache Time',
-    'cache_time_desc' => 'This article will be cached for no longer than this many seconds. If 0 caching is disabled. If -1 cached until article is edited again. (3600 = 1 hour,  86400 = 1 day)'
+    'autotag_desc_article' => '[article: id alternate title] - 顯示文章連結，並以文章標題作為連結標題。可選填替代標題。',
+    'cache_time' => '快取時間',
+    'cache_time_desc' => '此文章最多快取指定秒數。0 表示停用快取；-1 表示快取到文章下次編輯為止。（3600 = 1 小時，86400 = 1 天）',
 );
 
 ###############################################################################
@@ -1304,22 +1304,22 @@ $LANG28 = array(
     83 => "你的帳戶於 {$_CONF['site_name']} 自從登記時就未曾運用。若不繼續運用，它將變成無效。",
     84 => "你的用戶名是: %s 我們的網站是: {$_CONF['site_url']}",
     85 => '若你忘記密碼，請使用以下連結：',
-    86 => 'Include',
-    87 => 'Reminders',
-    88 => 'Default Group',
-    89 => 'Check to make this a default group for new users',
-    90 => 'Apply "Default Group" change to existing user accounts',
-    91 => 'Send password to user',
-    92 => 'Only for new users or when changing password for existing user.',
-    'convert_remote' => 'Check here to convert from remote to a local account',
-    'convert_remote_desc' => 'When a remote account is converted to a local account, a password will be automatically generated. If the account does not have a confirmed email address, the account will be locked after it is converted since the user will have no way of retrieving the password. Once converted and if the account is active and has an email address the user will be emailed the password or they can request the password by using the forget password link from the Login page. For user accounts that do not have an active status and valid email you will have to manually notify the user of the account change and how to login.',
-    'contributed' => 'Contributed',
+    86 => '包含',
+    87 => '提醒',
+    88 => '預設群組',
+    89 => '勾選後將此群組設為新使用者的預設群組',
+    90 => '將「預設群組」變更套用到現有使用者帳戶',
+    91 => '向使用者傳送密碼',
+    92 => '僅用於新使用者，或變更現有使用者密碼時。',
+    'convert_remote' => '勾選此項將遠端帳戶轉換為本機帳戶',
+    'convert_remote_desc' => '遠端帳戶轉換為本機帳戶時會自動產生密碼。若帳戶沒有已確認的電子郵件地址，轉換後將被鎖定，因為使用者無法取得密碼。若帳戶為啟用狀態且有電子郵件地址，系統會寄送密碼，或使用者可透過登入頁面的「忘記密碼」連結要求密碼。對於非啟用狀態或沒有有效電子郵件地址的帳戶，您必須手動通知使用者帳戶已變更以及如何登入。',
+    'contributed' => '投稿',
     'na' => 'NA',
-    'nothing' => 'Nothing',
+    'nothing' => '無',
     'autotag_desc_user' => '[user: id alternate title] - Displays a link to a User using the Username as the title. An alternate title may be specified but is not required.',
-    'USER_ACCOUNT_LOCKED' => 'Locked',
-    'USER_ACCOUNT_NEW_EMAIL' => 'New Email Required',
-    'USER_ACCOUNT_NEW_PASSWORD' => 'New Password Required'
+    'USER_ACCOUNT_LOCKED' => '已鎖定',
+    'USER_ACCOUNT_NEW_EMAIL' => '需要新的電子郵件地址',
+    'USER_ACCOUNT_NEW_PASSWORD' => '需要新密碼',
 );
 
 ###############################################################################
@@ -1342,23 +1342,23 @@ $LANG29 = array(
     18 => '電子郵件',
     34 => '命令和控制',
     35 => '已遞交的文章',
-    36 => 'Parent or Comment',
-    37 => 'Author',
+    36 => '父項或評論',
+    37 => '作者',
     38 => '遞交',
     39 => '此時沒有遞交的東西',
     40 => '申請的用戶',
-    41 => 'Comment Submissions',
-    42 => 'Username',
-    43 => 'Auto-publish Comments?',
-    44 => 'Results of your moderation',
-    45 => 'Approved %1$d items and deleted %2$d items of user submissions.',
-    46 => 'User Profile Updated',
-    'core' => 'Core',
+    41 => '待審核評論',
+    42 => '使用者名稱',
+    43 => '自動發佈評論？',
+    44 => '審核結果',
+    45 => '已核准 %1$d 項，並刪除使用者提交中的 %2$d 項。',
+    46 => '使用者資料已更新',
+    'core' => '核心',
     'plugins' => 'Plugins',
-    'tools' => 'Tools',
-    'users' => 'Users',
+    'tools' => '工具',
+    'users' => '使用者',
     'submissions_desc' => 'To modify or delete a user submssion, click on that item\'s edit icon below. To approve and delete multiple submissions use the radio options in the lists and then click submit.',
-    'max_invalid_login' => 'Max Invalid Logins Reached for User',
+    'max_invalid_login' => '使用者已達到最大無效登入次數',
     'max_invalid_login_msg' => 'This user has reached the maximum number of invalid login attempts () within the specified time limit ( seconds). The last IP to make an invalid login attempt is %s. Either the real user has forgotten the password for their account, or someone else is attempting to guess the password for this user account.'
 );
 
