@@ -162,3 +162,37 @@ Avoid combining large translation rewrites, tooling changes, and several new lan
 Some words are legitimately spelled the same in English and another language (for example German `April`, `Status`, `Homepage` or `Computer`). The checker must not force artificial translations merely to make the audit green.
 
 Such cases can be listed explicitly in `tools/language-identical-allowlist.php`. Keep this list conservative and language-specific. An entry should only be added after confirming that the English spelling is also normal usage in the target language.
+
+
+## Ecosystem coverage report
+
+The same checker can also audit language coverage across public repositories in the
+`Geeklog-Plugins` GitHub organization:
+
+```bash
+php tools/check-languages.php --plugins
+```
+
+To generate the repository dashboard:
+
+```bash
+php tools/check-languages.php --plugins --report=docs/language-status.md
+```
+
+The ecosystem report includes:
+
+- the current core language status;
+- plugin translations that are complete, partial, or missing;
+- languages that already exist in plugins but are absent from the core;
+- suggested languages for future Geeklog localization.
+
+The strategic list of suggested languages is maintained in
+`tools/language-recommendations.php`.
+
+Plugin files are inspected structurally and are not executed. The ecosystem audit
+currently compares language key coverage against each plugin's English reference.
+The core audit remains the stricter check and additionally validates placeholders
+and suspicious strings identical to English.
+
+GitHub Actions generates `docs/language-status.md` with the same checker and
+commits the report only when its contents change.
