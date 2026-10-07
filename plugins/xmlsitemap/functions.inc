@@ -589,7 +589,9 @@ function XMLSITEMAP_checkChange($name)
     foreach ($_XMLSMAP_CONF[$name] as $key => $value) {
         switch ($name) {
             case 'types':
-                if (in_array($value, $enabled_plugins)) {
+                if (in_array($value, $enabled_plugins)
+                    && !in_array($value, $validItems, true)
+                ) {
                     $validItems[] = $value;
                 }
                 break;
@@ -764,9 +766,12 @@ function plugin_pluginstatechange_xmlsitemap($type, $status)
     switch ($status) {
         case 'installed':
             if (is_callable('plugin_getiteminfo_' . $type)) {
-                // A new plugin supporting plugin_getiteminfo_xxx() was
-                // installed
-                $_XMLSMAP_CONF['types'][] = $type;
+                // A new plugin supporting plugin_getiteminfo_xxx() was installed.
+                // Keep the configured type list unique even after repeated
+                // installation/upgrade cycles.
+                if (!in_array($type, $_XMLSMAP_CONF['types'], true)) {
+                    $_XMLSMAP_CONF['types'][] = $type;
+                }
                 $_XMLSMAP_CONF['priorities'][$type] = 0.5;
                 $_XMLSMAP_CONF['frequencies'][$type] = 'daily';
 
@@ -780,10 +785,12 @@ function plugin_pluginstatechange_xmlsitemap($type, $status)
             break;
 
         case 'uninstalled':
-            if (($pos = array_search($type, $_XMLSMAP_CONF['types'])) !== false) {
+            if (in_array($type, $_XMLSMAP_CONF['types'], true)) {
 
                 // A plugin supporting plugin_getiteminfo_xxx() was uninstalled.
-                unset($_XMLSMAP_CONF['types'][$pos]);
+                $_XMLSMAP_CONF['types'] = array_values(
+                    array_diff($_XMLSMAP_CONF['types'], array($type))
+                );
                 unset($_XMLSMAP_CONF['priorities'][$type]);
                 unset($_XMLSMAP_CONF['frequencies'][$type]);
 
@@ -801,6 +808,10 @@ function plugin_pluginstatechange_xmlsitemap($type, $status)
 
         case 'enabled':
         case 'disabled':
+            $_XMLSMAP_CONF['types'] = array_values(array_unique($_XMLSMAP_CONF['types']));
+            $config = config::get_instance();
+            $config->set('types', $_XMLSMAP_CONF['types'], 'xmlsitemap');
+
             /**
              * Here change in plugin state is not reflected in $_PLUGINS yet.
              * So we have to handle this case in a peculiar way
