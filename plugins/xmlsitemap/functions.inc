@@ -803,7 +803,11 @@ function plugin_pluginstatechange_xmlsitemap($type, $status)
             break;
 
         case 'upgraded':
-            // Probably we don't have to handle this.
+            $_XMLSMAP_CONF['types'] = array_values(array_unique($_XMLSMAP_CONF['types']));
+            $config = config::get_instance();
+            $config->set('types', $_XMLSMAP_CONF['types'], 'xmlsitemap');
+            XMLSITEMAP_checkChange('types');
+            $need_update = true;
             break;
 
         case 'enabled':
