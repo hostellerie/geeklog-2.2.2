@@ -639,7 +639,8 @@ class XMLSitemap
         if (!empty($filename) || !empty($mobile_filename)) {
             $numEntries = 0;
             $sitemap = '';
-            $types = $this->getTypes();
+            $seenUrls = [];
+            $types = array_values(array_unique($this->getTypes()));
             $what = 'url,date-modified';
             $uid = 1;   // anonymous user
             $limit = 0;   // the max number of items to be returned (0 = no limit)
@@ -653,7 +654,10 @@ class XMLSitemap
 
             // Prepend the homepage (feature #997)
             if (isset($_XMLSMAP_CONF['include_homepage']) && $_XMLSMAP_CONF['include_homepage']) {
+                $homeUrl = $this->normalizeURL($_CONF['site_url']);
+                $seenUrls[$homeUrl] = true;
                 $sitemap .= $this->formatItem(self::TYPE_REGULAR, $_CONF['site_url']);
+                $numEntries++;
             }
 
             foreach ($types as $type) {
@@ -675,6 +679,11 @@ class XMLSitemap
                         }
 
                         $url = $entry['url'];
+                        $normalizedUrl = $this->normalizeURL($url);
+                        if (isset($seenUrls[$normalizedUrl])) {
+                            continue;
+                        }
+                        $seenUrls[$normalizedUrl] = true;
 
                         // Frequency of change
                         $frequency = isset($entry['change-freq'])
@@ -974,12 +983,36 @@ class XMLSitemap
                     }
                 }
 
-                // Append an item
+                // Replace any existing regular/mobile entry for the same URL,
+                // then append exactly one current version. This also cleans up
+                // duplicate entries accumulated by older plugin/type cycles.
                 if (!empty($formattedItem)) {
-                    $pos = strpos($sitemap, '</urlset>');
+                    if (($type === self::TYPE_REGULAR) || ($type == self::TYPE_MOBILE)) {
+                        $target = '  <url>' . self::LB
+                                . '    <loc>' . $this->normalizeURL($data['url']) . '</loc>'
+                                . self::LB;
+                        while (($existingPos = strpos($sitemap, $target)) !== false) {
+                            $existingEnd = strpos(
+                                $sitemap,
+                                '</url>',
+                                $existingPos + strlen($target)
+                            );
+                            if ($existingEnd === false) {
+                                break;
+                            }
+                            $sitemap = substr($sitemap, 0, $existingPos)
+                                     . substr(
+                                         $sitemap,
+                                         $existingEnd + strlen('</url>' . self::LB)
+                                     );
+                        }
+                    }
 
+                    $pos = strpos($sitemap, '</urlset>');
                     if ($pos !== false) {
-                        $sitemap = substr($sitemap, 0, $pos) . $formattedItem . '</urlset>' . self::LB;
+                        $sitemap = substr($sitemap, 0, $pos)
+                                 . $formattedItem
+                                 . '</urlset>' . self::LB;
                         $updated = true;
                     }
                 }
@@ -990,19 +1023,22 @@ class XMLSitemap
 
                 // Delete an existing item
 				// Note may not even exist in sitemap so let $updated = true anyways even if not found and removed
-                $target = '  <url>' . self::LB . '    <loc>' . $this->normalizeURL($data['url']) . '</loc>' . self::LB;
-                $pos = strpos($sitemap, $target);
+                $target = '  <url>' . self::LB
+                        . '    <loc>' . $this->normalizeURL($data['url']) . '</loc>'
+                        . self::LB;
 
-                if ($pos !== false) {
+                // Remove every occurrence, not only the first one.
+                while (($pos = strpos($sitemap, $target)) !== false) {
                     $pos2 = strpos($sitemap, '</url>', $pos + strlen($target));
-
-                    if ($pos2 !== false) {
-                        $sitemap = substr($sitemap, 0, $pos)
-                            . substr($sitemap, $pos2 + strlen('</url>' . self::LB));
+                    if ($pos2 === false) {
+                        break;
                     }
+
+                    $sitemap = substr($sitemap, 0, $pos)
+                             . substr($sitemap, $pos2 + strlen('</url>' . self::LB));
                 }
-				
-				$updated = true;
+
+                $updated = true;
             }
         }
 
