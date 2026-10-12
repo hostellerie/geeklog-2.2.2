@@ -296,7 +296,7 @@ class Installer extends Common
      *
      * @return string
      */
-    private function checkPermissions()
+    private function checkPermissions($siteConf)
     {
         $retval = '';
 
@@ -386,9 +386,10 @@ class Installer extends Common
             Common::$env['gl_path'] . 'logs/spamx.log',
             $paths['public_html/'] . 'backend/geeklog.rss',
         ];
-        $hasMultisiteData = !empty($_CONF['path_data'])
-            && rtrim($_CONF['path_data'], '/') !== rtrim(Common::$env['gl_path'] . 'data/', '/')
-            && is_dir($_CONF['path_data']);
+        $hasMultisiteData = !empty($siteConf['multi_install'])
+            && !empty($siteConf['path_data'])
+            && rtrim($siteConf['path_data'], '/') !== rtrim(Common::$env['gl_path'] . 'data/', '/')
+            && is_dir($siteConf['path_data']);
 
         foreach ($fileList as $file) {
             if ($hasMultisiteData && !file_exists($file) && in_array($file, $multisiteDefaults, true)) {
@@ -1167,7 +1168,7 @@ class Installer extends Common
             // that Geeklog needs to be able to write to. The script uses the location of
             // db-config.php from the previous step to determine location of everything.
             case 'check_permissions':
-                $content = $this->checkPermissions();
+                $content = $this->checkPermissions($_CONF);
                 break;
 
             // Write the GL path to siteconfig.php
