@@ -35,7 +35,7 @@ $_SQL[] = "DELETE c FROM {$_TABLES['comments']} c WHERE type = 'article' AND sid
 $_SQL[] = "DELETE c FROM {$_TABLES['comments']} c WHERE type = 'staticpages' AND sid NOT IN (SELECT sid FROM {$_TABLES['staticpage']} s WHERE c.sid = s.sp_id)";
 // Polls is an optional plugin: its table may not exist on this site.
 // In that case preserve any historical poll comments rather than querying a missing table.
-if (DB_checkTableExists($_TABLES['polltopics'])) {
+if (DB_checkTableExists('polltopics')) {
     $_SQL[] = "DELETE c FROM {$_TABLES['comments']} c WHERE type = 'polls' AND sid NOT IN (SELECT sid FROM {$_TABLES['polltopics']} pt WHERE c.sid = pt.pid)";
 }
 // Set any likes missing user accounts to anonymous
