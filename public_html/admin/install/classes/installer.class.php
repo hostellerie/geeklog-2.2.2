@@ -256,7 +256,8 @@ class Installer extends Common
 
         // During a multisite upgrade the shared siteconfig.php must not be rewritten.
         // Reject path mismatches instead of silently changing all sites.
-        if ($this->get('op') === 'upgrade' && !empty($_CONF['multi_install'])) {
+        if ($this->get('op') === 'upgrade' && !empty($_CONF['path_data'])
+            && rtrim($_CONF['path_data'], '/') !== rtrim(Common::$env['gl_path'] . 'data/', '/')) {
             $originalSiteConfigData = @file_get_contents(Common::$env['siteconfig_path']);
             if ($originalSiteConfigData === false || $siteConfigData !== $originalSiteConfigData) {
                 exit('Multisite upgrade stopped: siteconfig.php path differs from the selected installation.');
@@ -385,8 +386,8 @@ class Installer extends Common
             Common::$env['gl_path'] . 'logs/spamx.log',
             $paths['public_html/'] . 'backend/geeklog.rss',
         ];
-        $hasMultisiteData = !empty($_CONF['multi_install'])
-            && !empty($_CONF['path_data'])
+        $hasMultisiteData = !empty($_CONF['path_data'])
+            && rtrim($_CONF['path_data'], '/') !== rtrim(Common::$env['gl_path'] . 'data/', '/')
             && is_dir($_CONF['path_data']);
 
         foreach ($fileList as $file) {
