@@ -254,7 +254,14 @@ class Installer extends Common
             $siteConfigData
         );
 
-        if (@file_put_contents(Common::$env['siteconfig_path'], $siteConfigData) === false) {
+        // During a multisite upgrade the shared siteconfig.php must not be rewritten.
+        // Reject path mismatches instead of silently changing all sites.
+        if ($this->get('op') === 'upgrade' && !empty($_CONF['multi_install'])) {
+            $originalSiteConfigData = @file_get_contents(Common::$env['siteconfig_path']);
+            if ($originalSiteConfigData === false || $siteConfigData !== $originalSiteConfigData) {
+                exit('Multisite upgrade stopped: siteconfig.php path differs from the selected installation.');
+            }
+        } elseif (@file_put_contents(Common::$env['siteconfig_path'], $siteConfigData) === false) {
             exit(Common::$LANG['INSTALL'][26] . ' ' . $paths['public_html/'] . Common::$LANG['INSTALL'][28]);
         }
 
@@ -367,7 +374,25 @@ class Installer extends Common
         $checkSelinux = false;
         $cmdSelinux = '';
 
+        // The generic installation tree differs from the persistent per-site tree.
+        // Only ignore missing legacy *defaults* for an already configured multisite;
+        // keep every other permission check (including existing paths) unchanged.
+        $multisiteDefaults = [
+            Common::$env['gl_path'] . 'data/cache/',
+            Common::$env['gl_path'] . 'logs/404.log',
+            Common::$env['gl_path'] . 'logs/access.log',
+            Common::$env['gl_path'] . 'logs/error.log',
+            Common::$env['gl_path'] . 'logs/spamx.log',
+            $paths['public_html/'] . 'backend/geeklog.rss',
+        ];
+        $hasMultisiteData = !empty($_CONF['multi_install'])
+            && !empty($_CONF['path_data'])
+            && is_dir($_CONF['path_data']);
+
         foreach ($fileList as $file) {
+            if ($hasMultisiteData && !file_exists($file) && in_array($file, $multisiteDefaults, true)) {
+                continue;
+            }
             if (!is_writable($file)) {
                 $permShouldBe = is_file($file) ? '666' : '777';
                 $permission = sprintf("%3o", @fileperms($file) & 0777);
