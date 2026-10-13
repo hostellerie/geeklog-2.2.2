@@ -132,9 +132,11 @@ function ca_siteconfig($file, $host) {
             $matches = array();
             preg_match_all('/\$_SERVER\s*\[\s*[\x27"]HTTP_HOST[\x27"]\s*\]\s*={2,3}\s*[\x27"]([^\x27"]+)[\x27"]/', $condition[1], $matches);
             $guard = array('kind'=>'unknown','active'=>false);
+            // Accept one or more exact HTTP_HOST comparisons joined by OR.
+            // Reject any other operation: do not guess which domain branch applies.
+            $remainder = preg_replace('/\\$_SERVER\\s*\\[\\s*[\\x27"]HTTP_HOST[\\x27"]\\s*\\]\\s*={2,3}\\s*[\\x27"][^\\x27"]+[\\x27"]/', '', $condition[1]);
             if (count($matches[1]) > 0 &&
-                strpos($condition[1], '||') === false && strpos($condition[1], '&&') === false &&
-                !preg_match('/!={1,2}|preg_match|strpos|stripos/', $condition[1])) {
+                preg_match('/^\\s*(?:\\|\\|\\s*)*$/D', $remainder)) {
                 $guard = array('kind'=>'site','active'=>in_array($host,$matches[1],true));
             }
             // If/elseif on the same nesting level: previous branch has closed.
