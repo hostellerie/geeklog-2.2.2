@@ -166,66 +166,77 @@ if (!isset($_TABLES['conf_values'])) {
         }
     }
 }
-// Show all declared siteconfig keys, plus core keys relevant to the migration.
-$tracked = array('site_url','site_admin_url','site_enabled','path','path_system','path_html','path_data',
- 'path_log','path_images','path_language','path_editors','path_pear','images_url','default_charset',
- 'timezone','theme','locale','login_attempts','cache_templates','cache_blocks','cache_topics',
- 'cache_pages','multi_install','backup_path','rdf_file','likes_enabled','likes_articles','likes_comments');
-$keys = array_unique(array_merge($tracked, array_keys($fileValues), array_keys($dbValues)));
+// Action-oriented report. Do not infer a safe change from uncertain static parsing.
+$bootstrap = array('path','path_system','site_enabled','default_charset');
+$keys = array_unique(array_merge(array_keys($fileValues), array_keys($dbValues)));
 sort($keys, SORT_STRING);
-$bootstrap = array('path', 'path_system', 'site_enabled', 'default_charset');
-$counts = array('same'=>0,'different'=>0,'missing'=>0,'uncertain'=>0);
+$actions = array();
+$keep = array();
+$review = array();
+$ignored = 0;
+foreach ($keys as $key) {
+    if (ca_sensitive($key)) { $ignored++; continue; }
+    $f = isset($fileValues[$key]) ? $fileValues[$key] : null;
+    if (!$f) continue; // Objective: reduce siteconfig.php, not list the whole DB.
+    $d = isset($dbValues[$key]) ? $dbValues[$key] : null;
+    $hasEffective = array_key_exists($key, $effective);
+    $e = $hasEffective ? $effective[$key] : null;
+    $row = array('key'=>$key, 'line'=>$f['line'], 'file'=>$f['ok'] ? ca_fmt($f['value']) : $f['expression'],
+        'db'=>$d ? ($d['ok'] ? ca_fmt($d['value']) : ($d['raw'] === 'unset' ? 'unset' : 'non decodable')) : 'absent',
+        'effective'=>$hasEffective ? ca_fmt($e) : 'absent', 'action'=>'');
+    if (in_array($key, $bootstrap, true)) {
+        $row['action'] = 'Conserver : parametre de demarrage / a verifier avant changement';
+        $keep[] = $row;
+    } elseif (!$f['ok'] || !$hasEffective || !$d || !$d['ok']) {
+        $row['action'] = 'Verifier manuellement : expression, valeur effective ou DB incertaine';
+        $review[] = $row;
+    } elseif ($f['value'] === $d['value'] && $e === $d['value']) {
+        $row['action'] = 'Candidat a retirer du siteconfig APRES verification des dependances';
+        $actions[] = $row;
+    } elseif ($e === $f['value'] && $d['value'] !== $e) {
+        $row['action'] = '1. Aligner la valeur DB sur la valeur effective via Configuration Manager ; 2. Retester ; 3. Retirer cette affectation';
+        $actions[] = $row;
+    } else {
+        $row['action'] = 'Verifier la valeur cible et l ordre de chargement ; ne rien supprimer';
+        $review[] = $row;
+    }
+}
+function ca_table($rows) {
+    if (!$rows) { echo '<p>Aucune ligne dans cette categorie.</p>'; return; }
+    echo '<table><thead><tr><th>Cle / ligne</th><th>siteconfig.php</th><th>Base Core</th><th>Valeur chargee</th><th>Action</th></tr></thead><tbody>';
+    foreach ($rows as $r) {
+        echo '<tr><td><strong>'.ca_h($r['key']).'</strong><br><small>ligne '.(int)$r['line'].'</small></td>';
+        foreach (array('file','db','effective') as $col) echo '<td><code>'.ca_h($r[$col]).'</code></td>';
+        echo '<td>'.ca_h($r['action']).'</td></tr>';
+    }
+    echo '</tbody></table>';
+}
 ?>
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
-<title>Audit Geeklog multisite</title><style>
-body{font:15px/1.5 system-ui,Arial,sans-serif;max-width:1500px;margin:25px auto;padding:0 16px;color:#20262d}
-h1{font-size:1.5rem}h2{font-size:1.15rem}table{border-collapse:collapse;width:100%;font-size:13px}
+<title>Config audit Geeklog</title><style>
+body{font:15px/1.5 system-ui,Arial,sans-serif;max-width:1250px;margin:24px auto;padding:0 16px;color:#20262d}
+h1{font-size:1.55rem}h2{font-size:1.2rem;margin-top:30px}
+table{border-collapse:collapse;width:100%;font-size:13px}
 th,td{border:1px solid #d8dde3;padding:8px;vertical-align:top;text-align:left;word-break:break-word}
-th{background:#edf1f4}tr:nth-child(even){background:#f8fafb}code{white-space:pre-wrap;word-break:break-word}
-small{color:#58606b}.warn{color:#9a5300}.critical{color:#a00000}.good{color:#176039}
+th{background:#edf1f4}tr:nth-child(even){background:#f8fafb}
+code{white-space:pre-wrap;word-break:break-word}
+small{color:#58606b}.warn{color:#954e00}
 @media(max-width:800px){table{display:block;overflow-x:auto}}
 </style></head><body>
-<h1>Audit Geeklog 2.2.2 — lecture seule</h1>
-<p><strong>Domaine :</strong> <?=ca_h($host)?> · <strong>siteconfig :</strong> <?=ca_h($sitefile)?> · <strong>Table :</strong> <?=ca_h(isset($_TABLES['conf_values']) ? $_TABLES['conf_values'] : 'indisponible')?> · <strong>PHP :</strong> <?=ca_h(PHP_VERSION)?></p>
-<p><small>Lecture statique des affectations simples du fichier (aucune reevaluation de siteconfig.php). Les valeurs effectives peuvent inclure des preferences utilisateur ou des modifications apportees par des plugins.</small></p>
-<?php foreach (array_merge($errors,$parseWarnings) as $err): ?><p class="critical"><?=ca_h($err)?></p><?php endforeach; ?>
-<table><thead><tr><th>Cle</th><th>siteconfig.php</th><th>Base Core</th><th>Effective</th><th>Comparaison / controle</th><th>Orientation</th></tr></thead><tbody>
-<?php foreach ($keys as $key):
-    if (ca_sensitive($key)) continue;
-    $f = isset($fileValues[$key]) ? $fileValues[$key] : null;
-    $d = isset($dbValues[$key]) ? $dbValues[$key] : null;
-    $e = array_key_exists($key, $effective) ? $effective[$key] : null;
-    if (!$f && !$d && !array_key_exists($key,$effective)) continue;
-    $same = $f && $d && $f['ok'] && $d['ok'] && ($f['value'] === $d['value']);
-    if ($f && !$f['ok']) { $status = 'Expression non resolue'; $counts['uncertain']++; }
-    elseif ($d && !$d['ok']) { $status = ($d['raw'] === 'unset' ? 'DB: non defini (unset)' : 'Valeur DB non decodable'); $counts['uncertain']++; }
-    elseif ($f && !$d) { $status = 'Absent de la DB'; $counts['missing']++; }
-    elseif ($f && $d && $same) { $status = 'Identique'; $counts['same']++; }
-    elseif ($f && $d) { $status = 'Different'; $counts['different']++; }
-    else { $status = 'DB / runtime uniquement'; }
-    if (in_array($key, $bootstrap, true)) $action='Garder dans siteconfig (demarrage)';
-    elseif ($f && !$d) $action='Garder / examiner usage et initialisation';
-    elseif ($f && $d && $same) $action='Suppression envisageable apres test du chargement';
-    elseif ($f && $d) $action='Comparer et choisir la valeur cible avant suppression';
-    else $action='Pas de ligne correspondante a supprimer';
-    $path = strpos($key, 'path_') === 0 || $key === 'path';
-    if ($path && $f && $f['ok'] && is_string($f['value']) && !is_dir($f['value'])) $status .= ' / chemin fichier non trouve';
-    foreach (array($f ? ($f['ok'] ? $f['value'] : null) : null, $d ? ($d['ok'] ? $d['value'] : null) : null, $e) as $checkValue) {
-        if (is_string($checkValue) && strpos($checkValue, '/home/') === 0 &&
-            isset($_CONF['path']) && strpos($checkValue, dirname(rtrim($_CONF['path'], '/'))) !== 0) {
-            $status .= ' / ancien chemin home possible'; break;
-        }
-    }
-    $effDifferent = $d && $d['ok'] && array_key_exists($key,$effective) && $e !== $d['value'];
-    if ($effDifferent) $status .= ' / effective != DB';
-?>
-<tr><td><strong><?=ca_h($key)?></strong></td>
-<td><?php if ($f): ?><code><?=ca_h($f['ok'] ? ca_fmt($f['value']) : '[non resolu] '.$f['expression'])?></code><br><small>ligne <?=intval($f['line'])?></small><?php else: ?>—<?php endif; ?></td>
-<td><code><?=ca_h($d ? ($d['ok'] ? ca_fmt($d['value']) : '[unset / invalide]') : 'ABSENT')?></code></td>
-<td><code><?=ca_h(array_key_exists($key,$effective) ? ca_fmt($e) : 'ABSENT')?></code></td>
-<td><?=ca_h($status)?></td><td><?=ca_h($action)?></td></tr>
-<?php endforeach; ?></tbody></table>
-<h2>Interpretation</h2>
-<p><strong>Important :</strong> « suppression envisageable » n'est pas une autorisation de suppression automatique. Verifiez les fichiers d'initialisation, les chemins, la selection de base et une page publique + administration avant et apres modification. Un ecart entre valeur effective et base n'etablit pas, a lui seul, la priorite de siteconfig.php.</p>
-<p>Les valeurs de la base sont decodees en lecture seule avec validation de la serialisation (PHP 5.6 compatible). Le script ne modifie rien, ne genere pas d'UPDATE SQL et n'affiche aucune valeur portant un nom de cle sensible (mot de passe, secret, token, etc.). Conservez-le uniquement pendant l'audit puis supprimez-le de public_html.</p>
+<h1>Que modifier dans la base puis dans siteconfig.php ?</h1>
+<p><strong>Domaine :</strong> <?php echo ca_h($host); ?> · <strong>siteconfig :</strong> <?php echo ca_h($sitefile); ?> · <strong>PHP :</strong> <?php echo ca_h(PHP_VERSION); ?></p>
+<p><strong><?php echo count($actions); ?></strong> candidats · <strong><?php echo count($review); ?></strong> a verifier · <strong><?php echo count($keep); ?></strong> a conserver</p>
+<p><strong>Procedure :</strong> sauvegarder la base et siteconfig.php ; modifier d'abord la configuration Core dans Geeklog ; confirmer la valeur chargee apres actualisation ; retirer seulement ensuite la ligne concernee ; tester administration et pages publiques sur chaque domaine. Aucune correction n'est appliquee par ce script.</p>
+<h2>1. Modifications candidates (base puis siteconfig)</h2>
+<p class="warn">La lecture de siteconfig.php est statique et partielle. Ces lignes sont des candidats, pas une preuve que l'affectation peut etre retiree sans risque : confirmer le bloc de domaine, les dependances et l'ordre d'initialisation. Ne pas recopier de SQL avec des valeurs serialisees a la main.</p>
+<?php ca_table($actions); ?>
+<h2>2. A verifier avant toute modification</h2>
+<?php ca_table($review); ?>
+<h2>3. A conserver dans siteconfig.php</h2>
+<?php ca_table($keep); ?>
+<?php if ($errors || $parseWarnings): ?>
+<h2>Limites de l'analyse</h2>
+<?php foreach (array_merge($errors,$parseWarnings) as $err): ?><p class="warn"><?php echo ca_h($err); ?></p><?php endforeach; ?>
+<?php endif; ?>
+<p><small>Lecture seule. Valeurs sensibles masquees (<?php echo (int)$ignored; ?> cles). Conditions multisites et expressions complexes non evaluees. Supprimer ce script public apres audit.</small></p>
 </body></html>
