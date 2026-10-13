@@ -166,44 +166,52 @@ if (!isset($_TABLES['conf_values'])) {
         }
     }
 }
-// Action-oriented report. Do not infer a safe change from uncertain static parsing.
-$bootstrap = array('path','path_system','site_enabled','default_charset');
+// Keep the startup settings that the distributed siteconfig.php explicitly defines.
+// These are not cleanup candidates (even when DB differs).
+$coreKeep = array('site_enabled','path','path_system','default_charset');
 $keys = array_unique(array_merge(array_keys($fileValues), array_keys($dbValues)));
 sort($keys, SORT_STRING);
-$actions = array();
-$keep = array();
-$review = array();
-$ignored = 0;
+$actions = array(); $review = array(); $sqlPaths = array(); $ignored = 0;
 foreach ($keys as $key) {
     if (ca_sensitive($key)) { $ignored++; continue; }
     $f = isset($fileValues[$key]) ? $fileValues[$key] : null;
-    if (!$f) continue; // Objective: reduce siteconfig.php, not list the whole DB.
+    if (!$f || in_array($key, $coreKeep, true)) continue;
     $d = isset($dbValues[$key]) ? $dbValues[$key] : null;
     $hasEffective = array_key_exists($key, $effective);
     $e = $hasEffective ? $effective[$key] : null;
-    $row = array('key'=>$key, 'line'=>$f['line'], 'file'=>$f['ok'] ? ca_fmt($f['value']) : $f['expression'],
-        'db'=>$d ? ($d['ok'] ? ca_fmt($d['value']) : ($d['raw'] === 'unset' ? 'unset' : 'non decodable')) : 'absent',
-        'effective'=>$hasEffective ? ca_fmt($e) : 'absent', 'action'=>'');
-    if (in_array($key, $bootstrap, true)) {
-        $row['action'] = 'Conserver : parametre de demarrage / a verifier avant changement';
-        $keep[] = $row;
-    } elseif (!$f['ok'] || !$hasEffective || !$d || !$d['ok']) {
-        $row['action'] = 'Verifier manuellement : expression, valeur effective ou DB incertaine';
-        $review[] = $row;
-    } elseif ($f['value'] === $d['value'] && $e === $d['value']) {
-        $row['action'] = 'Candidat a retirer du siteconfig APRES verification des dependances';
-        $actions[] = $row;
-    } elseif ($e === $f['value'] && $d['value'] !== $e) {
-        $row['action'] = '1. Aligner la valeur DB sur la valeur effective via Configuration Manager ; 2. Retester ; 3. Retirer cette affectation';
-        $actions[] = $row;
-    } else {
-        $row['action'] = 'Verifier la valeur cible et l ordre de chargement ; ne rien supprimer';
-        $review[] = $row;
+    // It is important not to infer priority from siteconfig alone: values can
+    // be overridden by config, user settings, or plugins during bootstrap.
+    $row = array('key'=>$key,'line'=>$f['line'],
+        'file'=>$f['ok'] ? ca_fmt($f['value']) : $f['expression'],
+        'db'=>$d ? ($d['ok'] ? ca_fmt($d['value']) : ($d['raw']==='unset'?'unset':'invalide')) : 'absent',
+        'effective'=>$hasEffective ? ca_fmt($e) : 'absent','action'=>'');
+    if (!$f['ok'] || !$d || !$d['ok'] || !$hasEffective) {
+        $row['action'] = 'A verifier : valeur ou provenance non certaine'; $review[] = $row; continue;
     }
+    if ($f['value'] === $d['value'] && $e === $d['value']) {
+        $row['action'] = 'Deja aligne : suppression envisageable apres test'; $actions[] = $row; continue;
+    }
+    if ($f['value'] !== $d['value'] && $e === $f['value']) {
+        $row['action'] = 'DB differente : confirmer la valeur voulue puis corriger la DB et retester avant suppression';
+        $actions[] = $row;
+        // Generate SQL ONLY for absolute-path strings, matching runtime and
+        // resolved static value. SQL is displayed, never run by the audit.
+        if (is_string($e) && substr($e, 0, 1) === '/' &&
+            (strpos($key,'path') !== false || strpos($key,'dir') !== false)) {
+            $table = $_TABLES['conf_values'];
+            $encoded = serialize($e);
+            $sql = "UPDATE " . $table . " SET value = '" . DB_escapeString($encoded) .
+                "' WHERE group_name = 'Core' AND name = '" . DB_escapeString($key) . "';";
+            $sqlPaths[] = array('key'=>$key,'line'=>$f['line'],'sql'=>$sql);
+        }
+        continue;
+    }
+    $row['action'] = 'Valeur effective non concordante : ne pas modifier automatiquement';
+    $review[] = $row;
 }
 function ca_table($rows) {
-    if (!$rows) { echo '<p>Aucune ligne dans cette categorie.</p>'; return; }
-    echo '<table><thead><tr><th>Cle / ligne</th><th>siteconfig.php</th><th>Base Core</th><th>Valeur chargee</th><th>Action</th></tr></thead><tbody>';
+    if (!$rows) { echo '<p>Aucune ligne.</p>'; return; }
+    echo '<table><thead><tr><th>Cle / ligne</th><th>siteconfig.php</th><th>Base</th><th>Chargee</th><th>Que faire ?</th></tr></thead><tbody>';
     foreach ($rows as $r) {
         echo '<tr><td><strong>'.ca_h($r['key']).'</strong><br><small>ligne '.(int)$r['line'].'</small></td>';
         foreach (array('file','db','effective') as $col) echo '<td><code>'.ca_h($r[$col]).'</code></td>';
@@ -215,28 +223,32 @@ function ca_table($rows) {
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
 <title>Config audit Geeklog</title><style>
 body{font:15px/1.5 system-ui,Arial,sans-serif;max-width:1250px;margin:24px auto;padding:0 16px;color:#20262d}
-h1{font-size:1.55rem}h2{font-size:1.2rem;margin-top:30px}
+h1{font-size:1.5rem}h2{font-size:1.2rem;margin-top:30px}
 table{border-collapse:collapse;width:100%;font-size:13px}
 th,td{border:1px solid #d8dde3;padding:8px;vertical-align:top;text-align:left;word-break:break-word}
 th{background:#edf1f4}tr:nth-child(even){background:#f8fafb}
-code{white-space:pre-wrap;word-break:break-word}
+code,pre{white-space:pre-wrap;word-break:break-word}
 small{color:#58606b}.warn{color:#954e00}
 @media(max-width:800px){table{display:block;overflow-x:auto}}
 </style></head><body>
-<h1>Que modifier dans la base puis dans siteconfig.php ?</h1>
-<p><strong>Domaine :</strong> <?php echo ca_h($host); ?> · <strong>siteconfig :</strong> <?php echo ca_h($sitefile); ?> · <strong>PHP :</strong> <?php echo ca_h(PHP_VERSION); ?></p>
-<p><strong><?php echo count($actions); ?></strong> candidats · <strong><?php echo count($review); ?></strong> a verifier · <strong><?php echo count($keep); ?></strong> a conserver</p>
-<p><strong>Procedure :</strong> sauvegarder la base et siteconfig.php ; modifier d'abord la configuration Core dans Geeklog ; confirmer la valeur chargee apres actualisation ; retirer seulement ensuite la ligne concernee ; tester administration et pages publiques sur chaque domaine. Aucune correction n'est appliquee par ce script.</p>
-<h2>1. Modifications candidates (base puis siteconfig)</h2>
-<p class="warn">La lecture de siteconfig.php est statique et partielle. Ces lignes sont des candidats, pas une preuve que l'affectation peut etre retiree sans risque : confirmer le bloc de domaine, les dependances et l'ordre d'initialisation. Ne pas recopier de SQL avec des valeurs serialisees a la main.</p>
+<h1>Audit de nettoyage de siteconfig.php</h1>
+<p><strong>Domaine :</strong> <?php echo ca_h($host); ?> · <strong>Fichier :</strong> <?php echo ca_h($sitefile); ?></p>
+<p><?php echo count($actions); ?> candidats · <?php echo count($review); ?> a verifier. Les cles de demarrage du siteconfig.php distribue avec Geeklog 2.2.2 ne sont pas affichees.</p>
+<h2>1. Parametres candidats a retirer de siteconfig.php</h2>
+<p>Pour chaque ligne : confirmer la valeur souhaitee, la regler d'abord dans Geeklog / sa base, controler le site sans cette affectation, puis seulement la retirer. Une valeur differente en DB et dans le fichier <strong>n'est pas</strong> « alignee », meme si la valeur chargee correspond au fichier.</p>
 <?php ca_table($actions); ?>
-<h2>2. A verifier avant toute modification</h2>
+<h2>2. Requetes SQL proposees pour les chemins</h2>
+<p class="warn">Lecture seule : aucune requete n'est executee. Ces UPDATE visent uniquement les valeurs de chemins absolus resolues et identiques a la valeur chargee, lorsque la DB est differente. Chaque valeur est serialisee par PHP, avec sa longueur exacte. Verifier domaine, table et chemin avant execution. Sauvegarder la DB, preferer Configuration Manager quand applicable, puis retester avant de modifier siteconfig.php.</p>
+<?php if (!$sqlPaths): ?><p>Aucune correction SQL de chemin suffisamment certaine a proposer.</p><?php endif; ?>
+<?php foreach ($sqlPaths as $row): ?>
+<p><strong><?php echo ca_h($row['key']); ?></strong> (ligne <?php echo (int)$row['line']; ?>)</p>
+<pre><?php echo ca_h($row['sql']); ?></pre>
+<?php endforeach; ?>
+<h2>3. A examiner manuellement</h2>
 <?php ca_table($review); ?>
-<h2>3. A conserver dans siteconfig.php</h2>
-<?php ca_table($keep); ?>
 <?php if ($errors || $parseWarnings): ?>
-<h2>Limites de l'analyse</h2>
-<?php foreach (array_merge($errors,$parseWarnings) as $err): ?><p class="warn"><?php echo ca_h($err); ?></p><?php endforeach; ?>
+<h2>Limites</h2>
+<?php foreach (array_merge($errors,$parseWarnings) as $msg): ?><p class="warn"><?php echo ca_h($msg); ?></p><?php endforeach; ?>
 <?php endif; ?>
-<p><small>Lecture seule. Valeurs sensibles masquees (<?php echo (int)$ignored; ?> cles). Conditions multisites et expressions complexes non evaluees. Supprimer ce script public apres audit.</small></p>
+<p><small>Parametres Core conserves et masques : site_enabled, path, path_system, default_charset. Egalement conserver les parametres d'amorcage FCK et les definitions VERSION/LB selon la distribution. Aucune modification executee. <?php echo (int)$ignored; ?> cles sensibles non affichees.</small></p>
 </body></html>
