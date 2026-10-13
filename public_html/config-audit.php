@@ -219,7 +219,7 @@ function ca_equal($key, $a, $b) {
 $coreKeep = array('site_enabled','path','path_system','default_charset');
 $keys = array_unique(array_merge(array_keys($fileValues), array_keys($dbValues)));
 sort($keys, SORT_STRING);
-$actions = array(); $review = array(); $sqlPaths = array(); $ignored = 0;
+$actions = array(); $review = array(); $sqlPaths = array(); $sqlConfig = array(); $ignored = 0;
 $globalActions = array(); $siteActions = array(); $scopeUncertain = array();
 foreach ($keys as $key) {
     if (ca_sensitive($key)) { $ignored++; continue; }
@@ -247,6 +247,20 @@ foreach ($keys as $key) {
         $row['action'] = 'DB differente : confirmer la valeur voulue puis corriger la DB et retester avant suppression';
         $actions[] = $row;
         if ($row['scope']==='global') $globalActions[]=$row; else $siteActions[]=$row;
+        // Safe, conditional SQL for configuration settings not editable via UI.
+        // Preserve the original DB value in WHERE to avoid overwriting later changes.
+        if (in_array($key, array('likes_enabled','site_admin_url','site_url'), true) &&
+            isset($_TABLES['conf_values']) && $row['scope'] !== 'uncertain') {
+            $newValue = ($key === 'likes_enabled') ? (int)$e : $e;
+            $oldSql = DB_escapeString($d['raw']);
+            $newSql = DB_escapeString(serialize($newValue));
+            $nameSql = DB_escapeString($key);
+            $sqlConfig[] = array('key'=>$key, 'line'=>$f['line'],
+                'sql'=>"UPDATE " . $_TABLES['conf_values'] .
+                    " SET value = '" . $newSql . "'" .
+                    " WHERE group_name = 'Core' AND name = '" . $nameSql . "'" .
+                    " AND value = '" . $oldSql . "';");
+        }
         // Generate SQL ONLY for absolute-path strings, matching runtime and
         // resolved static value. SQL is displayed, never run by the audit.
         if (is_string($e) && substr($e, 0, 1) === '/' &&
@@ -292,14 +306,21 @@ small{color:#58606b}.warn{color:#954e00}
 <h2>2. Parametres du site courant (blocs de domaine)</h2>
 <p>Pour chaque ligne : confirmer la valeur souhaitee, la regler d'abord dans Geeklog / sa base, controler le site sans cette affectation, puis seulement la retirer. Une valeur differente en DB et dans le fichier <strong>n'est pas</strong> « alignee », meme si la valeur chargee correspond au fichier.</p>
 <?php ca_table($siteActions); ?>
-<h2>3. Requetes SQL proposees pour les chemins</h2>
+<h2>3. Requetes SQL pour les parametres Core a corriger</h2>
+<p class="warn">Requetes proposees pour likes_enabled, site_admin_url et site_url seulement quand la valeur chargee est identique a celle du fichier et differente de la base. Sauvegarder d'abord la base et verifier le domaine et la table. L'UPDATE ne s'applique que si la valeur en base est toujours celle lue pendant l'audit. Chaque valeur est serialisee correctement.</p>
+<?php if (!$sqlConfig): ?><p>Aucune de ces trois valeurs ne necessite de correction SQL.</p><?php endif; ?>
+<?php foreach ($sqlConfig as $item): ?>
+<p><strong><?php echo ca_h($item['key']); ?></strong> (ligne <?php echo (int)$item['line']; ?>)</p>
+<pre><?php echo ca_h($item['sql']); ?></pre>
+<?php endforeach; ?>
+<h2>4. Requetes SQL proposees pour les chemins</h2>
 <p class="warn">Lecture seule : aucune requete n'est executee. Ces UPDATE visent uniquement les valeurs de chemins absolus resolues et identiques a la valeur chargee, lorsque la DB est differente. Chaque valeur est serialisee par PHP, avec sa longueur exacte. Verifier domaine, table et chemin avant execution. Sauvegarder la DB, preferer Configuration Manager quand applicable, puis retester avant de modifier siteconfig.php.</p>
 <?php if (!$sqlPaths): ?><p>Aucune correction SQL de chemin suffisamment certaine a proposer.</p><?php endif; ?>
 <?php foreach ($sqlPaths as $row): ?>
 <p><strong><?php echo ca_h($row['key']); ?></strong> (ligne <?php echo (int)$row['line']; ?>)</p>
 <pre><?php echo ca_h($row['sql']); ?></pre>
 <?php endforeach; ?>
-<h2>4. A examiner manuellement</h2>
+<h2>5. A examiner manuellement</h2>
 <?php ca_table($review); ?>
 <?php if ($errors || $parseWarnings): ?>
 <h2>Limites</h2>
