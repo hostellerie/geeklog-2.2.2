@@ -166,6 +166,19 @@ if (!isset($_TABLES['conf_values'])) {
         }
     }
 }
+// PHP booleans and integer 0/1 are equivalent for Geeklog select flags.
+// Preserve strict comparison for paths, URLs and all other strings.
+function ca_equal($key, $a, $b) {
+    $flags = array('likes_enabled', 'likes_articles', 'likes_comments');
+    if (in_array($key, $flags, true)) {
+        $isFlag = function ($v) {
+            return is_bool($v) || is_int($v) && ($v === 0 || $v === 1)
+                || is_string($v) && ($v === '0' || $v === '1');
+        };
+        if ($isFlag($a) && $isFlag($b)) return (int)$a === (int)$b;
+    }
+    return $a === $b;
+}
 // Keep the startup settings that the distributed siteconfig.php explicitly defines.
 // These are not cleanup candidates (even when DB differs).
 $coreKeep = array('site_enabled','path','path_system','default_charset');
@@ -188,10 +201,10 @@ foreach ($keys as $key) {
     if (!$f['ok'] || !$d || !$d['ok'] || !$hasEffective) {
         $row['action'] = 'A verifier : valeur ou provenance non certaine'; $review[] = $row; continue;
     }
-    if ($f['value'] === $d['value'] && $e === $d['value']) {
+    if (ca_equal($key, $f['value'], $d['value']) && ca_equal($key, $e, $d['value'])) {
         $row['action'] = 'Deja aligne : suppression envisageable apres test'; $actions[] = $row; continue;
     }
-    if ($f['value'] !== $d['value'] && $e === $f['value']) {
+    if (!ca_equal($key, $f['value'], $d['value']) && ca_equal($key, $e, $f['value'])) {
         $row['action'] = 'DB differente : confirmer la valeur voulue puis corriger la DB et retester avant suppression';
         $actions[] = $row;
         // Generate SQL ONLY for absolute-path strings, matching runtime and
