@@ -112,33 +112,66 @@ function ca_expr($expr, $known, &$ok) {
     }
     return $output;
 }
-/** Limited static analysis of the simple host blocks used by this deployment.
- * Unknown syntax is explicitly flagged rather than executed or guessed.
+/**
+ * Conservative source scope classifier. Never execute siteconfig.php twice.
+ * Global: outside any conditional; site: directly under a known host guard;
+ * uncertain: nested or unsupported condition. Braces in comments/strings can
+ * make the scope uncertain; no automatic removal is advised in that case.
  */
 function ca_siteconfig($file, $host) {
     $out = array(); $problems = array();
     if (!is_readable($file)) return array($out, array('siteconfig.php illisible'));
     $lines = file($file);
-    $inHost = false; $active = true;
+    $depth = 0; $guards = array(); $pending = null;
     foreach ($lines as $num => $line) {
         $s = trim($line);
-        if (preg_match('/^if\s*\(.*\$_SERVER\s*\[\s*[\'\"]HTTP_HOST[\'\"]\s*\]/', $s)) {
-            $inHost = true;
-            preg_match_all('/(?:==|===)\s*[\'\"]([^\'\"]+)[\'\"]/', $s, $matches);
-            $active = in_array($host, $matches[1], true);
-            if (empty($matches[1])) $problems[] = 'Condition de domaine non analysee a la ligne ' . ($num + 1);
-            continue;
+        if ($s === '' || strpos($s, '//') === 0 || strpos($s, '#') === 0 ||
+            strpos($s, '*') === 0) continue;
+        // Only simple, single-line comparisons to HTTP_HOST are confidently scoped.
+        if (preg_match('/^\}?\s*(?:if|elseif)\s*\((.*)\)\s*\{?\s*$/', $s, $condition)) {
+            $matches = array();
+            preg_match_all('/\$_SERVER\s*\[\s*[\x27"]HTTP_HOST[\x27"]\s*\]\s*={2,3}\s*[\x27"]([^\x27"]+)[\x27"]/', $condition[1], $matches);
+            $guard = array('kind'=>'unknown','active'=>false);
+            if (count($matches[1]) > 0 &&
+                strpos($condition[1], '||') === false && strpos($condition[1], '&&') === false &&
+                !preg_match('/!={1,2}|preg_match|strpos|stripos/', $condition[1])) {
+                $guard = array('kind'=>'site','active'=>in_array($host,$matches[1],true));
+            }
+            // If/elseif on the same nesting level: previous branch has closed.
+            if (substr($s,0,1) === '}') {
+                while ($guards && end($guards)['depth'] >= $depth) array_pop($guards);
+            }
+            $pending = $guard;
         }
-        if ($inHost && $s === '}') { $inHost = false; $active = true; continue; }
-        if (!$active || $s === '' || substr($s, 0, 2) === '//') continue;
-        if (preg_match('/^\$_CONF\[\s*[\'\"]([^\'\"]+)[\'\"]\s*\]\s*=\s*(.+?)\s*;\s*(?:\/\/.*)?$/', $s, $m)) {
-            $key = $m[1]; $ok = true;
-            $val = ca_expr($m[2], $out, $ok);
-            $out[$key] = array('value' => $val, 'ok' => $ok, 'line' => $num + 1, 'expression' => $m[2]);
+        $active = true; $scope = 'global';
+        foreach ($guards as $g) {
+            if ($g['kind'] === 'unknown') $scope='uncertain';
+            elseif ($scope !== 'uncertain') $scope='site';
+            if (!$g['active']) $active=false;
+        }
+        // Parse only lines without curly braces; they should be simple assignments.
+        if ($active && preg_match('/^\$_CONF\[\s*[\x27"]([^\x27"]+)[\x27"]\s*\]\s*=\s*(.+?)\s*;\s*(?:\/\/.*)?$/', $s, $m)) {
+            $key=$m[1]; $ok=true; $val=ca_expr($m[2],$out,$ok);
+            $out[$key]=array('value'=>$val,'ok'=>$ok,'line'=>$num+1,
+                'expression'=>$m[2],'scope'=>$scope);
+        }
+        // Conservative brace tracking; guard decisions refer to opening braces.
+        $opens = substr_count($s,'{'); $closes=substr_count($s,'}');
+        for ($i=0;$i<$closes;$i++) {
+            if ($depth>0) $depth--;
+            while ($guards && end($guards)['depth'] > $depth) array_pop($guards);
+        }
+        for ($i=0;$i<$opens;$i++) {
+            $depth++;
+            if ($pending !== null) {
+                $pending['depth']=$depth; $guards[]=$pending; $pending=null;
+            } else {
+                $guards[]=array('kind'=>'unknown','active'=>true,'depth'=>$depth);
+            }
         }
     }
-    $problems[] = 'Analyse siteconfig partielle : conditions elseif, blocs imbriques, affectations dynamiques et FCK non resolus de facon certaine. Comparer aux valeurs effectives.';
-    return array($out, $problems);
+    $problems[]='Portee statique indicative : conditions complexes, accolades sur une ligne et affectations dynamiques demandent verification manuelle.';
+    return array($out,$problems);
 }
 
 $host = isset($_SERVER['HTTP_HOST']) ? strtolower(preg_replace('/:[0-9]+$/', '', $_SERVER['HTTP_HOST'])) : '';
@@ -185,6 +218,7 @@ $coreKeep = array('site_enabled','path','path_system','default_charset');
 $keys = array_unique(array_merge(array_keys($fileValues), array_keys($dbValues)));
 sort($keys, SORT_STRING);
 $actions = array(); $review = array(); $sqlPaths = array(); $ignored = 0;
+$globalActions = array(); $siteActions = array(); $scopeUncertain = array();
 foreach ($keys as $key) {
     if (ca_sensitive($key)) { $ignored++; continue; }
     $f = isset($fileValues[$key]) ? $fileValues[$key] : null;
@@ -195,18 +229,22 @@ foreach ($keys as $key) {
     // It is important not to infer priority from siteconfig alone: values can
     // be overridden by config, user settings, or plugins during bootstrap.
     $row = array('key'=>$key,'line'=>$f['line'],
-        'file'=>$f['ok'] ? ca_fmt($f['value']) : $f['expression'],
+        'file'=>$f['ok'] ? ca_fmt($f['value']) : $f['expression'], 'scope'=>isset($f['scope']) ? $f['scope'] : 'uncertain',
         'db'=>$d ? ($d['ok'] ? ca_fmt($d['value']) : ($d['raw']==='unset'?'unset':'invalide')) : 'absent',
         'effective'=>$hasEffective ? ca_fmt($e) : 'absent','action'=>'');
+    if ($row['scope'] === 'uncertain') {
+        $row['action']='Portee incertaine : ne pas retirer sans examen'; $review[]=$row; continue;
+    }
     if (!$f['ok'] || !$d || !$d['ok'] || !$hasEffective) {
         $row['action'] = 'A verifier : valeur ou provenance non certaine'; $review[] = $row; continue;
     }
     if (ca_equal($key, $f['value'], $d['value']) && ca_equal($key, $e, $d['value'])) {
-        $row['action'] = 'Deja aligne : suppression envisageable apres test'; $actions[] = $row; continue;
+        $row['action'] = 'Deja aligne : suppression envisageable apres test'; $actions[] = $row; if ($row['scope']==='global') $globalActions[]=$row; else $siteActions[]=$row; continue;
     }
     if (!ca_equal($key, $f['value'], $d['value']) && ca_equal($key, $e, $f['value'])) {
         $row['action'] = 'DB differente : confirmer la valeur voulue puis corriger la DB et retester avant suppression';
         $actions[] = $row;
+        if ($row['scope']==='global') $globalActions[]=$row; else $siteActions[]=$row;
         // Generate SQL ONLY for absolute-path strings, matching runtime and
         // resolved static value. SQL is displayed, never run by the audit.
         if (is_string($e) && substr($e, 0, 1) === '/' &&
@@ -247,17 +285,19 @@ small{color:#58606b}.warn{color:#954e00}
 <h1>Audit de nettoyage de siteconfig.php</h1>
 <p><strong>Domaine :</strong> <?php echo ca_h($host); ?> · <strong>Fichier :</strong> <?php echo ca_h($sitefile); ?></p>
 <p><?php echo count($actions); ?> candidats · <?php echo count($review); ?> a verifier. Les cles de demarrage du siteconfig.php distribue avec Geeklog 2.2.2 ne sont pas affichees.</p>
-<h2>1. Parametres candidats a retirer de siteconfig.php</h2>
+<h2>1. Parametres globaux (hors blocs de domaines)</h2>
+<?php ca_table($globalActions); ?>
+<h2>2. Parametres du site courant (blocs de domaine)</h2>
 <p>Pour chaque ligne : confirmer la valeur souhaitee, la regler d'abord dans Geeklog / sa base, controler le site sans cette affectation, puis seulement la retirer. Une valeur differente en DB et dans le fichier <strong>n'est pas</strong> « alignee », meme si la valeur chargee correspond au fichier.</p>
-<?php ca_table($actions); ?>
-<h2>2. Requetes SQL proposees pour les chemins</h2>
+<?php ca_table($siteActions); ?>
+<h2>3. Requetes SQL proposees pour les chemins</h2>
 <p class="warn">Lecture seule : aucune requete n'est executee. Ces UPDATE visent uniquement les valeurs de chemins absolus resolues et identiques a la valeur chargee, lorsque la DB est differente. Chaque valeur est serialisee par PHP, avec sa longueur exacte. Verifier domaine, table et chemin avant execution. Sauvegarder la DB, preferer Configuration Manager quand applicable, puis retester avant de modifier siteconfig.php.</p>
 <?php if (!$sqlPaths): ?><p>Aucune correction SQL de chemin suffisamment certaine a proposer.</p><?php endif; ?>
 <?php foreach ($sqlPaths as $row): ?>
 <p><strong><?php echo ca_h($row['key']); ?></strong> (ligne <?php echo (int)$row['line']; ?>)</p>
 <pre><?php echo ca_h($row['sql']); ?></pre>
 <?php endforeach; ?>
-<h2>3. A examiner manuellement</h2>
+<h2>4. A examiner manuellement</h2>
 <?php ca_table($review); ?>
 <?php if ($errors || $parseWarnings): ?>
 <h2>Limites</h2>
