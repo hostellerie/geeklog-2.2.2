@@ -1,0 +1,39 @@
+name: Nightly source tarball
+
+on:
+  schedule:
+    - cron: '25 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          persist-credentials: false
+
+      - name: Create source archive and checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          DATE="$(date -u +%Y%m%d)"
+          SHA="$(git rev-parse --short=12 HEAD)"
+          ARCHIVE="geeklog-nightly-${DATE}-${SHA}.tar.gz"
+          git archive --format=tar --prefix=geeklog/ HEAD | gzip -n > "dist/${ARCHIVE}"
+          (cd dist && sha256sum "${ARCHIVE}" > "${ARCHIVE}.sha256")
+          printf 'Source revision: %s\nBuild date (UTC): %s\nNot an official stable release.\n' "$(git rev-parse HEAD)" "$(date -u +%FT%TZ)" > dist/BUILD-INFO.txt
+
+      - name: Upload source archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: geeklog-nightly-source
+          path: dist/
+          retention-days: 30
+          if-no-files-found: error
