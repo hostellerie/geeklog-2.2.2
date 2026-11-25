@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - native-media-library-pr
+      - native-media-library-2.2.2-preview
     paths:
       - 'public_html/filemanager/index.php'
       - 'public_html/filemanager/api.php'
@@ -103,7 +103,7 @@ jobs:
             geeklog-2.2.2-native-media-library-preview-1.zip.sha256
           retention-days: 60
       - name: Publish pinned community preview as GitHub prerelease
-        if: github.event_name == 'push' && github.ref == 'refs/heads/native-media-library-pr'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/native-media-library-2.2.2-preview'
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: native-media-library-2.2.2-preview.1
