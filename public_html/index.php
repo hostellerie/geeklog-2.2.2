@@ -476,20 +476,22 @@ $display = $tt->finish($tt->get_var('output'));
 
 $header = '';
 if (!empty($current_topic)) {
+    // Canonical URLs for topic listings, including paginated pages.
+    // Use the same topic URL helper as the pagination navigation.
+    $canonicalUrl = TOPIC_getUrl($current_topic);
+    if ($page > 1) {
+        if ($_CONF['url_rewrite']) {
+            $canonicalUrl = rtrim($canonicalUrl, '/') . '/' . $page;
+        } else {
+            $canonicalUrl .= (strpos($canonicalUrl, '?') === false ? '?' : '&') . 'page=' . $page;
+        }
+    }
+
     // Register the topic listing through the core structured data mechanism.
     if (is_array($A) && !empty($A['tid'])) {
-        $topic_url = TOPIC_getUrl($current_topic);
-        if ($page > 1) {
-            if ($_CONF['url_rewrite']) {
-                $topic_url .= '/' . $page;
-            } else {
-                $topic_url .= '&page=' . $page;
-            }
-        }
-
         $properties = array(
             'name' => stripslashes($title),
-            'url' => $topic_url,
+            'url' => $canonicalUrl,
         );
         if (!empty($A['meta_description'])) {
             $properties['description'] = stripslashes($A['meta_description']);
@@ -515,16 +517,6 @@ if (!empty($current_topic)) {
             );
     }
 
-    // Canonical URLs for topic listings, including paginated pages.
-    // Use the same topic URL helper as the pagination navigation.
-    $canonicalUrl = TOPIC_getUrl($current_topic);
-    if ($page > 1) {
-        if ($_CONF['url_rewrite']) {
-            $canonicalUrl = rtrim($canonicalUrl, '/') . '/' . $page;
-        } else {
-            $canonicalUrl .= (strpos($canonicalUrl, '?') === false ? '?' : '&') . 'page=' . $page;
-        }
-    }
     $header .= LB . '<link rel="canonical" href="'
         . htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8') . '"' . XHTML . '>';
 
