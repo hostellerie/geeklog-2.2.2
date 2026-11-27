@@ -2183,13 +2183,9 @@ function plugin_getiteminfo_topic($tid, $what, $uid = 0, $options = array())
                     break;
 
                 case 'url':
-                    if (empty($A['tid'])) {
-                        $props['url'] = COM_buildURL($_CONF['site_url']
-                            . '/index.php?topic=' . $tid);
-                    } else {
-                        $props['url'] = COM_buildURL($_CONF['site_url']
-                            . '/index.php?topic=' . $A['tid']);
-                    }
+                    $props['url'] = TOPIC_getUrl(
+                        empty($A['tid']) ? $tid : $A['tid']
+                    );
                     break;
 
                 default:
