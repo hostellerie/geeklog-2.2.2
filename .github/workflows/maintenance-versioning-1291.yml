@@ -59,3 +59,40 @@ jobs:
             ${{ runner.temp }}/geeklog-update-1291/geeklog-2.2.3.1.zip
             ${{ runner.temp }}/geeklog-update-1291/metadata.json
           retention-days: 7
+
+  sql-schema:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        database: [mysql, pgsql]
+    services:
+      mysql:
+        image: mariadb:10.11
+        env:
+          MARIADB_ROOT_PASSWORD: root_test_only
+          MARIADB_DATABASE: geeklog_lab
+          MARIADB_USER: geeklog
+          MARIADB_PASSWORD: geeklog_test_only
+        ports:
+          - 3306:3306
+        options: --health-cmd="healthcheck.sh --connect --innodb_initialized" --health-interval=5s --health-timeout=5s --health-retries=20
+      pgsql:
+        image: postgres:16
+        env:
+          POSTGRES_DB: geeklog_lab
+          POSTGRES_USER: geeklog
+          POSTGRES_PASSWORD: geeklog_test_only
+        ports:
+          - 5432:5432
+        options: --health-cmd="pg_isready -U geeklog -d geeklog_lab" --health-interval=5s --health-timeout=5s --health-retries=20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          extensions: zip, openssl, posix, pdo_mysql, pdo_pgsql
+      - run: python3 tests/update-package-builder-1291.py "$RUNNER_TEMP/geeklog-update-1291"
+      - run: php -l system/classes/UpdateSchemaLab.php
+      - run: php tests/update-schema-sql-1291.php "$RUNNER_TEMP/geeklog-update-1291" "${{ matrix.database }}"
