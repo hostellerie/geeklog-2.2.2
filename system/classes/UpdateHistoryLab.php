@@ -72,14 +72,8 @@ final class UpdateHistoryLab
         return hash('sha256', json_encode($history));
     }
 
-    public static function record($root, array $update, $transaction, $before)
+    public static function plan(array $history, array $update, $transaction, $before)
     {
-        if (PHP_SAPI !== 'cli' || !is_string($root) || realpath($root) !== $root ||
-            is_link($root . '/.geeklog-update-lab') || !is_file($root . '/.geeklog-update-lab') ||
-            file_get_contents($root . '/.geeklog-update-lab') !== 'geeklog-update-laboratory-v1') {
-            throw new \RuntimeException('Disposable CLI laboratory required');
-        }
-        $history = self::read($root);
         $receipt = array('id' => $update['id'], 'sha256' => $update['package']['sha256'],
             'transaction' => $transaction, 'supersedes' => $update['supersedes']);
         if (count($history) > 0 && end($history) === $receipt) {
@@ -99,6 +93,22 @@ final class UpdateHistoryLab
         if (!is_string($bytes) || strlen($bytes) > 1048576) {
             throw new \RuntimeException('Update history exceeds limit');
         }
+        return $next;
+    }
+
+    public static function record($root, array $update, $transaction, $before)
+    {
+        if (PHP_SAPI !== 'cli' || !is_string($root) || realpath($root) !== $root ||
+            is_link($root . '/.geeklog-update-lab') || !is_file($root . '/.geeklog-update-lab') ||
+            file_get_contents($root . '/.geeklog-update-lab') !== 'geeklog-update-laboratory-v1') {
+            throw new \RuntimeException('Disposable CLI laboratory required');
+        }
+        $history = self::read($root);
+        $next = self::plan($history, $update, $transaction, $before);
+        if ($next === $history) {
+            return $history;
+        }
+        $bytes = json_encode($next);
         $path = $root . '/.gl-lab-history.json';
         $random = openssl_random_pseudo_bytes(16, $strong);
         if ($random === false || !$strong) {
