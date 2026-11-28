@@ -37,6 +37,7 @@ function makeLab1291($name, $marked = true)
     file_put_contents($lab . '/public_html/example.php', "<?php // old\n");
     chmod($lab . '/public_html/example.php', 0640);
     file_put_contents($lab . '/public_html/siteconfig.php', 'protected');
+    file_put_contents($lab . '/.gl-lab-version.json', json_encode(array('code' => '2.2.3', 'schema' => '2.2.3')));
     if ($marked) {
         file_put_contents($lab . '/.geeklog-update-lab', UpdateTransactionLab::MARKER);
     }
@@ -136,5 +137,48 @@ $lab = makeLab1291('maintenance-unmarked', false);
 refused1291('unmarked request refused', function () use ($lab) { online1291($lab); });
 refused1291('unmarked writer refused', function () use ($lab) { maintenanceRun1291($lab); });
 check1291('unmarked tree unchanged', original1291($lab) && !file_exists($lab . '/.gl-maintenance.lock'));
+
+function finalize1291($lab)
+{
+    return UpdateMaintenanceLab::finalize($lab, $GLOBALS['archive'], $GLOBALS['update']);
+}
+function version1291($lab)
+{
+    return json_decode(file_get_contents($lab . '/.gl-lab-version.json'), true);
+}
+$old = array('code' => '2.2.3', 'schema' => '2.2.3');
+$new = array('code' => '2.2.3.1', 'schema' => '2.2.3');
+$lab = makeLab1291('finalize-success');
+$result = maintenanceRun1291($lab);
+$state = json_decode(file_get_contents($lab . '/.gl-maintenance-active'), true);
+check1291('marker bound to exact transaction', basename($result['transaction']) === '.gl-transaction-' . $state['transaction']);
+check1291('version unchanged until finalization', version1291($lab) === $old && !online1291($lab));
+$result = finalize1291($lab);
+check1291('verified commit finalized', $result['status'] === 'finalized' && version1291($lab) === $new && online1291($lab));
+check1291('schema and siteconfig preserved', version1291($lab)['schema'] === '2.2.3' &&
+    file_get_contents($lab . '/public_html/siteconfig.php') === 'protected');
+refused1291('finalization replay refused', function () use ($lab) { finalize1291($lab); });
+$lab = makeLab1291('finalize-tamper');
+maintenanceRun1291($lab);
+file_put_contents($lab . '/system/classes/Added.php', 'custom change');
+refused1291('changed installed payload blocks finalization', function () use ($lab) { finalize1291($lab); });
+check1291('unverified code stays offline and version unchanged', !online1291($lab) && version1291($lab) === $old);
+$lab = makeLab1291('finalize-wrong-version');
+maintenanceRun1291($lab);
+file_put_contents($lab . '/.gl-lab-version.json', json_encode(array('code' => '2.2.4', 'schema' => '2.2.3')));
+refused1291('unexpected source version refused', function () use ($lab) { finalize1291($lab); });
+check1291('unexpected version preserved offline', version1291($lab)['code'] === '2.2.4' && !online1291($lab));
+$lab = makeLab1291('finalize-resume');
+maintenanceRun1291($lab);
+// Simulate death after atomic version write, but before marker removal.
+file_put_contents($lab . '/.gl-lab-version.json', json_encode($new));
+check1291('resume after version write', finalize1291($lab)['status'] === 'finalized' && online1291($lab));
+$lab = makeLab1291('finalize-wrong-tx');
+maintenanceRun1291($lab);
+$state = json_decode(file_get_contents($lab . '/.gl-maintenance-active'), true);
+$state['transaction'] = str_repeat('a', 32);
+file_put_contents($lab . '/.gl-maintenance-active', json_encode($state));
+refused1291('unrelated transaction refused', function () use ($lab) { finalize1291($lab); });
+check1291('unrelated transaction remains offline', !online1291($lab) && version1291($lab) === $old);
 echo "TOTAL: $passed/$total maintenance cases passed\n";
 exit($passed === $total ? 0 : 1);
