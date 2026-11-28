@@ -89,5 +89,15 @@ foreach (array('2.2.3b1', '2.2.3rc1', '2.2.3', '2.2.3sr1', '2.2.3-1', '2.2.3.1',
     echo $version . ' => ' . COM_versionConvert($version) . "\n";
 }
 echo 'Legacy vs dotted patch: ' . COM_versionCompare('2.2.3-1', '2.2.3.1') . "\n";
+foreach (array(
+    array('2.2.3-1', '2.2.3.1'),
+    array('2.2.3-2', '2.2.3.2'),
+    array('2.2.3-1rc1', '2.2.3.1rc1')
+) as $case) {
+    $ok = COM_versionCompare($case[0], $case[1]) === 0;
+    $total++;
+    $passed += $ok ? 1 : 0;
+    echo ($ok ? 'PASS' : 'FAIL') . ': ' . $case[0] . ' == ' . $case[1] . "\n";
+}
 echo "TOTAL: $passed/$total ordering cases passed\n";
 exit($passed === $total ? 0 : 1);
