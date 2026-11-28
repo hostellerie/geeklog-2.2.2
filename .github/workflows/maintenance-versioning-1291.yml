@@ -29,3 +29,5 @@ jobs:
       - run: php -l public_html/admin/install/classes/Common.php
       - run: php -l tests/maintenance-schema-1291.php
       - run: php tests/maintenance-schema-1291.php
+      - run: php -l tests/maintenance-version-write-1291.php
+      - run: php tests/maintenance-version-write-1291.php
