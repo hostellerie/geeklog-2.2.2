@@ -64,6 +64,12 @@ $display = COM_showMessageFromParameter()
          .  security_check_reminder()
          .  COM_commandControl();
 
+if (SEC_inGroup('Root') && isset($_CONF['core_update_status']) && $_CONF['core_update_status'] === true) {
+    $label = strpos(COM_getLanguage(), 'french') === 0 ? 'Mises à jour du noyau' : 'Core updates';
+    $display .= '<p><a href="' . htmlspecialchars($_CONF['site_admin_url'] . '/coreupdates.php', ENT_QUOTES, 'UTF-8') .
+        '">' . htmlspecialchars($label, ENT_QUOTES, 'UTF-8') . '</a></p>';
+}
+
 $display = COM_createHTMLDocument($display, array('pagetitle' => $LANG29[34]));
 
 COM_output($display);
