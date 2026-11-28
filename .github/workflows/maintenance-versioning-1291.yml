@@ -101,13 +101,24 @@ jobs:
 
   https-staging:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mariadb:10.11
+        env:
+          MARIADB_ROOT_PASSWORD: root_test_only
+          MARIADB_DATABASE: geeklog_lab
+          MARIADB_USER: geeklog
+          MARIADB_PASSWORD: geeklog_test_only
+        ports:
+          - 3306:3306
+        options: --health-cmd="healthcheck.sh --connect --innodb_initialized" --health-interval=5s --health-timeout=5s --health-retries=20
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
           coverage: none
-          extensions: zip, openssl, curl
+          extensions: zip, openssl, curl, pdo_mysql, posix
       - run: python3 tests/update-package-builder-1291.py "$RUNNER_TEMP/geeklog-update-1291"
       - run: |
           openssl req -x509 -newkey rsa:2048 -nodes -days 1 -subj /CN=localhost -addext subjectAltName=DNS:localhost -keyout "$RUNNER_TEMP/tls.key" -out "$RUNNER_TEMP/tls.pem"
@@ -118,3 +129,4 @@ jobs:
           done
           php -l system/classes/UpdateDownloadLab.php
           php -d curl.cainfo="$RUNNER_TEMP/tls.pem" tests/update-download-1291.php "$RUNNER_TEMP/geeklog-update-1291"
+          php -d curl.cainfo="$RUNNER_TEMP/tls.pem" tests/update-runner-1291.php "$RUNNER_TEMP/geeklog-update-1291"
