@@ -10,12 +10,14 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if self.path == '/redirect.zip':
             self.send_response(302)
             self.send_header('Location', 'https://localhost/good.zip')
+            self.send_header('Content-Length', '0')
             self.end_headers()
             return
         bodies = {'/good.zip': payload, '/short.zip': payload[:-1],
                   '/long.zip': payload + b'x', '/bad.zip': b'x' + payload[1:]}
         body = bodies.get(self.path)
         self.send_response(200 if body is not None else 404)
+        self.send_header('Content-Length', str(len(body) if body is not None else 0))
         self.end_headers()
         if body is not None:
             self.wfile.write(body)
