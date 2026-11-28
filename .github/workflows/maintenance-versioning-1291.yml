@@ -47,6 +47,9 @@ jobs:
       - run: php tests/update-transaction-1291.php "$RUNNER_TEMP/geeklog-update-1291"
       - run: php -l tests/update-recovery-1291.php
       - run: php tests/update-recovery-1291.php "$RUNNER_TEMP/geeklog-update-1291"
+      - run: php -l system/classes/UpdateMaintenanceLab.php
+      - run: php -l tests/update-maintenance-1291.php
+      - run: php tests/update-maintenance-1291.php "$RUNNER_TEMP/geeklog-update-1291"
       - name: Upload experimental fixture (not a release)
         if: matrix.php == '8.4'
         uses: actions/upload-artifact@v4
