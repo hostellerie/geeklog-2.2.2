@@ -96,5 +96,11 @@ patch = builder.build(base, target, fixture / "patch-1291.zip", "patch-1291",
                       "patch", "2.2.3", "2.2.3", "2.2.3", paths)
 (fixture / "patch-metadata.json").write_text(json.dumps(patch))
 
+next_target = fixture / "next-target"
+(next_target / "public_html").mkdir(parents=True)
+(next_target / "public_html/example.php").write_text("<?php // cumulative\\n".replace("\\n", "\n"))
+cumulative = builder.build(target, next_target, fixture / "cumulative.zip", "geeklog-2.2.3.1",
+                           "release", "2.2.3", "2.2.3.1", "2.2.3", ["public_html/example.php"])
+(fixture / "cumulative-metadata.json").write_text(json.dumps(cumulative))
 print(f"TOTAL: {passed}/{total} builder cases passed")
 sys.exit(0 if passed == total else 1)
