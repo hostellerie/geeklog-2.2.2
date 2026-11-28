@@ -19,6 +19,10 @@ abstract class Common
     // Geeklog version
     const GL_VERSION = '2.2.2';
 
+    // Override only when a maintenance release changes the database schema.
+    // NULL keeps the schema at the three-component release version.
+    const GL_DATABASE_VERSION = null;
+
     // System requirements
     const SUPPORTED_PHP_VER = '5.6.4';
     const SUPPORTED_MYSQL_VER = '4.1.3';
@@ -428,6 +432,35 @@ abstract class Common
     }
 
     /**
+     * Normalize a database schema identifier, retaining maintenance revisions.
+     * Historical prerelease/security suffixes did not identify a schema change.
+     */
+    protected static function normalizeDatabaseVersion($version)
+    {
+        if (!is_string($version) ||
+            !preg_match('/^([0-9]+\.[0-9]+\.[0-9]+)(?:(?:\.|-)([0-9]+))?(?:(?:b|rc|sr)[0-9]+)?$/Di', $version, $matches)) {
+            return '';
+        }
+
+        return $matches[1] . (!empty($matches[2]) ? '.' . $matches[2] : '');
+    }
+
+    /**
+     * Determine the schema version independently of code-only maintenance releases.
+     */
+    protected static function getTargetDatabaseVersion()
+    {
+        if (static::GL_DATABASE_VERSION !== null) {
+            return self::normalizeDatabaseVersion(static::GL_DATABASE_VERSION);
+        }
+
+        $version = self::normalizeDatabaseVersion(static::GL_VERSION);
+        $parts = explode('.', $version);
+
+        return implode('.', array_slice($parts, 0, 3));
+    }
+
+    /**
      * Set Geeklog version number in siteconfig.php and in the database
      *
      * @param  string  $siteConfigFilePath  path to siteconfig.php
@@ -447,16 +480,8 @@ abstract class Common
             exit(Common::$LANG['INSTALL'][26] . ' ' . Common::$LANG['INSTALL'][28]);
         }
 
-        // for the database version, get rid of any appendices ('sr1' etc.)
-        $version = self::GL_VERSION;
-        $v = explode('.', self::GL_VERSION);
-
-        if (count($v) === 3) {
-            $v[2] = (int) $v[2];
-            $version = implode('.', $v);
-        }
-
-        $version = DB_escapeString($version);
+        // Code-only maintenance releases leave the schema version unchanged.
+        $version = DB_escapeString(self::getTargetDatabaseVersion());
         DB_change($_TABLES['vars'], 'value', $version, 'name', 'database_version');
     }
 
@@ -804,14 +829,9 @@ abstract class Common
             $dbVersion = DB_getItem($_TABLES['vars'], 'value', "name = 'database_version'");
 
             if (!empty($dbVersion)) {
-                $v = explode('.', $dbVersion);
-
-                if (count($v) === 3) {
-                    $v[2] = (int) $v[2];
-                    $version = implode('.', $v);
-
-                    return $version;
-                }
+                // Retain an explicit maintenance schema revision; never guess an
+                // older schema when a stored identifier is malformed.
+                return self::normalizeDatabaseVersion($dbVersion);
             }
         }
 
@@ -1617,6 +1637,9 @@ abstract class Common
                     break;
 
                 default:
+                    if ($currentGlVersion !== self::getTargetDatabaseVersion()) {
+                        return false;
+                    }
                     $done = true;
                     break;
             }
