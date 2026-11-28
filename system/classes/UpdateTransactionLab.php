@@ -117,7 +117,8 @@ final class UpdateTransactionLab
                     self::requireValid(self::matches($path, null), 'Added file still exists');
                 } else {
                     $backup = $tx . '/backup-' . $entry['index'];
-                    $bytes = file_get_contents($backup);
+                    self::requireValid(self::matches($backup, $file['before']), 'Backup integrity mismatch');
+                    $bytes = self::readPrivate($backup, UpdatePackage::MAX_FILE);
                     self::requireValid(is_string($bytes) && hash('sha256', $bytes) === $file['before'],
                         'Backup integrity mismatch');
                     self::replace($path, $bytes, $file['after'], $entry['mode']);
@@ -265,8 +266,71 @@ final class UpdateTransactionLab
                 'Invalid journal record');
             $records[] = $record;
         }
-        self::requireValid($records[0]['event'] === 'begin', 'Missing journal start');
+        self::requireValid(count($records) <= 5 * UpdatePackage::MAX_FILES + 10 &&
+            $records[0]['event'] === 'begin' && $records[0]['path'] !== '', 'Invalid journal start or length');
+        self::validateSequence($records);
         return $records;
+    }
+
+
+    // Validate even archived terminal journals; a terminal label alone is not
+    // sufficient evidence that a transaction finished.
+    private static function validateSequence(array $records)
+    {
+        $staged = array();
+        $intent = array();
+        $restored = array();
+        $prepared = false;
+        $restoring = false;
+        $awaitApplied = false;
+        $index = 0;
+        $terminal = false;
+        foreach (array_slice($records, 1) as $record) {
+            $event = $record['event'];
+            $path = $record['path'];
+            self::requireValid(!$terminal, 'Record after terminal journal event');
+            if (!$prepared) {
+                if ($event === 'staged') {
+                    self::requireValid($path !== '' && !in_array($path, $staged, true) &&
+                        count($staged) < UpdatePackage::MAX_FILES, 'Invalid staged path');
+                    $staged[] = $path;
+                } elseif ($event === 'prepared') {
+                    self::requireValid($path === '' && count($staged) > 0, 'Invalid prepared event');
+                    $prepared = true;
+                } else {
+                    throw new \RuntimeException('Unexpected preparation event');
+                }
+            } elseif (!$restoring && $event === ($awaitApplied ? 'applied' : 'applying')) {
+                self::requireValid(isset($staged[$index]) && $staged[$index] === $path, 'Invalid application order');
+                $intent[$path] = true;
+                if ($awaitApplied) {
+                    $index++;
+                }
+                $awaitApplied = !$awaitApplied;
+            } elseif ($event === 'restored') {
+                self::requireValid(isset($intent[$path]) && !isset($restored[$path]), 'Invalid restoration event');
+                $restored[$path] = true;
+                $restoring = true;
+            } elseif ($event === 'recovery_required') {
+                self::requireValid($path === '', 'Invalid recovery marker');
+                $restoring = true;
+            } elseif ($event === 'committed') {
+                self::requireValid($path === '' && !$restoring && !$awaitApplied &&
+                    $index === count($staged), 'Premature commit marker');
+                $terminal = true;
+            } elseif ($event === 'rolled_back') {
+                // A crash between intent and replacement may leave no change.
+                // Every confirmed application must have been restored.
+                self::requireValid($path === '', 'Invalid rollback marker');
+                foreach (array_slice($staged, 0, $index) as $appliedPath) {
+                    self::requireValid(isset($restored[$appliedPath]), 'Rollback missing confirmed file');
+                }
+                $terminal = true;
+            } else {
+                throw new \RuntimeException('Unexpected journal event');
+            }
+        }
+        return $restored;
     }
 
     private static function pending($lab)
@@ -349,6 +413,8 @@ final class UpdateTransactionLab
                     throw new \RuntimeException('Unexpected journal sequence');
                 }
             }
+            $restored = self::validateSequence($records);
+            $unchangedIntent = array();
             $changed = array();
             foreach ($manifest['files'] as $i => $file) {
                 $entry = isset($prepared[$i]) ? $prepared[$i] : null;
@@ -362,15 +428,26 @@ final class UpdateTransactionLab
                     self::requireValid(self::matches($tx . '/backup-' . $i, $file['before']), 'Backup integrity mismatch');
                 }
                 if (self::matches($path, $file['before'])) {
+                    if ($file['action'] === 'replace') {
+                        self::requireValid((fileperms($path) & 0777) === $entry['mode'], 'Original permissions changed');
+                    }
+                    if (isset($intent[$file['path']]) && !isset($restored[$file['path']])) {
+                        $unchangedIntent[] = $file['path'];
+                    }
                     continue;
                 }
+                self::requireValid(!isset($restored[$file['path']]), 'Previously restored file changed');
                 self::requireValid(isset($intent[$file['path']]) && self::matches($path, $file['after']),
                     'Unknown destination state; recovery refused');
+                self::requireValid((fileperms($path) & 0777) === $entry['mode'], 'Updated permissions changed');
                 $changed[] = $entry;
             }
             // Validate everything before the first write.
             $journal = fopen($tx . '/journal.jsonl', 'ab');
             self::requireValid($journal !== false, 'Cannot reopen journal');
+            foreach ($unchangedIntent as $path) {
+                self::journal($journal, 'restored', $path);
+            }
             $errors = self::restore($lab, $changed, $tx, $journal);
             $status = count($errors) === 0 ? 'rolled_back' : 'recovery_required';
             self::journal($journal, $status);
