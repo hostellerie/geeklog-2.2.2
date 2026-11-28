@@ -6,7 +6,7 @@ require_once __DIR__ . '/UpdateTransactionLab.php';
 /**
  * Experimental request-draining gate for a marked, disposable Linux lab.
  * Not called by the Core bootstrap. Every cooperating request must hold its
- * shared lease until completion; a durable marker remains after process death.
+ * shared lease until completion; a persistent marker remains after process death.
  */
 final class UpdateMaintenanceLab
 {
@@ -133,8 +133,10 @@ final class UpdateMaintenanceLab
         $root = self::root($root);
         $lease = self::acquire($root);
         try {
-            if (!self::active($root)) {
-                throw new \RuntimeException('Maintenance not active');
+            $path = self::marker($root);
+            if (is_link($path) || !is_file($path) ||
+                file_get_contents($path) !== "geeklog-update-maintenance-v1\n") {
+                throw new \RuntimeException('Invalid or absent maintenance marker');
             }
             $result = UpdateTransactionLab::recover($root, $archive, $update);
             if ($result['status'] === 'rolled_back') {
