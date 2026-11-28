@@ -21,6 +21,25 @@ final class UpdateSchemaLab
         $this->table = $table;
     }
 
+    public function identity()
+    {
+        try {
+            $driver = $this->connection->getAttribute(\PDO::ATTR_DRIVER_NAME);
+            $query = $driver === 'mysql' ? 'SELECT DATABASE()' : 'SELECT current_database()';
+            $statement = $this->connection->query($query);
+            $database = $statement === false ? false : $statement->fetchColumn();
+            if ($statement !== false) {
+                $statement->closeCursor();
+            }
+            if (!is_string($database) || $database === '') {
+                throw new \RuntimeException('Cannot identify schema source');
+            }
+            return hash('sha256', $driver . "\n" . $database . "\n" . $this->table);
+        } catch (\PDOException $error) {
+            throw new \RuntimeException('Cannot identify schema source');
+        }
+    }
+
     public function read()
     {
         try {
