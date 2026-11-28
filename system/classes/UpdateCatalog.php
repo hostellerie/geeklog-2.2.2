@@ -146,7 +146,8 @@ final class UpdateCatalog
             'Invalid replay state');
         self::requireValid(function_exists('openssl_verify') && function_exists('openssl_pkey_get_public'),
             'OpenSSL unavailable');
-        self::requireValid(is_string($publicKey) && strlen($publicKey) <= 16384, 'Invalid trusted key');
+        self::requireValid(is_string($publicKey) && strlen($publicKey) <= 16384 &&
+            strpos($publicKey, '-----BEGIN PUBLIC KEY-----') === 0, 'Invalid trusted key');
         $key = @openssl_pkey_get_public($publicKey);
         self::requireValid($key !== false, 'Invalid trusted key');
         $details = openssl_pkey_get_details($key);
