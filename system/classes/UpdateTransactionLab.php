@@ -139,6 +139,7 @@ final class UpdateTransactionLab
      */
     public static function run($labRoot, $archivePath, array $update, $code, $schema, $failAfter = null)
     {
+        self::requireValid(PHP_SAPI === 'cli', 'Laboratory transaction is CLI-only');
         self::requireValid(is_string($labRoot) && !is_link(rtrim($labRoot, '/\\')), 'Invalid lab root');
         $lab = realpath($labRoot);
         self::requireValid($lab !== false && is_dir($lab), 'Invalid lab root');
