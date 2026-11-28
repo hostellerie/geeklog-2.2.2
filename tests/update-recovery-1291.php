@@ -152,5 +152,15 @@ check1291('recorded restoration not duplicated', recover1291($lab)['status'] ===
 list($lab, $tx) = crash1291('fake-rollback', 2);
 file_put_contents($tx . '/journal.jsonl', "{\"event\":\"rolled_back\",\"path\":\"\"}\n", FILE_APPEND);
 refused1291('rollback missing confirmed file blocks new update', function () use ($lab) { run1291($lab); });
+foreach (array(0, -1, -2) as $after) {
+    list($lab, $tx) = crash1291('boundary-' . $after, $after);
+    check1291('expected pre-write state ' . $after,
+        file_get_contents($lab . '/public_html/example.php') === ($after === -2 ? "<?php // new\n" : "<?php // old\n") &&
+        !file_exists($lab . '/system/classes/Added.php'));
+    refused1291('pending boundary blocks update ' . $after, function () use ($lab) { run1291($lab); });
+    $result = recover1291($lab);
+    check1291('boundary recovery ' . $after, $result['status'] === 'rolled_back' && original1291($lab));
+    check1291('boundary journal valid ' . $after, recover1291($lab)['status'] === 'nothing_to_recover');
+}
 echo "TOTAL: $passed/$total recovery cases passed\n";
 exit($passed === $total ? 0 : 1);
