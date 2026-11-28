@@ -25,7 +25,7 @@ final class UpdatePreflight
         $result = array();
         foreach ($names as $name) {
             self::requireValid(isset($roots[$name]) && is_string($roots[$name]) &&
-                !is_link($roots[$name]), 'Missing or unsafe installation root');
+                !is_link(rtrim($roots[$name], '/\\')), 'Missing or unsafe installation root');
             $real = realpath($roots[$name]);
             self::requireValid($real !== false && is_dir($real) && is_readable($real),
                 'Unusable installation root');
