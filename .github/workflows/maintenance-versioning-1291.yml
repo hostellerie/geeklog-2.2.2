@@ -96,3 +96,23 @@ jobs:
       - run: python3 tests/update-package-builder-1291.py "$RUNNER_TEMP/geeklog-update-1291"
       - run: php -l system/classes/UpdateSchemaLab.php
       - run: php tests/update-schema-sql-1291.php "$RUNNER_TEMP/geeklog-update-1291" "${{ matrix.database }}"
+
+  https-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          extensions: zip, openssl, curl
+      - run: python3 tests/update-package-builder-1291.py "$RUNNER_TEMP/geeklog-update-1291"
+      - run: |
+          openssl req -x509 -newkey rsa:2048 -nodes -days 1 -subj /CN=localhost -addext subjectAltName=DNS:localhost -keyout "$RUNNER_TEMP/tls.key" -out "$RUNNER_TEMP/tls.pem"
+          sudo python3 tests/update-download-server-1291.py "$RUNNER_TEMP/geeklog-update-1291/geeklog-2.2.3.1.zip" "$RUNNER_TEMP/tls.pem" "$RUNNER_TEMP/tls.key" &
+          for i in {1..20}; do
+            if curl --silent --fail --cacert "$RUNNER_TEMP/tls.pem" https://localhost/good.zip -o /dev/null; then break; fi
+            sleep 1
+          done
+          php -l system/classes/UpdateDownloadLab.php
+          php -d curl.cainfo="$RUNNER_TEMP/tls.pem" tests/update-download-1291.php "$RUNNER_TEMP/geeklog-update-1291"
