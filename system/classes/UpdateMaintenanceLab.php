@@ -3,6 +3,7 @@ namespace Geeklog;
 
 require_once __DIR__ . '/UpdateTransactionLab.php';
 require_once __DIR__ . '/UpdateSiteVersionLab.php';
+require_once __DIR__ . '/UpdateHistoryLab.php';
 
 /**
  * Experimental request-draining gate for a marked, disposable Linux lab.
@@ -98,13 +99,16 @@ final class UpdateMaintenanceLab
             if (self::version($root) !== array('code' => $code, 'schema' => $schema)) {
                 throw new \RuntimeException('Unexpected initial laboratory version');
             }
+            $history = UpdateHistoryLab::read($root);
+            UpdateHistoryLab::validateEligibility($history, $update);
             $random = openssl_random_pseudo_bytes(16, $strong);
             if ($random === false || !$strong) {
                 throw new \RuntimeException('Cannot generate transaction identifier');
             }
             $id = bin2hex($random);
             $state = array('format' => 1, 'transaction' => $id, 'update' => $update['id'],
-                'sha256' => $update['package']['sha256'], 'code' => $code, 'schema' => $schema);
+                'sha256' => $update['package']['sha256'], 'code' => $code, 'schema' => $schema,
+                'history' => UpdateHistoryLab::digest($history), 'record' => hash('sha256', json_encode($update)));
             $marker = @fopen(self::marker($root), 'xb');
             if ($marker === false) {
                 throw new \RuntimeException('Cannot create maintenance marker');
@@ -121,6 +125,9 @@ final class UpdateMaintenanceLab
             if ($result['status'] === 'rolled_back') {
                 if (self::version($root) !== array('code' => $state['code'], 'schema' => $state['schema'])) {
                     throw new \RuntimeException('Original version not restored');
+                }
+                if (UpdateHistoryLab::digest(UpdateHistoryLab::read($root)) !== $state['history']) {
+                    throw new \RuntimeException('Unexpected history during rollback');
                 }
                 self::reopen($root, $state);
             }
@@ -160,9 +167,11 @@ final class UpdateMaintenanceLab
     private static function state($root, array $update)
     {
         $state = self::readState(self::marker($root));
-        if (count($state) !== 6 || !isset($state['format'], $state['transaction'], $state['update'],
-            $state['sha256'], $state['code'], $state['schema']) || $state['format'] !== 1 ||
+        if (count($state) !== 8 || !isset($state['format'], $state['transaction'], $state['update'],
+            $state['sha256'], $state['code'], $state['schema'], $state['history'], $state['record']) || $state['format'] !== 1 ||
             !is_string($state['transaction']) || preg_match('/^[a-f0-9]{32}$/D', $state['transaction']) !== 1 ||
+            (!is_string($state['history']) || preg_match('/^[a-f0-9]{64}$/D', $state['history']) !== 1) ||
+            $state['record'] !== hash('sha256', json_encode($update)) ||
             $state['update'] !== $update['id'] || $state['sha256'] !== $update['package']['sha256'] ||
             !in_array($state['code'], $update['from'], true) ||
             !in_array($state['schema'], $update['from_schema'], true)) {
@@ -189,8 +198,8 @@ final class UpdateMaintenanceLab
         $lease = self::acquire($root);
         try {
             $state = self::state($root, $update);
-            if ($update['kind'] !== 'release' || $update['schema'] !== $state['schema']) {
-                throw new \RuntimeException('Only code-only releases can be finalized');
+            if (!in_array($update['kind'], array('release', 'patch'), true) || $update['schema'] !== $state['schema']) {
+                throw new \RuntimeException('Only code-only updates can be finalized');
             }
             UpdateTransactionLab::verifyCommitted($root, $archive, $update, $state['transaction']);
             $old = array('code' => $state['code'], 'schema' => $state['schema']);
@@ -199,10 +208,15 @@ final class UpdateMaintenanceLab
             if ($current !== $old && $current !== $new) {
                 throw new \RuntimeException('Unexpected laboratory version');
             }
-            UpdateSiteVersionLab::write($root, $old['code'], $new['code']);
+            if ($update['kind'] === 'release') {
+                UpdateSiteVersionLab::write($root, $old['code'], $new['code']);
+            } elseif ($old !== $new) {
+                throw new \RuntimeException('Patch cannot change version');
+            }
             if (self::version($root) !== $new) {
                 throw new \RuntimeException('Version verification failed');
             }
+            UpdateHistoryLab::record($root, $update, $state['transaction'], $state['history']);
             self::reopen($root, $state);
             return array('status' => 'finalized', 'version' => $new);
         } finally {
@@ -220,6 +234,9 @@ final class UpdateMaintenanceLab
             if ($result['status'] === 'rolled_back') {
                 if (self::version($root) !== array('code' => $state['code'], 'schema' => $state['schema'])) {
                     throw new \RuntimeException('Original version not restored');
+                }
+                if (UpdateHistoryLab::digest(UpdateHistoryLab::read($root)) !== $state['history']) {
+                    throw new \RuntimeException('Unexpected history during rollback');
                 }
                 self::reopen($root, $state);
             }
