@@ -123,5 +123,34 @@ check1291('torn journal preserves installed file',
 $lab = makeLab1291('recovery-unmarked', false);
 refused1291('unmarked recovery refused', function () use ($lab) { recover1291($lab); });
 check1291('unmarked lab untouched', original1291($lab));
+
+list($lab, $tx) = crash1291('fake-commit', 1);
+file_put_contents($tx . '/journal.jsonl', "{\"event\":\"committed\",\"path\":\"\"}\n", FILE_APPEND);
+refused1291('premature commit marker blocks new update', function () use ($lab) { run1291($lab); });
+refused1291('premature commit marker blocks recovery', function () use ($lab) { recover1291($lab); });
+check1291('fake terminal marker preserves bytes',
+    file_get_contents($lab . '/public_html/example.php') === "<?php // new\n");
+list($lab, $tx) = crash1291('mode', 2);
+chmod($lab . '/public_html/example.php', 0600);
+refused1291('external permission change blocks recovery', function () use ($lab) { recover1291($lab); });
+clearstatcache();
+check1291('changed mode and added file preserved',
+    (fileperms($lab . '/public_html/example.php') & 0777) === 0600 &&
+    file_exists($lab . '/system/classes/Added.php'));
+list($lab, $tx) = crash1291('partial-restore', 2);
+// Simulate interruption immediately after unlink, before journal confirmation.
+unlink($lab . '/system/classes/Added.php');
+$result = recover1291($lab);
+check1291('resume after unrecorded restoration', $result['status'] === 'rolled_back' && original1291($lab));
+check1291('resumed rollback journal accepted', recover1291($lab)['status'] === 'nothing_to_recover');
+list($lab, $tx) = crash1291('restored-confirmed', 2);
+unlink($lab . '/system/classes/Added.php');
+file_put_contents($tx . '/journal.jsonl', "{\"event\":\"restored\",\"path\":\"system/classes/Added.php\"}\n", FILE_APPEND);
+$result = recover1291($lab);
+check1291('resume after recorded restoration', $result['status'] === 'rolled_back' && original1291($lab));
+check1291('recorded restoration not duplicated', recover1291($lab)['status'] === 'nothing_to_recover');
+list($lab, $tx) = crash1291('fake-rollback', 2);
+file_put_contents($tx . '/journal.jsonl', "{\"event\":\"rolled_back\",\"path\":\"\"}\n", FILE_APPEND);
+refused1291('rollback missing confirmed file blocks new update', function () use ($lab) { run1291($lab); });
 echo "TOTAL: $passed/$total recovery cases passed\n";
 exit($passed === $total ? 0 : 1);
