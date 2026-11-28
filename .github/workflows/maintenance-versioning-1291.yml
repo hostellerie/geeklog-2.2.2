@@ -36,6 +36,8 @@ jobs:
       - run: php -l tests/update-catalog-1291.php
       - run: php tests/update-catalog-1291.php
       - run: python3 tests/update-package-builder-1291.py "$RUNNER_TEMP/geeklog-update-1291"
+      - run: php -l system/classes/UpdateCatalogStateLab.php
+      - run: php tests/update-catalog-state-1291.php "$RUNNER_TEMP/geeklog-update-1291"
       - run: php -l system/classes/UpdatePackage.php
       - run: php -l tests/update-package-1291.php
       - run: php tests/update-package-1291.php "$RUNNER_TEMP/geeklog-update-1291"
