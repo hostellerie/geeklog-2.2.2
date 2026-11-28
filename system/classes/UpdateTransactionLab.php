@@ -5,7 +5,7 @@ require_once __DIR__ . '/UpdatePreflight.php';
 
 /**
  * Experimental code-only transaction, restricted to disposable laboratory trees.
- * No Core bootstrap, production integration, version writes, SQL or crash recovery.
+ * No Core bootstrap, production integration, version writes, SQL or production integration.
  */
 final class UpdateTransactionLab
 {
@@ -137,7 +137,7 @@ final class UpdateTransactionLab
      * $update is from a verified catalog. $failAfter is a laboratory-only
      * fault injection count; no production entrypoint calls this class.
      */
-    public static function run($labRoot, $archivePath, array $update, $code, $schema, $failAfter = null)
+    public static function run($labRoot, $archivePath, array $update, $code, $schema, $failAfter = null, $crashAfter = null)
     {
         self::requireValid(PHP_SAPI === 'cli', 'Laboratory transaction is CLI-only');
         self::requireValid(is_string($labRoot) && !is_link(rtrim($labRoot, '/\\')), 'Invalid lab root');
@@ -147,6 +147,7 @@ final class UpdateTransactionLab
         self::requireValid(!is_link($marker) && is_file($marker) &&
             file_get_contents($marker) === self::MARKER, 'Disposable lab marker required');
         self::requireValid($failAfter === null || (is_int($failAfter) && $failAfter > 0), 'Invalid failure injection');
+        self::requireValid($crashAfter === null || (is_int($crashAfter) && $crashAfter > 0 && function_exists('posix_kill')), 'Invalid crash injection');
         $lockPath = $lab . '/.geeklog-update.lock';
         self::requireValid(!is_link($lockPath) && (!file_exists($lockPath) || is_file($lockPath)), 'Invalid lock path');
         $lock = @fopen($lockPath, 'c+b');
@@ -158,6 +159,7 @@ final class UpdateTransactionLab
         $journal = null;
         $zip = null;
         try {
+            self::requireValid(count(self::pending($lab)) === 0, 'Interrupted transaction requires recovery');
             $roots = array();
             foreach (array('public_html', 'system', 'plugins', 'language') as $root) {
                 $roots[$root] = $lab . '/' . $root;
@@ -208,6 +210,10 @@ final class UpdateTransactionLab
                     self::journal($journal, 'applying', $file['path']);
                     self::replace($path, $bytes, $file['before'], $entry['mode']);
                     $applied[] = $entry;
+                    if ($crashAfter !== null && count($applied) === $crashAfter) {
+                        posix_kill(getmypid(), 9);
+                        exit(91);
+                    }
                     self::requireValid(self::matches($path, $file['after']), 'Installed file hash mismatch');
                     self::journal($journal, 'applied', $file['path']);
                     if ($failAfter !== null && count($applied) === $failAfter) {
@@ -229,6 +235,150 @@ final class UpdateTransactionLab
                 fclose($journal);
             }
             flock($lock, LOCK_UN);
+            fclose($lock);
+        }
+    }
+
+
+    private static function readPrivate($path, $limit)
+    {
+        clearstatcache();
+        $stat = @stat($path);
+        self::requireValid(!is_link($path) && is_file($path) && $stat !== false &&
+            $stat['nlink'] === 1 && $stat['size'] <= $limit, 'Invalid transaction metadata');
+        $bytes = file_get_contents($path);
+        self::requireValid(is_string($bytes) && strlen($bytes) === $stat['size'], 'Cannot read transaction metadata');
+        return $bytes;
+    }
+
+    private static function records($tx)
+    {
+        $bytes = self::readPrivate($tx . '/journal.jsonl', 1048576);
+        self::requireValid(substr($bytes, -1) === "\n", 'Incomplete journal');
+        $records = array();
+        foreach (explode("\n", rtrim($bytes, "\n")) as $line) {
+            $record = json_decode($line, true);
+            self::requireValid(is_array($record) && count($record) === 2 &&
+                isset($record['event'], $record['path']) && is_string($record['path']) &&
+                in_array($record['event'], array('begin', 'staged', 'prepared', 'applying',
+                    'applied', 'restored', 'committed', 'rolled_back', 'recovery_required'), true),
+                'Invalid journal record');
+            $records[] = $record;
+        }
+        self::requireValid($records[0]['event'] === 'begin', 'Missing journal start');
+        return $records;
+    }
+
+    private static function pending($lab)
+    {
+        $pending = array();
+        foreach (scandir($lab) as $name) {
+            if (strpos($name, '.gl-transaction-') !== 0) {
+                continue;
+            }
+            $tx = $lab . '/' . $name;
+            self::requireValid(preg_match('/^\.gl-transaction-[a-f0-9]{32}$/D', $name) === 1 &&
+                !is_link($tx) && is_dir($tx), 'Invalid transaction directory');
+            $records = self::records($tx);
+            $last = end($records);
+            if (!in_array($last['event'], array('committed', 'rolled_back'), true) || $last['path'] !== '') {
+                $pending[] = $tx;
+            }
+        }
+        return $pending;
+    }
+
+    /**
+     * Recover an interrupted prepared transaction, using the original signed
+     * catalog record and verified archive. Never infer paths from the journal.
+     * Unknown file bytes or incomplete metadata require manual intervention.
+     */
+    public static function recover($labRoot, $archivePath, array $update)
+    {
+        self::requireValid(PHP_SAPI === 'cli', 'Laboratory recovery is CLI-only');
+        self::requireValid(is_string($labRoot) && !is_link(rtrim($labRoot, '/\\')), 'Invalid lab root');
+        $lab = realpath($labRoot);
+        self::requireValid($lab !== false && is_dir($lab), 'Invalid lab root');
+        self::requireValid(self::readPrivate($lab . '/.geeklog-update-lab', 128) === self::MARKER,
+            'Disposable lab marker required');
+        $lockPath = $lab . '/.geeklog-update.lock';
+        self::requireValid(!is_link($lockPath) && is_file($lockPath), 'Invalid lock path');
+        $lock = @fopen($lockPath, 'r+b');
+        self::requireValid($lock !== false, 'Cannot open lab lock');
+        $journal = null;
+        try {
+            self::requireValid(flock($lock, LOCK_EX | LOCK_NB), 'Update already running');
+            $pending = self::pending($lab);
+            if (count($pending) === 0) {
+                return array('status' => 'nothing_to_recover');
+            }
+            self::requireValid(count($pending) === 1, 'Multiple interrupted transactions require manual review');
+            $tx = $pending[0];
+            $manifest = UpdatePackage::verify($archivePath, $update);
+            self::requireValid(json_decode(self::readPrivate($tx . '/manifest.json', UpdatePackage::MAX_MANIFEST), true)
+                === $manifest, 'Stored manifest mismatch');
+            $prepared = json_decode(self::readPrivate($tx . '/prepared.json', 524288), true);
+            self::requireValid(is_array($prepared) && count($prepared) === count($manifest['files']), 'Incomplete preparation');
+            $records = self::records($tx);
+            $prefix = array(array('event' => 'begin', 'path' => $manifest['id']));
+            foreach ($manifest['files'] as $file) {
+                $prefix[] = array('event' => 'staged', 'path' => $file['path']);
+            }
+            $prefix[] = array('event' => 'prepared', 'path' => '');
+            self::requireValid(array_slice($records, 0, count($prefix)) === $prefix, 'Invalid preparation journal');
+            $tail = array_slice($records, count($prefix));
+            $intent = array();
+            $index = 0;
+            $awaitApplied = false;
+            $restoring = false;
+            foreach ($tail as $record) {
+                $event = $record['event'];
+                $path = $record['path'];
+                if ($event === 'restored' || $event === 'recovery_required') {
+                    $restoring = true;
+                    self::requireValid($event === 'restored' ? isset($intent[$path]) : $path === '', 'Invalid recovery journal');
+                } elseif (!$restoring && $event === ($awaitApplied ? 'applied' : 'applying')) {
+                    self::requireValid(isset($manifest['files'][$index]) &&
+                        $path === $manifest['files'][$index]['path'], 'Unexpected journal path');
+                    $intent[$path] = true;
+                    if ($awaitApplied) {
+                        $index++;
+                    }
+                    $awaitApplied = !$awaitApplied;
+                } else {
+                    throw new \RuntimeException('Unexpected journal sequence');
+                }
+            }
+            $changed = array();
+            foreach ($manifest['files'] as $i => $file) {
+                $entry = isset($prepared[$i]) ? $prepared[$i] : null;
+                self::requireValid(is_array($entry) && count($entry) === 3 &&
+                    isset($entry['index'], $entry['file'], $entry['mode']) &&
+                    $entry['index'] === $i && $entry['file'] === $file &&
+                    is_int($entry['mode']) && $entry['mode'] >= 0 && $entry['mode'] <= 0777,
+                    'Invalid prepared entry');
+                $path = self::destination($lab, $file['path']);
+                if ($file['action'] === 'replace') {
+                    self::requireValid(self::matches($tx . '/backup-' . $i, $file['before']), 'Backup integrity mismatch');
+                }
+                if (self::matches($path, $file['before'])) {
+                    continue;
+                }
+                self::requireValid(isset($intent[$file['path']]) && self::matches($path, $file['after']),
+                    'Unknown destination state; recovery refused');
+                $changed[] = $entry;
+            }
+            // Validate everything before the first write.
+            $journal = fopen($tx . '/journal.jsonl', 'ab');
+            self::requireValid($journal !== false, 'Cannot reopen journal');
+            $errors = self::restore($lab, $changed, $tx, $journal);
+            $status = count($errors) === 0 ? 'rolled_back' : 'recovery_required';
+            self::journal($journal, $status);
+            return array('status' => $status, 'transaction' => $tx, 'rollback_errors' => $errors);
+        } finally {
+            if (is_resource($journal)) {
+                fclose($journal);
+            }
             fclose($lock);
         }
     }
