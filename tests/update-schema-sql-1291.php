@@ -11,7 +11,7 @@ $archive = $fixture . '/geeklog-2.2.3.1.zip';
 $metadata = json_decode(file_get_contents($fixture . '/metadata.json'), true);
 $record = array('id' => 'geeklog-2.2.3.1', 'kind' => 'release',
     'from' => array('2.2.3'), 'from_schema' => array('2.2.3'), 'version' => '2.2.3.1',
-    'schema' => '2.2.3', 'php_min' => '5.6.4', 'databases' => array('mysql'),
+    'schema' => '2.2.3', 'php_min' => '5.6.4', 'databases' => array('mysql', 'pgsql'),
     'requires' => array(), 'conflicts' => array(), 'supersedes' => array(), 'issues' => array(1291),
     'security' => false, 'notes' => 'Disposable fixture',
     'package' => array('url' => 'https://updates.example.invalid/fixture.zip',
