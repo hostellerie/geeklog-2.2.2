@@ -2,6 +2,7 @@
 namespace Geeklog;
 
 require_once __DIR__ . '/UpdateTransactionLab.php';
+require_once __DIR__ . '/UpdateSiteVersionLab.php';
 
 /**
  * Experimental request-draining gate for a marked, disposable Linux lab.
@@ -94,7 +95,7 @@ final class UpdateMaintenanceLab
             if (self::active($root)) {
                 throw new \RuntimeException('Maintenance already active');
             }
-            if (self::readState($root . '/.gl-lab-version.json') !== array('code' => $code, 'schema' => $schema)) {
+            if (self::version($root) !== array('code' => $code, 'schema' => $schema)) {
                 throw new \RuntimeException('Unexpected initial laboratory version');
             }
             $random = openssl_random_pseudo_bytes(16, $strong);
@@ -118,7 +119,7 @@ final class UpdateMaintenanceLab
             }
             $result = UpdateTransactionLab::run($root, $archive, $update, $code, $schema, $failAfter, $crashAfter, $id);
             if ($result['status'] === 'rolled_back') {
-                if (self::readState($root . '/.gl-lab-version.json') !== array('code' => $state['code'], 'schema' => $state['schema'])) {
+                if (self::version($root) !== array('code' => $state['code'], 'schema' => $state['schema'])) {
                     throw new \RuntimeException('Original version not restored');
                 }
                 self::reopen($root, $state);
@@ -146,6 +147,16 @@ final class UpdateMaintenanceLab
         return $state;
     }
 
+    private static function version($root)
+    {
+        // Schema is a test-only readback fixture; never write it for code updates.
+        $schema = self::readState($root . '/.gl-lab-version.json');
+        if (count($schema) !== 1 || !isset($schema['schema']) || !is_string($schema['schema'])) {
+            throw new \RuntimeException('Invalid schema fixture');
+        }
+        return array('code' => UpdateSiteVersionLab::read($root), 'schema' => $schema['schema']);
+    }
+
     private static function state($root, array $update)
     {
         $state = self::readState(self::marker($root));
@@ -169,8 +180,8 @@ final class UpdateMaintenanceLab
     }
 
     /**
-     * Finalize code-only releases in the laboratory version-state fixture.
-     * Real siteconfig/database writes and runtime health checks are not wired.
+     * Finalize code-only releases in a disposable siteconfig fixture.
+     * Database readback and runtime health checks are not wired.
      */
     public static function finalize($root, $archive, array $update)
     {
@@ -182,43 +193,14 @@ final class UpdateMaintenanceLab
                 throw new \RuntimeException('Only code-only releases can be finalized');
             }
             UpdateTransactionLab::verifyCommitted($root, $archive, $update, $state['transaction']);
-            $path = $root . '/.gl-lab-version.json';
             $old = array('code' => $state['code'], 'schema' => $state['schema']);
             $new = array('code' => $update['version'], 'schema' => $state['schema']);
-            $current = self::readState($path);
+            $current = self::version($root);
             if ($current !== $old && $current !== $new) {
                 throw new \RuntimeException('Unexpected laboratory version');
             }
-            if ($current === $old) {
-                $random = openssl_random_pseudo_bytes(16, $strong);
-                if ($random === false || !$strong) {
-                    throw new \RuntimeException('Cannot stage version state');
-                }
-                $tmp = $path . '.' . bin2hex($random);
-                $handle = @fopen($tmp, 'xb');
-                if ($handle === false) {
-                    throw new \RuntimeException('Cannot stage version state');
-                }
-                try {
-                    $bytes = json_encode($new);
-                    if (fwrite($handle, $bytes) !== strlen($bytes) || !fflush($handle)) {
-                        throw new \RuntimeException('Cannot write version state');
-                    }
-                } finally {
-                    fclose($handle);
-                }
-                try {
-                    if (self::readState($path) !== $old || self::readState($tmp) !== $new ||
-                        !chmod($tmp, fileperms($path) & 0777) || !rename($tmp, $path)) {
-                        throw new \RuntimeException('Cannot replace version state');
-                    }
-                } finally {
-                    if (is_file($tmp) && !is_link($tmp)) {
-                        @unlink($tmp);
-                    }
-                }
-            }
-            if (self::readState($path) !== $new) {
+            UpdateSiteVersionLab::write($root, $old['code'], $new['code']);
+            if (self::version($root) !== $new) {
                 throw new \RuntimeException('Version verification failed');
             }
             self::reopen($root, $state);
@@ -236,7 +218,7 @@ final class UpdateMaintenanceLab
             $state = self::state($root, $update);
             $result = UpdateTransactionLab::recover($root, $archive, $update, $state['transaction']);
             if ($result['status'] === 'rolled_back') {
-                if (self::readState($root . '/.gl-lab-version.json') !== array('code' => $state['code'], 'schema' => $state['schema'])) {
+                if (self::version($root) !== array('code' => $state['code'], 'schema' => $state['schema'])) {
                     throw new \RuntimeException('Original version not restored');
                 }
                 self::reopen($root, $state);
