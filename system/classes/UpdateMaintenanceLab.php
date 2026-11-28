@@ -94,6 +94,9 @@ final class UpdateMaintenanceLab
             if (self::active($root)) {
                 throw new \RuntimeException('Maintenance already active');
             }
+            if (self::readState($root . '/.gl-lab-version.json') !== array('code' => $code, 'schema' => $schema)) {
+                throw new \RuntimeException('Unexpected initial laboratory version');
+            }
             $random = openssl_random_pseudo_bytes(16, $strong);
             if ($random === false || !$strong) {
                 throw new \RuntimeException('Cannot generate transaction identifier');
@@ -115,6 +118,9 @@ final class UpdateMaintenanceLab
             }
             $result = UpdateTransactionLab::run($root, $archive, $update, $code, $schema, $failAfter, $crashAfter, $id);
             if ($result['status'] === 'rolled_back') {
+                if (self::readState($root . '/.gl-lab-version.json') !== array('code' => $state['code'], 'schema' => $state['schema'])) {
+                    throw new \RuntimeException('Original version not restored');
+                }
                 self::reopen($root, $state);
             }
             // A committed code update remains offline until a future verified
@@ -230,6 +236,9 @@ final class UpdateMaintenanceLab
             $state = self::state($root, $update);
             $result = UpdateTransactionLab::recover($root, $archive, $update, $state['transaction']);
             if ($result['status'] === 'rolled_back') {
+                if (self::readState($root . '/.gl-lab-version.json') !== array('code' => $state['code'], 'schema' => $state['schema'])) {
+                    throw new \RuntimeException('Original version not restored');
+                }
                 self::reopen($root, $state);
             }
             // No pending transaction is ambiguous (e.g. crash after commit).
