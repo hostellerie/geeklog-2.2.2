@@ -92,5 +92,9 @@ bad = json.loads(entries[0][1])
 bad["schema"] = "2.2.3.1"
 mutate("schema.zip", [("manifest.json", builder.encode(bad), regular)] + entries[1:])
 (fixture / "metadata.json").write_text(json.dumps(metadata))
+patch = builder.build(base, target, fixture / "patch-1291.zip", "patch-1291",
+                      "patch", "2.2.3", "2.2.3", "2.2.3", paths)
+(fixture / "patch-metadata.json").write_text(json.dumps(patch))
+
 print(f"TOTAL: {passed}/{total} builder cases passed")
 sys.exit(0 if passed == total else 1)
