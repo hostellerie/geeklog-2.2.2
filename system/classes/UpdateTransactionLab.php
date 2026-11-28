@@ -148,7 +148,7 @@ final class UpdateTransactionLab
         self::requireValid(!is_link($marker) && is_file($marker) &&
             file_get_contents($marker) === self::MARKER, 'Disposable lab marker required');
         self::requireValid($failAfter === null || (is_int($failAfter) && $failAfter > 0), 'Invalid failure injection');
-        self::requireValid($crashAfter === null || (is_int($crashAfter) && $crashAfter > 0 && function_exists('posix_kill')), 'Invalid crash injection');
+        self::requireValid($crashAfter === null || (is_int($crashAfter) && abs($crashAfter) <= UpdatePackage::MAX_FILES && function_exists('posix_kill')), 'Invalid crash injection');
         $lockPath = $lab . '/.geeklog-update.lock';
         self::requireValid(!is_link($lockPath) && (!file_exists($lockPath) || is_file($lockPath)), 'Invalid lock path');
         $lock = @fopen($lockPath, 'c+b');
@@ -201,6 +201,10 @@ final class UpdateTransactionLab
             self::checkedWrite($tx . '/prepared.json', json_encode($prepared, JSON_UNESCAPED_SLASHES));
             self::journal($journal, 'prepared');
             $applied = array();
+            if ($crashAfter === 0) {
+                posix_kill(getmypid(), 9);
+                exit(91);
+            }
             try {
                 foreach ($prepared as $entry) {
                     $file = $entry['file'];
@@ -209,6 +213,10 @@ final class UpdateTransactionLab
                     self::requireValid(is_string($bytes) && hash('sha256', $bytes) === $file['after'],
                         'Staged file changed');
                     self::journal($journal, 'applying', $file['path']);
+                    if ($crashAfter === -(count($applied) + 1)) {
+                        posix_kill(getmypid(), 9);
+                        exit(91);
+                    }
                     self::replace($path, $bytes, $file['before'], $entry['mode']);
                     $applied[] = $entry;
                     if ($crashAfter !== null && count($applied) === $crashAfter) {
