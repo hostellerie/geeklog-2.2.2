@@ -138,7 +138,7 @@ final class UpdateTransactionLab
      * $update is from a verified catalog. $failAfter is a laboratory-only
      * fault injection count; no production entrypoint calls this class.
      */
-    public static function run($labRoot, $archivePath, array $update, $code, $schema, $failAfter = null, $crashAfter = null)
+    public static function run($labRoot, $archivePath, array $update, $code, $schema, $failAfter = null, $crashAfter = null, $transactionId = null)
     {
         self::requireValid(PHP_SAPI === 'cli', 'Laboratory transaction is CLI-only');
         self::requireValid(is_string($labRoot) && !is_link(rtrim($labRoot, '/\\')), 'Invalid lab root');
@@ -168,7 +168,9 @@ final class UpdateTransactionLab
             $report = UpdatePreflight::inspect($archivePath, $update, $roots, $code, $schema, false);
             self::requireValid($report['ready'], 'Preflight blocked: ' . implode(', ', $report['blockers']));
             $manifest = UpdatePackage::verify($archivePath, $update);
-            $tx = $lab . '/.gl-transaction-' . self::randomName();
+            self::requireValid($transactionId === null || (is_string($transactionId) &&
+                preg_match('/^[a-f0-9]{32}$/D', $transactionId) === 1), 'Invalid transaction identifier');
+            $tx = $lab . '/.gl-transaction-' . ($transactionId === null ? self::randomName() : $transactionId);
             self::requireValid(mkdir($tx, 0700), 'Cannot create private transaction');
             $journal = fopen($tx . '/journal.jsonl', 'xb');
             self::requireValid($journal !== false, 'Cannot create journal');
@@ -365,7 +367,7 @@ final class UpdateTransactionLab
      * catalog record and verified archive. Never infer paths from the journal.
      * Unknown file bytes or incomplete metadata require manual intervention.
      */
-    public static function recover($labRoot, $archivePath, array $update)
+    public static function recover($labRoot, $archivePath, array $update, $transactionId = null)
     {
         self::requireValid(PHP_SAPI === 'cli', 'Laboratory recovery is CLI-only');
         self::requireValid(is_string($labRoot) && !is_link(rtrim($labRoot, '/\\')), 'Invalid lab root');
@@ -386,6 +388,8 @@ final class UpdateTransactionLab
             }
             self::requireValid(count($pending) === 1, 'Multiple interrupted transactions require manual review');
             $tx = $pending[0];
+            self::requireValid($transactionId === null || basename($tx) === '.gl-transaction-' . $transactionId,
+                'Pending transaction does not match maintenance marker');
             $manifest = UpdatePackage::verify($archivePath, $update);
             self::requireValid(json_decode(self::readPrivate($tx . '/manifest.json', UpdatePackage::MAX_MANIFEST), true)
                 === $manifest, 'Stored manifest mismatch');
@@ -464,6 +468,48 @@ final class UpdateTransactionLab
             if (is_resource($journal)) {
                 fclose($journal);
             }
+            fclose($lock);
+        }
+    }
+
+
+    /**
+     * Inspect the exact committed transaction, never a historical arbitrary
+     * success. Caller holds the maintenance gate; this also takes the file lock.
+     */
+    public static function verifyCommitted($lab, $archive, array $update, $id)
+    {
+        self::requireValid(PHP_SAPI === 'cli' && is_string($id) &&
+            preg_match('/^[a-f0-9]{32}$/D', $id) === 1, 'Invalid laboratory transaction');
+        self::requireValid(realpath($lab) === $lab &&
+            self::readPrivate($lab . '/.geeklog-update-lab', 128) === self::MARKER, 'Disposable lab required');
+        $lockPath = $lab . '/.geeklog-update.lock';
+        self::requireValid(!is_link($lockPath) && is_file($lockPath), 'Invalid transaction lock');
+        $lock = @fopen($lockPath, 'r+b');
+        self::requireValid($lock !== false, 'Cannot open transaction lock');
+        try {
+            self::requireValid(flock($lock, LOCK_EX | LOCK_NB), 'Transaction active');
+            self::requireValid(count(self::pending($lab)) === 0, 'Interrupted transaction exists');
+            $tx = $lab . '/.gl-transaction-' . $id;
+            self::requireValid(!is_link($tx) && is_dir($tx), 'Transaction absent');
+            $manifest = UpdatePackage::verify($archive, $update);
+            self::requireValid(json_decode(self::readPrivate($tx . '/manifest.json', UpdatePackage::MAX_MANIFEST), true)
+                === $manifest, 'Stored manifest mismatch');
+            $expected = array(array('event' => 'begin', 'path' => $manifest['id']));
+            foreach ($manifest['files'] as $file) {
+                $expected[] = array('event' => 'staged', 'path' => $file['path']);
+            }
+            $expected[] = array('event' => 'prepared', 'path' => '');
+            foreach ($manifest['files'] as $file) {
+                $expected[] = array('event' => 'applying', 'path' => $file['path']);
+                $expected[] = array('event' => 'applied', 'path' => $file['path']);
+                self::requireValid(self::matches(self::destination($lab, $file['path']), $file['after']),
+                    'Installed file integrity mismatch');
+            }
+            $expected[] = array('event' => 'committed', 'path' => '');
+            self::requireValid(self::records($tx) === $expected, 'Transaction not committed');
+            return $manifest;
+        } finally {
             fclose($lock);
         }
     }
