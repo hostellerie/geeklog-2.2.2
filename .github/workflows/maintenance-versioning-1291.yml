@@ -42,6 +42,9 @@ jobs:
       - run: php -l system/classes/UpdatePreflight.php
       - run: php -l tests/update-preflight-1291.php
       - run: php tests/update-preflight-1291.php "$RUNNER_TEMP/geeklog-update-1291"
+      - run: php -l system/classes/UpdateTransactionLab.php
+      - run: php -l tests/update-transaction-1291.php
+      - run: php tests/update-transaction-1291.php "$RUNNER_TEMP/geeklog-update-1291"
       - name: Upload experimental fixture (not a release)
         if: matrix.php == '8.4'
         uses: actions/upload-artifact@v4
