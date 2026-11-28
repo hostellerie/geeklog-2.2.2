@@ -98,14 +98,20 @@ final class UpdateSiteVersionLab
         if ($random === false || !$strong) {
             throw new \RuntimeException('Cannot stage siteconfig');
         }
-        $tmp = $state['path'] . '.gl-version-' . bin2hex($random);
+        // Stage outside the public directory; require the same filesystem.
+        $rootStat = stat($root);
+        $publicStat = stat($root . '/public_html');
+        if ($rootStat['dev'] !== $publicStat['dev']) {
+            throw new \RuntimeException('Siteconfig staging filesystem differs');
+        }
+        $tmp = $root . '/.gl-version-' . bin2hex($random) . '.php';
         $handle = @fopen($tmp, 'xb');
         if ($handle === false) {
             throw new \RuntimeException('Cannot create staged siteconfig');
         }
         try {
             try {
-                if (fwrite($handle, $bytes) !== strlen($bytes) || !fflush($handle)) {
+                if (!chmod($tmp, 0600) || fwrite($handle, $bytes) !== strlen($bytes) || !fflush($handle)) {
                     throw new \RuntimeException('Cannot write staged siteconfig');
                 }
             } finally {
