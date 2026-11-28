@@ -469,19 +469,29 @@ abstract class Common
     {
         global $_TABLES;
 
+        $schemaVersion = self::getTargetDatabaseVersion();
         $siteConfigData = @file_get_contents($siteConfigFilePath);
+        if ($schemaVersion === '' || $siteConfigData === false) {
+            echo Common::$LANG['INSTALL'][26] . ' ' . Common::$LANG['INSTALL'][28];
+            exit(1);
+        }
+
         $siteConfigData = preg_replace(
             '/define\s*\(\'VERSION\',[^;]*;/',
-            "define('VERSION', '" . self::GL_VERSION . "');",
-            $siteConfigData
+            "define('VERSION', '" . static::GL_VERSION . "');",
+            $siteConfigData,
+            -1,
+            $replacements
         );
 
-        if (@file_put_contents($siteConfigFilePath, $siteConfigData) === false) {
-            exit(Common::$LANG['INSTALL'][26] . ' ' . Common::$LANG['INSTALL'][28]);
+        if ($siteConfigData === null || $replacements !== 1 ||
+            @file_put_contents($siteConfigFilePath, $siteConfigData) !== strlen($siteConfigData)) {
+            echo Common::$LANG['INSTALL'][26] . ' ' . Common::$LANG['INSTALL'][28];
+            exit(1);
         }
 
         // Code-only maintenance releases leave the schema version unchanged.
-        $version = DB_escapeString(self::getTargetDatabaseVersion());
+        $version = DB_escapeString($schemaVersion);
         DB_change($_TABLES['vars'], 'value', $version, 'name', 'database_version');
     }
 
