@@ -25,3 +25,7 @@ jobs:
       - run: php -v
       - run: php -l tests/maintenance-versioning-1291.php
       - run: php tests/maintenance-versioning-1291.php
+      - run: php -l public_html/lib-common.php
+      - run: php -l public_html/admin/install/classes/Common.php
+      - run: php -l tests/maintenance-schema-1291.php
+      - run: php tests/maintenance-schema-1291.php
