@@ -77,6 +77,10 @@ Example (illustrative only; example.invalid is not a release host, digest is a p
 }
 ```
 
+## Wire encoding and first implementation
+
+The wire format v1 is exact compact UTF-8 JSON, encoded using PHP `json_encode` with `JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE`, with no trailing newline or BOM. The pretty-printed example above is for reading only. The reader re-encodes the parsed object and requires byte equality, which rejects duplicate keys, ambiguous object/array encodings, alternative escapes and whitespace. Stable versions use canonical three-component or positive four-component dotted numeric strings. Initially, individual patches must preserve both code and schema versions; schema changes require a cumulative release. The publisher must enforce this contract before signing. The reader takes the pinned public key, trusted host, clock and previous sequence/digest as parameters; it cannot fetch or persist them. Candidate selection is read-only, with releases listed ahead of individual patches. Applied and superseded patch IDs must be supplied from trusted local state.
+
 ## Trust, selection and installation
 
 1. Fetch bounded catalog bytes and detached signature from a fixed official HTTPS origin. Permit no untrusted redirects, private/loopback targets or arbitrary user-configured package URLs. Do not send site identifiers or credentials.
