@@ -22,6 +22,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: none
+          extensions: zip, openssl
       - run: php -v
       - run: php -l tests/maintenance-versioning-1291.php
       - run: php tests/maintenance-versioning-1291.php
@@ -34,3 +35,16 @@ jobs:
       - run: php -l system/classes/UpdateCatalog.php
       - run: php -l tests/update-catalog-1291.php
       - run: php tests/update-catalog-1291.php
+      - run: python3 tests/update-package-builder-1291.py "$RUNNER_TEMP/geeklog-update-1291"
+      - run: php -l system/classes/UpdatePackage.php
+      - run: php -l tests/update-package-1291.php
+      - run: php tests/update-package-1291.php "$RUNNER_TEMP/geeklog-update-1291"
+      - name: Upload experimental fixture (not a release)
+        if: matrix.php == '8.4'
+        uses: actions/upload-artifact@v4
+        with:
+          name: geeklog-2.2.3.1-experimental-fixture
+          path: |
+            ${{ runner.temp }}/geeklog-update-1291/geeklog-2.2.3.1.zip
+            ${{ runner.temp }}/geeklog-update-1291/metadata.json
+          retention-days: 7
