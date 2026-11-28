@@ -51,3 +51,12 @@ The CLI emits the archive size and SHA-256 for the catalog. The publisher must c
 `Geeklog\\UpdatePackage::verify($archivePath, $update)` verifies ZIP size/digest, the exact manifest identity/source/target against an authenticated catalog record, regular-file attributes, permitted paths, entry count, payload sizes and hashes. It returns a manifest without extracting or changing files. It does not verify installed file hashes yet and is not an installer. The next phase needs read-only preflight of the real installed files, site root mapping, permissions/disk-space and staging/rollback.
 
 The CI publishes a disposable fixture artifact with two synthetic PHP files, not a real security or maintenance release. Never install that fixture on a site.
+
+
+## Read-only installed-site preflight
+
+`Geeklog\\UpdatePreflight::inspect($archivePath, $update, $rootMap, $installedCode, $installedSchema, $sharedCode)` re-verifies the archive, then inspects the configured public, system, plugins and language roots. The caller supplies version values from trusted local state and explicitly confirms whether code is shared; unknown or shared code is blocked in this first prototype. Roots must exist, be readable, nonoverlapping and not themselves symlinks. The root map must be built from Geeklog's actual configured paths, not assumed relative to the web root.
+
+Each manifest entry must resolve to an exact-case, regular, readable original with the expected SHA-256 or an absent addition target. Existing files, links (including hardlinks), case aliases, absent parent directories, local customizations, missing files and inadequate writable permissions block the operation; there is no force option. Available space is estimated per filesystem with a 16 MiB reserve plus backup and staged payload bytes. The report contains relative paths and machine-readable statuses; it does not write any files.
+
+A ready report is advisory, not permission to apply. Recheck immediately under locks, validate the actual configured roots, permissions and quotas, stage files without following links, and back up originals before any changes. No database backup, recovery or installation is performed by this class. Multisite needs a later inventory and coordinated locking/rollback rather than a single-site override. Linux CI covers the path/permission fixtures; Windows/IIS runtime behavior and actual web-server privileges need separate validation.
