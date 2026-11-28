@@ -21,6 +21,11 @@ final class UpdateSchemaLab
         $this->table = $table;
     }
 
+    public function driver()
+    {
+        return $this->connection->getAttribute(\PDO::ATTR_DRIVER_NAME);
+    }
+
     public function identity()
     {
         try {
