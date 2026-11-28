@@ -31,3 +31,6 @@ jobs:
       - run: php tests/maintenance-schema-1291.php
       - run: php -l tests/maintenance-version-write-1291.php
       - run: php tests/maintenance-version-write-1291.php
+      - run: php -l system/classes/UpdateCatalog.php
+      - run: php -l tests/update-catalog-1291.php
+      - run: php tests/update-catalog-1291.php
