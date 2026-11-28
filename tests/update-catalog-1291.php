@@ -67,6 +67,18 @@ check1291('same sequence same digest accepted', verify1291($json, 10, hash('sha2
 reject1291('modified catalog signature rejected', function () use ($json) {
     verify1291(str_replace('Test fixture only', 'Changed', $json), 0, '', signed1291($json));
 });
+reject1291('key file references are rejected', function () use ($json, $host, $now) {
+    UpdateCatalog::fromSigned($json, signed1291($json), 'file:///tmp/key.pem', $host, $now);
+});
+reject1291('wrong trusted key rejected', function () use ($json, $host, $now) {
+    $other = openssl_pkey_new(array('private_key_bits' => 2048, 'private_key_type' => OPENSSL_KEYTYPE_RSA));
+    $otherPublic = openssl_pkey_get_details($other)['key'];
+    UpdateCatalog::fromSigned($json, signed1291($json), $otherPublic, $host, $now);
+});
+reject1291('malformed signed JSON rejected', function () { verify1291('{invalid'); });
+reject1291('missing required field rejected', function () use ($catalog) {
+    unset($catalog['updates'][1]['schema']); verify1291(encode1291($catalog));
+});
 reject1291('bad signature rejected', function () use ($json) { verify1291($json, 0, '', 'bad'); });
 reject1291('old sequence rejected', function () use ($json) { verify1291($json, 11, str_repeat('b', 64)); });
 reject1291('same sequence different digest rejected', function () use ($json) {
