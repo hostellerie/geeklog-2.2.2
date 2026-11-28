@@ -74,6 +74,11 @@ final class UpdateHistoryLab
 
     public static function record($root, array $update, $transaction, $before)
     {
+        if (PHP_SAPI !== 'cli' || !is_string($root) || realpath($root) !== $root ||
+            is_link($root . '/.geeklog-update-lab') || !is_file($root . '/.geeklog-update-lab') ||
+            file_get_contents($root . '/.geeklog-update-lab') !== 'geeklog-update-laboratory-v1') {
+            throw new \RuntimeException('Disposable CLI laboratory required');
+        }
         $history = self::read($root);
         $receipt = array('id' => $update['id'], 'sha256' => $update['package']['sha256'],
             'transaction' => $transaction, 'supersedes' => $update['supersedes']);
