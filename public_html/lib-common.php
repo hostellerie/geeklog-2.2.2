@@ -9041,6 +9041,10 @@ function COM_getTextContent($text)
 function COM_versionConvert($version)
 {
     $version = strtolower($version);
+    // Treat a four-component maintenance version as the legacy bugfix format.
+    if (preg_match('/^([0-9]+\.[0-9]+\.[0-9]+)\.([0-9]+)((?:b|rc|sr)[0-9]+)?$/D', $version, $matches)) {
+        $version = $matches[1] . '-' . $matches[2] . (isset($matches[3]) ? $matches[3] : '');
+    }
     // Check if it's a bugfix release first
     $dash = strpos($version, '-');
     if ($dash !== false) {
