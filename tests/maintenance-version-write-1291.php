@@ -8,7 +8,7 @@ function DB_escapeString($value) { return $value; }
 function DB_change($table, $field, $value, $key, $name)
 {
     $GLOBALS['dbWrites'][] = array($table, $field, $value, $key, $name);
-    if (isset($GLOBALS['marker'])) {
+    if (!empty($GLOBALS['invalidChild'])) {
         file_put_contents($GLOBALS['marker'], 'SQL write');
     }
 }
@@ -28,6 +28,7 @@ Geeklog\Install\Common::$LANG['INSTALL'][26] = 'Version write failed';
 Geeklog\Install\Common::$LANG['INSTALL'][28] = 'Check siteconfig';
 
 if (isset($argv[1]) && $argv[1] === '--invalid') {
+    $invalidChild = true;
     $marker = $argv[3];
     $writer = new VersionWriter1291();
     $writer->write($argv[2]);
