@@ -102,5 +102,11 @@ next_target = fixture / "next-target"
 cumulative = builder.build(target, next_target, fixture / "cumulative.zip", "geeklog-2.2.3.1",
                            "release", "2.2.3", "2.2.3.1", "2.2.3", ["public_html/example.php"])
 (fixture / "cumulative-metadata.json").write_text(json.dumps(cumulative))
+invalid_target = fixture / "invalid-php"
+(invalid_target / "public_html").mkdir(parents=True)
+(invalid_target / "public_html/example.php").write_text("<?php function (")
+invalid = builder.build(base, invalid_target, fixture / "invalid-php.zip", "geeklog-2.2.3.1",
+                        "release", "2.2.3", "2.2.3.1", "2.2.3", ["public_html/example.php"])
+(fixture / "invalid-php-metadata.json").write_text(json.dumps(invalid))
 print(f"TOTAL: {passed}/{total} builder cases passed")
 sys.exit(0 if passed == total else 1)
