@@ -195,10 +195,10 @@ foreach (array('duplicate' => "<?php define('VERSION', '2.2.3'); define('VERSION
     check1291('invalid siteconfig untouched ' . $name, file_get_contents($lab . '/public_html/siteconfig.php') === $bytes);
 }
 
-function signedPatch1291(array $changes, array $applied = array())
+function signedPatch1291(array $changes, array $applied = array(), $metadataFile = 'patch-metadata.json')
 {
     $record = $GLOBALS['record'];
-    $metadata = json_decode(file_get_contents($GLOBALS['fixture'] . '/patch-metadata.json'), true);
+    $metadata = json_decode(file_get_contents($GLOBALS['fixture'] . '/' . $metadataFile), true);
     $record['id'] = 'patch-1291';
     $record['kind'] = 'patch';
     $record['version'] = '2.2.3';
@@ -259,5 +259,21 @@ refused1291('corrupted history blocks patch before maintenance', function () use
     UpdateMaintenanceLab::run($lab, $patchArchive, $patch, '2.2.3', '2.2.3');
 });
 check1291('corrupted history leaves files intact', original1291($lab) && online1291($lab));
+
+$lab = makeLab1291('patch-cumulative');
+UpdateMaintenanceLab::run($lab, $patchArchive, $patch, '2.2.3', '2.2.3');
+UpdateMaintenanceLab::finalize($lab, $patchArchive, $patch);
+$cumulative = signedPatch1291(array('id' => 'geeklog-2.2.3.1', 'kind' => 'release',
+    'version' => '2.2.3.1', 'requires' => array('patch-1291'), 'supersedes' => array('patch-1291')),
+    array('patch-1291'), 'cumulative-metadata.json');
+$cumulativeArchive = $fixture . '/cumulative.zip';
+$result = UpdateMaintenanceLab::run($lab, $cumulativeArchive, $cumulative, '2.2.3', '2.2.3');
+check1291('cumulative release accepts patched baseline', $result['status'] === 'committed');
+$result = UpdateMaintenanceLab::finalize($lab, $cumulativeArchive, $cumulative);
+check1291('cumulative release changes version', $result['status'] === 'finalized' && version1291($lab) === $new && online1291($lab));
+check1291('history retains prior patch and release', count(Geeklog\UpdateHistoryLab::read($lab)) === 2 &&
+    Geeklog\UpdateHistoryLab::applied(Geeklog\UpdateHistoryLab::read($lab)) === array('patch-1291', 'patch-old', 'geeklog-2.2.3.1'));
+check1291('cumulative code and prior addition retained', file_get_contents($lab . '/public_html/example.php') === "<?php // cumulative\n" &&
+    file_get_contents($lab . '/system/classes/Added.php') === "<?php // add\n");
 echo "TOTAL: $passed/$total maintenance cases passed\n";
 exit($passed === $total ? 0 : 1);
